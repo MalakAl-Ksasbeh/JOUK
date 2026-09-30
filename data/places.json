@@ -307,7 +307,7 @@
 
     "location": "📍 Ajloun Castle, Jordan",
 
-    "image": "../images/ajloun-castle.jpeg",
+    "image": "../images/ajloun-culture.jpeg",
 
     "rating": "⭐ 4.8 (900)",
 
@@ -360,11 +360,11 @@
 
     "photos": [
 
-      "../images/ajloun-castle5.jpeg",
+      "../images/ajloun-culture5.jpeg",
 
-      "../images/ajloun-castle6.jpeg",
+      "../images/ajloun-culture6.jpeg",
 
-      "../images/ajloun-castle7.jpeg"
+      "../images/ajloun-culture7.jpeg"
 
     ],
 
@@ -374,7 +374,7 @@
 
       {
 
-        "image": "../images/ajloun-castle2.jpeg",
+        "image": "../images/ajloun-culture2.jpeg",
 
         "title": "Historic Castle"
 
@@ -383,7 +383,7 @@
 
       {
 
-        "image": "../images/ajloun-castle3.jpeg",
+        "image": "../images/ajloun-culture3.jpeg",
 
         "title": "Ancient Architecture"
 
@@ -392,7 +392,7 @@
 
       {
 
-        "image": "../images/ajloun-castle4.jpeg",
+        "image": "../images/ajloun-culture4.jpeg",
 
         "title": "Mountain Views"
 
@@ -401,13 +401,13 @@
     ]
 
 },
-"ajlounForest": {
+"ajlounRelax": {
 
     "name": "Ajloun Forest",
 
     "location": "📍 Ajloun Forest, Jordan",
 
-    "image": "../images/ajloun-forest.jpeg",
+    "image": "../images/ajloun-relax.jpeg",
 
     "rating": "⭐ 4.7 (850)",
 
@@ -462,11 +462,11 @@
 
     "photos": [
 
-      "../images/ajloun-forest5.jpeg",
+      "../images/ajloun-relax5.jpeg",
 
-      "../images/ajloun-forest6.jpeg",
+      "../images/ajloun-relax6.jpeg",
 
-      "../images/ajloun-forest7.jpeg"
+      "../images/ajloun-relax7.jpeg"
 
     ],
 
@@ -476,7 +476,7 @@
 
       {
 
-        "image": "../images/ajloun-forest2.jpeg",
+        "image": "../images/ajloun-relax2.jpeg",
 
         "title": "Green Forest Views"
 
@@ -485,7 +485,7 @@
 
       {
 
-        "image": "../images/ajloun-forest3.jpeg",
+        "image": "../images/ajloun-relax3.jpeg",
 
         "title": "Nature Trails"
 
@@ -494,7 +494,7 @@
 
       {
 
-        "image": "../images/ajloun-forest4.jpeg",
+        "image": "../images/ajloun-relax4.jpeg",
 
         "title": "Peaceful Escape"
 
@@ -609,7 +609,7 @@
     ]
 
 },
-"aqabaRelax": {
+"aqaba": {
 
     "name": "Aqaba Relaxation",
 
@@ -817,7 +817,7 @@
     ]
 
 } ,
-"maIn": {
+"main": {
 
     "name": "Ma'in Hot Springs",
 

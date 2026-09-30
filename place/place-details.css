@@ -653,3 +653,16 @@ h1{
     color:#294542;
 
 }
+.icons{
+    display:flex;
+    align-items:center;
+}
+
+.profile-btn svg{
+    width:34px;
+    height:34px;
+    stroke:rgb(0, 0, 0);
+    fill:none;
+    stroke-width:1.8;
+    cursor:pointer;
+}
