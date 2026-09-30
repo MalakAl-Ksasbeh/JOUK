@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JOUK | Place Details</title>
+
+<link rel="stylesheet" href="place-details.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+<div class="logo">
+JOUK
+</div>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="plans.html">Plans</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About</a>
+
+</nav>
+
+
+<div class="icons">
+
+<span>♡</span>
+<span>◯</span>
+
+</div>
+
+</header>
+
+
+
+
+
+<section class="hero">
+
+<img id="place-image" alt="Place Image">
+
+</section>
+
+
+
+
+
+
+<section class="place-card">
+
+
+<div class="title-row">
+
+
+<div>
+
+<h1 id="place-name"></h1>
+
+<p id="place-location"></p>
+
+</div>
+
+
+
+<div class="rating" id="place-rating">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="place-info">
+
+
+
+<div class="info-item">
+
+<span>☀</span>
+
+<div>
+
+<h4>Best time</h4>
+
+<p id="best-time"></p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="info-item">
+
+<span>◷</span>
+
+<div>
+
+<h4>Typical visit</h4>
+
+<p id="visit-time"></p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="info-item">
+
+<span>♟</span>
+
+<div>
+
+<h4>Best for</h4>
+
+<p id="best-for"></p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="info-item">
+
+<span>📍</span>
+
+<div>
+
+<h4>Nearby Places</h4>
+
+<p id="nearby"></p>
+
+</div>
+
+</div>
+
+
+
+
+
+<button class="path-btn">
+
+Add to My Path +
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="details-section">
+
+
+
+<div class="details-tabs">
+
+
+<button class="details-tab active" data-target="overview">
+Overview
+</button>
+
+
+<button class="details-tab" data-target="things">
+Things to Do
+</button>
+
+
+<button class="details-tab" data-target="photos">
+Photos
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="tab-content active" id="overview">
+
+
+
+<div class="about-layout">
+
+
+
+<div class="about-text">
+
+
+<h2 id="about-title"></h2>
+
+
+<p id="about-text"></p>
+
+
+</div>
+
+
+
+
+
+
+
+<aside class="quick-info">
+
+
+
+<h3>
+Quick Info
+</h3>
+
+
+
+<div>
+
+<span>Elevation</span>
+
+<b id="elevation"></b>
+
+</div>
+
+
+
+
+
+<div>
+
+<span>Best for</span>
+
+<b id="quick-best"></b>
+
+</div>
+
+
+
+
+
+<div>
+
+<span>Access</span>
+
+<b id="access"></b>
+
+</div>
+
+
+
+
+
+<div>
+
+<span>Distance</span>
+
+<b id="distance"></b>
+
+</div>
+
+
+
+
+
+</aside>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="tab-content" id="things">
+
+
+
+<h2>
+Things To Do
+</h2>
+
+
+<ul id="things-list">
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="tab-content" id="photos">
+
+
+
+<h2>
+Photos
+</h2>
+
+
+
+<div class="photo-grid" id="photos-container">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<section class="highlights">
+
+
+<h2>
+Highlights
+</h2>
+
+
+
+<div class="highlight-cards" id="highlights-container">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<script src="effect.js"></script>
+<script src="place-details.js"></script>
+
+</body>
+
+</html>

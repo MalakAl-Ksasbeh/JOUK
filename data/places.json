@@ -1,0 +1,1633 @@
+{
+  "deadsea": {
+
+    "name": "Dead Sea",
+
+    "location": "📍 Dead Sea, Jordan",
+
+    "image": "../images/deadsea.jpeg",
+
+    "rating": "⭐ 4.8 (1.2k)",
+
+
+    "aboutTitle": "About Dead Sea",
+
+    "about": "The Dead Sea is the lowest point on Earth. Known for its high salt content, therapeutic mud and stunning views, it’s a perfect place to relax, float and enjoy the natural beauty.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "3-4 hours",
+
+      "bestFor": "Relaxation",
+
+      "nearby": "Ma'in - Madaba"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "-430m",
+
+      "bestFor": "Relaxation",
+
+      "access": "Easy",
+
+      "distance": "45 min from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Floating experience",
+
+      "Enjoy sunset views",
+
+      "Try therapeutic mud"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/deadsea5.png",
+
+      "../images/deadsea6.jpeg",
+
+      "../images/deadsea7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/deadsea2.jpeg",
+
+        "title": "Floating Experience"
+
+      },
+
+
+      {
+
+        "image": "../images/deadsea3.jpeg",
+
+        "title": "Therapeutic Mud"
+
+      },
+
+
+      {
+
+        "image": "../images/deadsea4.jpeg",
+
+        "title": "Beautiful Landscape"
+
+      }
+
+    ]
+
+  }
+
+ ,
+ "petra": {
+
+    "name": "Petra",
+
+    "location": "📍 Petra, Jordan",
+
+    "image": "../images/petra.jpeg",
+
+    "rating": "⭐ 4.9 (2k)",
+
+
+    "aboutTitle": "About Petra",
+
+    "about": "Petra is an ancient city famous for its rock-cut architecture and its historical importance. It is one of Jordan's most famous destinations.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "5-6 hours",
+
+      "bestFor": "History & Adventure",
+
+      "nearby": "Wadi Musa"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "810m",
+
+      "bestFor": "History",
+
+      "access": "Moderate",
+
+      "distance": "3 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Visit The Treasury",
+
+      "Explore The Siq",
+
+      "Walk through ancient paths"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/petra5.jpeg",
+
+      "../images/petra6.jpeg",
+
+      "../images/petra7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/petra2.jpeg",
+
+        "title": "The Treasury"
+
+      },
+
+
+      {
+
+        "image": "../images/petra3.jpeg",
+
+        "title": "The Siq"
+
+      },
+
+
+      {
+
+        "image": "../images/petra4.jpeg",
+
+        "title": "Ancient Architecture"
+
+      }
+
+    ]
+
+}  ,
+"wadiRum": {
+
+    "name": "Wadi Rum",
+
+    "location": "📍 Wadi Rum, Jordan",
+
+    "image": "../images/wadirum.jpeg",
+
+    "rating": "⭐ 4.9 (1.5k)",
+
+
+    "aboutTitle": "About Wadi Rum",
+
+    "about": "Wadi Rum is a breathtaking desert landscape known for its red sand, dramatic mountains and unforgettable adventure experiences.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "4-6 hours",
+
+      "bestFor": "Adventure & Nature",
+
+      "nearby": "Aqaba - Petra"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "900m",
+
+      "bestFor": "Adventure",
+
+      "access": "Easy",
+
+      "distance": "4 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Jeep desert tour",
+
+      "Watch the sunset",
+
+      "Camp under the stars"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/wadirum5.jpeg",
+
+      "../images/wadirum6.jpeg",
+
+      "../images/wadirum7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/wadirum2.jpeg",
+
+        "title": "Red Desert Mountains"
+
+      },
+
+
+      {
+
+        "image": "../images/wadirum3.jpeg",
+
+        "title": "Desert Adventure"
+
+      },
+
+
+      {
+
+        "image": "../images/wadirum4.jpeg",
+
+        "title": "Night Camping"
+
+      }
+
+    ]
+
+} ,
+"ajlounCastle": {
+
+    "name": "Ajloun Castle",
+
+    "location": "📍 Ajloun Castle, Jordan",
+
+    "image": "../images/ajloun-castle.jpeg",
+
+    "rating": "⭐ 4.8 (900)",
+
+
+    "aboutTitle": "About Ajloun Castle",
+
+    "about": "Ajloun Castle is a historic Islamic castle built on a mountain overlooking the region. It is famous for its architecture, history and amazing views.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "2-3 hours",
+
+      "bestFor": "Culture & History",
+
+      "nearby": "Ajloun Forest"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "1200m",
+
+      "bestFor": "History",
+
+      "access": "Easy",
+
+      "distance": "1 hour from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Explore the castle rooms",
+
+      "Learn about Islamic history",
+
+      "Enjoy panoramic mountain views"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/ajloun-castle5.jpeg",
+
+      "../images/ajloun-castle6.jpeg",
+
+      "../images/ajloun-castle7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/ajloun-castle2.jpeg",
+
+        "title": "Historic Castle"
+
+      },
+
+
+      {
+
+        "image": "../images/ajloun-castle3.jpeg",
+
+        "title": "Ancient Architecture"
+
+      },
+
+
+      {
+
+        "image": "../images/ajloun-castle4.jpeg",
+
+        "title": "Mountain Views"
+
+      }
+
+    ]
+
+},
+"ajlounForest": {
+
+    "name": "Ajloun Forest",
+
+    "location": "📍 Ajloun Forest, Jordan",
+
+    "image": "../images/ajloun-forest.jpeg",
+
+    "rating": "⭐ 4.7 (850)",
+
+
+    "aboutTitle": "About Ajloun Forest",
+
+    "about": "Ajloun Forest is a peaceful natural destination famous for its green landscapes, fresh air and beautiful surroundings. It is perfect for relaxation and enjoying nature.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Summer",
+
+      "visitTime": "3-5 hours",
+
+      "bestFor": "Relaxation & Nature",
+
+      "nearby": "Ajloun Castle"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "1200m",
+
+      "bestFor": "Relaxation",
+
+      "access": "Easy",
+
+      "distance": "1 hour from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Enjoy the green forest views",
+
+      "Have a picnic in nature",
+
+      "Walk through forest trails",
+
+      "Relax in the peaceful atmosphere"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/ajloun-forest5.jpeg",
+
+      "../images/ajloun-forest6.jpeg",
+
+      "../images/ajloun-forest7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/ajloun-forest2.jpeg",
+
+        "title": "Green Forest Views"
+
+      },
+
+
+      {
+
+        "image": "../images/ajloun-forest3.jpeg",
+
+        "title": "Nature Trails"
+
+      },
+
+
+      {
+
+        "image": "../images/ajloun-forest4.jpeg",
+
+        "title": "Peaceful Escape"
+
+      }
+
+    ]
+
+} ,
+"aqabaAdventures": {
+
+    "name": "Aqaba Adventures",
+
+    "location": "📍 Aqaba, Jordan",
+
+    "image": "../images/aqaba-adventure.jpeg",
+
+    "rating": "⭐ 4.9 (1k)",
+
+
+    "aboutTitle": "Aqaba Adventure Experiences",
+
+    "about": "Aqaba offers exciting adventures in the Red Sea, from diving and snorkeling to boat trips and water activities.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "Full Day",
+
+      "bestFor": "Adventure",
+
+      "nearby": "Red Sea"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "0m",
+
+      "bestFor": "Water Activities",
+
+      "access": "Easy",
+
+      "distance": "4 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Scuba diving in coral reefs",
+
+      "Snorkeling experience",
+
+      "Glass boat trip",
+
+      "Jet ski adventure",
+
+      "Boat tours",
+
+      "Water sports"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/aqaba-adventure5.jpeg",
+
+      "../images/aqaba-adventure6.jpeg",
+
+      "../images/aqaba-adventure7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/aqaba-adventure2.jpeg",
+
+        "title": "Diving Experience"
+
+      },
+
+
+      {
+
+        "image": "../images/aqaba-adventure3.jpeg",
+
+        "title": "Red Sea Activities"
+
+      },
+
+
+      {
+
+        "image": "../images/aqaba-adventure4.jpeg",
+
+        "title": "Boat Adventure"
+
+      }
+
+    ]
+
+},
+"aqabaRelax": {
+
+    "name": "Aqaba Relaxation",
+
+    "location": "📍 Aqaba, Jordan",
+
+    "image": "../images/aqaba-relax.jpeg",
+
+    "rating": "⭐ 4.8 (1.3k)",
+
+
+    "aboutTitle": "Aqaba Relaxation Experience",
+
+    "about": "Aqaba is a perfect destination for relaxation with beautiful beaches, luxury resorts, peaceful sea views and unforgettable sunsets on the Red Sea.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "1-3 Days",
+
+      "bestFor": "Relaxation",
+
+      "nearby": "Red Sea - Ayla"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "0m",
+
+      "bestFor": "Relaxation",
+
+      "access": "Easy",
+
+      "distance": "4 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Relax on private beaches",
+
+      "Enjoy Red Sea sunset views",
+
+      "Stay in luxury resorts",
+
+      "Spa and wellness experience",
+
+      "Enjoy seaside restaurants",
+
+      "Walk along the marina"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/aqaba-relax5.jpeg",
+
+      "../images/aqaba-relax6.jpeg",
+
+      "../images/aqaba-relax7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/aqaba-relax2.jpeg",
+
+        "title": "Beautiful Beaches"
+
+      },
+
+
+      {
+
+        "image": "../images/aqaba-relax3.jpeg",
+
+        "title": "Luxury Resorts"
+
+      },
+
+
+      {
+
+        "image": "../images/aqaba-relax4.jpeg",
+
+        "title": "Red Sea Sunset"
+
+      }
+
+    ]
+
+}
+
+ ,
+"wadiMujib": {
+
+    "name": "Wadi Mujib",
+
+    "location": "📍 Wadi Mujib, Jordan",
+
+    "image": "../images/wadimujib.jpeg",
+
+    "rating": "⭐ 4.8 (1k)",
+
+
+    "aboutTitle": "About Wadi Mujib",
+
+    "about": "Wadi Mujib is a spectacular canyon in Jordan known for its dramatic landscapes, flowing water trails and exciting adventure experiences.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Summer",
+
+      "visitTime": "3-5 hours",
+
+      "bestFor": "Adventure & Nature",
+
+      "nearby": "Dead Sea"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "-410m",
+
+      "bestFor": "Adventure",
+
+      "access": "Moderate",
+
+      "distance": "1 hour from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Canyoning adventure",
+
+      "Explore water trails",
+
+      "Enjoy mountain views"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/wadimujib5.jpeg",
+
+      "../images/wadimujib6.jpeg",
+
+      "../images/wadimujib7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/wadimujib2.jpeg",
+
+        "title": "Canyon Adventure"
+
+      },
+
+
+      {
+
+        "image": "../images/wadimujib3.jpeg",
+
+        "title": "Water Trails"
+
+      },
+
+
+      {
+
+        "image": "../images/wadimujib4.jpeg",
+
+        "title": "Mountain Landscape"
+
+      }
+
+    ]
+
+} ,
+"maIn": {
+
+    "name": "Ma'in Hot Springs",
+
+    "location": "📍 Ma'in, Jordan",
+
+    "image": "../images/main.jpeg",
+
+    "rating": "⭐ 4.7 (900)",
+
+
+    "aboutTitle": "About Ma'in Hot Springs",
+
+    "about": "Ma'in Hot Springs is a beautiful natural destination famous for its warm mineral waterfalls, relaxing atmosphere and stunning mountain scenery.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "3-5 hours",
+
+      "bestFor": "Relaxation & Wellness",
+
+      "nearby": "Dead Sea - Madaba"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "-264m",
+
+      "bestFor": "Relaxation",
+
+      "access": "Easy",
+
+      "distance": "1 hour from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Enjoy hot spring waterfalls",
+
+      "Relax in mineral pools",
+
+      "Explore mountain views"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/main5.jpeg",
+
+      "../images/main6.jpeg",
+
+      "../images/main7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/main2.jpeg",
+
+        "title": "Hot Waterfalls"
+
+      },
+
+
+      {
+
+        "image": "../images/main3.jpeg",
+
+        "title": "Natural Pools"
+
+      },
+
+
+      {
+
+        "image": "../images/main4.jpeg",
+
+        "title": "Mountain Views"
+
+      }
+
+    ]
+
+} ,
+"jerash": {
+
+    "name": "Jerash",
+
+    "location": "📍 Jerash, Jordan",
+
+    "image": "../images/jerash.jpeg",
+
+    "rating": "⭐ 4.8 (1.1k)",
+
+
+    "aboutTitle": "About Jerash",
+
+    "about": "Jerash is one of the best-preserved Roman cities in the world, famous for its ancient streets, theaters, temples and impressive archaeological sites.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "3-4 hours",
+
+      "bestFor": "History & Culture",
+
+      "nearby": "Ajloun - Amman"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "600m",
+
+      "bestFor": "History",
+
+      "access": "Easy",
+
+      "distance": "45 min from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Explore the Roman ruins",
+
+      "Visit the Oval Plaza",
+
+      "Enjoy Jerash Festival events"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/jerash5.jpeg",
+
+      "../images/jerash6.jpeg",
+
+      "../images/jerash7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/jerash2.jpeg",
+
+        "title": "Roman Ruins"
+
+      },
+
+
+      {
+
+        "image": "../images/jerash3.jpeg",
+
+        "title": "Oval Plaza"
+
+      },
+
+
+      {
+
+        "image": "../images/jerash4.jpeg",
+
+        "title": "Ancient Theater"
+
+      }
+
+    ]
+
+} ,
+"ummQais": {
+
+    "name": "Umm Qais",
+
+    "location": "📍 Umm Qais, Jordan",
+
+    "image": "../images/ummqais.jpeg",
+
+    "rating": "⭐ 4.8 (1k)",
+
+
+    "aboutTitle": "About Umm Qais",
+
+    "about": "Umm Qais is an ancient city famous for its Roman ruins, stunning views of the Sea of Galilee and the surrounding landscapes. It is a perfect destination for history and culture lovers.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "3-4 hours",
+
+      "bestFor": "Culture & History",
+
+      "nearby": "Ajloun - Jerash"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "378m",
+
+      "bestFor": "History",
+
+      "access": "Easy",
+
+      "distance": "2 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Explore the Roman ruins",
+
+      "Visit the ancient theater",
+
+      "Enjoy panoramic views",
+
+      "Discover Ottoman village houses"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/ummqais5.jpeg",
+
+      "../images/ummqais6.jpeg",
+
+      "../images/ummqais7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/ummqais2.jpeg",
+
+        "title": "Roman Ruins"
+
+      },
+
+
+      {
+
+        "image": "../images/ummqais3.jpeg",
+
+        "title": "Ancient Theater"
+
+      },
+
+
+      {
+
+        "image": "../images/ummqais4.jpeg",
+
+        "title": "Panoramic Views"
+
+      }
+
+    ]
+
+}
+,
+"danaReserve": {
+
+    "name": "Dana Biosphere Reserve",
+
+    "location": "📍 Dana, Jordan",
+
+    "image": "../images/dana.jpeg",
+
+    "rating": "⭐ 4.8 (1k)",
+
+
+    "aboutTitle": "About Dana Biosphere Reserve",
+
+    "about": "Dana Biosphere Reserve is Jordan's largest nature reserve, famous for its breathtaking landscapes, diverse wildlife and amazing hiking trails.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "Full Day",
+
+      "bestFor": "Nature & Adventure",
+
+      "nearby": "Tafilah - Feynan"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "1500m",
+
+      "bestFor": "Hiking",
+
+      "access": "Moderate",
+
+      "distance": "3 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Hiking through nature trails",
+
+      "Explore mountain landscapes",
+
+      "Enjoy wildlife watching",
+
+      "Experience local village culture"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/dana5.jpeg",
+
+      "../images/dana6.jpeg",
+
+      "../images/dana7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/dana2.jpeg",
+
+        "title": "Amazing Landscapes"
+
+      },
+
+
+      {
+
+        "image": "../images/dana3.jpeg",
+
+        "title": "Hiking Trails"
+
+      },
+
+
+      {
+
+        "image": "../images/dana4.jpeg",
+
+        "title": "Nature & Wildlife"
+
+      }
+
+    ]
+
+} ,
+"karakCastle": {
+
+    "name": "Karak Castle",
+
+    "location": "📍 Al Karak, Jordan",
+
+    "image": "../images/karak.jpeg",
+
+    "rating": "⭐ 4.8 (1k)",
+
+
+    "aboutTitle": "About Karak Castle",
+
+    "about": "Karak Castle is one of Jordan's most famous historical landmarks. The castle is known for its impressive architecture, ancient walls and rich history.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "2-3 hours",
+
+      "bestFor": "History & Culture",
+
+      "nearby": "Karak City"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "1000m",
+
+      "bestFor": "History",
+
+      "access": "Easy",
+
+      "distance": "2 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Explore the castle halls",
+
+      "Discover historical architecture",
+
+      "Enjoy views of Karak city",
+
+      "Visit nearby historical sites"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/karak5.jpeg",
+
+      "../images/karak6.jpeg",
+
+      "../images/karak7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/karak2.jpeg",
+
+        "title": "Historic Castle"
+
+      },
+
+
+      {
+
+        "image": "../images/karak3.jpeg",
+
+        "title": "Ancient Architecture"
+
+      },
+
+
+      {
+
+        "image": "../images/karak4.jpeg",
+
+        "title": "City Views"
+
+      }
+
+    ]
+
+},
+"dibeenForest": {
+
+    "name": "Dibeen Forest",
+
+    "location": "📍 Dibeen Forest, Jordan",
+
+    "image": "../images/dibeen.jpeg",
+
+    "rating": "⭐ 4.7 (850)",
+
+
+    "aboutTitle": "About Dibeen Forest",
+
+    "about": "Dibeen Forest is one of Jordan's most beautiful natural destinations, known for its pine trees, outdoor adventures and peaceful natural atmosphere.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Summer",
+
+      "visitTime": "3-5 hours",
+
+      "bestFor": "Adventure & Nature",
+
+      "nearby": "Jerash - Ajloun"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "700m",
+
+      "bestFor": "Adventure",
+
+      "access": "Easy",
+
+      "distance": "1 hour from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Walk through forest trails",
+
+      "Enjoy outdoor adventures",
+
+      "Explore nature paths",
+
+      "Have a picnic in the forest"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/dibeen5.jpeg",
+
+      "../images/dibeen6.jpeg",
+
+      "../images/dibeen7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/dibeen2.jpeg",
+
+        "title": "Forest Trails"
+
+      },
+
+
+      {
+
+        "image": "../images/dibeen3.jpeg",
+
+        "title": "Outdoor Adventure"
+
+      },
+
+
+      {
+
+        "image": "../images/dibeen4.jpeg",
+
+        "title": "Nature Escape"
+
+      }
+
+    ]
+
+} ,
+"romanTheater": {
+
+    "name": "Roman Theater",
+
+    "location": "📍 Amman, Jordan",
+
+    "image": "../images/roman-theater.jpeg",
+
+    "rating": "⭐ 4.7 (900)",
+
+
+    "aboutTitle": "About Roman Theater",
+
+    "about": "The Roman Theater in Amman is one of Jordan's most famous historical landmarks. Built during the Roman period, it represents the rich cultural heritage and ancient architecture of the city.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "1-2 hours",
+
+      "bestFor": "History & Culture",
+
+      "nearby": "Amman Citadel - Downtown"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "750m",
+
+      "bestFor": "History",
+
+      "access": "Easy",
+
+      "distance": "15 min from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Explore the ancient theater",
+
+      "Discover Roman architecture",
+
+      "Visit nearby historical sites",
+
+      "Enjoy city views"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/roman-theater5.jpeg",
+
+      "../images/roman-theater6.jpeg",
+
+      "../images/roman-theater7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/roman-theater2.jpeg",
+
+        "title": "Ancient Roman Architecture"
+
+      },
+
+
+      {
+
+        "image": "../images/roman-theater3.jpeg",
+
+        "title": "Historic Stage"
+
+      },
+
+
+      {
+
+        "image": "../images/roman-theater4.jpeg",
+
+        "title": "Amman City View"
+
+      }
+
+    ]
+
+} ,
+"shobak": {
+
+    "name": "Shobak",
+
+    "location": "📍 Shobak, Jordan",
+
+    "image": "../images/shobak.png",
+
+    "rating": "⭐ 4.7 (800)",
+
+
+    "aboutTitle": "About Shobak",
+
+    "about": "Shobak is a beautiful mountain destination known for its historic landscapes, hiking trails and breathtaking views. It offers an amazing experience for adventure and nature lovers.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "3-5 hours",
+
+      "bestFor": "Hiking & Adventure",
+
+      "nearby": "Petra - Dana"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "1300m",
+
+      "bestFor": "Hiking",
+
+      "access": "Moderate",
+
+      "distance": "2.5 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Hiking through mountain trails",
+
+      "Explore Shobak Castle surroundings",
+
+      "Enjoy panoramic mountain views",
+
+      "Photography and nature exploration"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/shobak5.jpeg",
+
+      "../images/shobak6.jpeg",
+
+      "../images/shobak7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/shobak2.jpeg",
+
+        "title": "Mountain Hiking Trails"
+
+      },
+
+
+      {
+
+        "image": "../images/shobak3.jpeg",
+
+        "title": "Historic Landscape"
+
+      },
+
+
+      {
+
+        "image": "../images/shobak4.jpeg",
+
+        "title": "Amazing Views"
+
+      }
+
+    ]
+
+}
+}
