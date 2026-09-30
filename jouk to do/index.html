@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+  <title>Something to do
+ </title>
+  <link rel="stylesheet" href="style.css?v=20260930-17">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top">JOUK</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#places">Plans</a>
+      <a href="#about">about</a>
+    </nav>
+    <div class="header-icons" aria-label="Quick links">
+      <button type="button" aria-label="Saved places" class="icon-button"><svg viewBox="0 0 24 24"><path d="M20.8 8.8c0 5-8.8 11-8.8 11s-8.8-6-8.8-11a4.7 4.7 0 0 1 8.8-2.3 4.7 4.7 0 0 1 8.8 2.3Z"></path></svg></button>
+      <button type="button" aria-label="Account" class="icon-button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="9" r="3"></circle><path d="M6.8 18.5a5.8 5.8 0 0 1 10.4 0"></path></svg></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="events" aria-labelledby="page-title">
+      <h1 id="page-title">Where to go??</h1>
+    </section>
+
+    <section class="discover" aria-label="Featured event and places">
+      <aside class="months" aria-label="Choose a month">
+        <button type="button" data-month="JAN">Jan</button>
+        <button type="button" data-month="FEB">Feb</button>
+        <button type="button" data-month="MAR">Mar</button>
+        <button type="button" data-month="APR">Apr</button>
+        <button type="button" data-month="MAY">May</button>
+        <button type="button" data-month="JUN">Jun</button>
+        <button type="button" data-month="JUL">Jul</button>
+        <button type="button" data-month="AUG">Aug</button>
+        <button type="button" data-month="SEP">Sep</button>
+        <button type="button" data-month="OCT" class="selected" aria-pressed="true">Oct</button>
+        <button type="button" data-month="NOV">Nov</button>
+        <button type="button" data-month="DEC">Dec</button>
+      </aside>
+
+      <article class="event-card" tabindex="0" aria-expanded="false" aria-label="Expand featured event">
+        <button class="event-close" type="button" aria-label="Close expanded event" hidden>×</button>
+        <button class="month-step month-step-prev" type="button" aria-label="Previous month" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg></button>
+        <button class="month-step month-step-next" type="button" aria-label="Next month" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg></button>
+        <div class="event-image">
+          <img id="event-photo" src="souk-jara-updated.png" alt="The entrance to Souk Jara in Amman">
+          <span class="event-label" id="event-label">Featured Event</span>
+          <a class="event-note" id="event-note" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open event updates" hidden></a>
+            
+        </div>
+        <div class="event-details">
+          <div class="event-date"><strong id="event-day">08</strong><span id="event-month">AUG</span></div>
+          <div class="event-copy">
+            <h2 id="event-title">Souk Jara</h2>
+            <p class="event-subtitle" id="event-subtitle" hidden></p>
+            <p id="event-description">Food, crafts and live music</p>
+            <p class="event-location"><span aria-hidden="true">⌖</span> <span id="event-location">Rainbow Street, Amman</span></p>
+            <div class="event-switcher" id="event-switcher" aria-label="Choose an event"></div>
+          </div>
+          <a class="event-link" id="event-link" href="" target="_blank" rel="noopener noreferrer" aria-label="Open event website" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="m20 4-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a>
+        </div>
+      </article>
+
+      <section class="places" id="places" aria-label="Places to visit">
+          <article class="place-card has-details" tabindex="0">
+            <div class="place-image"><img src="hejaz-railway.png" alt="Historic Hejaz Railway station and train in Amman"></div>
+            <span class="place-title">Hejaz Railway</span><a class="place-arrow" href="https://www.jhr.gov.jo/" target="_blank" rel="noopener noreferrer" aria-label="Open Hejaz Railway website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="m20 4-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a>
+            <div class="place-details">
+              <p class="place-intro">Step into Jordan’s railway history at a historic station on the Hejaz Railway, once a vital link across the region.</p>
+              <div class="place-details-grid">
+                <div class="place-detail-item"><span aria-hidden="true">🏛️</span><p><strong>Historic Heritage</strong><br>Explore the station, locomotives, and historic carriages.</p></div>
+                <div class="place-detail-item"><span aria-hidden="true">🚂</span><p><strong>Railway Experience</strong><br>Discover the Hejaz Railway’s story and its role in the region.</p></div>
+                <div class="place-detail-item"><span aria-hidden="true">📸</span><p><strong>Step Into History</strong><br>See vintage trains and station details, and capture the moment.</p></div>
+              </div>
+            </div>
+          </article>
+        <article class="place-card has-details" tabindex="0">
+          <div class="place-image"><img src="beit-al-jameed-karaki.png" alt="Beit Al-Jameed Al-Karaki with jameed and Karak Castle in the background"></div>
+            <span class="place-title">Beit Al-Jameed Al-Karaki</span><a class="place-arrow" href="https://www.instagram.com/bayt_aljameed/?hl=ar" target="_blank" rel="noopener noreferrer" aria-label="Open Beit Al-Jameed Al-Karaki Instagram page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="m20 4-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a>
+          <div class="place-details">
+            <p class="place-intro">A heritage guesthouse in Al-Marj, Karak, offering an authentic taste of local hospitality and cuisine.</p>
+            <div class="place-details-grid">
+              <div class="place-detail-item"><span aria-hidden="true">🍽️</span><p><strong>Food Experience</strong><br>Prepare dishes and learn traditional local recipes.</p></div>
+              <div class="place-detail-item"><span aria-hidden="true">🥣</span><p><strong>Breakfast &amp; Lunch</strong><br>Enjoy Karaki meals made with local flavors.</p></div>
+              <div class="place-detail-item"><span aria-hidden="true">🏡</span><p><strong>Stay &amp; Experience</strong><br>Stay in a heritage inn rooted in local culture.</p></div>
+            </div>
+          </div>
+        </article>
+          <article class="place-card has-details" tabindex="0">
+            <div class="place-image"><img src="hot-air-balloon.png" alt="A hot air balloon over Wadi Rum"></div>
+            <span class="place-title">Hot Air Balloon</span><a class="place-arrow" href="https://rumballoons.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Rum Balloons website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="m20 4-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a>
+            <div class="place-details">
+              <p class="place-intro">A memorable ride above Wadi Rum, with panoramic views of its mountains and desert landscape.</p>
+              <div class="place-details-grid">
+                <div class="place-detail-item"><span aria-hidden="true">🌄</span><p><strong>Aerial Views</strong><br>See Wadi Rum from a whole new perspective.</p></div>
+                <div class="place-detail-item"><span aria-hidden="true">🎈</span><p><strong>Balloon Ride</strong><br>Enjoy a peaceful flight above the desert.</p></div>
+                <div class="place-detail-item"><span aria-hidden="true">📍</span><p><strong>Wadi Rum, Jordan</strong><br>Take in the desert scenery from the sky.</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="place-card has-details" tabindex="0">
+            <div class="place-image"><img src="amman-sign-museum.jpg" alt="Signs and memorabilia at Amman Sign Museum"></div>
+            <span class="place-title">Amman Sign Museum</span><a class="place-arrow" href="https://www.facebook.com/oldsignsofamman/" target="_blank" rel="noopener noreferrer" aria-label="Open Amman Sign Museum Facebook page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="m20 4-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a>
+            <div class="place-details">
+              <p class="place-intro">A cultural space preserving Amman’s memory through the old signs that once shaped its streets and everyday life.</p>
+              <div class="place-details-grid">
+                <div class="place-detail-item"><span aria-hidden="true">🪧</span><p><strong>Old Signs</strong><br>Discover vintage signs and ads, each with a story from Amman.</p></div>
+                <div class="place-detail-item"><span aria-hidden="true">📸</span><p><strong>A Walk Through Time</strong><br>See the city’s past through its streets, signs, and atmosphere.</p></div>
+                <div class="place-detail-item"><span aria-hidden="true">🏛️</span><p><strong>Amman Heritage</strong><br>Explore a unique side of Amman’s history and local culture.</p></div>
+              </div>
+            </div>
+          </article>
+      </section>
+    </section>
+  </main>
+
+  <footer id="about"><span>JOUK</span><span>Find Your Next Experience.</span></footer>
+  <script src="script.js?v=20260930-17"></script>
+</body>
+</html>
