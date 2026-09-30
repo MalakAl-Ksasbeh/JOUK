@@ -1,0 +1,459 @@
+:root { 
+    --bg: #f3ecdd; 
+    --text: #24211e;
+    --hero-text: #100d0b;
+    --serif: 'Playfair Display', serif; 
+    --sans: 'Plus Jakarta Sans', sans-serif; 
+} 
+ 
+ 
+/* ================= GENERAL ================= */ 
+ 
+* { 
+    box-sizing: border-box; 
+} 
+ 
+html, 
+body { 
+    margin: 0; 
+    width: 100%; 
+    height: 100%; 
+} 
+ 
+body { 
+    background: var(--bg); 
+    color: var(--text); 
+    font-family: var(--sans); 
+ 
+    /* الصفحة كاملة بدون Scroll */ 
+    overflow: hidden; 
+} 
+ 
+ 
+/* ================= HERO ================= */ 
+ 
+.hero { 
+    position: relative; 
+ 
+    width: 100%; 
+    height: 38vh; 
+ 
+    background-image: url("images//KARAK.png"); 
+ 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+} 
+ 
+ 
+/* ================= NAVBAR ================= */ 
+ 
+nav { 
+    position: relative; 
+ 
+    width: 94%; 
+    max-width: 1250px; 
+    height: 70px; 
+ 
+    margin: 0 auto; 
+ 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+ 
+    z-index: 10; 
+} 
+ 
+ 
+/* ================= LOGO ================= */ 
+ 
+.logo { 
+    position: absolute; 
+    left: 0; 
+ 
+    font-family: var(--serif); 
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 2px; 
+ 
+    color: var(--hero-text); 
+} 
+ 
+ 
+/* ================= NAV LINKS ================= */ 
+ 
+.nav-links { 
+    display: flex; 
+    align-items: center; 
+    gap: 60px; 
+} 
+ 
+.nav-links a { 
+    color: var(--hero-text); 
+ 
+    text-decoration: none; 
+ 
+    font-family: var(--serif); 
+    font-size: 16px;
+    font-weight: 700;
+ 
+    transition: 0.2s; 
+} 
+ 
+.nav-links a:hover { 
+    opacity: 0.6; 
+} 
+ 
+ 
+/* ================= PROFILE ICON ================= */ 
+ 
+.profile-icon { 
+    position: absolute; 
+    right: -90px; 
+ 
+    width: 27px; 
+    height: 27px; 
+ 
+    cursor: pointer; 
+ 
+    transition: 0.2s; 
+} 
+ 
+.profile-icon svg { 
+    display: block; 
+ 
+    width: 100%; 
+    height: 100%; 
+ 
+    fill: none; 
+ 
+    stroke: var(--hero-text);
+    stroke-width: 2.1;
+ 
+    stroke-linecap: round; 
+    stroke-linejoin: round; 
+} 
+ 
+.profile-icon:hover { 
+    opacity: 0.6; 
+} 
+ 
+ 
+/* ================= HERO TEXT ================= */ 
+ 
+.hero-text { 
+    position: absolute; 
+ 
+    left: 5%; 
+    bottom: 30px; 
+ 
+    color: var(--hero-text); 
+ 
+    z-index: 2; 
+} 
+ 
+ 
+.hero-text h1 { 
+    margin: 0; 
+ 
+    font-family: var(--serif); 
+ 
+    font-size: 48px; 
+    font-weight: 700;
+ 
+    color: var(--hero-text); 
+} 
+ 
+ 
+.hero-text p { 
+    margin: 0; 
+    margin-top: -3px; 
+ 
+    font-family: var(--serif); 
+ 
+    font-size: 17px; 
+    font-weight: 700;
+ 
+    color: var(--hero-text); 
+} 
+ 
+ 
+/* ================= PLACES ================= */ 
+ 
+.places { 
+    position: relative; 
+ 
+    width: 100%; 
+    height: 64vh; 
+ 
+    margin-top: -2vh; 
+ 
+    background: var(--bg); 
+ 
+    border-radius: 22px 22px 0 0; 
+ 
+    padding: 22px 4% 18px; 
+ 
+    z-index: 5; 
+} 
+ 
+ 
+/* ================= CARDS ================= */ 
+ 
+.cards { 
+    width: 100%; 
+    height: 100%; 
+ 
+    display: grid; 
+ 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+ 
+    column-gap: 45px; 
+    row-gap: 18px; 
+} 
+ 
+ 
+/* ================= CARD ================= */ 
+ 
+.card { 
+    width: 100%; 
+    min-height: 0; 
+ 
+    display: flex; 
+    flex-direction: column; 
+} 
+ 
+ 
+/* ================= CARD IMAGE ================= */ 
+ 
+.card > img { 
+    display: block; 
+ 
+    width: 100%; 
+    height: calc(100% - 55px); 
+ 
+    min-height: 0; 
+ 
+    object-fit: cover; 
+ 
+    border-radius: 16px; 
+} 
+ 
+ 
+/* ================= CARD INFORMATION ================= */ 
+ 
+.card-info { 
+    flex: 1; 
+ 
+    display: flex; 
+ 
+    align-items: center; 
+    justify-content: space-between; 
+ 
+    gap: 10px; 
+ 
+    padding: 6px 4px 0; 
+} 
+ 
+ 
+.card-info h2 { 
+    margin: 0 0 2px; 
+ 
+    font-family: var(--serif); 
+ 
+    font-size: 18px; 
+    font-weight: 600; 
+} 
+ 
+ 
+.card-info p { 
+    margin: 0; 
+ 
+    max-width: 290px; 
+ 
+    font-family: var(--serif); 
+ 
+    font-size: 11px; 
+ 
+    line-height: 1.2; 
+} 
+ 
+ 
+/* ================= ARROW ================= */ 
+ 
+.arrow { 
+    flex-shrink: 0; 
+ 
+    width: 34px; 
+    height: 34px; 
+ 
+    border: none; 
+    border-radius: 50%; 
+ 
+    background: white; 
+ 
+    color: var(--text); 
+ 
+    font-size: 17px; 
+ 
+    cursor: pointer; 
+ 
+    transition: 0.25s; 
+} 
+ 
+ 
+.arrow:hover { 
+    background: #111; 
+    color: white; 
+ 
+    transform: translateX(3px); 
+} 
+.card > img {
+    border-radius: 16px;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease,
+        opacity 0.4s ease;
+
+    cursor: pointer;
+}
+
+.card > img:hover {
+    transform: scale(1.04);
+    filter: brightness(0.88);
+    border-radius: 16px;
+}
+ /* Card text interaction */
+
+.card-info h2,
+.card-info p,
+.card-info .arrow {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-info h2,
+.card:hover .card-info p {
+    transform: translateY(-2px);
+}
+
+.card:hover .card-info .arrow {
+    transform: translateX(4px);
+}
+/* ================= SMALL LAPTOP ================= */ 
+ 
+@media (max-height: 750px) { 
+ 
+    .hero { 
+        height: 36vh; 
+    } 
+ 
+    .places { 
+        height: 66vh; 
+    } 
+ 
+    .hero-text { 
+        bottom: 25px; 
+    } 
+ 
+    .hero-text h1 { 
+        font-size: 42px; 
+    } 
+ 
+    .cards { 
+        row-gap: 10px; 
+    } 
+ 
+    .card > img { 
+        height: calc(100% - 48px); 
+    } 
+ 
+    .card-info h2 { 
+        font-size: 16px; 
+    } 
+ 
+    .card-info p { 
+        font-size: 9px; 
+    } 
+ 
+    .arrow { 
+        width: 30px; 
+        height: 30px; 
+    } 
+} 
+ 
+ 
+/* ================= TABLET ================= */ 
+ 
+@media (max-width: 900px) { 
+ 
+    body { 
+        overflow: auto; 
+    } 
+ 
+    .hero { 
+        height: 350px; 
+    } 
+ 
+    .places { 
+        height: auto; 
+ 
+        margin-top: -20px; 
+ 
+        padding: 25px 4%; 
+    } 
+ 
+    .cards { 
+        height: auto; 
+ 
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: auto; 
+ 
+        column-gap: 30px; 
+        row-gap: 25px; 
+    } 
+ 
+    .card > img { 
+        height: 160px; 
+    } 
+ 
+    .nav-links { 
+        gap: 25px; 
+    } 
+} 
+ 
+ 
+/* ================= MOBILE ================= */ 
+ 
+@media (max-width: 600px) { 
+ 
+    body { 
+        overflow: auto; 
+    } 
+ 
+    .hero { 
+        height: 350px; 
+    } 
+ 
+    .nav-links { 
+        display: none; 
+    } 
+ 
+    .hero-text h1 { 
+        font-size: 42px; 
+    } 
+ 
+    .cards { 
+        grid-template-columns: 1fr; 
+    } 
+ 
+    .card > img { 
+        height: 190px; 
+    } 
+ 
+    .profile-icon { 
+        width: 25px; 
+        height: 25px; 
+    } 
+}

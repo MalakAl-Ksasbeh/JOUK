@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 45px;
+
+    z-index: 10;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: black;
+
+    cursor: pointer;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 50px;
+}
+
+.nav-links a {
+    position: relative;
+
+    text-decoration: none;
+    color: black;
+
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 500;
+
+    padding: 8px 12px;
+
+    background: transparent;
+
+    transition: color 0.3s ease;
+}
+
+
+/* الخط تحت الصفحة الحالية */
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+
+    height: 1px;
+
+    background: black;
+}
+
+
+/* NAV HOVER */
+
+.nav-links a:hover {
+    color: #d1d0ce;
+    background: transparent;
+}
+
+
+/* ================= PROFILE ================= */
+
+.profile {
+    margin-left: auto;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile svg {
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+    stroke: black;
+    stroke-width: 1.3;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: stroke 0.3s ease;
+}
+
+.profile:hover svg {
+    stroke: #d1d0ce;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("images/homebage.png");
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+}
+
+.hero h1 {
+    position: absolute;
+
+    left: 7%;
+    top: 31%;
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+    font-size: 64px;
+    line-height: 1.05;
+
+    color: white;
+}
+
+
+/* ================= EXPLORE BUTTON ================= */
+
+.explore-button {
+    position: absolute;
+
+    left: 50%;
+    top: 54%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 11px 22px;
+
+    background-color: rgba(130, 130, 130, 0.65);
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(4px);
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+
+    transition: 0.2s;
+}
+
+.explore-button:hover {
+    background-color: rgba(80, 80, 80, 0.75);
+}
+
+
+/* ================= LOCATION ================= */
+
+.location {
+    position: absolute;
+
+    right: 25px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: white;
+
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+}
