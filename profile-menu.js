@@ -3,12 +3,10 @@ import { auth } from "./firebase.js";
 import {
     onAuthStateChanged,
     signOut
-}
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 
-
-const icon = document.querySelector(".profile-btn");
+const icon = document.querySelector(".profile, .profile-btn");
 
 const menu = document.getElementById("profileMenu");
 
@@ -19,26 +17,23 @@ const email = document.getElementById("profileEmail");
 const logout = document.getElementById("logoutBtn");
 
 
+let currentUser = null;
 
-onAuthStateChanged(auth,(user)=>{
+
+
+onAuthStateChanged(auth, (user)=>{
+
+    currentUser = user;
 
 
     if(user){
 
-        name.textContent = user.displayName || "JOUK User";
+        if(name)
+            name.textContent = user.displayName || "JOUK User";
 
-        email.textContent = user.email;
+        if(email)
+            email.textContent = user.email;
 
-
-    }else{
-
-
-        name.textContent = "Guest";
-
-        email.textContent = "Login to see profile";
-
-
-        logout.style.display="none";
 
     }
 
@@ -47,19 +42,44 @@ onAuthStateChanged(auth,(user)=>{
 
 
 
+if(icon){
+
 icon.addEventListener("click",(e)=>{
+
+
+   if(!currentUser){
+
+    window.location.href = "login/login.html";
+
+    return;
+
+}
+
+
+
+    // User
 
     e.preventDefault();
 
-    menu.style.display =
-    menu.style.display === "block"
-    ? "none"
-    : "block";
+
+    if(menu){
+
+        menu.style.display =
+        menu.style.display === "block"
+        ? "none"
+        : "block";
+
+    }
 
 
 });
 
 
+}
+
+
+
+if(logout){
 
 logout.addEventListener("click",()=>{
 
@@ -72,3 +92,5 @@ logout.addEventListener("click",()=>{
 
 
 });
+
+}

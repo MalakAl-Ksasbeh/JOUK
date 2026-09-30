@@ -107,11 +107,12 @@ eyeButtons.forEach(button => {
 // ================= SIGN UP FIREBASE =================
 
 
+// ================= SIGN UP FIREBASE =================
+
+
 signupForm.addEventListener("submit", function(event){
 
-
     event.preventDefault();
-
 
 
     const name = document.getElementById("fullName").value;
@@ -124,9 +125,7 @@ signupForm.addEventListener("submit", function(event){
 
 
 
-
     if(password !== confirm){
-
 
         alert("Passwords do not match!");
 
@@ -136,15 +135,12 @@ signupForm.addEventListener("submit", function(event){
 
 
 
-
     createUserWithEmailAndPassword(auth, email, password)
-
 
     .then((userCredential)=>{
 
 
         const user = userCredential.user;
-
 
 
         return updateProfile(user, {
@@ -170,12 +166,9 @@ signupForm.addEventListener("submit", function(event){
 
     .catch((error)=>{
 
-
         alert(error.message);
 
-
     });
-
 
 
 });
