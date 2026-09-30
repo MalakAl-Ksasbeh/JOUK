@@ -658,3 +658,57 @@ h1 {
     font-size: 18px;
 
 }
+.profile-menu {
+
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 45px;
+
+    width: 220px;
+    background: white;
+
+    padding: 20px;
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    z-index: 1000;
+
+}
+
+
+.profile-menu h3 {
+
+    margin: 0;
+    font-size: 18px;
+
+}
+
+
+.profile-menu p {
+
+    font-size: 14px;
+    color: #666;
+
+}
+
+
+.profile-menu button {
+
+    width: 100%;
+    padding: 10px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
+
+
+.icons {
+
+    position: relative;
+
+}

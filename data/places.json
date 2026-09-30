@@ -1629,5 +1629,108 @@
 
     ]
 
+},
+"afra": {
+
+    "name": "Afra Hot Springs",
+
+    "location": "📍 Afra, Tafila, Jordan",
+
+    "image": "../images/afra1.png",
+
+    "rating": "⭐ 4.6 (600)",
+
+
+    "aboutTitle": "About Afra Hot Springs",
+
+    "about": "Afra Hot Springs is a natural relaxation destination famous for its warm mineral waters, peaceful atmosphere and beautiful mountain surroundings.",
+
+
+
+    "info": {
+
+      "bestTime": "Spring - Autumn",
+
+      "visitTime": "3-5 hours",
+
+      "bestFor": "Relaxation & Wellness",
+
+      "nearby": "Tafila - Dana"
+
+    },
+
+
+
+    "quickInfo": {
+
+      "elevation": "Around 500m",
+
+      "bestFor": "Relaxation",
+
+      "access": "Easy",
+
+      "distance": "2.5 hours from Amman"
+
+    },
+
+
+
+    "thingsToDo": [
+
+      "Relax in natural hot water pools",
+
+      "Enjoy mineral water springs",
+
+      "Explore the surrounding mountain views",
+
+      "Photography and nature exploration"
+
+    ],
+
+
+
+    "photos": [
+
+      "../images/afra5.jpeg",
+
+      "../images/afra6.jpeg",
+
+      "../images/afra7.jpeg"
+
+    ],
+
+
+
+    "highlights": [
+
+      {
+
+        "image": "../images/afra2.jpeg",
+
+        "title": "Natural Hot Springs"
+
+      },
+
+
+      {
+
+        "image": "../images/afra3.jpeg",
+
+        "title": "Warm Water Pools"
+
+      },
+
+
+      {
+
+        "image": "../images/afra4.jpeg",
+
+        "title": "Mountain Views"
+
+      }
+
+    ]
+
 }
+
 }
