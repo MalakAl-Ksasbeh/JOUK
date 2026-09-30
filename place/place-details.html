@@ -3,14 +3,19 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JOUK | Place Details</title>
+    <title>JOUK | Place Details</title>
 
-<link rel="stylesheet" href="place-details.css">
+    <link rel="stylesheet" href="place-details.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- JOUK Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
 
 </head>
 
@@ -20,398 +25,330 @@
 
 <header class="navbar">
 
-<div class="logo">
-JOUK
-</div>
+    <div class="logo">
+        JOUK
+    </div>
 
 
-<nav>
+    <nav>
 
-<a href="../index.html">Home</a>
-<a href="../plans.html">Plans</a>
-<a href="../reviews.html">Reviews</a>
-<a href="../about.html">About</a>
+        <a href="../index.html">Home</a>
+        <a href="../plans.html">Plans</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../about.html">About</a>
 
-</nav>
+    </nav>
 
 
-<div class="icons">
+    <div class="icons">
 
-    <a href="../login/login.html" class="profile-btn" aria-label="Profile">
+        <a href="../login/login.html"
+           class="profile-btn"
+           aria-label="Profile">
 
-        <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24">
 
-            <!-- دائرة خارجية -->
-            <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="10"></circle>
 
-            <!-- رأس الشخص -->
-            <circle cx="12" cy="8" r="3"></circle>
+                <circle cx="12" cy="8" r="3"></circle>
 
-            <!-- جسم الشخص -->
-            <path d="M6 19c1-3 3.5-5 6-5s5 2 6 5"></path>
+                <path d="M6 19c1-3 3.5-5 6-5s5 2 6 5"></path>
 
-        </svg>
+            </svg>
 
-    </a>
+        </a>
 
-</div>
+    </div>
 
 </header>
 
 
 
-
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-<img id="place-image" alt="Place Image">
+    <img id="place-image" alt="Place Image">
 
 </section>
 
 
 
-
-
+<!-- ================= PLACE CARD ================= -->
 
 <section class="place-card">
 
 
-<div class="title-row">
+    <div class="title-row">
 
+        <div>
 
-<div>
+            <h1 id="place-name"></h1>
 
-<h1 id="place-name"></h1>
+            <p id="place-location"></p>
 
-<p id="place-location"></p>
+        </div>
 
-</div>
 
+        <div class="rating" id="place-rating"></div>
 
+    </div>
 
-<div class="rating" id="place-rating">
 
-</div>
 
+    <div class="place-info">
 
-</div>
 
+        <div class="info-item">
 
+            <span>☀</span>
 
+            <div>
 
+                <h4>Best time</h4>
 
-<div class="place-info">
+                <p id="best-time"></p>
 
+            </div>
 
+        </div>
 
-<div class="info-item">
 
-<span>☀</span>
 
-<div>
+        <div class="info-item">
 
-<h4>Best time</h4>
+            <span>◷</span>
 
-<p id="best-time"></p>
+            <div>
 
-</div>
+                <h4>Typical visit</h4>
 
-</div>
+                <p id="visit-time"></p>
 
+            </div>
 
+        </div>
 
 
 
-<div class="info-item">
+        <div class="info-item">
 
-<span>◷</span>
+            <span>♟</span>
 
-<div>
+            <div>
 
-<h4>Typical visit</h4>
+                <h4>Best for</h4>
 
-<p id="visit-time"></p>
+                <p id="best-for"></p>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
 
 
+        <div class="info-item">
 
+            <span>📍</span>
 
-<div class="info-item">
+            <div>
 
-<span>♟</span>
+                <h4>Nearby Places</h4>
 
-<div>
+                <p id="nearby"></p>
 
-<h4>Best for</h4>
+            </div>
 
-<p id="best-for"></p>
+        </div>
 
-</div>
 
-</div>
 
+        <button class="path-btn">
 
+            Add to My Path +
 
+        </button>
 
 
-<div class="info-item">
-
-<span>📍</span>
-
-<div>
-
-<h4>Nearby Places</h4>
-
-<p id="nearby"></p>
-
-</div>
-
-</div>
-
-
-
-
-
-<button class="path-btn">
-
-Add to My Path +
-
-</button>
-
-
-</div>
+    </div>
 
 
 </section>
 
 
 
-
-
-
-
-
+<!-- ================= DETAILS ================= -->
 
 <section class="details-section">
 
 
+    <div class="details-tabs">
 
-<div class="details-tabs">
 
+        <button class="details-tab active"
+                data-target="overview">
 
-<button class="details-tab active" data-target="overview">
-Overview
-</button>
+            Overview
 
+        </button>
 
-<button class="details-tab" data-target="things">
-Things to Do
-</button>
 
+        <button class="details-tab"
+                data-target="things">
 
-<button class="details-tab" data-target="photos">
-Photos
-</button>
+            Things to Do
 
+        </button>
 
-</div>
 
+        <button class="details-tab"
+                data-target="photos">
 
+            Photos
 
+        </button>
 
 
+    </div>
 
 
 
-<div class="tab-content active" id="overview">
+    <!-- OVERVIEW -->
 
+    <div class="tab-content active" id="overview">
 
 
-<div class="about-layout">
+        <div class="about-layout">
 
 
+            <div class="about-text">
 
-<div class="about-text">
+                <h2 id="about-title"></h2>
 
+                <p id="about-text"></p>
 
-<h2 id="about-title"></h2>
+            </div>
 
 
-<p id="about-text"></p>
 
+            <aside class="quick-info">
 
-</div>
 
+                <h3>
+                    Quick Info
+                </h3>
 
 
+                <div>
 
+                    <span>Elevation</span>
 
+                    <b id="elevation"></b>
 
+                </div>
 
-<aside class="quick-info">
 
+                <div>
 
+                    <span>Best for</span>
 
-<h3>
-Quick Info
-</h3>
+                    <b id="quick-best"></b>
 
+                </div>
 
 
-<div>
+                <div>
 
-<span>Elevation</span>
+                    <span>Access</span>
 
-<b id="elevation"></b>
+                    <b id="access"></b>
 
-</div>
+                </div>
 
 
+                <div>
 
+                    <span>Distance</span>
 
+                    <b id="distance"></b>
 
-<div>
+                </div>
 
-<span>Best for</span>
 
-<b id="quick-best"></b>
+            </aside>
 
-</div>
 
+        </div>
 
 
+    </div>
 
 
-<div>
 
-<span>Access</span>
+    <!-- THINGS TO DO -->
 
-<b id="access"></b>
+    <div class="tab-content" id="things">
 
-</div>
 
+        <h2>
+            Things To Do
+        </h2>
 
 
+        <ul id="things-list"></ul>
 
 
-<div>
+    </div>
 
-<span>Distance</span>
 
-<b id="distance"></b>
 
-</div>
+    <!-- PHOTOS -->
 
+    <div class="tab-content" id="photos">
 
 
+        <h2>
+            Photos
+        </h2>
 
 
-</aside>
+        <div class="photo-grid"
+             id="photos-container">
 
+        </div>
 
 
-</div>
+    </div>
 
 
 
-</div>
+    <!-- HIGHLIGHTS -->
 
+    <section class="highlights">
 
 
+        <h2>
+            Highlights
+        </h2>
 
 
+        <div class="highlight-cards"
+             id="highlights-container">
 
+        </div>
 
 
-
-<div class="tab-content" id="things">
-
-
-
-<h2>
-Things To Do
-</h2>
-
-
-<ul id="things-list">
-
-
-</ul>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="tab-content" id="photos">
-
-
-
-<h2>
-Photos
-</h2>
-
-
-
-<div class="photo-grid" id="photos-container">
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<section class="highlights">
-
-
-<h2>
-Highlights
-</h2>
-
-
-
-<div class="highlight-cards" id="highlights-container">
-
-
-</div>
+    </section>
 
 
 </section>
-
-
-
-
-
-
-</section>
-
-
-
-
 
 
 
 <script src="effect.js"></script>
+
 <script src="place-details.js"></script>
+
 
 </body>
 

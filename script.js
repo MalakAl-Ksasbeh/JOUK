@@ -260,5 +260,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+// ================= CARD IMAGE CLICK =================
 
+const cardImages = document.querySelectorAll(".card > img");
+
+cardImages.forEach(function (image) {
+
+    image.style.cursor = "pointer";
+
+    image.addEventListener("click", function () {
+
+        const card = image.closest(".card");
+
+        const link = card.querySelector(".arrow a");
+
+        if (link) {
+            window.location.href = link.href;
+        }
+
+    });
+
+});
+// ================= PROFILE ICON LOGIN =================
+
+const profileIcons = document.querySelectorAll(".profile-icon");
+
+profileIcons.forEach(function (profileIcon) {
+
+    profileIcon.style.cursor = "pointer";
+
+    profileIcon.addEventListener("click", function () {
+
+        window.location.href = "login/login.html";
+
+    });
+
+});
 });
