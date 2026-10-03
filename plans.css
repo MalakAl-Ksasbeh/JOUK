@@ -8,15 +8,22 @@
 }
 
 
-/* ================= GENERAL ================= */
+/* ========================================
+   GENERAL
+======================================== */
 
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
     padding: 0;
+    min-height: 100%;
+}
+
+body {
     min-height: 100vh;
 
     background: var(--bg);
@@ -26,7 +33,9 @@ body {
 }
 
 
-/* ================= HEADER ================= */
+/* ========================================
+   HEADER
+======================================== */
 
 header {
     position: relative;
@@ -45,25 +54,32 @@ header {
 }
 
 
-/* ================= LOGO ================= */
+/* ========================================
+   LOGO
+======================================== */
 
 .logo {
     position: absolute;
+
     left: 0;
     top: 50%;
 
     transform: translateY(-50%);
 
     font-family: var(--serif);
+
     font-size: 26px;
     font-weight: 500;
+
     letter-spacing: 1.5px;
 
-    z-index: 101;
     cursor: pointer;
 }
 
-/* ================= NAVIGATION ================= */
+
+/* ========================================
+   NAVIGATION
+======================================== */
 
 nav {
     display: flex;
@@ -79,24 +95,20 @@ nav a {
     padding: 8px 0;
 
     color: #171512;
+
     text-decoration: none;
 
     font-family: var(--serif);
+
     font-size: 17px;
     font-weight: 500;
 
     transition: color 0.2s ease;
 }
 
-
-/* اللون البني عند التأشير */
-
 nav a:hover {
     color: var(--hover);
 }
-
-
-/* الخط تحت الصفحة الحالية */
 
 nav a.active::after {
     content: "";
@@ -113,7 +125,9 @@ nav a.active::after {
 }
 
 
-/* ================= PROFILE ================= */
+/* ========================================
+   PROFILE
+======================================== */
 
 .nav-icons {
     position: absolute;
@@ -123,7 +137,6 @@ nav a.active::after {
 
     transform: translateY(-50%);
 }
-
 
 .profile-btn {
     width: 30px;
@@ -136,14 +149,13 @@ nav a.active::after {
     justify-content: center;
 
     background: transparent;
+
     border: none;
 
     text-decoration: none;
+
     cursor: pointer;
-
-    transition: 0.2s ease;
 }
-
 
 .profile-btn svg {
     width: 22px;
@@ -156,217 +168,231 @@ nav a.active::after {
 
     stroke-linecap: round;
     stroke-linejoin: round;
-
-    transition: stroke 0.2s ease;
 }
-
-
-/* البروفايل بني عند التأشير */
 
 .profile-btn:hover svg {
     stroke: var(--hover);
 }
 
 
-/* ==================================================
-   CARDS CONTAINER
-================================================== */
+/* ========================================
+   MAIN FIGMA GRID
+======================================== */
 
 .plans-grid {
     position: relative;
 
     width: 88%;
     max-width: 1050px;
+
     height: 600px;
 
     margin: 50px auto 40px;
+
+    background: var(--bg);
+
+    overflow: hidden;
+
+    border-radius: 15px;
 }
 
 
-/* ================= ALL CARDS ================= */
+/* ========================================
+   ALL CARDS
+======================================== */
 
 .plan-card {
     position: absolute;
 
-    overflow: hidden;
-
     display: flex;
 
-    color: #fff;
+    overflow: hidden;
+
+    color: #ffffff;
     text-decoration: none;
 
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 
-    border-radius: 14px;
-
-    transition: filter 0.25s ease;
+    transition:
+        filter 0.25s ease,
+        transform 0.25s ease;
 }
 
 .plan-card:hover {
-    filter: brightness(0.95);
+    filter: brightness(0.96);
 }
 
 
-/* ==================================================
-   TOP LEFT — RELAX
-================================================== */
+/* ========================================
+   RELAX
+======================================== */
 
 .relax {
     left: 0;
     top: 0;
 
-    width: 60%;
-    height: 51.8%;
+    width: 61%;
+    height: 52%;
+
+    background-image: url("./images/relaxx.avif");
+    background-position: center;
 
     clip-path: polygon(
-        0 0,
-        100% 0,
-        90% 100%,
-        0 100%
+        round 15px,
+        0% 0%,
+        100% 0%,
+        82% 100%,
+        0% 76%
     );
-
-    background-image: url("images/relax.jpg");
-    background-position: center;
 }
 
 
-/* ==================================================
-   TOP RIGHT — CULTURE
-================================================== */
+/* ========================================
+   CULTURE
+======================================== */
 
 .culture {
     right: 0;
     top: 0;
 
-    width: 46%;
-    height: 51.8%;
-
-    clip-path: polygon(
-        14% 0,
-        100% 0,
-        100% 100%,
-        0 100%
-    );
+    width: 43%;
+    height: 59%;
 
     background-image: url("images/culture.jpg");
     background-position: center;
+
+    clip-path: polygon(
+        round 15px,
+        26% 0%,
+        100% 0%,
+        100% 100%,
+        0% 79%
+    );
 }
 
 
-/* ==================================================
-   BOTTOM LEFT — ADVENTURE
-================================================== */
+/* ========================================
+   ADVENTURE
+======================================== */
 
 .adventure {
     left: 0;
-    top: 52.5%;
+    bottom: 0;
 
-    width: 54%;
-    height: 47%;
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        91% 100%,
-        0 100%
-    );
+    width: 48%;
+    height: 51%;
 
     background-image: url("images/advanture.jpg");
-
-    /* نخلي الجزء السفلي المهم من الصورة ظاهر */
     background-position: center bottom;
+
+    clip-path: polygon(
+        round 15px,
+        0% 0%,
+        100% 18%,
+        81% 100%,
+        0% 100%
+    );
 }
 
 
-/* ==================================================
-   BOTTOM RIGHT — SOMETHING TO DO
-================================================== */
+/* ========================================
+   SOMETHING TO DO
+======================================== */
 
 .activities {
     right: 0;
-    top: 52.5%;
+    bottom: 0;
 
-    width: 51%;
-    height: 47%;
-
-    clip-path: polygon(
-        10% 0,
-        100% 0,
-        100% 100%,
-        0 100%
-    );
+    width: 56%;
+    height: 45%;
 
     background-image: url("images/something to do.jpeg");
     background-position: center;
+
+    clip-path: polygon(
+        round 15px,
+        18% 0%,
+        100% 20%,
+        100% 100%,
+        0% 100%
+    );
 }
 
 
-/* ================= DARK OVERLAY ================= */
+/* ========================================
+   IMAGE OVERLAY
+======================================== */
 
 .plan-card::before {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     z-index: 1;
 
     background: linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.50) 0%,
-        rgba(0, 0, 0, 0.25) 32%,
-        rgba(0, 0, 0, 0.08) 58%,
-        rgba(0, 0, 0, 0) 75%
-    );
-
-    transition: background 0.3s ease;
-}
-
-
-.plan-card:hover::before {
-    background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.45),
-        rgba(0, 0, 0, 0.10) 70%
+        rgba(0, 0, 0, 0.40) 0%,
+        rgba(0, 0, 0, 0.17) 35%,
+        rgba(0, 0, 0, 0.03) 70%,
+        transparent 85%
     );
 }
 
 
-/* ================= CARD CONTENT ================= */
+/* ========================================
+   CARD CONTENT
+======================================== */
 
 .card-content {
     position: relative;
+
     z-index: 2;
 
     align-self: center;
+
     max-width: 300px;
 }
 
 
+/* RELAX */
+
 .relax .card-content {
     margin-left: 55px;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
+
+/* CULTURE */
+
 .culture .card-content {
-    margin-left: 90px;
-    margin-top: 25px;
+    margin-left: 105px;
+    margin-top: 0;
 }
+
+
+/* ADVENTURE */
 
 .adventure .card-content {
     margin-left: 32px;
-    margin-top: 40px;
+    margin-top: 25px;
 }
+
+
+/* SOMETHING */
 
 .activities .card-content {
-    margin-left: 70px;
-    margin-top: 40px;
+    margin-left: 110px;
+    margin-top: 25px;
 }
 
 
-/* ================= CATEGORY ICON ================= */
+/* ========================================
+   CATEGORY ICON
+======================================== */
 
 .category-icon {
     width: 19px;
@@ -377,6 +403,7 @@ nav a.active::after {
     fill: none;
 
     stroke: rgba(255, 255, 255, 0.95);
+
     stroke-width: 1;
 
     stroke-linecap: round;
@@ -384,50 +411,71 @@ nav a.active::after {
 }
 
 
-/* ================= TITLES ================= */
+/* ========================================
+   TITLES - FIGMA STYLE
+======================================== */
 
 .plan-card h2 {
-    margin: 0 0 4px;
+    margin: 0 0 3px;
 
-    color: #fff;
+    color: #ffffff;
 
-    font-family: var(--serif);
-    font-size: 36px;
-    font-weight: 600;
+    font-family: 'Playfair Display', Georgia, serif;
 
-    line-height: 1;
-    letter-spacing: -0.5px;
+    font-size: 38px;
+    font-weight: 500;
 
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.55);
+    line-height: 0.95;
+
+    letter-spacing: -0.7px;
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.28);
 }
 
 
+/* SOMETHING TO DO TITLE */
+
 .activities h2 {
-    font-size: 30px;
-    font-weight: 600;
+    font-family: 'Playfair Display', Georgia, serif;
+
+    font-size: 31px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -0.7px;
 
     white-space: nowrap;
 }
 
 
-/* ================= DESCRIPTION ================= */
+/* ========================================
+   DESCRIPTION - FIGMA STYLE
+======================================== */
 
 .plan-card p {
     margin: 4px 0 9px;
 
-    color: #fff;
+    color: #ffffff;
 
-    font-family: var(--serif);
-    font-size: 12px;
-    font-weight: 600;
+    font-family: 'Playfair Display', Georgia, serif;
 
-    line-height: 1.25;
+    font-size: 11px;
+    font-weight: 500;
 
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+    line-height: 1.15;
+
+    letter-spacing: -0.1px;
+
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.30);
 }
 
 
-/* ================= ARROW ================= */
+/* ========================================
+   ARROW
+======================================== */
 
 .arrow {
     width: 30px;
@@ -445,13 +493,14 @@ nav a.active::after {
     border-radius: 50%;
 
     font-family: Arial, sans-serif;
+
     font-size: 16px;
 }
 
 
-/* ==================================================
+/* ========================================
    MOBILE
-================================================== */
+======================================== */
 
 @media (max-width: 768px) {
 
@@ -461,7 +510,6 @@ nav a.active::after {
     }
 
     .logo {
-        left: 0;
         font-size: 18px;
     }
 
@@ -475,12 +523,19 @@ nav a.active::after {
 
     .plans-grid {
         width: calc(100% - 30px);
+
         height: auto;
+
+        margin-top: 30px;
 
         display: flex;
         flex-direction: column;
 
         gap: 10px;
+
+        overflow: visible;
+
+        background: transparent;
     }
 
     .plan-card {
@@ -513,5 +568,428 @@ nav a.active::after {
 
     .activities h2 {
         font-size: 28px;
+    }
+}
+/* ========================================
+   MY TRIPS
+======================================== */
+
+.my-trips-section {
+    width: min(1100px, 90%);
+    margin: 80px auto 100px;
+    padding-top: 50px;
+    border-top: 1px solid #d8d3c8;
+}
+
+.my-trips-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.section-label {
+    display: block;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: #817b70;
+}
+
+.my-trips-header h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: 42px;
+    margin: 0 0 7px;
+    color: #171713;
+}
+
+.my-trips-header p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    margin: 0;
+    font-size: 14px;
+    color: #777268;
+}
+
+.create-trip-btn {
+    text-decoration: none;
+    background: #17392d;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 6px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    transition: 0.25s;
+}
+
+.create-trip-btn:hover {
+    transform: translateY(-2px);
+    background: #102b22;
+}
+
+
+/* TRIPS GRID */
+
+.saved-trips-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+/* EMPTY STATE */
+
+.no-trips {
+    grid-column: 1 / -1;
+
+    min-height: 190px;
+
+    border: 1px solid #d9d5cb;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: #faf9f5;
+}
+
+.no-trips h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 8px;
+}
+
+.no-trips p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #777268;
+    font-size: 13px;
+    margin: 0 0 18px;
+}
+
+.no-trips a {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #17392d;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* SAVED TRIP CARD - سنستخدمها بالخطوة التالية */
+
+.saved-trip-card {
+    border: 1px solid #d9d5cb;
+    border-radius: 10px;
+    padding: 22px;
+    background: #faf9f5;
+}
+
+.saved-trip-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    font-weight: 500;
+    margin: 0 0 8px;
+}
+
+.saved-trip-card p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #777268;
+    font-size: 13px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .saved-trips-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .my-trips-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .saved-trips-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ===== FINAL FIX: MY TRIPS BELOW CARDS ===== */
+
+.plans-grid {
+    display: block !important;
+    position: relative !important;
+    height: 600px !important;
+    min-height: 600px !important;
+    overflow: visible !important;
+    margin-bottom: 120px !important;
+}
+
+.my-trips-section {
+    display: block !important;
+    position: relative !important;
+    clear: both !important;
+
+    width: 88% !important;
+    max-width: 1050px !important;
+
+    margin: 0 auto 100px !important;
+    padding: 50px 0 !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    border-top: 1px solid #d8d3c8 !important;
+}
+
+html,
+body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+/* ========================================
+   SAVED TRIP CARD IMAGE
+======================================== */
+
+.saved-trip-card {
+    padding: 0;
+    overflow: hidden;
+    background: #faf9f5;
+}
+
+
+/* IMAGE AREA */
+
+.saved-trip-image {
+    position: relative;
+
+    width: 100%;
+    height: 190px;
+
+    overflow: hidden;
+
+    background: #ddd7cb;
+}
+
+
+/* ACTUAL IMAGE */
+
+.saved-trip-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.35s ease;
+}
+
+
+/* SMALL HOVER EFFECT */
+
+.saved-trip-card:hover .saved-trip-image img {
+    transform: scale(1.03);
+}
+
+
+/* DAYS BADGE */
+
+.trip-days-badge {
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    padding: 7px 11px;
+
+    background: rgba(250, 249, 245, 0.92);
+    color: #24211e;
+
+    border-radius: 4px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    backdrop-filter: blur(4px);
+}
+
+
+/* CONTENT UNDER IMAGE */
+
+.saved-trip-content {
+    padding: 20px 22px 22px;
+}
+
+
+/* TOP ROW */
+
+.saved-trip-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+
+/* JORDAN JOURNEY LABEL */
+
+.trip-label {
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 1.5px;
+
+    color: #817b70;
+}
+
+
+/* DELETE BUTTON */
+
+.delete-trip-btn {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d8d3c8;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #6e695f;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+/* TRIP TITLE */
+
+.saved-trip-card h3 {
+    margin: 0 0 10px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 23px;
+    font-weight: 500;
+
+    color: #24211e;
+}
+
+
+/* PLACES */
+
+.trip-places {
+    min-height: 38px;
+
+    margin: 0 0 14px;
+
+    line-height: 1.5;
+}
+
+
+/* META */
+
+.trip-meta {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 11px;
+
+    color: #817b70;
+}
+
+
+/* VIEW PLAN */
+
+.view-trip-btn {
+    width: 100%;
+
+    padding: 11px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: none;
+    border-radius: 4px;
+
+    background: #17392d;
+    color: white;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.view-trip-btn:hover {
+    background: #102b22;
+}
+
+
+/* FALLBACK IF THERE IS NO IMAGE */
+
+.saved-trip-image.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e4ded2;
+}
+
+
+.trip-placeholder {
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+    letter-spacing: 2px;
+
+    color: #8b8377;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .saved-trip-image {
+        height: 210px;
     }
 }

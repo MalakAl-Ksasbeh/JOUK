@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JOUK - Share Experience</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="share-experience.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <a href="index.html"
+           class="logo">
+            JOUK
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="plans.html">
+                Plans
+            </a>
+
+            <a href="community.html">
+                Reviews
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </nav>
+
+
+        <a href="profile.html"
+           class="profile-icon"
+           aria-label="Profile">
+            ◯
+        </a>
+
+    </header>
+
+
+
+    <!-- ================= PAGE ================= -->
+
+    <main class="share-page">
+
+        <div class="share-container">
+
+
+            <!-- ================= TITLE ================= -->
+
+            <div class="page-heading">
+
+                <a href="javascript:history.back()"
+                   class="back-btn"
+                   aria-label="Go back">
+                    ←
+                </a>
+
+
+                <div>
+
+                    <h1>
+                        Share Your Experience
+                    </h1>
+
+                    <p>
+                        Tell other travelers about your visit.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= PLACE ================= -->
+
+            <section class="place-box">
+
+                <img
+                    id="placeImage"
+                    src="images/deadsea.jpeg"
+                    alt="Selected place"
+                    class="place-image"
+                >
+
+
+                <div class="place-info">
+
+                    <h2 id="placeName">
+                        Dead Sea
+                    </h2>
+
+                    <p id="placeLocation">
+                        Dead Sea, Jordan
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= EXPERIENCE TEXT ================= -->
+
+            <section class="form-section">
+
+                <label for="experienceText">
+                    How was your experience?
+                </label>
+
+
+                <textarea
+                    id="experienceText"
+                    maxlength="500"
+                    placeholder="Share your thoughts, tips, what you liked, and anything that can help other travelers..."
+                ></textarea>
+
+            </section>
+
+
+
+            <!-- ================= PHOTOS ================= -->
+
+            <section class="form-section">
+
+                <label>
+                    Add photos
+                </label>
+
+
+                <p class="section-description">
+                    Upload up to 10 photos
+                </p>
+
+
+                <div class="photo-list"
+                     id="photoList">
+
+
+                    <label class="add-photo">
+
+                        <span>
+                            +
+                        </span>
+
+                        <small>
+                            Add Photo
+                        </small>
+
+
+                        <input
+                            type="file"
+                            id="photoInput"
+                            accept="image/*"
+                            multiple
+                            hidden
+                        >
+
+                    </label>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= RATING ================= -->
+
+            <section class="form-section">
+
+                <label>
+                    Your rating
+                </label>
+
+
+                <div class="stars"
+                     id="stars">
+
+                    <button type="button"
+                            data-rating="1">
+                        ☆
+                    </button>
+
+                    <button type="button"
+                            data-rating="2">
+                        ☆
+                    </button>
+
+                    <button type="button"
+                            data-rating="3">
+                        ☆
+                    </button>
+
+                    <button type="button"
+                            data-rating="4">
+                        ☆
+                    </button>
+
+                    <button type="button"
+                            data-rating="5">
+                        ☆
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= TAGS ================= -->
+
+            <section class="form-section">
+
+                <label>
+
+                    Tags
+
+                    <span>
+                        (optional)
+                    </span>
+
+                </label>
+
+
+                <div class="tags">
+
+
+                    <button type="button"
+                            class="tag">
+                        Relaxation
+                    </button>
+
+
+                    <button type="button"
+                            class="tag">
+                        Nature
+                    </button>
+
+
+                    <button type="button"
+                            class="tag">
+                        Sunset
+                    </button>
+
+
+                    <button type="button"
+                            class="tag">
+                        Family Friendly
+                    </button>
+
+
+                    <button type="button"
+                            class="tag">
+                        Adventure
+                    </button>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= SHARE BUTTON ================= -->
+
+            <button
+                id="shareBtn"
+                class="share-btn"
+                type="button"
+            >
+
+                Share Experience
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="share-experience.js"></script>
+
+
+</body>
+
+</html>

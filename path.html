@@ -5,23 +5,31 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>JOUK | My Path</title>
 
     <link rel="stylesheet" href="path.css">
 
     <!-- Fonts -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
 </head>
 
@@ -66,25 +74,32 @@
 
         <!-- PROFILE -->
 
-        <a href="login/login.html"
-           class="profile-btn"
-           aria-label="Profile">
+        <a
+            href="profile.html"
+            class="profile-btn"
+            aria-label="Profile"
+        >
 
-            <svg viewBox="0 0 24 24"
-                 xmlns="http://www.w3.org/2000/svg">
+            <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+            >
 
-                <circle cx="12"
-                        cy="8"
-                        r="3.5">
-                </circle>
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="3.5"
+                ></circle>
 
-                <path d="M5.5 19c.8-3.2 3-5 6.5-5s5.7 1.8 6.5 5">
-                </path>
+                <path
+                    d="M5.5 19c.8-3.2 3-5 6.5-5s5.7 1.8 6.5 5"
+                ></path>
 
-                <circle cx="12"
-                        cy="12"
-                        r="9">
-                </circle>
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                ></circle>
 
             </svg>
 
@@ -201,14 +216,17 @@
 
             <!-- ================= SELECTED PLACES ================= -->
 
-            <div class="selected-places"
-                 id="selected-places">
+            <div
+                class="selected-places"
+                id="selected-places"
+            >
 
+                <!-- JavaScript creates selected places here -->
 
-                <!-- EMPTY PATH -->
-
-                <div class="empty-path"
-                     id="empty-path">
+                <div
+                    class="empty-path"
+                    id="empty-path"
+                >
 
                     <span class="empty-plus">
                         +
@@ -219,27 +237,29 @@
                     </h2>
 
                     <p>
-                        Explore Jordan and add places
+                        Create a trip and add places
                         you would love to visit.
                     </p>
 
                 </div>
 
-
             </div>
 
 
 
-            <!-- ================= ADD MORE ================= -->
+            <!-- ================= EDIT TRIP ================= -->
 
-            <a href="plans.html"
-               class="add-more-btn">
+            <a
+                href="create-plan.html"
+                class="add-more-btn"
+                id="edit-trip-btn"
+            >
 
                 <span>
-                    +
+                    ←
                 </span>
 
-                Add More Places
+                Edit This Trip
 
             </a>
 
@@ -253,8 +273,10 @@
         <section class="map-section">
 
 
-            <div class="map-placeholder"
-                 id="journey-map">
+            <div
+                class="map-placeholder"
+                id="journey-map"
+            >
 
 
                 <!-- MAP TITLE -->
@@ -272,26 +294,29 @@
                 </div>
 
 
-                <!--
-                    Dynamic route, markers and place names
-                    will be added here using JavaScript.
-                -->
+                <!-- Dynamic route -->
 
-                <svg class="route-lines"
-                     id="route-lines">
-                </svg>
+                <svg
+                    class="route-lines"
+                    id="route-lines"
+                ></svg>
 
 
-                <div class="dynamic-markers"
-                     id="dynamic-markers">
-                </div>
+                <!-- Dynamic markers -->
+
+                <div
+                    class="dynamic-markers"
+                    id="dynamic-markers"
+                ></div>
 
 
 
                 <!-- EMPTY MAP MESSAGE -->
 
-                <div class="map-message"
-                     id="map-message">
+                <div
+                    class="map-message"
+                    id="map-message"
+                >
 
                     <span class="map-pin">
                         ◉
@@ -302,7 +327,8 @@
                     </h2>
 
                     <p>
-                        Add places to create your route across Jordan.
+                        Your saved places will create
+                        a route across Jordan.
                     </p>
 
                 </div>
@@ -311,9 +337,13 @@
 
                 <!-- GOOGLE MAPS BUTTON -->
 
-                <a href="#"
-                   class="google-maps-btn"
-                   id="google-maps-btn">
+                <a
+                    href="#"
+                    class="google-maps-btn"
+                    id="google-maps-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
 
                     <span>
                         ⌖
@@ -340,9 +370,7 @@
 
     <!-- ================= JAVASCRIPT ================= -->
 
-    <script src="script.js"></script>
-
-
+    <script src="path.js"></script>
 </body>
 
 </html>

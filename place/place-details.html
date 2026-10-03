@@ -23,6 +23,8 @@
 <body>
 
 
+<!-- ================= NAVBAR ================= -->
+
 <header class="navbar">
 
     <div class="logo">
@@ -57,17 +59,20 @@
             </svg>
 
         </a>
-         <div class="profile-menu" id="profileMenu">
 
-        <h3 id="profileName"></h3>
 
-        <p id="profileEmail"></p>
+        <div class="profile-menu"
+             id="profileMenu">
 
-        <button id="logoutBtn">
-            Logout
-        </button>
+            <h3 id="profileName"></h3>
 
-    </div>
+            <p id="profileEmail"></p>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
 
     </div>
 
@@ -79,7 +84,8 @@
 
 <section class="hero">
 
-    <img id="place-image" alt="Place Image">
+    <img id="place-image"
+         alt="Place Image">
 
 </section>
 
@@ -101,7 +107,9 @@
         </div>
 
 
-        <div class="rating" id="place-rating"></div>
+        <div class="rating"
+             id="place-rating">
+        </div>
 
     </div>
 
@@ -109,6 +117,8 @@
 
     <div class="place-info">
 
+
+        <!-- BEST TIME -->
 
         <div class="info-item">
 
@@ -126,6 +136,8 @@
 
 
 
+        <!-- VISIT TIME -->
+
         <div class="info-item">
 
             <span>◷</span>
@@ -141,6 +153,8 @@
         </div>
 
 
+
+        <!-- BEST FOR -->
 
         <div class="info-item">
 
@@ -158,6 +172,8 @@
 
 
 
+        <!-- NEARBY -->
+
         <div class="info-item">
 
             <span>📍</span>
@@ -174,9 +190,15 @@
 
 
 
-        <button class="path-btn" id="add-to-path-btn">
-    Add to My Path +
-</button>
+        <!-- ADD TO PATH -->
+
+        <button class="path-btn"
+                id="add-to-path-btn">
+
+            Add to My Path +
+
+        </button>
+
 
     </div>
 
@@ -189,6 +211,8 @@
 
 <section class="details-section">
 
+
+    <!-- ================= TABS ================= -->
 
     <div class="details-tabs">
 
@@ -217,13 +241,24 @@
         </button>
 
 
+        <!-- NEW EXPERIENCES TAB -->
+
+        <button class="details-tab"
+                data-target="experiences">
+
+            Experiences
+
+        </button>
+
+
     </div>
 
 
 
-    <!-- OVERVIEW -->
+    <!-- ================= OVERVIEW ================= -->
 
-    <div class="tab-content active" id="overview">
+    <div class="tab-content active"
+         id="overview">
 
 
         <div class="about-layout">
@@ -293,9 +328,10 @@
 
 
 
-    <!-- THINGS TO DO -->
+    <!-- ================= THINGS TO DO ================= -->
 
-    <div class="tab-content" id="things">
+    <div class="tab-content"
+         id="things">
 
 
         <h2>
@@ -310,9 +346,10 @@
 
 
 
-    <!-- PHOTOS -->
+    <!-- ================= PHOTOS ================= -->
 
-    <div class="tab-content" id="photos">
+    <div class="tab-content"
+         id="photos">
 
 
         <h2>
@@ -330,7 +367,97 @@
 
 
 
-    <!-- HIGHLIGHTS -->
+    <!-- ================= EXPERIENCES ================= -->
+
+    <div class="tab-content"
+         id="experiences">
+
+
+        <!-- EXPERIENCES HEADER -->
+
+        <div class="experiences-header">
+
+
+            <div class="experiences-heading">
+
+                <h2>
+                    Traveler Experiences
+                </h2>
+
+                <p>
+                    See Jordan through other travelers' eyes.
+                </p>
+
+            </div>
+
+
+            <a href="../share-experience.html"
+               class="share-experience-btn"
+               id="shareExperienceBtn">
+
+                Share Your Experience
+
+                <span>+</span>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- EXPERIENCE CARDS -->
+
+        <div class="experiences-grid"
+             id="experiences-container">
+
+            <!--
+                Experiences will be created
+                dynamically by place-details.js
+            -->
+
+        </div>
+
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="experiences-empty"
+             id="experiences-empty"
+             hidden>
+
+            <h3>
+                No experiences yet
+            </h3>
+
+            <p>
+                Be the first traveler to share an experience
+                from this place.
+            </p>
+
+        </div>
+
+
+
+        <!-- SEE ALL -->
+
+        <div class="experiences-footer">
+
+            <a href="../community.html"
+               class="see-all-experiences">
+
+                See all experiences →
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= HIGHLIGHTS ================= -->
 
     <section class="highlights">
 
@@ -353,11 +480,17 @@
 
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script src="effect.js"></script>
 
 <script src="place-details.js"></script>
 
-<script type="module" src="../profile-menu.js"></script>
+<script type="module"
+        src="../profile-menu.js">
+</script>
+
+
 </body>
 
 </html>
