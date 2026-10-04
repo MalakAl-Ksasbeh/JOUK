@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JOUK - Messages</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Messages CSS -->
+    <link rel="stylesheet" href="messages.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+            JOUK
+        </a>
+
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="plans.html">Plans</a>
+            <a href="community.html">Reviews</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <!-- HEADER ICONS -->
+        <div class="header-icons">
+
+            <button class="icon-btn search-icon"
+                    type="button"
+                    aria-label="Search">
+                ⌕
+            </button>
+
+            <button class="icon-btn"
+                    type="button"
+                    aria-label="Saved">
+                ♡
+            </button>
+
+            <a href="profile.html"
+               class="profile-icon"
+               aria-label="Profile">
+                ◯
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MESSAGES PAGE ================= -->
+
+    <main class="messages-page">
+
+        <section class="messages-container">
+
+            <!-- PAGE TITLE -->
+
+            <div class="messages-heading">
+
+                <h1>Messages</h1>
+
+            </div>
+
+
+            <!-- ================= SEARCH ================= -->
+
+            <div class="messages-search">
+
+                <span class="search-symbol">
+                    ⌕
+                </span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search conversations..."
+                    autocomplete="off"
+                    aria-label="Search conversations"
+                >
+
+            </div>
+
+
+            <!-- ================= CONVERSATIONS ================= -->
+
+            <div class="conversations-list">
+
+
+                <!-- ================= OMAR ================= -->
+
+                <article class="conversation-item"
+                         data-user="Omar Khaled">
+
+                    <div class="conversation-avatar">
+                        OK
+                    </div>
+
+                    <div class="conversation-info">
+
+                        <h3 class="conversation-name">
+                            Omar Khaled
+                        </h3>
+
+                        <p class="conversation-preview">
+                            Hey! Did you visit Petra? I'm planning a trip next week.
+                        </p>
+
+                    </div>
+
+                    <div class="conversation-meta">
+
+                        <span class="conversation-time">
+                            8:42 PM
+                        </span>
+
+                        <span class="unread-count">
+                            2
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= LINA ================= -->
+
+                <article class="conversation-item"
+                         data-user="Lina Tariq">
+
+                    <div class="conversation-avatar">
+                        LT
+                    </div>
+
+                    <div class="conversation-info">
+
+                        <h3 class="conversation-name">
+                            Lina Tariq
+                        </h3>
+
+                        <p class="conversation-preview">
+                            That sounds great! Thanks for the tips.
+                        </p>
+
+                    </div>
+
+                    <div class="conversation-meta">
+
+                        <span class="conversation-time">
+                            Yesterday
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= YARA ================= -->
+
+                <article class="conversation-item"
+                         data-user="Yara Saleh">
+
+                    <div class="conversation-avatar">
+                        YS
+                    </div>
+
+                    <div class="conversation-info">
+
+                        <h3 class="conversation-name">
+                            Yara Saleh
+                        </h3>
+
+                        <p class="conversation-preview">
+                            I'm going to Wadi Rum next week, want to join?
+                        </p>
+
+                    </div>
+
+                    <div class="conversation-meta">
+
+                        <span class="conversation-time">
+                            Sep 28
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= AHMED ================= -->
+
+                <article class="conversation-item"
+                         data-user="Ahmed Nasser">
+
+                    <div class="conversation-avatar">
+                        AN
+                    </div>
+
+                    <div class="conversation-info">
+
+                        <h3 class="conversation-name">
+                            Ahmed Nasser
+                        </h3>
+
+                        <p class="conversation-preview">
+                            Yes definitely! It was amazing.
+                        </p>
+
+                    </div>
+
+                    <div class="conversation-meta">
+
+                        <span class="conversation-time">
+                            Sep 26
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= MAYA ================= -->
+
+                <article class="conversation-item"
+                         data-user="Maya Ibrahim">
+
+                    <div class="conversation-avatar">
+                        MI
+                    </div>
+
+                    <div class="conversation-info">
+
+                        <h3 class="conversation-name">
+                            Maya Ibrahim
+                        </h3>
+
+                        <p class="conversation-preview">
+                            I'll check it out. Thank you!
+                        </p>
+
+                    </div>
+
+                    <div class="conversation-meta">
+
+                        <span class="conversation-time">
+                            Sep 24
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="messages.js"></script>
+
+</body>
+
+</html>

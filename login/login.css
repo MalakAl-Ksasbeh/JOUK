@@ -1,63 +1,139 @@
+/* =========================
+   GENERAL
+   ========================= */
+
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
-}
-.signup-form {
-    display: none;
+    width: 100%;
+    min-height: 100%;
 }
 
+body {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =========================
+   PAGE
+   ========================= */
+
 .login-page {
+    position: relative;
+
     width: 100%;
     min-height: 100vh;
 
-    background-image: url("./login-bg.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* مكان الكارد */
+    padding-left: 29%;
+
+    overflow: hidden;
+
+    /*
+       الخلفية الخلفية:
+       تملأ الشاشة حتى لا يظهر فراغ
+    */
+    background-image:
+        linear-gradient(
+            rgba(15, 8, 5, 0.42),
+            rgba(15, 8, 5, 0.42)
+        ),
+        url("../images/Login new.jpeg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    display: flex;
-    align-items: center;
 }
+
+
+/* =========================
+   FULL IMAGE
+   ========================= */
+
+/*
+   هذه هي الصورة الأساسية.
+   contain = تظهر كاملة من فوق وتحت.
+*/
+
+.login-page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("../images/Login new.jpeg");
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   LOGIN CARD
+   ========================= */
 
 .login-card {
-    width: 400px;
-    min-height: 540px;
+    position: relative;
+    z-index: 1;
 
-    margin-left: 8%;
-    padding: 30px;
+    width: 340px;
 
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 25px;
+    padding: 22px;
 
-    backdrop-filter: blur(3px);
+    /*
+       شفافة حتى تبقى تفاصيل
+       الصورة واضحة من خلفها
+    */
+    background: rgba(50, 30, 25, 0.14);
+
+    border: 1px solid rgba(255, 255, 255, 0.60);
+
+    border-radius: 22px;
+
+    /* لا نريد blur */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
-/* ==============================
-   LOGIN / SIGN UP SWITCH
-   ============================== */
+
+
+/* =========================
+   LOGIN / SIGN UP TABS
+   ========================= */
 
 .tabs {
     position: relative;
+
     display: flex;
 
     width: 100%;
-    height: 52px;
+    height: 44px;
 
-    margin-bottom: 45px;
+    margin-bottom: 32px;
 
-    background: rgba(170, 80, 90, 0.45);
+    background: rgba(190, 105, 120, 0.48);
 
     border-radius: 30px;
 
     overflow: hidden;
-    
-    
 }
 
 
-/* الجزء الغامق المتحرك */
+/* =========================
+   TAB SLIDER
+   ========================= */
 
 .tab-slider {
     position: absolute;
@@ -68,7 +144,7 @@ body {
     width: 50%;
     height: 100%;
 
-    background: rgba(62, 29, 29, 0.85);
+    background: rgba(73, 31, 20, 0.92);
 
     border-radius: 30px;
 
@@ -78,7 +154,9 @@ body {
 }
 
 
-/* الأزرار */
+/* =========================
+   TAB BUTTONS
+   ========================= */
 
 .tab {
     position: relative;
@@ -86,12 +164,16 @@ body {
     width: 50%;
 
     border: none;
+
     background: transparent;
 
-    color: white;
+    color: rgba(255, 255, 255, 0.90);
 
-    font-size: 17px;
-    font-weight: bold;
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
 
     cursor: pointer;
 
@@ -99,139 +181,112 @@ body {
 }
 
 
-/* تحريك الجزء الغامق لليمين */
+/* Sign Up selected */
 
 .tabs.signup-active .tab-slider {
     transform: translateX(100%);
 }
 
+
+/* =========================
+   INPUT BOXES
+   ========================= */
+
 .input-box {
     display: flex;
+
     align-items: center;
 
-    border: 2px solid white;
+    border: 1.5px solid rgba(255, 255, 255, 0.70);
+
     border-radius: 10px;
 
-    padding: 12px;
+    padding: 9px 12px;
 
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 }
+
+
+/* =========================
+   INPUT
+   ========================= */
 
 .input-box input {
     flex: 1;
 
     border: none;
+
     outline: none;
 
     background: transparent;
 
-    color: white;
+    color: rgba(255, 255, 255, 0.82);
 
-    font-size: 17px;
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
 
     margin-left: 10px;
 }
 
+
+/* Email / Password text */
+
 .input-box input::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.70);
+
+    opacity: 1;
 }
+
+
+/* =========================
+   INPUT ICONS
+   ========================= */
+
+.input-icon {
+    width: 18px;
+
+    height: 18px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    flex-shrink: 0;
+
+    stroke-width: 1.8;
+}
+
+
+/* =========================
+   BUTTON INSIDE INPUT
+   ========================= */
 
 .input-box button {
     border: none;
-    background: transparent;
-
-    cursor: pointer;
-}
-
-.forgot-password {
-    display: block;
-
-    text-align: right;
-
-    color: white;
-    text-decoration: none;
-
-    margin-top: -15px;
-    margin-bottom: 20px;
-}
-.login-btn {
-    width: 100%;
-
-    padding: 14px;
-
-    border: none;
-    border-radius: 25px;
-
-    background: rgba(62, 29, 29, 0.8);
-
-    color: white;
-
-    font-size: 17px;
-    font-weight: bold;
-
-    cursor: pointer;
-}
-.guest-btn {
-    width: 100%;
-
-    padding: 14px;
-
-    margin-top: 25px;
-
-    border: 2px solid white;
-    border-radius: 25px;
 
     background: transparent;
 
-    color: white;
-
-    font-size: 16px;
-    font-weight: bold;
-
     cursor: pointer;
 }
-/* Sign Up is hidden when the page first opens */
-.signup-form {
-    display: none;
-
-}
 
 
-/* Password eye button */
-.eye-btn {
-    border: none;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-}
-/* =================================
-   ICONS
-   ================================= */
-
-.input-icon {
-    width: 21px;
-    height: 21px;
-
-    color: white;
-
-    flex-shrink: 0;
-}
-
-
-/* Eye button */
+/* =========================
+   EYE BUTTON
+   ========================= */
 
 .eye-btn {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border: none;
+
     outline: none;
 
     background: transparent;
 
-    color: white;
+    color: rgba(255, 255, 255, 0.75);
 
     padding: 0;
 
@@ -239,18 +294,142 @@ body {
 }
 
 
-/* Eye icon size */
-
 .eye-btn svg {
-    width: 21px;
-    height: 21px;
+    width: 18px;
 
-    stroke-width: 2;
+    height: 18px;
+
+    stroke-width: 1.8;
 }
 
 
-/* Small hover effect */
-
 .eye-btn:hover {
     opacity: 0.7;
+}
+
+
+/* =========================
+   FORGOT PASSWORD
+   ========================= */
+
+.forgot-password {
+    display: block;
+
+    text-align: right;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    text-decoration: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+
+    margin-top: -10px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+   ========================= */
+
+.login-btn {
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    /* بني غامق مثل Figma */
+    background: rgba(67, 27, 18, 0.94);
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.login-btn:hover {
+    background: rgba(55, 22, 15, 0.98);
+}
+
+
+/* =========================
+   CONTINUE AS GUEST
+   ========================= */
+
+.guest-btn {
+    width: 100%;
+
+    padding: 9px;
+
+    margin-top: 25px;
+
+    border: 1.5px solid rgba(255, 255, 255, 0.68);
+
+    border-radius: 25px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.80);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.guest-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================
+   SIGN UP FORM
+   ========================= */
+
+.signup-form {
+    display: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .login-page {
+        justify-content: center;
+
+        padding-left: 0;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .login-card {
+        width: calc(100% - 40px);
+
+        max-width: 340px;
+    }
 }
