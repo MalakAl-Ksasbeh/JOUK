@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JOUK - Chat</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="../../shared/brand.css">
+
+    <script src="../../shared/site-path.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <a href="../../home%20page/index.html" class="logo">
+            JOUK
+        </a>
+
+        <nav>
+            <a href="../../home%20page/index.html">Home</a>
+            <a href="../../plans/index.html">Plans</a>
+            <a href="../../paths/index.html">Explorers</a>
+            <a href="../../reviews/community/index.html">Reviews</a>
+            
+        </nav>
+
+        <div class="header-icons">
+
+            <!-- Search -->
+            <button class="icon-btn" type="button" aria-label="Search">
+                ⌕
+            </button>
+
+            <!-- Saved -->
+            <button class="icon-btn" type="button" aria-label="Saved">
+                ♡
+            </button>
+
+            <!-- Profile -->
+            <a href="../profile/index.html" class="profile-icon" aria-label="Profile">
+
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="3.5"></circle>
+
+                    <path
+                        d="M5.5 19c.8-3.2 3-5 6.5-5s5.7 1.8 6.5 5">
+                    </path>
+
+                    <circle cx="12" cy="12" r="9"></circle>
+                </svg>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CHAT PAGE ================= -->
+
+    <main class="chat-page">
+
+        <section class="chat-container">
+
+
+            <!-- ================= CHAT HEADER ================= -->
+
+            <div class="chat-header">
+
+                <!-- Back to Messages -->
+                <a
+                    href="../messages/index.html"
+                    class="back-btn"
+                    aria-label="Back to messages"
+                >
+                    ←
+                </a>
+
+
+                <!-- Omar Avatar -->
+                <div class="chat-avatar">
+                    OK
+                </div>
+
+
+                <!-- User Information -->
+                <div class="user-info">
+
+                    <h1>
+                        Omar Khaled
+                    </h1>
+
+                    <p>
+
+                        <span class="online-dot"></span>
+
+                        Active now
+
+                    </p>
+
+                </div>
+
+
+                <!-- Chat Actions -->
+                <div class="chat-actions">
+
+                    <button
+                        type="button"
+                        title="Call"
+                        aria-label="Call"
+                    >
+                        ☎
+                    </button>
+
+                    <button
+                        type="button"
+                        title="More"
+                        aria-label="More options"
+                    >
+                        ⋮
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MESSAGES ================= -->
+
+            <div
+                class="chat-messages"
+                id="chatMessages"
+            >
+
+
+                <!-- Today -->
+                <div class="day-label">
+                    Today
+                </div>
+
+
+                <!-- ================= OMAR MESSAGE 1 ================= -->
+
+                <div class="message-row received">
+
+                    <div class="small-avatar">
+                        OK
+                    </div>
+
+                    <div class="message-group">
+
+                        <div class="message-bubble">
+                            Hey! Did you visit Petra?
+                        </div>
+
+                        <span class="message-time">
+                            8:42 PM
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= MY MESSAGE 1 ================= -->
+
+                <div class="message-row sent">
+
+                    <div class="message-group">
+
+                        <div class="message-bubble">
+                            Yes! It was amazing 😊
+                        </div>
+
+                        <span class="message-time">
+                            8:43 PM ✓✓
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= OMAR MESSAGE 2 ================= -->
+
+                <div class="message-row received">
+
+                    <div class="small-avatar">
+                        OK
+                    </div>
+
+                    <div class="message-group">
+
+                        <div class="message-bubble">
+                            How many days do you recommend?
+                        </div>
+
+                        <span class="message-time">
+                            8:45 PM
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= MY MESSAGE 2 ================= -->
+
+                <div class="message-row sent">
+
+                    <div class="message-group">
+
+                        <div class="message-bubble">
+                            I think 1-2 days are perfect.
+                            You can explore the main site
+                            and also Little Petra.
+                        </div>
+
+                        <span class="message-time">
+                            8:46 PM ✓✓
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= OMAR MESSAGE 3 ================= -->
+
+                <div class="message-row received">
+
+                    <div class="small-avatar">
+                        OK
+                    </div>
+
+                    <div class="message-group">
+
+                        <div class="message-bubble">
+                            Great! Any specific places I shouldn't miss?
+                        </div>
+
+                        <span class="message-time">
+                            8:48 PM
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MESSAGE INPUT ================= -->
+
+            <div class="message-input-area">
+
+
+                <!-- Attachment -->
+                <button
+                    class="attach-btn"
+                    type="button"
+                    aria-label="Attach file"
+                >
+                    +
+                </button>
+
+
+                <!-- Message Input -->
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Type a message..."
+                    autocomplete="off"
+                    maxlength="1000"
+                >
+
+
+                <!-- Send Button -->
+                <button
+                    class="send-btn"
+                    id="sendBtn"
+                    type="button"
+                    aria-label="Send message"
+                >
+                    ➜
+                </button>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="chat.js"></script>
+
+
+</body>
+
+</html>

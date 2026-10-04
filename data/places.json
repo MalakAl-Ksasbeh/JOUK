@@ -5,7 +5,7 @@
 
     "location": "📍 Dead Sea, Jordan",
 
-    "image": "../images/deadsea.jpeg",
+    "image": "/images/deadsea.jpeg",
 
     "rating": "⭐ 4.8 (1.2k)",
 
@@ -58,11 +58,11 @@
 
     "photos": [
 
-      "../images/deadsea5.png",
+      "/images/deadsea5.png",
 
-      "../images/deadsea6.jpeg",
+      "/images/deadsea6.jpeg",
 
-      "../images/deadsea7.jpeg"
+      "/images/deadsea7.jpeg"
 
     ],
 
@@ -72,7 +72,7 @@
 
       {
 
-        "image": "../images/deadsea2.jpeg",
+        "image": "/images/deadsea2.jpeg",
 
         "title": "Floating Experience"
 
@@ -81,7 +81,7 @@
 
       {
 
-        "image": "../images/deadsea3.jpeg",
+        "image": "/images/deadsea3.jpeg",
 
         "title": "Therapeutic Mud"
 
@@ -90,7 +90,7 @@
 
       {
 
-        "image": "../images/deadsea4.jpeg",
+        "image": "/images/deadsea4.jpeg",
 
         "title": "Beautiful Landscape"
 
@@ -107,7 +107,7 @@
 
     "location": "📍 Petra, Jordan",
 
-    "image": "../images/petra.jpeg",
+    "image": "/images/petra.jpeg",
 
     "rating": "⭐ 4.9 (2k)",
 
@@ -160,11 +160,11 @@
 
     "photos": [
 
-      "../images/petra5.jpeg",
+      "/images/petra5.jpeg",
 
-      "../images/petra6.jpeg",
+      "/images/petra6.jpeg",
 
-      "../images/petra7.jpeg"
+      "/images/petra7.jpeg"
 
     ],
 
@@ -174,7 +174,7 @@
 
       {
 
-        "image": "../images/petra2.jpeg",
+        "image": "/images/petra2.jpeg",
 
         "title": "The Treasury"
 
@@ -183,7 +183,7 @@
 
       {
 
-        "image": "../images/petra3.jpeg",
+        "image": "/images/petra3.jpeg",
 
         "title": "The Siq"
 
@@ -192,7 +192,7 @@
 
       {
 
-        "image": "../images/petra4.jpeg",
+        "image": "/images/petra4.jpeg",
 
         "title": "Ancient Architecture"
 
@@ -207,7 +207,7 @@
 
     "location": "📍 Wadi Rum, Jordan",
 
-    "image": "../images/wadirum.jpeg",
+    "image": "/images/wadirum.jpeg",
 
     "rating": "⭐ 4.9 (1.5k)",
 
@@ -260,11 +260,11 @@
 
     "photos": [
 
-      "../images/wadirum5.jpeg",
+      "/images/wadirum5.jpeg",
 
-      "../images/wadirum6.jpeg",
+      "/images/wadirum6.jpeg",
 
-      "../images/wadirum7.jpeg"
+      "/images/wadirum7.jpeg"
 
     ],
 
@@ -274,7 +274,7 @@
 
       {
 
-        "image": "../images/wadirum2.jpeg",
+        "image": "/images/wadirum2.jpeg",
 
         "title": "Red Desert Mountains"
 
@@ -283,7 +283,7 @@
 
       {
 
-        "image": "../images/wadirum3.jpeg",
+        "image": "/images/wadirum3.jpeg",
 
         "title": "Desert Adventure"
 
@@ -292,7 +292,7 @@
 
       {
 
-        "image": "../images/wadirum4.jpeg",
+        "image": "/images/wadirum4.jpeg",
 
         "title": "Night Camping"
 
@@ -307,7 +307,7 @@
 
     "location": "📍 Ajloun Castle, Jordan",
 
-    "image": "../images/ajloun-culture.jpeg",
+    "image": "/images/ajloun-culture.jpeg",
 
     "rating": "⭐ 4.8 (900)",
 
@@ -360,11 +360,11 @@
 
     "photos": [
 
-      "../images/ajloun-culture5.jpeg",
+      "/images/ajloun-culture5.jpeg",
 
-      "../images/ajloun-culture6.jpeg",
+      "/images/ajloun-culture6.jpeg",
 
-      "../images/ajloun-culture7.jpeg"
+      "/images/ajloun-culture7.jpeg"
 
     ],
 
@@ -374,7 +374,7 @@
 
       {
 
-        "image": "../images/ajloun-culture2.jpeg",
+        "image": "/images/ajloun-culture2.jpeg",
 
         "title": "Historic Castle"
 
@@ -383,7 +383,7 @@
 
       {
 
-        "image": "../images/ajloun-culture3.jpeg",
+        "image": "/images/ajloun-culture3.jpeg",
 
         "title": "Ancient Architecture"
 
@@ -392,7 +392,7 @@
 
       {
 
-        "image": "../images/ajloun-culture4.jpeg",
+        "image": "/images/ajloun-culture4.jpeg",
 
         "title": "Mountain Views"
 
@@ -407,7 +407,7 @@
 
     "location": "📍 Ajloun Forest, Jordan",
 
-    "image": "../images/ajloun-relax.jpeg",
+    "image": "/images/ajloun-relax.jpeg",
 
     "rating": "⭐ 4.7 (850)",
 
@@ -462,11 +462,11 @@
 
     "photos": [
 
-      "../images/ajloun-relax5.jpeg",
+      "/images/ajloun-relax5.jpeg",
 
-      "../images/ajloun-relax6.jpeg",
+      "/images/ajloun-relax6.jpeg",
 
-      "../images/ajloun-relax7.jpeg"
+      "/images/ajloun-relax7.jpeg"
 
     ],
 
@@ -476,7 +476,7 @@
 
       {
 
-        "image": "../images/ajloun-relax2.jpeg",
+        "image": "/images/ajloun-relax2.jpeg",
 
         "title": "Green Forest Views"
 
@@ -485,7 +485,7 @@
 
       {
 
-        "image": "../images/ajloun-relax3.jpeg",
+        "image": "/images/ajloun-relax3.jpeg",
 
         "title": "Nature Trails"
 
@@ -494,7 +494,7 @@
 
       {
 
-        "image": "../images/ajloun-relax4.jpeg",
+        "image": "/images/ajloun-relax4.jpeg",
 
         "title": "Peaceful Escape"
 
@@ -509,7 +509,7 @@
 
     "location": "📍 Aqaba, Jordan",
 
-    "image": "../images/aqaba-adventure.jpeg",
+    "image": "/images/aqaba-adventure.jpeg",
 
     "rating": "⭐ 4.9 (1k)",
 
@@ -568,11 +568,11 @@
 
     "photos": [
 
-      "../images/aqaba-adventure5.jpeg",
+      "/images/aqaba-adventure5.jpeg",
 
-      "../images/aqaba-adventure6.jpeg",
+      "/images/aqaba-adventure6.jpeg",
 
-      "../images/aqaba-adventure7.jpeg"
+      "/images/aqaba-adventure7.jpeg"
 
     ],
 
@@ -582,7 +582,7 @@
 
       {
 
-        "image": "../images/aqaba-adventure2.jpeg",
+        "image": "/images/aqaba-adventure2.jpeg",
 
         "title": "Diving Experience"
 
@@ -591,7 +591,7 @@
 
       {
 
-        "image": "../images/aqaba-adventure3.jpeg",
+        "image": "/images/aqaba-adventure3.jpeg",
 
         "title": "Red Sea Activities"
 
@@ -600,7 +600,7 @@
 
       {
 
-        "image": "../images/aqaba-adventure4.jpeg",
+        "image": "/images/aqaba-adventure4.jpeg",
 
         "title": "Boat Adventure"
 
@@ -615,7 +615,7 @@
 
     "location": "📍 Aqaba, Jordan",
 
-    "image": "../images/aqaba-relax.jpeg",
+    "image": "/images/aqaba-relax.jpeg",
 
     "rating": "⭐ 4.8 (1.3k)",
 
@@ -674,11 +674,11 @@
 
     "photos": [
 
-      "../images/aqaba-relax5.jpeg",
+      "/images/aqaba-relax5.jpeg",
 
-      "../images/aqaba-relax6.jpeg",
+      "/images/aqaba-relax6.jpeg",
 
-      "../images/aqaba-relax7.jpeg"
+      "/images/aqaba-relax7.jpeg"
 
     ],
 
@@ -688,7 +688,7 @@
 
       {
 
-        "image": "../images/aqaba-relax2.jpeg",
+        "image": "/images/aqaba-relax2.jpeg",
 
         "title": "Beautiful Beaches"
 
@@ -697,7 +697,7 @@
 
       {
 
-        "image": "../images/aqaba-relax3.jpeg",
+        "image": "/images/aqaba-relax3.jpeg",
 
         "title": "Luxury Resorts"
 
@@ -706,7 +706,7 @@
 
       {
 
-        "image": "../images/aqaba-relax4.jpeg",
+        "image": "/images/aqaba-relax4.jpeg",
 
         "title": "Red Sea Sunset"
 
@@ -723,7 +723,7 @@
 
     "location": "📍 Wadi Mujib, Jordan",
 
-    "image": "../images/wadimujib.jpeg",
+    "image": "/images/wadimujib.jpeg",
 
     "rating": "⭐ 4.8 (1k)",
 
@@ -776,11 +776,11 @@
 
     "photos": [
 
-      "../images/wadimujib5.jpeg",
+      "/images/wadimujib5.jpeg",
 
-      "../images/wadimujib6.jpeg",
+      "/images/wadimujib6.jpeg",
 
-      "../images/wadimujib7.jpeg"
+      "/images/wadimujib7.jpeg"
 
     ],
 
@@ -790,7 +790,7 @@
 
       {
 
-        "image": "../images/wadimujib2.jpeg",
+        "image": "/images/wadimujib2.jpeg",
 
         "title": "Canyon Adventure"
 
@@ -799,7 +799,7 @@
 
       {
 
-        "image": "../images/wadimujib3.jpeg",
+        "image": "/images/wadimujib3.jpeg",
 
         "title": "Water Trails"
 
@@ -808,7 +808,7 @@
 
       {
 
-        "image": "../images/wadimujib4.jpeg",
+        "image": "/images/wadimujib4.jpeg",
 
         "title": "Mountain Landscape"
 
@@ -823,7 +823,7 @@
 
     "location": "📍 Ma'in, Jordan",
 
-    "image": "../images/main.jpeg",
+    "image": "/images/main.jpeg",
 
     "rating": "⭐ 4.7 (900)",
 
@@ -876,11 +876,11 @@
 
     "photos": [
 
-      "../images/main5.jpeg",
+      "/images/main5.jpeg",
 
-      "../images/main6.jpeg",
+      "/images/main6.jpeg",
 
-      "../images/main7.jpeg"
+      "/images/main7.jpeg"
 
     ],
 
@@ -890,7 +890,7 @@
 
       {
 
-        "image": "../images/main2.jpeg",
+        "image": "/images/main2.jpeg",
 
         "title": "Hot Waterfalls"
 
@@ -899,7 +899,7 @@
 
       {
 
-        "image": "../images/main3.jpeg",
+        "image": "/images/main3.jpeg",
 
         "title": "Natural Pools"
 
@@ -908,7 +908,7 @@
 
       {
 
-        "image": "../images/main4.jpeg",
+        "image": "/images/main4.jpeg",
 
         "title": "Mountain Views"
 
@@ -923,7 +923,7 @@
 
     "location": "📍 Jerash, Jordan",
 
-    "image": "../images/jerash.jpeg",
+    "image": "/images/jerash.jpeg",
 
     "rating": "⭐ 4.8 (1.1k)",
 
@@ -976,11 +976,11 @@
 
     "photos": [
 
-      "../images/jerash5.jpeg",
+      "/images/jerash5.jpeg",
 
-      "../images/jerash6.jpeg",
+      "/images/jerash6.jpeg",
 
-      "../images/jerash7.jpeg"
+      "/images/jerash7.jpeg"
 
     ],
 
@@ -990,7 +990,7 @@
 
       {
 
-        "image": "../images/jerash2.jpeg",
+        "image": "/images/jerash2.jpeg",
 
         "title": "Roman Ruins"
 
@@ -999,7 +999,7 @@
 
       {
 
-        "image": "../images/jerash3.jpeg",
+        "image": "/images/jerash3.jpeg",
 
         "title": "Oval Plaza"
 
@@ -1008,7 +1008,7 @@
 
       {
 
-        "image": "../images/jerash4.jpeg",
+        "image": "/images/jerash4.jpeg",
 
         "title": "Ancient Theater"
 
@@ -1023,7 +1023,7 @@
 
     "location": "📍 Umm Qais, Jordan",
 
-    "image": "../images/ummqais.jpeg",
+    "image": "/images/ummqais.jpeg",
 
     "rating": "⭐ 4.8 (1k)",
 
@@ -1078,11 +1078,11 @@
 
     "photos": [
 
-      "../images/ummqais5.jpeg",
+      "/images/ummqais5.jpeg",
 
-      "../images/ummqais6.jpeg",
+      "/images/ummqais6.jpeg",
 
-      "../images/ummqais7.jpeg"
+      "/images/ummqais7.jpeg"
 
     ],
 
@@ -1092,7 +1092,7 @@
 
       {
 
-        "image": "../images/ummqais2.jpeg",
+        "image": "/images/ummqais2.jpeg",
 
         "title": "Roman Ruins"
 
@@ -1101,7 +1101,7 @@
 
       {
 
-        "image": "../images/ummqais3.jpeg",
+        "image": "/images/ummqais3.jpeg",
 
         "title": "Ancient Theater"
 
@@ -1110,7 +1110,7 @@
 
       {
 
-        "image": "../images/ummqais4.jpeg",
+        "image": "/images/ummqais4.jpeg",
 
         "title": "Panoramic Views"
 
@@ -1126,7 +1126,7 @@
 
     "location": "📍 Dana, Jordan",
 
-    "image": "../images/dana.jpeg",
+    "image": "/images/dana.jpeg",
 
     "rating": "⭐ 4.8 (1k)",
 
@@ -1181,11 +1181,11 @@
 
     "photos": [
 
-      "../images/dana5.jpeg",
+      "/images/dana5.jpeg",
 
-      "../images/dana6.jpeg",
+      "/images/dana6.jpeg",
 
-      "../images/dana7.jpeg"
+      "/images/dana7.jpeg"
 
     ],
 
@@ -1195,7 +1195,7 @@
 
       {
 
-        "image": "../images/dana2.jpeg",
+        "image": "/images/dana2.jpeg",
 
         "title": "Amazing Landscapes"
 
@@ -1204,7 +1204,7 @@
 
       {
 
-        "image": "../images/dana3.jpeg",
+        "image": "/images/dana3.jpeg",
 
         "title": "Hiking Trails"
 
@@ -1213,7 +1213,7 @@
 
       {
 
-        "image": "../images/dana4.jpeg",
+        "image": "/images/dana4.jpeg",
 
         "title": "Nature & Wildlife"
 
@@ -1228,7 +1228,7 @@
 
     "location": "📍 Al Karak, Jordan",
 
-    "image": "../images/karak.jpeg",
+    "image": "/images/karak.jpeg",
 
     "rating": "⭐ 4.8 (1k)",
 
@@ -1283,11 +1283,11 @@
 
     "photos": [
 
-      "../images/karak5.jpeg",
+      "/images/karak5.jpeg",
 
-      "../images/karak6.jpeg",
+      "/images/karak6.jpeg",
 
-      "../images/karak7.jpeg"
+      "/images/karak7.jpeg"
 
     ],
 
@@ -1297,7 +1297,7 @@
 
       {
 
-        "image": "../images/karak2.jpeg",
+        "image": "/images/karak2.jpeg",
 
         "title": "Historic Castle"
 
@@ -1306,7 +1306,7 @@
 
       {
 
-        "image": "../images/karak3.jpeg",
+        "image": "/images/karak3.jpeg",
 
         "title": "Ancient Architecture"
 
@@ -1315,7 +1315,7 @@
 
       {
 
-        "image": "../images/karak4.jpeg",
+        "image": "/images/karak4.jpeg",
 
         "title": "City Views"
 
@@ -1330,7 +1330,7 @@
 
     "location": "📍 Dibeen Forest, Jordan",
 
-    "image": "../images/dibeen.jpeg",
+    "image": "/images/dibeen.jpeg",
 
     "rating": "⭐ 4.7 (850)",
 
@@ -1385,11 +1385,11 @@
 
     "photos": [
 
-      "../images/dibeen5.jpeg",
+      "/images/dibeen5.jpeg",
 
-      "../images/dibeen6.jpeg",
+      "/images/dibeen6.jpeg",
 
-      "../images/dibeen7.jpeg"
+      "/images/dibeen7.jpeg"
 
     ],
 
@@ -1399,7 +1399,7 @@
 
       {
 
-        "image": "../images/dibeen2.jpeg",
+        "image": "/images/dibeen2.jpeg",
 
         "title": "Forest Trails"
 
@@ -1408,7 +1408,7 @@
 
       {
 
-        "image": "../images/dibeen3.jpeg",
+        "image": "/images/dibeen3.jpeg",
 
         "title": "Outdoor Adventure"
 
@@ -1417,7 +1417,7 @@
 
       {
 
-        "image": "../images/dibeen4.jpeg",
+        "image": "/images/dibeen4.jpeg",
 
         "title": "Nature Escape"
 
@@ -1432,7 +1432,7 @@
 
     "location": "📍 Amman, Jordan",
 
-    "image": "../images/roman-theater.jpeg",
+    "image": "/images/roman-theater.jpeg",
 
     "rating": "⭐ 4.7 (900)",
 
@@ -1487,11 +1487,11 @@
 
     "photos": [
 
-      "../images/roman-theater5.jpeg",
+      "/images/roman-theater5.jpeg",
 
-      "../images/roman-theater6.jpeg",
+      "/images/roman-theater6.jpeg",
 
-      "../images/roman-theater7.jpeg"
+      "/images/roman-theater7.jpeg"
 
     ],
 
@@ -1501,7 +1501,7 @@
 
       {
 
-        "image": "../images/roman-theater2.jpeg",
+        "image": "/images/roman-theater2.jpeg",
 
         "title": "Ancient Roman Architecture"
 
@@ -1510,7 +1510,7 @@
 
       {
 
-        "image": "../images/roman-theater3.jpeg",
+        "image": "/images/roman-theater3.jpeg",
 
         "title": "Historic Stage"
 
@@ -1519,7 +1519,7 @@
 
       {
 
-        "image": "../images/roman-theater4.jpeg",
+        "image": "/images/roman-theater4.jpeg",
 
         "title": "Amman City View"
 
@@ -1534,7 +1534,7 @@
 
     "location": "📍 Shobak, Jordan",
 
-    "image": "../images/shobak.png",
+    "image": "/images/shobak.png",
 
     "rating": "⭐ 4.7 (800)",
 
@@ -1589,11 +1589,11 @@
 
     "photos": [
 
-      "../images/shobak5.jpeg",
+      "/images/shobak5.jpeg",
 
-      "../images/shobak6.jpeg",
+      "/images/shobak6.jpeg",
 
-      "../images/shobak7.jpeg"
+      "/images/shobak7.jpeg"
 
     ],
 
@@ -1603,7 +1603,7 @@
 
       {
 
-        "image": "../images/shobak2.jpeg",
+        "image": "/images/shobak2.jpeg",
 
         "title": "Mountain Hiking Trails"
 
@@ -1612,7 +1612,7 @@
 
       {
 
-        "image": "../images/shobak3.jpeg",
+        "image": "/images/shobak3.jpeg",
 
         "title": "Historic Landscape"
 
@@ -1621,7 +1621,7 @@
 
       {
 
-        "image": "../images/shobak4.jpeg",
+        "image": "/images/shobak4.jpeg",
 
         "title": "Amazing Views"
 
@@ -1636,7 +1636,7 @@
 
     "location": "📍 Afra, Tafila, Jordan",
 
-    "image": "../images/afra1.png",
+    "image": "/images/afra1.png",
 
     "rating": "⭐ 4.6 (600)",
 
@@ -1691,11 +1691,11 @@
 
     "photos": [
 
-      "../images/afra5.jpeg",
+      "/images/afra5.jpeg",
 
-      "../images/afra6.jpeg",
+      "/images/afra6.jpeg",
 
-      "../images/afra7.jpeg"
+      "/images/afra7.jpeg"
 
     ],
 
@@ -1705,7 +1705,7 @@
 
       {
 
-        "image": "../images/afra2.jpeg",
+        "image": "/images/afra2.jpeg",
 
         "title": "Natural Hot Springs"
 
@@ -1714,7 +1714,7 @@
 
       {
 
-        "image": "../images/afra3.jpeg",
+        "image": "/images/afra3.jpeg",
 
         "title": "Warm Water Pools"
 
@@ -1723,7 +1723,7 @@
 
       {
 
-        "image": "../images/afra4.jpeg",
+        "image": "/images/afra4.jpeg",
 
         "title": "Mountain Views"
 

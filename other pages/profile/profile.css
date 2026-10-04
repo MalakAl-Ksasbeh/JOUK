@@ -1,0 +1,1868 @@
+/* ==================================================
+                    JOUK PROFILE
+================================================== */
+
+:root {
+    --bg: #f8f5ef;
+    --card: #ffffff;
+    --text: #24211e;
+    --muted: #777169;
+    --green: #294542;
+    --green-dark: #203936;
+    --border: #ddd5c8;
+
+    --serif: 'Playfair Display', serif;
+    --sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+/* ==================================================
+                    RESET
+================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: var(--sans);
+
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==================================================
+                    HEADER
+================================================== */
+
+.profile-header {
+    width: 100%;
+    height: 82px;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    padding: 0 70px;
+
+    background: rgba(243, 236, 221, 0.96);
+
+    border-bottom: 1px solid rgba(36, 33, 30, 0.07);
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    justify-self: start;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-family: var(--serif);
+    font-size: 35px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    line-height: 1;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.profile-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 45px;
+}
+
+.profile-nav a {
+    position: relative;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.profile-nav a:hover {
+    opacity: 0.65;
+    transform: translateY(-1px);
+}
+
+
+/* ================= HEADER ICONS ================= */
+
+.header-icons {
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.icon-btn {
+    width: 38px;
+    height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: rgba(41, 69, 66, 0.08);
+
+    transform: translateY(-1px);
+}
+
+.icon-btn svg {
+    width: 19px;
+    height: 19px;
+
+    stroke-width: 1.7;
+}
+
+.profile-header-btn {
+    border: 1px solid rgba(36, 33, 30, 0.16);
+}
+
+
+/* ==================================================
+                    PROFILE PAGE
+================================================== */
+
+.profile-page {
+    width: 100%;
+
+    padding-bottom: 80px;
+}
+
+
+/* ==================================================
+                    COVER
+================================================== */
+
+.profile-cover {
+    width: min(1180px, calc(100% - 80px));
+    height: 315px;
+
+    margin: 32px auto 0;
+
+    overflow: hidden;
+
+    position: relative;
+
+    border-radius: 22px;
+
+    background: #d9d0c2;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center 47%;
+}
+
+
+/* subtle overlay */
+
+.profile-cover::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.01),
+            rgba(0, 0, 0, 0.10)
+        );
+}
+
+
+/* ==================================================
+                    PROFILE INFO
+================================================== */
+
+.profile-info {
+    width: min(1080px, calc(100% - 100px));
+
+    margin: 0 auto;
+
+    position: relative;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+                    AVATAR
+================================================== */
+
+.avatar-wrapper {
+    width: 138px;
+    height: 138px;
+
+    margin: -69px auto 17px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.profile-avatar {
+    width: 138px;
+    height: 138px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 6px solid var(--bg);
+
+    background: #d8d0c4;
+
+    box-shadow:
+        0 7px 22px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ================= CAMERA ================= */
+
+.camera-btn {
+    position: absolute;
+
+    right: 3px;
+    bottom: 8px;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 3px solid var(--bg);
+    border-radius: 50%;
+
+    background: var(--green);
+    color: #fff;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.camera-btn:hover {
+    transform: scale(1.06);
+
+    background: var(--green-dark);
+}
+
+.camera-btn svg {
+    width: 15px;
+    height: 15px;
+
+    stroke-width: 1.8;
+}
+
+
+/* ==================================================
+                    PROFILE TEXT
+================================================== */
+
+.profile-display-info {
+    width: 100%;
+
+    text-align: center;
+}
+
+.profile-display-info h1 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 600;
+
+    line-height: 1.15;
+
+    color: var(--text);
+}
+
+.profile-bio {
+    margin: 8px 0 0;
+
+    color: #59554f;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.profile-location {
+    margin: 8px 0 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.profile-location svg {
+    width: 13px;
+    height: 13px;
+
+    stroke-width: 1.7;
+}
+
+
+/* ==================================================
+                    PROFILE STATS
+================================================== */
+
+.profile-stats {
+    max-width: 590px;
+
+    margin: 27px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    align-items: stretch;
+}
+
+.stat {
+    min-height: 55px;
+
+    padding: 3px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.stat:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 8px;
+    right: 0;
+
+    width: 1px;
+    height: 39px;
+
+    background: rgba(36, 33, 30, 0.13);
+}
+
+.stat strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    color: var(--text);
+}
+
+.stat span {
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+                    EDIT PROFILE BUTTON
+================================================== */
+
+.edit-profile-btn {
+    min-width: 132px;
+    height: 38px;
+
+    margin-top: 20px;
+
+    padding: 0 22px;
+
+    border: 1px solid var(--green);
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.edit-profile-btn:hover {
+    background: var(--green);
+    color: #fff;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==================================================
+                    PROFILE TABS
+================================================== */
+
+.profile-tabs {
+    width: min(1080px, calc(100% - 100px));
+
+    margin: 48px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 55px;
+
+    border-bottom: 1px solid rgba(36, 33, 30, 0.14);
+}
+
+.tab {
+    position: relative;
+
+    min-height: 47px;
+
+    padding: 0 3px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #777169;
+
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.tab::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 2px;
+
+    background: transparent;
+}
+
+.tab:hover {
+    color: var(--text);
+}
+
+.tab.active {
+    color: var(--green);
+
+    font-weight: 600;
+}
+
+.tab.active::after {
+    background: var(--green);
+}
+
+
+/* ==================================================
+                    PROFILE SECTION
+================================================== */
+
+.profile-section {
+    width: min(1080px, calc(100% - 100px));
+
+    margin: 42px auto 0;
+}
+
+.section-heading {
+    margin-bottom: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 500;
+
+    color: var(--text);
+}
+
+.see-all {
+    padding: 5px 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--green);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.see-all:hover {
+    opacity: 0.7;
+
+    transform: translateX(2px);
+}
+
+
+/* ==================================================
+                    PLACES GRID
+================================================== */
+
+.places-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* ==================================================
+                    PLACE CARD
+================================================== */
+
+.place-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.055);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.place-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.10);
+}
+
+.place-card a {
+    display: block;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+.place-card img {
+    width: 100%;
+    height: 185px;
+
+    object-fit: cover;
+}
+
+.place-card h3 {
+    margin: 0;
+
+    padding: 15px 16px 17px;
+
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+
+    color: var(--text);
+}
+
+
+/* ==================================================
+                    EXPERIENCES SECTION
+================================================== */
+
+.experiences-section {
+    width: min(1080px, calc(100% - 100px));
+
+    margin: 42px auto 0;
+}
+
+.experiences-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ==================================================
+                    EXPERIENCE CARD
+================================================== */
+
+.experience-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #fff;
+
+    box-shadow:
+        0 4px 17px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.09);
+}
+
+.experience-image {
+    width: 100%;
+    height: 245px;
+
+    object-fit: cover;
+}
+
+.experience-content {
+    padding: 18px 20px 16px;
+}
+
+
+/* ================= EXPERIENCE TITLE ================= */
+
+.experience-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.experience-title h3 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+
+    color: var(--text);
+}
+
+.rating {
+    flex-shrink: 0;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: #f6edd1;
+
+    color: #6e5920;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
+/* ================= EXPERIENCE TEXT ================= */
+
+.experience-content > p {
+    margin: 10px 0 15px;
+
+    color: #666159;
+
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+
+/* ==================================================
+                    EXPERIENCE ACTIONS
+================================================== */
+
+.experience-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding-top: 13px;
+
+    border-top: 1px solid #eee9e1;
+}
+
+.action-btn {
+    min-width: 33px;
+    height: 31px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 0 8px;
+
+    border: 0;
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #706b64;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.action-btn:hover {
+    background: #f2eee6;
+
+    color: var(--green);
+
+    transform: translateY(-1px);
+}
+
+.action-btn svg {
+    width: 14px;
+    height: 14px;
+
+    stroke-width: 1.7;
+}
+
+.action-btn.bookmark {
+    margin-left: auto;
+}
+
+.action-btn.active {
+    color: var(--green);
+
+    background: rgba(41, 69, 66, 0.08);
+}
+
+
+/* ==================================================
+             DYNAMIC EXPERIENCE CARDS
+================================================== */
+
+/*
+    These selectors also support experience cards
+    created later by profile.js from localStorage.
+*/
+
+.user-experience-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #fff;
+
+    box-shadow:
+        0 4px 17px rgba(0, 0, 0, 0.06);
+}
+
+.user-experience-card img {
+    width: 100%;
+    height: 245px;
+
+    object-fit: cover;
+}
+
+.user-experience-content {
+    padding: 18px 20px;
+}
+
+.user-experience-content h3 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.user-experience-content p {
+    margin: 9px 0 0;
+
+    color: #666159;
+
+    font-size: 11px;
+    line-height: 1.65;
+}
+/* ==================================================
+                    EDIT PROFILE FORM
+================================================== */
+
+.edit-profile-form {
+    width: min(620px, 100%);
+
+    margin: 10px auto 0;
+
+    padding: 24px 28px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border: 1px solid rgba(36, 33, 30, 0.08);
+    border-radius: 16px;
+
+    box-shadow:
+        0 7px 22px rgba(0, 0, 0, 0.05);
+
+    text-align: left;
+}
+
+
+.edit-fields {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 17px;
+}
+
+
+.edit-field {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.edit-field:nth-child(2) {
+    grid-column: span 2;
+}
+
+
+.edit-field label {
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+.edit-field input {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d8d1c6;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: var(--text);
+
+    font-family: var(--sans);
+    font-size: 11px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.edit-field input:focus {
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 3px rgba(41, 69, 66, 0.08);
+}
+
+
+.location-input-wrapper {
+    position: relative;
+}
+
+
+.location-input-wrapper svg {
+    position: absolute;
+
+    left: 12px;
+    top: 50%;
+
+    width: 14px;
+    height: 14px;
+
+    transform: translateY(-50%);
+
+    color: #777169;
+
+    pointer-events: none;
+}
+
+
+.location-input-wrapper input {
+    padding-left: 35px;
+}
+
+
+/* ==================================================
+                EDIT PROFILE ACTIONS
+================================================== */
+
+.edit-profile-actions {
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+.cancel-profile-btn,
+.save-profile-btn {
+    height: 38px;
+
+    padding: 0 19px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.cancel-profile-btn {
+    border: 1px solid #d6cec1;
+
+    background: transparent;
+
+    color: #69635c;
+}
+
+
+.cancel-profile-btn:hover {
+    background: #eee8de;
+
+    transform: translateY(-1px);
+}
+
+
+.save-profile-btn {
+    border: 1px solid var(--green);
+
+    background: var(--green);
+
+    color: #fff;
+}
+
+
+.save-profile-btn:hover {
+    background: var(--green-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* ==================================================
+                    PHOTOS SECTION
+================================================== */
+
+.photos-count {
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+
+.profile-photos-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* Supports images created by JavaScript */
+
+.profile-photos-grid img,
+.profile-photo-item img {
+    width: 100%;
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.profile-photo-item {
+    min-width: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+
+.profile-photos-grid img:hover,
+.profile-photo-item:hover img {
+    transform: scale(1.015);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ==================================================
+                    PHOTOS EMPTY STATE
+================================================== */
+
+.photos-empty-state {
+    min-height: 260px;
+
+    padding: 45px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border: 1px dashed rgba(41, 69, 66, 0.22);
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.40);
+}
+
+
+.photos-empty-state > svg {
+    width: 30px;
+    height: 30px;
+
+    margin-bottom: 14px;
+
+    color: var(--green);
+
+    stroke-width: 1.4;
+}
+
+
+.photos-empty-state h3 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+}
+
+
+.photos-empty-state p {
+    max-width: 370px;
+
+    margin: 8px auto 18px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+.share-photo-experience-btn {
+    min-height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    background: var(--green);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.share-photo-experience-btn:hover {
+    background: var(--green-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* ==================================================
+                    SAVED PLANS
+================================================== */
+
+.saved-plans-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/*
+    These selectors support cards created
+    dynamically by profile.js.
+*/
+
+.saved-plan-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    box-shadow:
+        0 4px 17px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.saved-plan-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 9px 23px rgba(0, 0, 0, 0.09);
+}
+
+
+.saved-plan-card img {
+    width: 100%;
+    height: 175px;
+
+    object-fit: cover;
+}
+
+
+.saved-plan-content {
+    padding: 16px;
+}
+
+
+.saved-plan-content h3,
+.saved-plan-card h3 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+.saved-plan-content p,
+.saved-plan-card p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+                SAVED PLANS EMPTY STATE
+================================================== */
+
+.saved-empty-state {
+    min-height: 260px;
+
+    padding: 45px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border: 1px dashed rgba(41, 69, 66, 0.22);
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.40);
+}
+
+
+.saved-empty-state > svg {
+    width: 31px;
+    height: 31px;
+
+    margin-bottom: 14px;
+
+    color: var(--green);
+
+    stroke-width: 1.4;
+}
+
+
+.saved-empty-state h3 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+}
+
+
+.saved-empty-state p {
+    margin: 8px 0 18px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+.browse-plans-btn {
+    min-height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    background: var(--green);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.browse-plans-btn:hover {
+    background: var(--green-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* Hide empty state when JS has plans */
+
+.saved-empty-state.hidden {
+    display: none;
+}
+
+
+/* ==================================================
+            GENERIC DYNAMIC PROFILE ELEMENTS
+================================================== */
+
+.profile-section a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.profile-section button {
+    font-family: var(--sans);
+}
+
+
+/* ==================================================
+                    RESPONSIVE
+================================================== */
+
+@media (max-width: 1050px) {
+
+    .profile-header {
+        padding: 0 40px;
+    }
+
+
+    .profile-cover {
+        width: calc(100% - 50px);
+    }
+
+
+    .profile-info,
+    .profile-tabs,
+    .profile-section,
+    .experiences-section {
+        width: calc(100% - 70px);
+    }
+
+
+    .places-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .saved-plans-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==================================================
+                    TABLET
+================================================== */
+
+@media (max-width: 780px) {
+
+    .profile-header {
+        height: auto;
+
+        min-height: 75px;
+
+        grid-template-columns: auto 1fr auto;
+
+        padding: 0 24px;
+    }
+
+
+    .logo {
+        font-size: 29px;
+    }
+
+
+    .profile-nav {
+        justify-self: center;
+
+        gap: 20px;
+    }
+
+
+    .profile-nav a {
+        font-size: 11px;
+    }
+
+
+    .header-icons {
+        gap: 4px;
+    }
+
+
+    .header-icons .icon-btn:not(.profile-header-btn) {
+        display: none;
+    }
+
+
+    .profile-cover {
+        width: calc(100% - 30px);
+        height: 245px;
+
+        margin-top: 18px;
+
+        border-radius: 17px;
+    }
+
+
+    .profile-info {
+        width: calc(100% - 36px);
+    }
+
+
+    .avatar-wrapper,
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+
+    .avatar-wrapper {
+        margin-top: -60px;
+    }
+
+
+    .profile-display-info h1 {
+        font-size: 30px;
+    }
+
+
+    .profile-stats {
+        max-width: 520px;
+    }
+
+
+    .stat {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+
+    .profile-tabs {
+        width: calc(100% - 36px);
+
+        gap: 30px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        scrollbar-width: none;
+    }
+
+
+    .profile-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .tab {
+        flex: 0 0 auto;
+
+        white-space: nowrap;
+    }
+
+
+    .profile-section,
+    .experiences-section {
+        width: calc(100% - 36px);
+
+        margin-top: 35px;
+    }
+
+
+    .places-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .experiences-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile-photos-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .saved-plans-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .edit-profile-form {
+        padding: 21px;
+    }
+
+}
+
+
+/* ==================================================
+                    MOBILE
+================================================== */
+
+@media (max-width: 560px) {
+
+    .profile-header {
+        min-height: 68px;
+
+        grid-template-columns:
+            auto 1fr auto;
+
+        padding: 0 17px;
+    }
+
+
+    .logo {
+        font-size: 26px;
+    }
+
+
+    .profile-nav {
+        display: none;
+    }
+
+
+    .profile-cover {
+        width: calc(100% - 20px);
+        height: 205px;
+
+        margin-top: 10px;
+
+        border-radius: 14px;
+    }
+
+
+    .profile-info {
+        width: calc(100% - 24px);
+    }
+
+
+    .avatar-wrapper,
+    .profile-avatar {
+        width: 105px;
+        height: 105px;
+    }
+
+
+    .avatar-wrapper {
+        margin-top: -52px;
+        margin-bottom: 13px;
+    }
+
+
+    .profile-avatar {
+        border-width: 5px;
+    }
+
+
+    .camera-btn {
+        width: 31px;
+        height: 31px;
+
+        right: 0;
+        bottom: 5px;
+    }
+
+
+    .profile-display-info h1 {
+        font-size: 27px;
+    }
+
+
+    .profile-bio {
+        font-size: 11px;
+    }
+
+
+    .profile-location {
+        font-size: 10px;
+    }
+
+
+    .profile-stats {
+        width: 100%;
+
+        margin-top: 23px;
+    }
+
+
+    .stat {
+        min-width: 0;
+
+        padding: 2px 4px;
+    }
+
+
+    .stat strong {
+        font-size: 18px;
+    }
+
+
+    .stat span {
+        font-size: 7px;
+    }
+
+
+    .stat:not(:last-child)::after {
+        height: 34px;
+    }
+
+
+    .edit-profile-btn {
+        margin-top: 18px;
+    }
+
+
+    .profile-tabs {
+        width: calc(100% - 24px);
+
+        margin-top: 37px;
+
+        gap: 27px;
+    }
+
+
+    .profile-section,
+    .experiences-section {
+        width: calc(100% - 24px);
+
+        margin-top: 30px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+
+    .places-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .place-card img {
+        height: 220px;
+    }
+
+
+    .experiences-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .experience-image,
+    .user-experience-card img {
+        height: 220px;
+    }
+
+
+    .profile-photos-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .profile-photos-grid img,
+    .profile-photo-item img {
+        height: 170px;
+
+        border-radius: 9px;
+    }
+
+
+    .saved-plans-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .edit-profile-form {
+        padding: 18px;
+
+        border-radius: 13px;
+    }
+
+
+    .edit-fields {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+
+    .edit-field:nth-child(2) {
+        grid-column: span 1;
+    }
+
+
+    .edit-profile-actions {
+        justify-content: stretch;
+    }
+
+
+    .cancel-profile-btn,
+    .save-profile-btn {
+        flex: 1;
+    }
+
+}
+
+
+/* ==================================================
+                    VERY SMALL MOBILE
+================================================== */
+
+@media (max-width: 380px) {
+
+    .profile-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        row-gap: 15px;
+    }
+
+
+    .stat:nth-child(2)::after {
+        display: none;
+    }
+
+
+    .profile-photos-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile-photos-grid img,
+    .profile-photo-item img {
+        height: 230px;
+    }
+
+}

@@ -1,0 +1,422 @@
+:root {
+    --bg: #f8f5ef;
+    --card: #f8f4eb;
+    --text: #24211e;
+    --muted: #777168;
+    --line: #ded8cd;
+    --green: #243a2d;
+
+    --serif: "Playfair Display", serif;
+    --sans: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* ================= RESET ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: var(--sans);
+}
+
+
+/* ================= HEADER ================= */
+
+.main-header {
+    width: 92%;
+    max-width: 1250px;
+
+    height: 85px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* JOUK */
+
+.logo {
+    position: absolute;
+    left: 0;
+
+    font-family: var(--serif);
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+    color: var(--text);
+    text-decoration: none;
+}
+
+
+/* Navigation */
+
+.main-header nav {
+    display: flex;
+    align-items: center;
+
+    gap: 48px;
+}
+
+.main-header nav a {
+    color: var(--text);
+    text-decoration: none;
+
+    font-family: var(--serif);
+    font-size: 14px;
+}
+
+
+/* Header icons */
+
+.header-icons {
+    position: absolute;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.icon-btn {
+    border: none;
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 21px;
+
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.profile-icon {
+    width: 28px;
+    height: 28px;
+
+    border: 1px solid var(--text);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--text);
+    text-decoration: none;
+
+    font-size: 15px;
+}
+
+
+/* ================= PAGE ================= */
+
+.messages-page {
+    width: 92%;
+    max-width: 1050px;
+
+    margin: 20px auto 70px;
+}
+
+
+/* Main messages box */
+
+.messages-container {
+    width: 100%;
+
+    background: #f8f4eb;
+
+    border-radius: 14px;
+
+    padding: 30px 32px 18px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.025);
+}
+
+
+/* ================= TITLE ================= */
+
+.messages-heading h1 {
+    margin: 0 0 20px;
+
+    font-family: var(--serif);
+
+    font-size: 34px;
+    font-weight: 600;
+}
+
+
+/* ================= SEARCH ================= */
+
+.messages-search {
+    width: 100%;
+    height: 46px;
+
+    position: relative;
+
+    margin-bottom: 12px;
+}
+
+.search-symbol {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 17px;
+    color: #706c65;
+
+    z-index: 2;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 18px 0 43px;
+
+    border: 1px solid #ded9d0;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #fff;
+
+    font-family: var(--sans);
+    font-size: 12px;
+
+    color: var(--text);
+}
+
+.search-input::placeholder {
+    color: #98938b;
+}
+
+.search-input:focus {
+    border-color: #aaa49a;
+}
+
+
+/* ================= CONVERSATION LIST ================= */
+
+.conversations-list {
+    width: 100%;
+}
+
+
+/* Each conversation */
+
+.conversation-item {
+    min-height: 78px;
+
+    display: grid;
+
+    grid-template-columns: 54px 1fr auto;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 10px 8px;
+
+    border-bottom: 1px solid var(--line);
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.conversation-item:last-child {
+    border-bottom: none;
+}
+
+.conversation-item:hover {
+    background: rgba(36, 58, 45, 0.035);
+}
+
+
+/* ================= AVATAR ================= */
+
+.conversation-avatar {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #d9d4ca;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-family: var(--serif);
+    font-size: 13px;
+
+    color: #57534d;
+
+    overflow: hidden;
+}
+
+
+/* Later when we add real profile photos */
+
+.conversation-avatar img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* ================= USER INFORMATION ================= */
+
+.conversation-info {
+    min-width: 0;
+}
+
+.conversation-name {
+    margin: 0 0 4px;
+
+    font-family: var(--serif);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.conversation-preview {
+    margin: 0;
+
+    color: #6f6a63;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 600px;
+}
+
+
+/* ================= TIME ================= */
+
+.conversation-meta {
+    min-width: 75px;
+
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 6px;
+}
+
+.conversation-time {
+    font-size: 10px;
+
+    color: #8a857e;
+
+    white-space: nowrap;
+}
+
+
+/* unread messages */
+
+.unread-count {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green);
+    color: white;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .main-header {
+        height: 65px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .main-header nav {
+        display: none;
+    }
+
+    .messages-page {
+        width: 100%;
+
+        margin: 0;
+    }
+
+    .messages-container {
+        border-radius: 0;
+
+        padding: 24px 15px;
+    }
+
+    .messages-heading h1 {
+        font-size: 30px;
+    }
+
+    .conversation-item {
+        grid-template-columns: 48px 1fr auto;
+
+        gap: 10px;
+
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .conversation-avatar {
+        width: 43px;
+        height: 43px;
+    }
+
+    .conversation-name {
+        font-size: 15px;
+    }
+
+    .conversation-preview {
+        max-width: 250px;
+    }
+
+    .conversation-meta {
+        min-width: 55px;
+    }
+}

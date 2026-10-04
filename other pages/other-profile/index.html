@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JOUK - Omar Khaled</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="other-profile.css">
+
+    <link rel="stylesheet" href="../../shared/brand.css">
+
+    <script src="../../shared/site-path.js"></script>
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         HEADER
+    ========================================= -->
+
+    <header class="profile-header">
+
+        <a href="../../home%20page/index.html"
+           class="logo">
+            JOUK
+        </a>
+
+
+        <nav>
+
+            <a href="../../home%20page/index.html">
+                Home
+            </a>
+
+            <a href="../../plans/index.html">
+                Plans
+            </a>
+
+            <a href="../../paths/index.html">Explorers</a>
+            <a href="../../reviews/community/index.html">
+                Reviews
+            </a>
+
+            
+
+        </nav>
+
+
+        <div class="header-icons">
+
+            <button
+                class="icon-btn"
+                type="button"
+                aria-label="Search"
+            >
+                ⌕
+            </button>
+
+
+            <button
+                class="icon-btn"
+                type="button"
+                aria-label="Saved"
+            >
+                ♡
+            </button>
+
+
+            <a
+                href="../profile/index.html"
+                class="profile-icon"
+                aria-label="Profile"
+            >
+
+                <svg viewBox="0 0 24 24">
+
+                    <circle
+                        cx="12"
+                        cy="8"
+                        r="3.5">
+                    </circle>
+
+                    <path
+                        d="M5.5 19c.8-3.2 3-5 6.5-5s5.7 1.8 6.5 5">
+                    </path>
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="9">
+                    </circle>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ========================================
+         PROFILE PAGE
+    ========================================= -->
+
+    <main class="profile-page">
+
+
+        <!-- ========================================
+             COVER
+        ========================================= -->
+
+        <section class="profile-cover">
+
+            <img
+                src="images/wadi rum.jpg"
+                alt="Wadi Rum"
+                class="cover-image"
+            >
+
+        </section>
+
+
+
+        <!-- ========================================
+             USER INFORMATION
+        ========================================= -->
+
+        <section class="profile-info">
+
+
+            <!-- PROFILE IMAGE -->
+
+            <div class="avatar-wrapper">
+
+                <img
+                    src="images/wadi rum.jpg"
+                    alt="Omar Khaled"
+                    class="profile-avatar"
+                >
+
+            </div>
+
+
+            <!-- NAME -->
+
+            <h1>
+                Omar Khaled
+            </h1>
+
+
+            <!-- BIO -->
+
+            <p class="profile-bio">
+                Traveler &nbsp; | &nbsp;
+                Nature Lover &nbsp; | &nbsp;
+                Photographer
+            </p>
+
+
+            <!-- LOCATION -->
+
+            <p class="profile-location">
+                ♧ Amman, Jordan
+            </p>
+
+
+
+            <!-- ========================================
+                 STATISTICS
+            ========================================= -->
+
+            <div class="profile-stats">
+
+
+                <div class="stat">
+
+                    <strong>
+                        8
+                    </strong>
+
+                    <span>
+                        Places Visited
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        11
+                    </strong>
+
+                    <span>
+                        Experiences
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        56
+                    </strong>
+
+                    <span>
+                        Followers
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        32
+                    </strong>
+
+                    <span>
+                        Following
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ========================================
+                 PROFILE ACTIONS
+            ========================================= -->
+
+            <div class="profile-actions">
+
+
+                <button
+                    type="button"
+                    id="messageBtn"
+                    class="message-btn"
+                >
+
+                    Message
+
+                    <span>
+                        ◯
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="more-btn"
+                    aria-label="More options"
+                >
+                    •••
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================================
+             TABS
+        ========================================= -->
+
+        <section class="profile-tabs">
+
+
+            <button
+                type="button"
+                class="tab active"
+                data-tab="places"
+            >
+                Places Visited
+            </button>
+
+
+            <button
+                type="button"
+                class="tab"
+                data-tab="experiences"
+            >
+                Experiences
+            </button>
+
+
+            <button
+                type="button"
+                class="tab"
+                data-tab="photos"
+            >
+                Photos
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ========================================
+             PLACES VISITED
+        ========================================= -->
+
+        <section
+            class="profile-section tab-panel active"
+            id="places"
+        >
+
+
+            <div class="section-heading">
+
+                <h2>
+                    Places Visited
+                </h2>
+
+                <button
+                    type="button"
+                    class="see-all"
+                >
+                    See all →
+                </button>
+
+            </div>
+
+
+
+            <div class="places-grid">
+
+
+                <!-- WADI RUM -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=wadirum">
+
+                        <img
+                            src="images/wadi rum.jpg"
+                            alt="Wadi Rum"
+                        >
+
+                        <h3>
+                            Wadi Rum
+                        </h3>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- DEAD SEA -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=deadsea">
+
+                        <img
+                            src="images/deadsea.jpeg"
+                            alt="Dead Sea"
+                        >
+
+                        <h3>
+                            Dead Sea
+                        </h3>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- PETRA -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=petra">
+
+                        <img
+                            src="images/petra.jpeg"
+                            alt="Petra"
+                        >
+
+                        <h3>
+                            Petra
+                        </h3>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- AQABA -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=aqaba">
+
+                        <img
+                            src="images/aqaba.jpg"
+                            alt="Aqaba"
+                        >
+
+                        <h3>
+                            Aqaba
+                        </h3>
+
+                    </a>
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================================
+             EXPERIENCES
+        ========================================= -->
+
+        <section
+            class="profile-section experiences-section tab-panel"
+            id="experiences"
+        >
+
+
+            <div class="section-heading">
+
+                <h2>
+                    Experiences
+                </h2>
+
+                <button
+                    type="button"
+                    class="see-all"
+                >
+                    See all →
+                </button>
+
+            </div>
+
+
+
+            <div class="experiences-grid">
+
+
+                <!-- WADI RUM EXPERIENCE -->
+
+                <article class="experience-card">
+
+
+                    <img
+                        src="images/wadi rum.jpg"
+                        alt="Wadi Rum"
+                    >
+
+
+                    <div class="experience-content">
+
+
+                        <div class="experience-title">
+
+                            <h3>
+                                Wadi Rum
+                            </h3>
+
+                            <span class="rating">
+                                ★ 5.0
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            Magical place! The desert,
+                            the stars at night,
+                            everything was perfect.
+                        </p>
+
+
+                        <div class="experience-actions">
+
+
+                            <button
+                                type="button"
+                                class="like-btn"
+                                aria-label="Like"
+                            >
+                                ♡
+                                <span>
+                                    42
+                                </span>
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="comment-btn"
+                                aria-label="Comments"
+                            >
+                                ◯
+                                <span>
+                                    7
+                                </span>
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="bookmark-btn"
+                                aria-label="Save"
+                            >
+                                ♡
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- AQABA EXPERIENCE -->
+
+                <article class="experience-card">
+
+
+                    <img
+                        src="images/aqaba.jpg"
+                        alt="Aqaba"
+                    >
+
+
+                    <div class="experience-content">
+
+
+                        <div class="experience-title">
+
+                            <h3>
+                                Aqaba
+                            </h3>
+
+                            <span class="rating">
+                                ★ 4.0
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            The water is so clear
+                            and perfect for diving.
+                            Loved it!
+                        </p>
+
+
+                        <div class="experience-actions">
+
+
+                            <button
+                                type="button"
+                                class="like-btn"
+                                aria-label="Like"
+                            >
+                                ♡
+                                <span>
+                                    26
+                                </span>
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="comment-btn"
+                                aria-label="Comments"
+                            >
+                                ◯
+                                <span>
+                                    4
+                                </span>
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="bookmark-btn"
+                                aria-label="Save"
+                            >
+                                ♡
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================================
+             PHOTOS
+        ========================================= -->
+
+        <section
+            class="profile-section photos-section tab-panel"
+            id="photos"
+        >
+
+
+            <div class="section-heading">
+
+                <h2>
+                    Photos
+                </h2>
+
+            </div>
+
+
+            <div class="photos-grid">
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="images/wadi rum.jpg"
+                        alt="Wadi Rum"
+                    >
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="images/deadsea.jpeg"
+                        alt="Dead Sea"
+                    >
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="images/petra.jpeg"
+                        alt="Petra"
+                    >
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img
+                        src="images/aqaba.jpg"
+                        alt="Aqaba"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script src="other-profile.js"></script>
+
+
+</body>
+
+</html>

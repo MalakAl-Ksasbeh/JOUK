@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JOUK | My Profile</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Profile CSS -->
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="../../shared/brand.css">
+
+    <script src="../../shared/site-path.js"></script>
+</head>
+
+<body>
+
+    <!-- ==================================================
+                         HEADER
+    =================================================== -->
+
+    <header class="profile-header">
+
+        <a href="../../home%20page/index.html" class="logo">
+            JOUK
+        </a>
+
+        <nav class="profile-nav">
+            <a href="../../home%20page/index.html">Explore</a>
+            <a href="../../plans/index.html">Plans</a>
+            <a href="../../paths/index.html">Explorers</a>
+        </nav>
+
+        <div class="header-icons">
+
+            <button
+                class="icon-btn"
+                type="button"
+                aria-label="Search"
+            >
+                <i data-lucide="search"></i>
+            </button>
+
+            <button
+                class="icon-btn"
+                type="button"
+                aria-label="Saved"
+            >
+                <i data-lucide="heart"></i>
+            </button>
+
+            <a
+                href="index.html"
+                class="icon-btn profile-header-btn"
+                aria-label="Profile"
+            >
+                <i data-lucide="circle-user-round"></i>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================================
+                         PROFILE PAGE
+    =================================================== -->
+
+    <main class="profile-page">
+
+
+        <!-- ================= COVER ================= -->
+
+        <section class="profile-cover">
+
+            <img
+                src="images/PETRA.png"
+                alt="Petra Jordan"
+                class="cover-image"
+            >
+
+        </section>
+
+
+        <!-- ================= PROFILE INFO ================= -->
+
+        <section class="profile-info">
+
+
+            <!-- PROFILE PHOTO -->
+
+            <div class="avatar-wrapper">
+
+                <img
+                    src="images/deadsea.jpeg"
+                    alt="Profile photo"
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+
+                <button
+                    class="camera-btn"
+                    type="button"
+                    aria-label="Change profile picture"
+                >
+                    <i data-lucide="camera"></i>
+                </button>
+
+            </div>
+
+
+            <!-- ================= NORMAL PROFILE INFORMATION ================= -->
+
+            <div
+                class="profile-display-info"
+                id="profileDisplayInfo"
+            >
+
+                <h1 id="profileName">
+                    Sarah Ahmed
+                </h1>
+
+                <p
+                    class="profile-bio"
+                    id="profileBio"
+                >
+                    Exploring Jordan 🦋
+                </p>
+
+                <p
+                    class="profile-location"
+                    id="profileLocation"
+                >
+
+                    <i data-lucide="map-pin"></i>
+
+                    <span id="profileLocationText">
+                        Amman, Jordan
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <!-- ================= EDIT PROFILE FORM ================= -->
+
+            <div
+                class="edit-profile-form hidden"
+                id="editProfileForm"
+            >
+
+                <div class="edit-fields">
+
+                    <div class="edit-field">
+
+                        <label for="editName">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editName"
+                            maxlength="50"
+                            placeholder="Your name"
+                        >
+
+                    </div>
+
+
+                    <div class="edit-field">
+
+                        <label for="editBio">
+                            Bio
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editBio"
+                            maxlength="100"
+                            placeholder="Tell travelers about yourself"
+                        >
+
+                    </div>
+
+
+                    <div class="edit-field">
+
+                        <label for="editLocation">
+                            Location
+                        </label>
+
+                        <div class="location-input-wrapper">
+
+                            <i data-lucide="map-pin"></i>
+
+                            <input
+                                type="text"
+                                id="editLocation"
+                                maxlength="60"
+                                placeholder="Your location"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="edit-profile-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-profile-btn"
+                        id="cancelProfileBtn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="button"
+                        class="save-profile-btn"
+                        id="saveProfileBtn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= STATS ================= -->
+
+            <div class="profile-stats">
+
+                <div class="stat">
+
+                    <strong id="placesVisitedCount">
+                        12
+                    </strong>
+
+                    <span>
+                        Places Visited
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong id="experiencesCount">
+                        18
+                    </strong>
+
+                    <span>
+                        Experiences
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        24
+                    </strong>
+
+                    <span>
+                        Followers
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        16
+                    </strong>
+
+                    <span>
+                        Following
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- EDIT PROFILE BUTTON -->
+
+            <button
+                class="edit-profile-btn"
+                id="editProfileBtn"
+                type="button"
+            >
+                Edit Profile
+            </button>
+
+        </section>
+
+
+        <!-- ==================================================
+                              TABS
+        =================================================== -->
+
+        <section class="profile-tabs">
+
+            <button
+                class="tab active"
+                type="button"
+                data-tab="places"
+            >
+                Places Visited
+            </button>
+
+
+            <button
+                class="tab"
+                type="button"
+                data-tab="experiences"
+            >
+                Experiences
+            </button>
+
+
+            <button
+                class="tab"
+                type="button"
+                data-tab="photos"
+            >
+                Photos
+            </button>
+
+
+            <button
+                class="tab"
+                type="button"
+                data-tab="saved"
+            >
+                Saved Plans
+            </button>
+
+        </section>
+
+
+        <!-- ==================================================
+                        PLACES I'VE VISITED
+        =================================================== -->
+
+        <section
+            class="profile-section"
+            id="places"
+        >
+
+            <div class="section-heading">
+
+                <h2>
+                    Places I've Visited
+                </h2>
+
+                <button
+                    class="see-all"
+                    type="button"
+                >
+                    See all →
+                </button>
+
+            </div>
+
+
+            <div class="places-grid">
+
+
+                <!-- DEAD SEA -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=deadsea">
+
+                        <img
+                            src="images/deadsea.jpeg"
+                            alt="Dead Sea"
+                        >
+
+                        <h3>
+                            Dead Sea
+                        </h3>
+
+                    </a>
+
+                </article>
+
+
+                <!-- PETRA -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=petra">
+
+                        <img
+                            src="images/PETRA.png"
+                            alt="Petra"
+                        >
+
+                        <h3>
+                            Petra
+                        </h3>
+
+                    </a>
+
+                </article>
+
+
+                <!-- WADI RUM -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=wadirum">
+
+                        <img
+                            src="images/wadi rum.jpg"
+                            alt="Wadi Rum"
+                        >
+
+                        <h3>
+                            Wadi Rum
+                        </h3>
+
+                    </a>
+
+                </article>
+
+
+                <!-- AJLOUN -->
+
+                <article class="place-card">
+
+                    <a href="../place/index.html?place=ajloun">
+
+                        <img
+                            src="images/Dana Biosphere Reserve.jpg"
+                            alt="Ajloun Forest"
+                        >
+
+                        <h3>
+                            Ajloun Forest
+                        </h3>
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+                           MY EXPERIENCES
+        =================================================== -->
+
+        <section
+            class="profile-section experiences-section hidden"
+            id="experiences"
+        >
+
+            <div class="section-heading">
+
+                <h2>
+                    My Experiences
+                </h2>
+
+                <button
+                    class="see-all"
+                    type="button"
+                >
+                    See all →
+                </button>
+
+            </div>
+
+
+            <div class="experiences-grid">
+
+
+                <!-- DEFAULT DEAD SEA EXPERIENCE -->
+
+                <article class="experience-card default-experience">
+
+                    <img
+                        src="images/deadsea.jpeg"
+                        alt="Dead Sea"
+                        class="experience-image"
+                    >
+
+                    <div class="experience-content">
+
+                        <div class="experience-title">
+
+                            <h3>
+                                Dead Sea
+                            </h3>
+
+                            <span class="rating">
+                                ★ 5.0
+                            </span>
+
+                        </div>
+
+                        <p>
+                            An unforgettable experience! The views were amazing.
+                        </p>
+
+                        <div class="experience-actions">
+
+                            <button
+                                type="button"
+                                class="action-btn like-btn"
+                            >
+                                <i data-lucide="heart"></i>
+                                <span>24</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="action-btn"
+                            >
+                                <i data-lucide="message-circle"></i>
+                                <span>5</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="action-btn bookmark"
+                                aria-label="Save experience"
+                            >
+                                <i data-lucide="bookmark"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DEFAULT PETRA EXPERIENCE -->
+
+                <article class="experience-card default-experience">
+
+                    <img
+                        src="images/PETRA.jpg"
+                        alt="Petra"
+                        class="experience-image"
+                    >
+
+                    <div class="experience-content">
+
+                        <div class="experience-title">
+
+                            <h3>
+                                Petra
+                            </h3>
+
+                            <span class="rating">
+                                ★ 4.5
+                            </span>
+
+                        </div>
+
+                        <p>
+                            The history and views are incredible. A must visit!
+                        </p>
+
+                        <div class="experience-actions">
+
+                            <button
+                                type="button"
+                                class="action-btn like-btn"
+                            >
+                                <i data-lucide="heart"></i>
+                                <span>18</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="action-btn"
+                            >
+                                <i data-lucide="message-circle"></i>
+                                <span>3</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="action-btn bookmark"
+                                aria-label="Save experience"
+                            >
+                                <i data-lucide="bookmark"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+                              MY PHOTOS
+        =================================================== -->
+
+        <section
+            class="profile-section tab-content hidden"
+            id="photos"
+        >
+
+            <div class="section-heading">
+
+                <h2>
+                    My Photos
+                </h2>
+
+                <span
+                    class="photos-count"
+                    id="photosCount"
+                >
+                    0 Photos
+                </span>
+
+            </div>
+
+
+            <!-- PHOTOS FROM SHARED EXPERIENCES -->
+
+            <div
+                class="profile-photos-grid"
+                id="profilePhotosGrid"
+            >
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="photos-empty-state hidden"
+                id="photosEmptyState"
+            >
+
+                <i data-lucide="image"></i>
+
+                <h3>
+                    No photos yet
+                </h3>
+
+                <p>
+                    Photos you share with your experiences will appear here.
+                </p>
+
+                <a
+                    href="../../reviews/share-experience/index.html"
+                    class="share-photo-experience-btn"
+                >
+                    Share an Experience
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+                             SAVED PLANS
+        =================================================== -->
+
+        <section
+            class="profile-section tab-content hidden"
+            id="saved"
+        >
+
+            <div class="section-heading">
+
+                <h2>
+                    Saved Plans
+                </h2>
+
+            </div>
+
+
+            <div
+                class="saved-plans-grid"
+                id="savedPlansGrid"
+            >
+            </div>
+
+
+            <div
+                class="saved-empty-state"
+                id="savedPlansEmpty"
+            >
+
+                <i data-lucide="map"></i>
+
+                <h3>
+                    No saved plans yet
+                </h3>
+
+                <p>
+                    Your saved Jordan journeys will appear here.
+                </p>
+
+                <a
+                    href="../../plans/index.html"
+                    class="browse-plans-btn"
+                >
+                    Explore Plans
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==================================================
+                         JAVASCRIPT
+    =================================================== -->
+
+    <script src="profile.js"></script>
+
+</body>
+
+</html>

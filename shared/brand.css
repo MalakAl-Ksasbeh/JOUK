@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700&family=Aboreto&display=swap');
+
+.logo {
+    font-family: 'Aboreto', Georgia, serif !important;
+    font-weight: 400 !important;
+}
+
+.nav-links a,
+.profile-nav a,
+.main-nav a,
+.main-header nav a,
+.profile-header nav a,
+header nav a {
+    font-family: 'Abhaya Libre', Georgia, serif !important;
+    font-weight: 400 !important;
+}

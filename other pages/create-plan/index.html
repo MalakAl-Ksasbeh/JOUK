@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JOUK - Create Your Plan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="create-plan.css">
+    <link rel="stylesheet" href="../../shared/brand.css">
+
+    <script src="../../shared/site-path.js"></script>
+</head>
+
+<body>
+
+    <!-- ========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <a href="../../home%20page/index.html" class="logo">
+            JOUK
+        </a>
+
+        <nav class="nav-links">
+            <a href="../../home%20page/index.html">Explore</a>
+            <a href="../../plans/index.html" class="active">Plans</a>
+            <a href="../../paths/index.html">Explorers</a>
+            <a href="../../reviews/community/index.html">Reviews</a>
+            
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                class="icon-button"
+                type="button"
+                aria-label="Search"
+            >
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="M20 20L16.5 16.5"></path>
+                </svg>
+            </button>
+
+            <button
+                class="icon-button"
+                type="button"
+                aria-label="Saved"
+            >
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z">
+                    </path>
+                </svg>
+            </button>
+
+            <a href="../profile/index.html" class="profile-button">
+                <img
+                    src="images/profile.jpg"
+                    alt="Profile"
+                >
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ========================================
+             HERO
+        ========================================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    PLAN YOUR JOURNEY
+                </p>
+
+                <h1>
+                    Create Your<br>
+                    Jordan Trip
+                </h1>
+
+                <p class="hero-description">
+                    Choose your favorite places and build a journey
+                    that feels like you. Discover, plan and make
+                    unforgettable memories.
+                </p>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img
+                    src="images/wadi rum.jpg"
+                    alt="Wadi Rum"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             01 - YOUR TRIP
+        ========================================= -->
+
+        <section class="plan-section">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <div class="section-content">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Your Trip
+                    </h2>
+
+                    <p>
+                        Give your journey a name and choose
+                        how many days you have.
+                    </p>
+
+                </div>
+
+
+                <div class="trip-fields">
+
+                    <!-- TRIP NAME -->
+
+                    <div class="field trip-name-field">
+
+                        <label for="tripName">
+                            Trip Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tripName"
+                            value="My Jordan Adventure"
+                            placeholder="My Jordan Adventure"
+                        >
+
+                    </div>
+
+
+                    <!-- NUMBER OF DAYS -->
+
+                    <div class="field days-field">
+
+                        <label for="numberOfDays">
+                            Number of Days
+                        </label>
+
+                        <select id="numberOfDays">
+
+                            <option value="1">
+                                1 Day
+                            </option>
+
+                            <option value="2">
+                                2 Days
+                            </option>
+
+                            <option
+                                value="3"
+                                selected
+                            >
+                                3 Days
+                            </option>
+
+                            <option value="4">
+                                4 Days
+                            </option>
+
+                            <option value="5">
+                                5 Days
+                            </option>
+
+                            <option value="6">
+                                6 Days
+                            </option>
+
+                            <option value="7">
+                                7 Days
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             02 - CHOOSE PLACES
+        ========================================= -->
+
+        <section class="plan-section">
+
+            <div class="section-number">
+                02
+            </div>
+
+            <div class="section-content">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Choose Your Places
+                    </h2>
+
+                    <p>
+                        Select the destinations you would
+                        like to include.
+                    </p>
+
+                </div>
+
+
+                <!-- FILTERS -->
+
+                <div class="filters">
+
+                    <button
+                        class="filter-btn active"
+                        data-filter="all"
+                        type="button"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="relax"
+                        type="button"
+                    >
+                        Relax
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="culture"
+                        type="button"
+                    >
+                        Culture
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="adventure"
+                        type="button"
+                    >
+                        Adventure
+                    </button>
+
+                </div>
+
+
+                <!-- ========================================
+                     PLACES
+                ========================================= -->
+
+                <div
+                    class="places-grid"
+                    id="placesGrid"
+                >
+
+
+                    <!-- DEAD SEA -->
+
+                    <article
+                        class="place-card"
+                        data-id="dead-sea"
+                        data-name="Dead Sea"
+                        data-location="Dead Sea, Jordan"
+                        data-category="relax"
+                        data-image="images/dead sea.jpg"
+                        data-description="Float, relax and experience one of the world's most unique natural wonders."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/dead sea.jpg"
+                            alt="Dead Sea"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Dead Sea
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Dead Sea, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Dead Sea"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                Float, relax and experience one of
+                                the world's most unique natural wonders.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PETRA -->
+
+                    <article
+                        class="place-card"
+                        data-id="petra"
+                        data-name="Petra"
+                        data-location="Petra, Jordan"
+                        data-category="culture"
+                        data-image="images/petra.jpeg"
+                        data-description="Walk through history. A magical city carved in stone."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/petra.jpeg"
+                            alt="Petra"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Petra
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Petra, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Petra"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                Walk through history.
+                                A magical city carved in stone.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- WADI RUM -->
+
+                    <article
+                        class="place-card"
+                        data-id="wadi-rum"
+                        data-name="Wadi Rum"
+                        data-location="Wadi Rum, Jordan"
+                        data-category="adventure"
+                        data-image="images/wadi rum.jpg"
+                        data-description="Stunning desert landscapes and unforgettable adventures."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/wadi rum.jpg"
+                            alt="Wadi Rum"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Wadi Rum
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Wadi Rum, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Wadi Rum"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                Stunning desert landscapes and
+                                unforgettable adventures.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- AJLOUN -->
+
+                    <article
+                        class="place-card"
+                        data-id="ajloun-castle"
+                        data-name="Ajloun Castle"
+                        data-location="Ajloun, Jordan"
+                        data-category="culture"
+                        data-image="images/AJLOUN.png"
+                        data-description="A historic castle with breathtaking views of nature."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/AJLOUN.png"
+                            alt="Ajloun Castle"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Ajloun Castle
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Ajloun, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Ajloun Castle"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                A historic castle with breathtaking
+                                views of nature.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- AQABA -->
+
+                    <article
+                        class="place-card"
+                        data-id="aqaba"
+                        data-name="Aqaba"
+                        data-location="Aqaba, Jordan"
+                        data-category="relax"
+                        data-image="images/Aqaba red sea.png"
+                        data-description="Crystal clear waters and amazing spots for diving and relaxation."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/Aqaba red sea.png"
+                            alt="Aqaba"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Aqaba
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Aqaba, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Aqaba"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                Crystal clear waters and amazing
+                                spots for diving and relaxation.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- JERASH -->
+
+                    <article
+                        class="place-card"
+                        data-id="jerash"
+                        data-name="Jerash"
+                        data-location="Jerash, Jordan"
+                        data-category="culture"
+                        data-image="images/jerash.jpeg"
+                        data-description="Explore ancient Roman ruins and step back in time."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/jerash.jpeg"
+                            alt="Jerash"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Jerash
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Jerash, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Jerash"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                Explore ancient Roman ruins
+                                and step back in time.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MUJIB -->
+
+                    <article
+                        class="place-card"
+                        data-id="mujib"
+                        data-name="Mujib Reserve"
+                        data-location="Mujib, Jordan"
+                        data-category="adventure"
+                        data-image="images/Wadi Mujib.jpg"
+                        data-description="An exciting natural reserve with stunning canyons and hiking trails."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/Wadi Mujib.jpg"
+                            alt="Mujib Reserve"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Mujib Reserve
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Mujib, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Mujib Reserve"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                An exciting natural reserve with
+                                stunning canyons and hiking trails.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- AMMAN -->
+
+                    <article
+                        class="place-card"
+                        data-id="amman"
+                        data-name="Amman"
+                        data-location="Amman, Jordan"
+                        data-category="culture"
+                        data-image="images/amman.png"
+                        data-description="A vibrant city with rich culture, food and amazing views."
+                    >
+
+                        <img
+                            class="place-image"
+                            src="images/amman.png"
+                            alt="Amman"
+                        >
+
+                        <div class="place-card-content">
+
+                            <div class="place-title-row">
+
+                                <div>
+
+                                    <h3>
+                                        Amman
+                                    </h3>
+
+                                    <p class="location">
+                                        ♧ Amman, Jordan
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    class="add-place"
+                                    type="button"
+                                    aria-label="Add Amman"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="place-description">
+                                A vibrant city with rich culture,
+                                food and amazing views.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+                        <!-- ========================================
+             03 - SELECTED PLACES
+        ========================================= -->
+
+        <section class="plan-section">
+
+            <div class="section-number">
+                03
+            </div>
+
+            <div class="section-content">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Selected Places
+                    </h2>
+
+                    <p>
+                        Choose a day for each place to add it to your itinerary.
+                    </p>
+
+                </div>
+
+                <div
+                    class="selected-places"
+                    id="selectedPlaces"
+                >
+
+                    <div class="empty-message">
+                        No places selected yet. Add your favorite places above.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             04 - BUILD YOUR ITINERARY
+        ========================================= -->
+
+        <section class="plan-section">
+
+            <div class="section-number">
+                04
+            </div>
+
+            <div class="section-content">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Build Your Itinerary
+                    </h2>
+
+                    <p>
+                        Your selected places organized by day.
+                        You can always change the day from above.
+                    </p>
+
+                </div>
+
+                <div
+                    class="itinerary-grid"
+                    id="itineraryGrid"
+                >
+                    <!-- Days are created automatically by create-plan.js -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             SAVE PLAN BAR
+        ========================================= -->
+
+        <section class="save-plan-bar">
+
+            <div class="journey-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z"></path>
+
+                    <path d="M9 3v15"></path>
+
+                    <path d="M15 6v15"></path>
+
+                </svg>
+
+            </div>
+
+
+            <div class="journey-summary">
+
+                <span>
+                    YOUR JOURNEY
+                </span>
+
+                <h3 id="summaryName">
+                    My Jordan Adventure
+                </h3>
+
+                <p id="summaryDetails">
+                    3 Days • 0 Places
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="save-plan-button"
+                id="savePlanBtn"
+            >
+                Save My Plan
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script src="create-plan.js"></script>
+
+</body>
+
+</html>
