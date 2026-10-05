@@ -34,7 +34,7 @@ body {
     justify-content: flex-start;
 
     /* مكان الكارد */
-    padding-left: 29%;
+    padding-left: 59%;
 
     overflow: hidden;
 
@@ -47,11 +47,12 @@ body {
             rgba(15, 8, 5, 0.42),
             rgba(15, 8, 5, 0.42)
         ),
-        url("images/Login new.jpeg");
+        url("images/background login.png");
 
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    
 }
 
 
@@ -70,11 +71,12 @@ body {
     position: absolute;
     inset: 0;
 
-    background-image: url("images/Login new.jpeg");
+    background-image: url("images/background login.png");
 
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: blur(1.5px);
 
     z-index: 0;
 
@@ -87,7 +89,7 @@ body {
    ========================= */
 
 .login-card {
-    position: relative;
+    position: center;
     z-index: 1;
 
     width: 340px;
@@ -98,15 +100,15 @@ body {
        شفافة حتى تبقى تفاصيل
        الصورة واضحة من خلفها
     */
-    background: rgba(50, 30, 25, 0.14);
+    background: rgba(50, 30, 25, 0.16);
 
     border: 1px solid rgba(255, 255, 255, 0.60);
 
     border-radius: 22px;
 
-    /* لا نريد blur */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    backdrop-filter: noun;
+    -webkit-backdrop-filter: noun;
+    transform: translateY(-20px);
 }
 
 
