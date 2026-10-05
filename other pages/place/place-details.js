@@ -483,7 +483,7 @@ fetch(window.JOUK.url("data/places.json"))
         if (alreadyAdded) {
 
             addToPathBtn.textContent =
-                "View My Path →";
+                "View My Trip →";
 
         }
 

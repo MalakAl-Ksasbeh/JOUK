@@ -141,17 +141,18 @@ body {
 
 .tabs {
     position: relative;
+    left: 20px;
 
     display: flex;
 
-    width: 100%;
+    width: 88%;
     height: 44px;
 
     margin-bottom: 32px;
 
-    background: rgba(190, 105, 120, 0.48);
+    background: #cd89783b;
 
-    border-radius: 30px;
+    border-radius: 40px;
 
     overflow: hidden;
 }
@@ -172,7 +173,7 @@ body {
 
     background: rgba(73, 31, 20, 0.92);
 
-    border-radius: 30px;
+    border-radius: 40px;
 
     transition: transform 0.4s ease;
 
@@ -599,6 +600,24 @@ body {
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
     font-size: 9px;
     line-height: 1.35;
+    text-decoration: none;
+    transform-origin: left center;
+    transition: transform 180ms ease, color 180ms ease;
+}
+
+.story-highlight:hover,
+.story-highlight:focus-visible {
+    color: #fff;
+    transform: scale(1.06);
+}
+
+.story-highlight:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .story-highlight { transition: none; }
 }
 
 .story-highlight svg {

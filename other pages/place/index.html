@@ -37,43 +37,21 @@
 <!-- ================= NAVBAR ================= -->
 
 <header class="navbar site-header">
-
-    <div class="logo">
-        JOUK
-    </div>
-
-
-    <nav>
-
+    <a class="logo" href="../../home%20page/index.html">JOUK</a>
+    <nav class="site-nav" aria-label="Main navigation">
         <a href="../../home%20page/index.html">Home</a>
-        <a href="../../plans/index.html">Plans</a>
-            <a href="../../paths/index.html">My Path</a>
-            <a href="../../reviews/community/index.html">Community</a>
-        
-
+        <a href="../../plans/index.html" class="active" aria-current="page">Plans</a>
+        <a href="../../other%20pages/create-plan/index.html">My Trip</a>
+        <a href="../../reviews/community/index.html">Community</a>
     </nav>
-
-
-    <div class="icons">
-
-        <a href="../../sign%20up-log%20in/index.html"
-           class="profile-btn"
-           aria-label="Profile">
-
-            <svg viewBox="0 0 24 24">
-
-                <circle cx="12" cy="12" r="10"></circle>
-
-                <circle cx="12" cy="8" r="3"></circle>
-
-                <path d="M6 19c1-3 3.5-5 6-5s5 2 6 5"></path>
-
-            </svg>
-
-        </a>
-
-
-        <div class="profile-menu"
+    <a class="site-account profile-btn" href="../../sign%20up-log%20in/index.html" aria-label="Log in or sign up">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="8" r="3.5"></circle>
+            <path d="M5.5 19c.8-3.2 3-5 6.5-5s5.7 1.8 6.5 5"></path>
+        </svg>
+    </a>
+<div class="profile-menu"
              id="profileMenu">
 
             <h3 id="profileName"></h3>
@@ -85,9 +63,6 @@
             </button>
 
         </div>
-
-    </div>
-
 </header>
 
 
@@ -207,7 +182,7 @@
         <button class="path-btn"
                 id="add-to-path-btn">
 
-            Add to My Path +
+            Add to My Trip +
 
         </button>
 
