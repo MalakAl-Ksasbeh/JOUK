@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'JOUK Zain';
+    src: url('../shared/fonts/zain-mob-600.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* =========================
    GENERAL
    ========================= */
@@ -31,10 +39,8 @@ body {
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-
-    /* مكان الكارد */
-    padding-left: 59%;
+    justify-content: center;
+    padding: 0;
 
     overflow: hidden;
 
@@ -76,11 +82,21 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(1.5px);
+    filter: blur(2.2px) saturate(0.88) brightness(0.78);
+    transform: scale(1.025);
 
     z-index: 0;
 
     pointer-events: none;
+}
+
+.login-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(18, 9, 6, 0.24), rgba(18, 9, 6, 0.08) 55%, rgba(18, 9, 6, 0.23));
 }
 
 
@@ -89,7 +105,9 @@ body {
    ========================= */
 
 .login-card {
-    position: center;
+    position: absolute;
+    top: 50%;
+    left: 30%;
     z-index: 1;
 
     width: 340px;
@@ -106,9 +124,14 @@ body {
 
     border-radius: 22px;
 
-    backdrop-filter: noun;
-    -webkit-backdrop-filter: noun;
-    transform: translateY(-20px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transform: translate(-50%, calc(-50% - 20px));
+    transition: left 520ms cubic-bezier(0.2, 0.75, 0.25, 1), transform 520ms ease;
+}
+
+.login-page.signup-mode .login-card {
+    left: 70%;
 }
 
 
@@ -422,9 +445,15 @@ body {
 
     .login-page {
         justify-content: center;
-
-        padding-left: 0;
     }
+
+    .login-card,
+    .login-page.signup-mode .login-card {
+        top: 58%;
+        left: 50%;
+        width: min(340px, calc(100% - 40px));
+    }
+
 }
 
 
@@ -435,4 +464,233 @@ body {
 
         max-width: 340px;
     }
+}
+/* Supporting destination copy and decorative page details. */
+.login-topbar {
+    position: absolute;
+    inset: 20px 3.5% auto;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-size: 11px;
+}
+
+.topbar-place {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.topbar-place svg,
+.login-location-caption svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.topbar-place i {
+    display: block;
+    width: clamp(70px, 12vw, 190px);
+    height: 1px;
+    margin-left: 5px;
+    background: rgba(255, 255, 255, 0.42);
+}
+
+.login-story {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    z-index: 2;
+    width: min(340px, 30vw);
+    color: #fff8ee;
+    text-shadow: 0 1px 8px rgba(26, 12, 8, 0.45);
+    transform: translate(-50%, calc(-50% - 20px));
+    transition: left 520ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.login-page.signup-mode .login-story {
+    right: auto;
+    left: 30%;
+    text-align: left;
+}
+
+.login-story h1 {
+    width: max-content;
+    max-width: 100%;
+    margin: 0 0 14px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(27px, 3vw, 40px);
+    font-weight: 400;
+    line-height: 1.03;
+}
+
+.login-page:not(.signup-mode) .login-story h1 {
+    text-align: left;
+}
+
+.welcome-arabic {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'JOUK Zain', serif;
+    font-size: clamp(32px, 3.36vw, 40px);
+    font-weight: 600;
+    line-height: 1.5625;
+    text-align: right;
+    transform: translateY(18px);
+
+    
+}
+
+
+.signup-story-copy {
+    display: block;
+}
+
+.signup-story-copy[hidden] {
+    display: none !important;
+}
+
+.signup-story-copy span,
+.signup-story-copy small {
+    display: block;
+}
+
+.signup-story-copy small {
+    margin-top: 5px;
+    font-size: 0.55em;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+.login-story > p {
+    margin: 0;
+    color: rgba(255, 248, 238, 0.88);
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.story-divider {
+    width: 54px;
+    height: 1px;
+    margin: 17px 0 15px;
+    background: rgba(255, 248, 238, 0.72);
+}
+
+.story-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.story-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    color: rgba(255, 248, 238, 0.9);
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+.story-highlight svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.35;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.login-location-caption,
+.login-journey-caption {
+    position: absolute;
+    bottom: 22px;
+    z-index: 2;
+    margin: 0;
+    color: rgba(255, 248, 238, 0.9);
+    text-shadow: 0 1px 8px rgba(26, 12, 8, 0.5);
+}
+
+.login-location-caption {
+    left: 3.5%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-size: 10px;
+}
+
+.login-location-caption b {
+    padding: 0 5px;
+    font-weight: 400;
+}
+
+.login-location-caption a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 248, 238, 0.55);
+}
+
+.login-location-caption a:hover,
+.login-location-caption a:focus-visible {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.login-journey-caption {
+    right: 4%;
+    font-family: 'Aboreto', Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+}
+
+@media (max-width: 900px) {
+    .login-page {
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        padding: 90px 20px 64px;
+        min-height: 100svh;
+    }
+    .login-card,
+    .login-page.signup-mode .login-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        flex-shrink: 0;
+        width: min(340px, 100%);
+        transform: none;
+    }
+    .login-story,
+    .login-page.signup-mode .login-story {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: min(340px, 100%);
+        text-align: center;
+        transform: none;
+    }
+    .login-story h1 { margin-bottom: 0; font-size: 23px; }
+    .welcome-arabic { font-size: 34px; }
+    .login-story > .story-divider,
+    .login-story > .story-highlights { display: none; }
+}
+
+@media (max-width: 500px) {
+    .login-topbar { inset: 14px 18px auto; }
+    .topbar-place i { width: 42px; }
+    .login-location-caption { left: 18px; bottom: 14px; }
+    .login-journey-caption { right: 18px; bottom: 14px; font-size: 11px; }
 }

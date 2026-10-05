@@ -18,6 +18,9 @@ const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
 
 const guestBtn = document.getElementById("guestBtn");
+const loginPage = document.querySelector(".login-page");
+const loginStorySubtitle = document.getElementById("loginStorySubtitle");
+const signupStoryCopy = document.getElementById("signupStoryCopy");
 
 
 
@@ -35,6 +38,9 @@ signupTab.addEventListener("click", function () {
     signupTab.classList.add("active");
 
     tabs.classList.add("signup-active");
+    loginPage.classList.add("signup-mode");
+    loginStorySubtitle.hidden = true;
+    signupStoryCopy.hidden = false;
 
 });
 
@@ -55,6 +61,9 @@ loginTab.addEventListener("click", function () {
     loginTab.classList.add("active");
 
     tabs.classList.remove("signup-active");
+    loginPage.classList.remove("signup-mode");
+    loginStorySubtitle.hidden = false;
+    signupStoryCopy.hidden = true;
 
 });
 

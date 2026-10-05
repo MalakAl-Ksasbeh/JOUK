@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="../shared/brand.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <script src="../shared/site-path.js"></script>
     <link rel="stylesheet" href="../shared/page-loader.css">
@@ -30,7 +32,39 @@
 
     <main class="login-page">
 
-        <div class="login-card">
+    <section class="login-story" aria-labelledby="login-story-title">
+        <h1 id="login-story-title">
+
+            <span class="welcome-arabic" lang="ar" dir="rtl">اهلاً وسهلاً</span>
+
+            <span class="login-story-subtitle" id="loginStorySubtitle">Welcome back!</span>
+            <span class="signup-story-copy" id="signupStoryCopy" hidden>
+                <span>Discover Jordan</span>
+                <small>In a new way</small>
+            </span>
+        </h1>
+        <div class="story-divider" aria-hidden="true"></div>
+        <div class="story-highlights">
+            <div class="story-highlight">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"></path></svg>
+                <span>Explore<br>Hidden Gems</span>
+            </div>
+            <div class="story-highlight">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0M14.5 15a4.7 4.7 0 0 1 6 4.5"></path></svg>
+                <span>See Others'<br>Experiences</span>
+            </div>
+            <div class="story-highlight">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5 8.5 4 15.5 6l5.5-2.5v14L15.5 20l-7-2L3 20V6.5Z"></path><path d="M8.5 4v14M15.5 6v14"></path><path d="m11 9 2-2 2 2M13 7v5"></path></svg>
+                <span>Plan Your<br>Routes</span>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+    <div class="login-card">
 
 
             <!-- LOGIN / SIGN UP TABS -->
@@ -137,7 +171,7 @@
                     type="submit"
                     class="login-btn">
                   
-Login→
+                    Login  ›
 </button> 
                 
                 
@@ -279,12 +313,18 @@ Login→
                     type="submit"
                     class="login-btn"
                 >
-                    Sign up →
+                    Sign up ›
                 </button>
 
             </form>
 
         </div>
+
+    <div class="login-location-caption">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+        <span>Jordan <b>›</b> <a href="../plans/culture/index.html#petra-card">Petra</a></span>
+    </div>
+    <p class="login-journey-caption">JOUK</p>
 
     </main>
 
