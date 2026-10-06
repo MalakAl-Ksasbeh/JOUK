@@ -211,8 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
             String(imagePath).trim();
 
 
-        // If the JSON contains /images/...
-        // Share Experience is already in the root folder.
+        // Resolve JSON image paths from the project folder.
 
         while (path.startsWith("../")) {
 
@@ -228,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        return path;
+        return window.JOUK.asset(path);
 
     }
 

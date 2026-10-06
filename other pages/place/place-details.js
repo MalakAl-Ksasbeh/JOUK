@@ -159,7 +159,7 @@ fetch(window.JOUK.url("data/places.json"))
     if (placeImage) {
 
         placeImage.src =
-            place.image || "";
+            window.JOUK.asset(place.image || "");
 
         placeImage.alt =
             place.name
@@ -357,7 +357,7 @@ fetch(window.JOUK.url("data/places.json"))
             const img =
                 document.createElement("img");
 
-            img.src = photo;
+            img.src = window.JOUK.asset(photo);
 
             img.alt =
                 place.name
@@ -406,7 +406,7 @@ fetch(window.JOUK.url("data/places.json"))
                 document.createElement("img");
 
             img.src =
-                item.image || "";
+                window.JOUK.asset(item.image || "");
 
             img.alt =
                 item.title || "Highlight";
