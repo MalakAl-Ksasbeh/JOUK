@@ -1,0 +1,358 @@
+/* Diagonal category collage; puzzle mode keeps its own layout. */
+.plans-puzzle-page:not(.puzzle-mode) .plans-layout {
+    grid-template-columns: 170px minmax(0, 1fr) 170px;
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 30px;
+    width: min(1320px, calc(100% - 120px));
+    min-height: calc(100svh - 135px);
+    row-gap: 0;
+    margin: 10px auto 34px;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-intro {
+    display: contents;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-route { display: none; }
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-intro > .plans-intro-label,
+.plans-puzzle-page:not(.puzzle-mode) .plans-intro > h1 {
+    display: none;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn {
+    flex-direction: column;
+    gap: 12px;
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
+    align-self: end;
+    width: 160px;
+    min-height: 0;
+    margin: 0 0 170px;
+    padding: 8px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: #7a6242;
+    font-size: 12px;
+    line-height: 1.5;
+    box-shadow: none;
+    transition: background 180ms ease, transform 180ms ease;
+    white-space: normal;
+    text-align: center;
+}
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn svg {
+    width: 78px;
+    height: 78px;
+    color: #8b6f47;
+    stroke-width: 0.8;
+    fill: rgba(139, 111, 71, 0.04);
+    flex: 0 0 auto;
+    overflow: visible;
+    transition: transform 220ms ease, color 180ms ease, fill 180ms ease;
+}
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn > span:last-child { display: none; }
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn:hover,
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn:focus-visible {
+    background: rgba(52, 81, 61, 0.07);
+    color: #34513d;
+}
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn:hover svg,
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn:focus-visible svg {
+    transform: rotate(-5deg) scale(1.04);
+}
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn:focus-visible {
+    outline: 1px solid #34513d;
+    outline-offset: 3px;
+}
+.plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn:active svg {
+    color: #34513d;
+    fill: rgba(52, 81, 61, 0.07);
+}
+.plans-puzzle-page.puzzle-mode .puzzle-mode-btn[aria-expanded="true"] {
+    border-color: #34513d;
+    background: rgba(52, 81, 61, 0.07);
+    color: #34513d;
+}
+.plans-puzzle-page.puzzle-mode .puzzle-mode-btn[aria-expanded="true"] svg {
+    color: #34513d;
+    overflow: visible;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-postal-art {
+    width: 190px;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    justify-self: start;
+    margin: 0 0 18px -4px;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-petra-stamp { width: 91px; }
+.plans-puzzle-page:not(.puzzle-mode) .plans-postmark {
+    width: 124px;
+    margin-left: -34px;
+    transform: translateY(25px) rotate(9deg);
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-grid {
+    display: block !important;
+    position: relative !important;
+    grid-column: 2;
+    grid-row: 1;
+    width: min(100%, calc((100svh - 155px) * 1.56));
+    max-width: 1120px;
+    aspect-ratio: 1.56;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    justify-self: center;
+    transform: none;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-grid .plan-card {
+    position: absolute;
+    inset: auto;
+    display: block;
+    min-width: 0;
+    min-height: 0;
+    aspect-ratio: auto;
+    transform: none;
+    filter: none;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    overflow: hidden;
+    transition: filter 220ms ease;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-grid .relax {
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 52%;
+    clip-path: url('#plans-collage-clip-relax');
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-grid .culture {
+    left: 55.7%;
+    top: 0;
+    width: 44.3%;
+    height: 66%;
+    clip-path: url('#plans-collage-clip-culture');
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-grid .adventure {
+    left: 0;
+    top: 40.5%;
+    width: 50.5%;
+    height: 59.5%;
+    clip-path: url('#plans-collage-clip-adventure');
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plans-grid .activities {
+    left: 40%;
+    top: 56.8%;
+    width: 60%;
+    height: 43.2%;
+    clip-path: url('#plans-collage-clip-activities');
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .puzzle-surface {
+    clip-path: none;
+    transition: transform 450ms ease;
+}
+.plans-puzzle-page:not(.puzzle-mode) .relax .puzzle-surface {
+    background-image: url('images/relax-dead-sea.jpeg');
+    background-position: center 53%;
+}
+.plans-puzzle-page:not(.puzzle-mode) .culture .puzzle-surface {
+    background-image: url('images/culture-jerash.jpg');
+    background-position: center;
+}
+.plans-puzzle-page:not(.puzzle-mode) .adventure .puzzle-surface {
+    background-image: url('images/adventure-wadi-mujib.jpg');
+    background-position: center 83%;
+}
+.plans-puzzle-page:not(.puzzle-mode) .activities .puzzle-surface {
+    background-image: url('images/something to do.jpeg');
+    background-position: center 56%;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .puzzle-surface::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(25, 20, 16, 0.33), transparent 82%);
+    opacity: 1;
+    transition: opacity 220ms ease;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .puzzle-border {
+    display: none;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    align-self: stretch;
+    max-width: none;
+    margin: 0;
+    padding: 6% 15% 0 7%;
+    opacity: 1;
+    transform: none;
+    pointer-events: none;
+}
+.plans-puzzle-page:not(.puzzle-mode) .culture .card-content {
+    padding: 30% 5% 0 29%;
+}
+.plans-puzzle-page:not(.puzzle-mode) .adventure .card-content {
+    padding: 22% 24% 0 8%;
+}
+.plans-puzzle-page:not(.puzzle-mode) .activities .card-content {
+    padding: 14% 5% 0 22%;
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .category-icon {
+    display: block;
+    width: 19px;
+    height: 19px;
+    margin: 0 0 8px;
+    fill: none;
+    stroke: #fffaf2;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content h2 {
+    margin: 0;
+    color: #fffaf2;
+    font-size: clamp(26px, 2.6vw, 40px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 12px rgba(31, 24, 16, 0.25);
+}
+.plans-puzzle-page:not(.puzzle-mode) .activities .card-content h2 {
+    font-size: clamp(24px, 2.2vw, 34px);
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content p {
+    display: block;
+    margin: 8px 0 0;
+    color: #fffaf2;
+    font-size: clamp(11px, 0.95vw, 14px);
+    line-height: 1.3;
+    text-shadow: 0 1px 6px rgba(25, 20, 16, 0.6);
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content .arrow {
+    display: flex;
+    position: static;
+    width: 28px;
+    height: 28px;
+    margin: 10px 0 0;
+    background: #fffaf2;
+    color: #4b5148;
+    border-radius: 50%;
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content .arrow svg {
+    width: 17px;
+    height: 17px;
+}
+
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:hover,
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:focus-visible {
+    transform: none;
+    filter: none;
+    z-index: 2;
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:hover .puzzle-surface,
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:focus-visible .puzzle-surface {
+    transform: scale(1.025);
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:hover .puzzle-surface::after,
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:focus-visible .puzzle-surface::after,
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:hover .card-content,
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:focus-visible .card-content {
+    opacity: 1;
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:hover .card-content,
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:focus-visible .card-content {
+    transform: translateY(0);
+}
+.plans-puzzle-page:not(.puzzle-mode) .plan-card:focus-visible .puzzle-surface::after {
+    box-shadow: inset 0 0 0 3px #fffaf2;
+}
+
+@media (max-width: 1000px) {
+    .plans-puzzle-page:not(.puzzle-mode) .plans-layout {
+        width: calc(100% - 64px);
+        grid-template-columns: 100px minmax(0, 1fr) 110px;
+        column-gap: 16px;
+        min-height: calc(100svh - 155px);
+        margin-top: 18px;
+    }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-grid { grid-column: 2; aspect-ratio: 1.4; }
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn { width: 110px; font-size: 10px; padding: 6px; }
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn svg { width: 70px; height: 70px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-postal-art { width: 110px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-petra-stamp { width: 58px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-postmark { width: 80px; margin-left: -25px; }
+}
+
+@media (max-width: 760px) {
+    .plans-puzzle-page:not(.puzzle-mode) .plans-layout {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        width: calc(100% - 36px);
+        min-height: 0;
+        gap: 22px;
+        margin: 20px auto 35px;
+    }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-grid {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 620px;
+        aspect-ratio: 1.18;
+        margin: 0 !important;
+    }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-intro {
+        display: contents;
+    }
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn { grid-column: 1; grid-row: 2; margin: 0; align-self: center; justify-self: center; padding: 8px; font-size: 11px; }
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn svg { width: 62px; height: 62px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-postal-art { grid-column: 2; grid-row: 2; width: 140px; margin: 0; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-petra-stamp { width: 63px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-postmark { width: 89px; margin-left: -26px; transform: translateY(13px) rotate(9deg); }
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content h2 { font-size: clamp(19px, 4vw, 28px); }
+    .plans-puzzle-page:not(.puzzle-mode) .activities .card-content h2 { font-size: clamp(17px, 3.6vw, 25px); }
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content p { font-size: clamp(9px, 1.9vw, 12px); margin-top: 5px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content .arrow { width: 23px; height: 23px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card .category-icon { width: 16px; height: 16px; margin-bottom: 6px; }
+    .plans-puzzle-page:not(.puzzle-mode) .culture .card-content { padding-left: 34%; }
+}
+
+@media (max-width: 380px) {
+    .plans-puzzle-page:not(.puzzle-mode) .plans-layout { width: calc(100% - 24px); }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-intro { gap: 8px; }
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn { width: 132px; padding: 8px; font-size: 10px; gap: 8px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-postal-art { width: 121px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-petra-stamp { width: 56px; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-postmark { width: 79px; margin-left: -25px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card,
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn,
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn svg,
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card .puzzle-surface,
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card .puzzle-surface::after,
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content { transition: none; }
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card:hover .puzzle-surface,
+    .plans-puzzle-page:not(.puzzle-mode) .plan-card:focus-visible .puzzle-surface { transform: none; }
+}

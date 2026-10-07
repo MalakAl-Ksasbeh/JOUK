@@ -13,12 +13,13 @@
       rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260930-17">
     <link rel="stylesheet" href="../../shared/brand.css">
+    <link rel="stylesheet" href="../../shared/stay-connected.css?v=2">
 
     <script src="../../shared/site-path.js"></script>
-    <link rel="stylesheet" href="../../shared/page-loader.css">
-    <script src="../../shared/page-loader.js" defer></script>
+    <link rel="stylesheet" href="../../shared/page-loader.css?v=jordan-outline-2">
+    <script src="../../shared/page-loader.js?v=jordan-outline-2" defer></script>
 </head>
-<body>
+<body class="has-stay-connected">
 <div class="page-loader" role="status" aria-label="Loading JOUK">
     <div class="page-loader-spinner" aria-hidden="true"></div>
     <span class="page-loader-logo" aria-hidden="true">JOUK</span>
@@ -30,7 +31,7 @@
     <nav class="site-nav main-nav" aria-label="Main navigation">
         <a href="../../home%20page/index.html">Home</a>
         <a href="../../plans/index.html" class="active" aria-current="page">Plans</a>
-        <a href="../../other%20pages/create-plan/index.html">My Trip</a>
+        <a href="../../other%20pages/create-plan/index.html">My Path</a>
         <a href="../../reviews/community/index.html">Community</a>
     </nav>
     <a class="site-account profile-btn" href="../../sign%20up-log%20in/index.html" aria-label="Log in or sign up">
@@ -139,7 +140,39 @@
     </section>
   </main>
 
-  <footer id="about"><span>JOUK</span><span>Find Your Next Experience.</span></footer>
+<footer class="stay-connected" id="about" aria-labelledby="stay-connected-title">
+    <div class="stay-connected-intro">
+        <p class="stay-connected-label">Stay connected</p>
+        <h2 id="stay-connected-title">Let's explore Jordan together.</h2>
+    </div>
+    <div class="stay-connected-details">
+        <div>
+            <p class="stay-connected-label">Phone</p>
+            <a href="tel:+962791566587">+962 791566587</a>
+        </div>
+        <div>
+            <p class="stay-connected-label">Email</p>
+            <a href="mailto:joukjo@gmail.com">joukjo@gmail.com</a>
+        </div>
+    </div>
+    <div>
+        <p class="stay-connected-label">Follow us</p>
+        <div class="stay-connected-socials">
+            <a href="https://www.instagram.com/jouk.jordan/" target="_blank" rel="noopener noreferrer" aria-label="Instagram JOUK Jordan">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="fill:none;stroke:currentColor;stroke-width:1.7"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" style="fill:currentColor;stroke:none"></circle></svg>
+                <span>@jouk.jordan</span>
+            </a>
+            <a href="https://www.facebook.com/search/top?q=JOUK%20Jordan" target="_blank" rel="noopener noreferrer" aria-label="Search JOUK Jordan on Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 22v-9h3l.5-4H14V6.5c0-1.2.4-2 2.1-2H18V1.2A26 26 0 0 0 15.2 1C12.4 1 10.5 2.7 10.5 6v3H7v4h3.5v9Z"></path></svg>
+                <span>JOUK Jordan</span>
+            </a>
+            <a href="https://www.tiktok.com/@jouk.jordan" target="_blank" rel="noopener noreferrer" aria-label="TikTok JOUK Jordan">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2h3c.3 2.5 1.7 4 4 4.3v3.1c-1.5 0-2.9-.5-4-1.3V16a6 6 0 1 1-6-6v3.2a2.8 2.8 0 1 0 3 2.8Z"></path></svg>
+                <span>@jouk.jordan</span>
+            </a>
+        </div>
+    </div>
+</footer>
   <script src="script.js?v=20260930-17"></script>
 </body>
 </html>

@@ -2,8 +2,10 @@
     position: fixed;
     inset: 0;
     z-index: 99999;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #24211e;
     background: #f2eee7;
     opacity: 1;
@@ -18,35 +20,68 @@
 }
 
 .page-loader-spinner {
-    position: absolute;
-    width: 92px;
-    height: 92px;
-    border: 1px solid #d8cdbb;
-    border-top: 2px solid #34513d;
-    border-radius: 50%;
-    animation: jouk-loader-spin 1s linear infinite;
+    width: 120px;
+    height: 140px;
+    margin-bottom: 18px;
+    color: #34513d;
+}
+
+.page-loader-map {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.page-loader-map-outline,
+.page-loader-map-draw {
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.page-loader-map-outline {
+    stroke: #d8cdbb;
+}
+
+.page-loader-map-draw {
+    stroke: currentColor;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: jouk-loader-draw 1.2s ease-in-out infinite;
+}
+
+.page-loader.is-hidden .page-loader-map-draw {
+    animation-play-state: paused;
 }
 
 .page-loader-logo {
     font-family: 'Aboreto', 'Playfair Display', Georgia, serif;
     font-size: 21px;
     letter-spacing: 2px;
+    line-height: 1;
 }
 
 .page-loader-label {
-    position: absolute;
-    top: calc(50% + 62px);
+    margin-top: 9px;
     color: #766e64;
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
     font-size: 9px;
     letter-spacing: 0.2em;
 }
 
-@keyframes jouk-loader-spin {
-    to { transform: rotate(360deg); }
+@keyframes jouk-loader-draw {
+    0% { stroke-dashoffset: 1; opacity: 1; }
+    68%, 84% { stroke-dashoffset: 0; opacity: 1; }
+    94%, 100% { stroke-dashoffset: 0; opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .page-loader-spinner { animation-duration: 2.5s; }
+    .page-loader-map-draw {
+        animation: none;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
     .page-loader { transition-duration: 1ms; }
 }
