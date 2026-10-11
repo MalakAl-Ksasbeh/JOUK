@@ -179,7 +179,7 @@
 
 .adventure .puzzle-surface {
     clip-path: url('#plans-clip-adventure');
-    background-image: linear-gradient(180deg, rgba(20, 16, 12, 0.43), rgba(20, 16, 12, 0.03) 65%), url('images/adventure-wadi-mujib.jpg');
+    background-image: linear-gradient(180deg, rgba(20, 16, 12, 0.43), rgba(20, 16, 12, 0.03) 65%), url('images/adventure-wadi-mujib.jpg?v=2');
     background-position: center 85%;
 }
 

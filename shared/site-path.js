@@ -21,4 +21,12 @@
         url: toProjectUrl,
         asset: toAssetUrl
     });
+    const savedStyle = document.createElement("link");
+    savedStyle.rel = "stylesheet";
+    savedStyle.href = toProjectUrl("shared/saved-places.css?v=1");
+    document.head.appendChild(savedStyle);
+    const savedScript = document.createElement("script");
+    savedScript.src = toProjectUrl("shared/saved-places.js?v=2");
+    savedScript.async = true;
+    document.head.appendChild(savedScript);
 })();

@@ -7,7 +7,7 @@
 
 const params = new URLSearchParams(window.location.search);
 
-const placeID = params.get("place") || "deadsea";
+let placeID = params.get("place") || "deadsea";
 
 const requestedTab = params.get("tab") || "overview";
 
@@ -38,6 +38,10 @@ function openTab(tabID) {
     });
 
 
+    if (!tabExists && document.body.classList.contains("destination-page") && document.getElementById(tabID)?.classList.contains("tab-content")) {
+        tabExists = true;
+    }
+
     if (!tabExists) {
 
         tabID = "overview";
@@ -53,6 +57,10 @@ function openTab(tabID) {
 
             tab.classList.add("active");
 
+        }
+
+        if (tab.getAttribute("role") === "tab") {
+            tab.setAttribute("aria-selected", String(tab.dataset.target === tabID));
         }
 
     });
@@ -109,6 +117,7 @@ fetch(window.JOUK.url("data/places.json"))
 
 .then(function (data) {
 
+    placeID = Object.keys(data).find(function (id) { return id.toLowerCase() === placeID.toLowerCase(); }) || placeID;
     const place = data[placeID];
 
     currentPlace = place;
@@ -118,8 +127,69 @@ fetch(window.JOUK.url("data/places.json"))
 
         console.log("Place not found:", placeID);
 
+        document.getElementById("place-name").textContent = "Place not found";
+        document.getElementById("about-text").textContent = "Choose a destination from Plans to continue exploring.";
         return;
 
+    }
+
+    if (window.JOUK.renderDestination) window.JOUK.renderDestination(place, data, placeID);
+
+    // Keep destination browsing available on every place, including the ends of the list.
+    const destinationCategories = [
+        ["deadsea", "main", "aqaba", "afra", "ajlounRelax"],
+        ["karakCastle", "petra", "jerash", "romanTheater", "ajlounCastle", "ummQais"],
+        ["danaReserve", "wadiMujib", "wadiRum", "aqabaAdventures", "shobak", "dibeenForest"]
+    ];
+    const destinationIDs = (destinationCategories.find(function (ids) { return ids.includes(placeID); }) || [placeID]).filter(function (id) { return data[id]; });
+    const destinationIndex = destinationIDs.indexOf(placeID);
+    if (destinationIDs.length > 1 && !document.querySelector(".destination-navigation")) {
+        const navigation = document.createElement("nav");
+        navigation.className = "destination-navigation";
+        navigation.setAttribute("aria-label", "Browse destinations");
+        const links = [-1, 1].map(function (direction) {
+            const id = destinationIDs[(destinationIndex + direction + destinationIDs.length) % destinationIDs.length];
+            const link = document.createElement("a");
+            const previous = direction < 0;
+            link.className = "destination-navigation-link " + (previous ? "destination-previous" : "destination-next");
+            link.href = window.JOUK.url("other pages/place/index.html?place=" + encodeURIComponent(id));
+            link.setAttribute("aria-label", (previous ? "Previous place: " : "Next place: ") + data[id].name);
+            link.title = (previous ? "← " : "→ ") + data[id].name;
+            link.setAttribute("aria-keyshortcuts", previous ? "ArrowLeft" : "ArrowRight");
+            const arrow = document.createElement("span");
+            arrow.className = "destination-navigation-arrow";
+            arrow.setAttribute("aria-hidden", "true");
+            arrow.textContent = previous ? "←" : "→";
+            const copy = document.createElement("span");
+            const label = document.createElement("small");
+            label.textContent = previous ? "Previous place" : "Next place";
+            const name = document.createElement("strong");
+            name.textContent = data[id].name;
+            copy.append(label, name);
+            link.append(arrow, copy);
+            return link;
+        });
+        const hint = document.createElement("span");
+        hint.className = "destination-navigation-hint";
+        hint.textContent = "Use ← → to explore";
+        navigation.append(links[0], hint, links[1]);
+        document.querySelector(".hero").append(navigation);
+        let navigationTimer;
+        document.querySelector(".hero").addEventListener("click", function (event) {
+            if (event.target.closest("a, button")) return;
+            navigation.classList.add("is-visible");
+            clearTimeout(navigationTimer);
+            navigationTimer = setTimeout(function () { navigation.classList.remove("is-visible"); }, 3000);
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.defaultPrevented || event.repeat || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+            if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+            // Leave text editing, tab controls, menus and dialogs their own arrow keys.
+            if (event.target.closest('input, textarea, select, button, [contenteditable]:not([contenteditable="false"]), [role="tablist"], [role="menu"], [role="slider"], [role="combobox"], video, audio')) return;
+            if (document.querySelector('dialog[open], [role="dialog"][aria-modal="true"]:not([hidden])')) return;
+            event.preventDefault();
+            window.location.assign(links[event.key === "ArrowLeft" ? 0 : 1].href);
+        });
     }
 
 
@@ -159,7 +229,7 @@ fetch(window.JOUK.url("data/places.json"))
     if (placeImage) {
 
         placeImage.src =
-            window.JOUK.asset(place.image || "");
+            window.JOUK.asset(window.JOUK.destinationHero || place.image || "");
 
         placeImage.alt =
             place.name
@@ -240,7 +310,7 @@ fetch(window.JOUK.url("data/places.json"))
     if (aboutTitle) {
 
         aboutTitle.textContent =
-            place.aboutTitle || "";
+            "About";
 
     }
 
@@ -471,64 +541,28 @@ fetch(window.JOUK.url("data/places.json"))
 
 
     if (addToPathBtn) {
-
-        let myPath =
-            getStoredArray("myPath");
-
-
-        const alreadyAdded =
-            myPath.includes(placeID);
-
-
-        if (alreadyAdded) {
-
-            addToPathBtn.textContent =
-                "View My Trip →";
-
-        }
-
-
-        addToPathBtn.addEventListener(
-            "click",
-            function () {
-
-                let savedPath =
-                    getStoredArray(
-                        "myPath"
-                    );
-
-
-                const exists =
-                    savedPath.includes(
-                        placeID
-                    );
-
-
-                if (!exists) {
-
-                    savedPath.push(
-                        placeID
-                    );
-
-
-                    localStorage.setItem(
-                        "myPath",
-                        JSON.stringify(
-                            savedPath
-                        )
-                    );
-
-                }
-
-
-                window.location.href =
-                    window.JOUK.url("paths/index.html");
-
+        addToPathBtn.textContent = "Add to My Path +";
+        addToPathBtn.addEventListener("click", function () {
+            const plans = getStoredArray("joukPlans");
+            const selected = localStorage.getItem("selectedJoukPlan");
+            const plan = plans.find(function (item) { return String(item.id) === selected; }) || plans[0];
+            if (!plan) {
+                window.location.assign(window.JOUK.url("other pages/create-plan/index.html?addPlace=" + encodeURIComponent(placeID)));
+                return;
             }
-        );
-
+            if (!Array.isArray(plan.places)) plan.places = [];
+            if (!plan.places.some(function (item) { return String(item.id) === placeID; })) {
+                plan.places.push({ id: placeID, name: place.name, location: place.location, image: place.image,
+                    description: place.about, day: 1 });
+                plan.updatedAt = new Date().toISOString();
+                localStorage.setItem("joukPlans", JSON.stringify(plans));
+            }
+            localStorage.setItem("selectedJoukPlan", String(plan.id));
+            addToPathBtn.textContent = "Added to My Path ✓";
+            const status = document.getElementById("place-save-status");
+            if (status) status.textContent = "Added to " + plan.name;
+        });
     }
-
 })
 
 .catch(function (error) {

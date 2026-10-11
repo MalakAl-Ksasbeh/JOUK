@@ -6,6 +6,21 @@ import {
     updateProfile
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
+function afterLogin() {
+    const requested = new URLSearchParams(window.location.search).get("returnTo");
+    if (requested) {
+        try {
+            const target = new URL(requested, window.location.href);
+            const root = new URL(window.JOUK.url(""));
+            if (target.origin === root.origin && target.pathname.startsWith(root.pathname) && !target.pathname.includes("sign%20up-log%20in")) {
+                window.location.assign(target.href);
+                return;
+            }
+        } catch (_) { /* Use the home page for an invalid return address. */ }
+    }
+    window.location.href = window.JOUK.url("home page/index.html");
+}
+
 
 // Elements
 
@@ -167,7 +182,7 @@ signupForm.addEventListener("submit", function(event){
 
         alert("Account created successfully!");
 
-        window.location.href = window.JOUK.url("home page/index.html");
+        afterLogin();
 
 
     })
@@ -215,7 +230,7 @@ loginForm.addEventListener("submit", function(event){
 
         alert("Login successful!");
 
-        window.location.href = window.JOUK.url("home page/index.html");
+        afterLogin();
 
 
     })

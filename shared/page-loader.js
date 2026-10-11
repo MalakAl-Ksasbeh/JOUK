@@ -28,6 +28,7 @@
     }
 
     const startedAt = Date.now();
+    const minimumDisplayTime = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 450 : 1200;
     let hidden = false;
 
     function hideLoader() {
@@ -35,7 +36,6 @@
         hidden = true;
 
         // Let the border finish one drawing before a fast page dismisses it.
-        const minimumDisplayTime = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 450 : 1000;
         const wait = Math.max(0, minimumDisplayTime - (Date.now() - startedAt));
 
         window.setTimeout(function () {
@@ -43,9 +43,13 @@
         }, wait);
     }
 
+    // Navigation must remain available when a remote font, image, or account
+    // module is slow. The loader only covers the initial document preparation.
+    document.addEventListener("DOMContentLoaded", hideLoader, { once: true });
     window.addEventListener("load", hideLoader, { once: true });
+    window.setTimeout(hideLoader, 1800);
 
-    if (document.readyState === "complete") {
+    if (document.readyState !== "loading") {
         hideLoader();
     }
 })();

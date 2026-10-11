@@ -984,6 +984,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert(
                 "Your Jordan trip has been saved successfully!"
             );
+            window.location.assign(window.JOUK.url("paths/index.html"));
         }
     );
 
@@ -993,6 +994,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // ========================================
 
     loadPlanForEditing();
+
+    const pendingPlace = new URLSearchParams(window.location.search).get("addPlace");
+    if (pendingPlace && editingPlanId === null) {
+        const aliases = { deadsea: "dead-sea", wadiRum: "wadi-rum", ajlounCastle: "ajloun-castle", wadiMujib: "mujib", romanTheater: "amman" };
+        const cardID = aliases[pendingPlace] || pendingPlace;
+        const pendingCard = Array.from(placeCards).find(function (card) { return card.dataset.id === cardID; });
+        if (pendingCard) {
+            selectedPlaces.push(getPlaceFromCard(pendingCard));
+            pendingCard.classList.add("selected");
+            const button = pendingCard.querySelector(".add-place");
+            if (button) button.textContent = "✓";
+        } else {
+            savePlanBtn.disabled = true;
+            fetch(window.JOUK.url("data/places.json")).then(function (response) {
+                if (!response.ok) throw new Error("Place unavailable");
+                return response.json();
+            }).then(function (places) {
+                const place = places[pendingPlace];
+                if (!place) throw new Error("Place unavailable");
+                selectedPlaces.push({ id: pendingPlace, name: place.name, location: place.location,
+                    image: place.image, description: place.about, category: "", day: 1 });
+                renderEverything();
+            }).catch(function () {
+                alert("We could not load your chosen place. Please return to the place and try again.");
+            }).finally(function () { savePlanBtn.disabled = false; });
+        }
+    }
 
     renderEverything();
 

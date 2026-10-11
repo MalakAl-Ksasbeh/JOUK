@@ -16,15 +16,15 @@
         rel="stylesheet">
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" async onload="window.lucide &amp;&amp; window.lucide.createIcons()"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="community.css">
     <link rel="stylesheet" href="../../shared/brand.css">
 
     <script src="../../shared/site-path.js"></script>
-    <link rel="stylesheet" href="../../shared/page-loader.css?v=jordan-outline-2">
-    <script src="../../shared/page-loader.js?v=jordan-outline-2" defer></script>
+    <link rel="stylesheet" href="../../shared/page-loader.css?v=jordan-navigation-3">
+    <script src="../../shared/page-loader.js?v=jordan-navigation-3" defer></script>
 </head>
 
 <body>
@@ -562,7 +562,7 @@
     <script src="community.js"></script>
 
     <script>
-        lucide.createIcons();
+        if (window.lucide) window.lucide.createIcons();
     </script>
 
 </body>

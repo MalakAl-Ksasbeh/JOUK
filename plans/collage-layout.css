@@ -173,7 +173,7 @@
     background-position: center;
 }
 .plans-puzzle-page:not(.puzzle-mode) .adventure .puzzle-surface {
-    background-image: url('images/adventure-wadi-mujib.jpg');
+    background-image: url('images/adventure-wadi-mujib.jpg?v=2');
     background-position: center 83%;
 }
 .plans-puzzle-page:not(.puzzle-mode) .activities .puzzle-surface {
@@ -324,9 +324,9 @@
     .plans-puzzle-page:not(.puzzle-mode) .plans-intro {
         display: contents;
     }
-    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn { grid-column: 1; grid-row: 2; margin: 0; align-self: center; justify-self: center; padding: 8px; font-size: 11px; }
+    .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn { grid-column: 2; grid-row: 2; margin: 0; align-self: center; justify-self: center; padding: 8px; font-size: 11px; }
     .plans-puzzle-page:not(.puzzle-mode) .puzzle-mode-btn svg { width: 62px; height: 62px; }
-    .plans-puzzle-page:not(.puzzle-mode) .plans-postal-art { grid-column: 2; grid-row: 2; width: 140px; margin: 0; }
+    .plans-puzzle-page:not(.puzzle-mode) .plans-postal-art { grid-column: 1; grid-row: 2; width: 140px; margin: 0; justify-self: center; }
     .plans-puzzle-page:not(.puzzle-mode) .plans-petra-stamp { width: 63px; }
     .plans-puzzle-page:not(.puzzle-mode) .plans-postmark { width: 89px; margin-left: -26px; transform: translateY(13px) rotate(9deg); }
     .plans-puzzle-page:not(.puzzle-mode) .plan-card .card-content h2 { font-size: clamp(19px, 4vw, 28px); }
