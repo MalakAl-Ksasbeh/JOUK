@@ -126,7 +126,7 @@ if (logo) {
 // ==================================================
 
 const navLinks =
-    document.querySelectorAll("nav a");
+    document.querySelectorAll("nav:not(.site-nav) a");
 
 
 navLinks.forEach(link => {

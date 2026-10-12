@@ -101,7 +101,9 @@ openTab(requestedTab);
 // LOAD PLACE DATA
 // ======================================================
 
-fetch(window.JOUK.url("data/places.json"))
+(window.location.protocol === "file:" && window.JOUK_PLACES
+    ? Promise.resolve({ ok: true, json: function () { return Promise.resolve(window.JOUK_PLACES); } })
+    : fetch(window.JOUK.url("data/places.json")))
 
 .then(function (response) {
 
@@ -138,8 +140,8 @@ fetch(window.JOUK.url("data/places.json"))
     // Keep destination browsing available on every place, including the ends of the list.
     const destinationCategories = [
         ["deadsea", "main", "aqaba", "afra", "ajlounRelax"],
-        ["karakCastle", "petra", "jerash", "romanTheater", "ajlounCastle", "ummQais"],
-        ["danaReserve", "wadiMujib", "wadiRum", "aqabaAdventures", "shobak", "dibeenForest"]
+        ["madabaPark", "mukawir", "karakCastle", "petra", "jerash", "romanTheater", "ajlounCastle", "ummQais"],
+        ["bartaWaterfalls", "wadiZarqaMain", "danaReserve", "wadiMujib", "wadiRum", "aqabaAdventures", "shobak", "dibeenForest"]
     ];
     const destinationIDs = (destinationCategories.find(function (ids) { return ids.includes(placeID); }) || [placeID]).filter(function (id) { return data[id]; });
     const destinationIndex = destinationIDs.indexOf(placeID);
