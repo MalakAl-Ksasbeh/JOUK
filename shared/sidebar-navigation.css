@@ -1,0 +1,33 @@
+.jouk-menu-toggle { position: fixed; left: 22px; top: 24px; z-index: 1100; display: grid; place-items: center; width: 42px; height: 42px; padding: 9px; border: 0; border-radius: 8px; background: transparent; color: #294542; cursor: pointer; }
+.jouk-menu-toggle svg { width: 22px; height: 22px; }
+dialog.jouk-sidebar { position: fixed; inset: 0 auto 0 0; margin: 0; width: min(280px, 86vw); height: 100dvh; max-height: 100dvh; max-width: 88vw; padding: 24px 20px; box-sizing: border-box; border: 0; background: #f8f5ef; color: #294542; overflow-y: auto; text-align: left; }
+.jouk-sidebar::backdrop { background: #14282380; backdrop-filter: blur(3px); }
+.jouk-sidebar-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
+.jouk-sidebar .jouk-sidebar-logo { position: static !important; inset: auto !important; display: block !important; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important; transform: none !important; color: #294542 !important; font: 400 24px/1.2 'Aboreto', Georgia, serif !important; letter-spacing: 1px !important; }
+.jouk-sidebar-heading button { border: 0; background: transparent; color: inherit; font: 30px/1 Georgia, serif; cursor: pointer; padding: 8px; }
+.jouk-sidebar nav { position: static !important; display: grid !important; width: 100% !important; height: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; gap: 3px !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
+.jouk-sidebar nav a { display: flex !important; align-items: center; justify-content: space-between; padding: 13px 12px !important; margin: 0 !important; border-radius: 6px; border: 0; color: #294542 !important; text-decoration: none !important; font: 500 15px/1.5 'Plus Jakarta Sans', sans-serif !important; transform: none !important; transition: background .2s; }
+.jouk-sidebar nav a::after, .jouk-sidebar nav a::before { content: none !important; }
+.jouk-sidebar nav a span { opacity: .5; font-size: 16px; }
+.jouk-sidebar nav a:hover, .jouk-sidebar nav a[aria-current="page"] { background: #e7e6dc; }
+.jouk-sidebar-label { margin: 30px 12px 10px; font: 500 10px/1.5 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #85775e; }
+.jouk-sidebar .jouk-sidebar-categories a { font-size: 13px !important; }
+.jouk-menu-toggle:focus-visible, .jouk-sidebar a:focus-visible, .jouk-sidebar button:focus-visible { outline: 2px solid #427267; outline-offset: 3px; }
+.jouk-sidebar[open] { display: flex; flex-direction: column; }
+.jouk-sidebar-body { flex: 1; }
+.jouk-sidebar-plans summary { display: flex; align-items: center; justify-content: space-between; list-style: none; padding: 13px 12px; border-radius: 6px; font: 500 15px/1.5 'Plus Jakarta Sans', sans-serif; cursor: pointer; }
+.jouk-sidebar-plans summary::-webkit-details-marker { display: none; }
+.jouk-sidebar-plans summary:hover { background: #e7e6dc; }
+.jouk-sidebar-plans[open] summary > span { transform: rotate(180deg); }
+.jouk-plans-chevron { display: block; flex: 0 0 18px; width: 18px; height: 18px; transition: transform .2s ease; }
+.jouk-sidebar-plans[open] .jouk-plans-chevron { transform: rotate(180deg); }
+.jouk-sidebar-submenu { margin: 4px 0 10px 12px; padding-left: 12px; border-left: 1px solid #d7ccba; }
+.jouk-sidebar .jouk-explore-link { font-size: 12px !important; color: #85775e !important; }
+.jouk-sidebar-profile { margin-top: 28px; padding-top: 18px; border-top: 1px solid #d7ccba; }
+.jouk-sidebar-profile a { display: flex; align-items: center; gap: 12px; padding: 12px; color: #294542; text-decoration: none; font: 500 14px/1.5 'Plus Jakarta Sans', sans-serif; border-radius: 6px; }
+.jouk-sidebar-profile a:hover { background: #e7e6dc; }
+.jouk-sidebar-profile svg { width: 23px; height: 23px; }
+
+@media (max-width: 700px) { .jouk-menu-toggle { top: 22px; left: 12px; } body:has(.jouk-menu-toggle) .site-header > .logo { margin-left: 36px; } }
+
+

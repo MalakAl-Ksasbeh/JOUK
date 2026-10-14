@@ -29,4 +29,15 @@
     savedScript.src = toProjectUrl("shared/saved-places.js?v=2");
     savedScript.async = true;
     document.head.appendChild(savedScript);
+    const sidebarStyle = document.createElement("link");
+    sidebarStyle.rel = "stylesheet";
+    sidebarStyle.href = toProjectUrl("shared/sidebar-navigation.css?v=6");
+    document.head.appendChild(sidebarStyle);
+    const sidebarScript = document.createElement("script");
+    sidebarScript.src = toProjectUrl("shared/sidebar-navigation.js?v=6");
+    sidebarScript.async = true;
+    document.head.appendChild(sidebarScript);
 })();
+
+
+

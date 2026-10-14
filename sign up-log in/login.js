@@ -22,111 +22,8 @@ function afterLogin() {
 }
 
 
-// Elements
-
-const loginTab = document.getElementById("loginTab");
-const signupTab = document.getElementById("signupTab");
-
-const tabs = document.getElementById("tabs");
-
-const loginForm = document.getElementById("loginForm");
-const signupForm = document.getElementById("signupForm");
-
-const guestBtn = document.getElementById("guestBtn");
-const loginPage = document.querySelector(".login-page");
-const loginStorySubtitle = document.getElementById("loginStorySubtitle");
-const signupStoryCopy = document.getElementById("signupStoryCopy");
-
-
-
-
-// ================= SIGN UP TAB =================
-
-signupTab.addEventListener("click", function () {
-
-    loginForm.style.display = "none";
-    guestBtn.style.display = "none";
-
-    signupForm.style.display = "block";
-
-    loginTab.classList.remove("active");
-    signupTab.classList.add("active");
-
-    tabs.classList.add("signup-active");
-    loginPage.classList.add("signup-mode");
-    loginStorySubtitle.hidden = true;
-    signupStoryCopy.hidden = false;
-
-});
-
-
-
-
-
-// ================= LOGIN TAB =================
-
-loginTab.addEventListener("click", function () {
-
-    loginForm.style.display = "block";
-    guestBtn.style.display = "block";
-
-    signupForm.style.display = "none";
-
-    signupTab.classList.remove("active");
-    loginTab.classList.add("active");
-
-    tabs.classList.remove("signup-active");
-    loginPage.classList.remove("signup-mode");
-    loginStorySubtitle.hidden = false;
-    signupStoryCopy.hidden = true;
-
-});
-
-
-
-
-
-// ================= SHOW PASSWORD =================
-
-
-const eyeButtons = document.querySelectorAll(".eye-btn");
-
-
-eyeButtons.forEach(button => {
-
-
-    button.addEventListener("click", function () {
-
-
-        const targetId = button.getAttribute("data-target");
-
-        const passwordInput = document.getElementById(targetId);
-
-
-
-        if(passwordInput.type === "password"){
-
-            passwordInput.type = "text";
-
-        }
-
-        else{
-
-            passwordInput.type = "password";
-
-        }
-
-
-    });
-
-
-});
-
-
-
-
-
-
+const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
 
 // ================= SIGN UP FIREBASE =================
 
@@ -256,29 +153,6 @@ loginForm.addEventListener("submit", function(event){
 
 
 
-// ================= GUEST =================
 
+window.JOUK_AUTH_READY = true;
 
-
-guestBtn.addEventListener("click", function(){
-
-
-    window.location.href = window.JOUK.url("home page/index.html");
-
-
-});
-
-
-
-
-
-
-
-// ================= ICONS =================
-
-
-if(window.lucide){
-
-    lucide.createIcons();
-
-}
