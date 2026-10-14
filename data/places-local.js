@@ -288,14 +288,14 @@ window.JOUK_PLACES = {
     ]
   },
   "ajlounRelax": {
-    "name": "Ajloun Forest",
+    "name": "Ajloun Forest Reserve",
     "location": "📍 Ajloun Forest, Jordan",
-    "image": "/images/ajloun-relax.jpeg",
+    "image": "/images/ajloun-reserve-card.jpg",
     "rating": "⭐ 4.7 (850)",
-    "aboutTitle": "About Ajloun Forest",
-    "about": "Ajloun Forest is a peaceful natural destination famous for its green landscapes, fresh air and beautiful surroundings. It is perfect for relaxation and enjoying nature.",
+    "aboutTitle": "About Ajloun Forest Reserve",
+    "about": "Ajloun Forest Reserve is a beautiful nature destination in northern Jordan, known for its rolling green hills, oak woodlands, and diverse wildlife. Visitors can explore scenic hiking trails, discover local traditions, and enjoy the peaceful atmosphere of one of Jordan’s most charming forest landscapes.",
     "info": {
-      "bestTime": "Spring - Summer",
+      "bestTime": "March – May · September – November",
       "visitTime": "3-5 hours",
       "bestFor": "Relaxation & Nature",
       "nearby": "Ajloun Castle"
@@ -303,33 +303,106 @@ window.JOUK_PLACES = {
     "quickInfo": {
       "elevation": "1200m",
       "bestFor": "Relaxation",
-      "access": "Easy",
-      "distance": "1 hour from Amman"
+      "access": "Paid Entry · Check Current Rates",
+      "distance": "Approx. 70–80 km · Around 1.5–2 Hours"
     },
     "thingsToDo": [
-      "Enjoy the green forest views",
-      "Have a picnic in nature",
-      "Walk through forest trails",
-      "Relax in the peaceful atmosphere"
+      "Hike Through the Forest",
+      "Try a Forest Adventure",
+      "Discover Local Traditions",
+      "Enjoy a Nature Escape",
+      "Teleferic Ajloun"
     ],
     "photos": [
-      "/images/ajloun-relax5.jpeg",
-      "/images/ajloun-relax6.jpeg",
-      "/images/ajloun-relax7.jpeg"
+      "/images/ajloun-hike.jpg",
+      "/images/ajloun-zipline.webp",
+      "/images/ajloun-soap-house.jpg",
+      "/images/ajloun-nature-escape.jpg",
+      "/images/ajloun-teleferic.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/ajloun-relax2.jpeg",
-        "title": "Green Forest Views"
+        "title": "Hike Through the Forest",
+        "description": "Follow scenic woodland trails and enjoy peaceful views beneath the oak trees.",
+        "image": "/images/ajloun-hike.jpg"
       },
       {
-        "image": "/images/ajloun-relax3.jpeg",
-        "title": "Nature Trails"
+        "title": "Try a Forest Adventure",
+        "description": "Experience the thrill of ziplining above the forest, subject to availability.",
+        "image": "/images/ajloun-zipline.webp"
       },
       {
-        "image": "/images/ajloun-relax4.jpeg",
-        "title": "Peaceful Escape"
+        "title": "Discover Local Traditions",
+        "description": "Visit the Soap House in nearby Orjan village and learn about traditional olive-oil soap making.",
+        "image": "/images/ajloun-soap-house.jpg"
+      },
+      {
+        "title": "Enjoy a Nature Escape",
+        "description": "Slow down, breathe in the fresh mountain air, and enjoy a peaceful day surrounded by greenery.",
+        "image": "/images/ajloun-nature-escape.jpg"
+      },
+      {
+        "title": "Teleferic Ajloun",
+        "description": "Enjoy a scenic ride above Ajloun’s lush green hills, with panoramic views of the forests and Ajloun Castle.",
+        "image": "/images/ajloun-teleferic.jpg"
       }
+    ],
+    "heroImage": "/images/ajloun-reserve-hero.jpg",
+    "tagline": "Green Trails · Fresh Air · Nature Escape",
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best Time to Visit",
+        "value": "March – May · September – November"
+      },
+      {
+        "icon": "ticket",
+        "label": "Access",
+        "value": "Paid Entry · Check Current Rates"
+      },
+      {
+        "icon": "mountain",
+        "label": "Environment",
+        "value": "Oak Forests · Wildlife · Hiking Trails"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "Approx. 70–80 km · Around 1.5–2 Hours"
+      }
+    ],
+    "visitNote": "Spring is especially beautiful when wildflowers bloom across the forest.",
+    "packing": [
+      [
+        "shoe",
+        "Comfortable hiking shoes",
+        "Bring comfortable hiking shoes."
+      ],
+      [
+        "clothes",
+        "A light jacket",
+        "Pack a light jacket."
+      ],
+      [
+        "bottle",
+        "Drinking water",
+        "Bring drinking water."
+      ],
+      [
+        "camera",
+        "Camera or phone",
+        "Bring a camera or phone."
+      ],
+      [
+        "sunscreen",
+        "Sun protection",
+        "Bring sunscreen and a hat."
+      ],
+      [
+        "bag",
+        "Trail snacks",
+        "Pack snacks for the trail."
+      ]
     ]
   },
   "aqabaAdventures": {
@@ -382,10 +455,10 @@ window.JOUK_PLACES = {
   "aqaba": {
     "name": "Aqaba Relaxation",
     "location": "📍 Aqaba, Jordan",
-    "image": "/images/aqaba-relax.jpeg",
+    "image": "/images/aqaba-marina-card.jpeg",
     "rating": "⭐ 4.8 (1.3k)",
     "aboutTitle": "Aqaba Relaxation Experience",
-    "about": "Aqaba is a perfect destination for relaxation with beautiful beaches, luxury resorts, peaceful sea views and unforgettable sunsets on the Red Sea.",
+    "about": "Aqaba is Jordan’s seaside escape, where the clear waters of the Red Sea meet beautiful beaches and mountain views. From relaxing by the shore to enjoying peaceful boat cruises, the city offers the perfect setting to slow down and recharge.\n\nWhether you're watching the sunset over the water or enjoying the gentle sea breeze, Aqaba invites you to experience Jordan at a more relaxed pace.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "1-3 Days",
@@ -399,32 +472,106 @@ window.JOUK_PLACES = {
       "distance": "4 hours from Amman"
     },
     "thingsToDo": [
-      "Relax on private beaches",
-      "Enjoy Red Sea sunset views",
-      "Stay in luxury resorts",
-      "Spa and wellness experience",
-      "Enjoy seaside restaurants",
-      "Walk along the marina"
+      "Explore Coral Gardens",
+      "Sunset Yacht Cruise",
+      "Explore the Fishermen’s Harbour",
+      "Aqaba Water Adventures"
     ],
     "photos": [
-      "/images/aqaba-relax5.jpeg",
-      "/images/aqaba-relax6.jpeg",
-      "/images/aqaba-relax7.jpeg"
+      "/images/aqaba-coral-gardens.jpg",
+      "/images/aqaba-yacht-cruise.jpg",
+      "/images/aqaba-fishermen.jpg",
+      "/images/aqaba-water-adventures.png"
     ],
     "highlights": [
       {
-        "image": "/images/aqaba-relax2.jpeg",
-        "title": "Beautiful Beaches"
+        "title": "Explore Coral Gardens",
+        "description": "Swim or dive among colorful coral formations and observe the rich biodiversity of Aqaba’s Red Sea.",
+        "image": "/images/aqaba-coral-gardens.jpg"
       },
       {
-        "image": "/images/aqaba-relax3.jpeg",
-        "title": "Luxury Resorts"
+        "title": "Sunset Yacht Cruise",
+        "description": "Watch the sun set over the Red Sea from the deck of a yacht, surrounded by warm evening light.",
+        "image": "/images/aqaba-yacht-cruise.jpg"
       },
       {
-        "image": "/images/aqaba-relax4.jpeg",
-        "title": "Red Sea Sunset"
+        "title": "Explore the Fishermen’s Harbour",
+        "description": "Take a relaxed stroll by the traditional harbor and watch local fishermen bring in their catch.",
+        "image": "/images/aqaba-fishermen.jpg"
+      },
+      {
+        "title": "Aqaba Water Adventures",
+        "description": "From thrilling jet ski rides and parasailing to yacht cruises and underwater discoveries, explore the best of the Red Sea and find your perfect sea escape.",
+        "image": "/images/aqaba-water-adventures.png"
       }
-    ]
+    ],
+    "heroImage": "/images/aqaba-sunset-hero.png",
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best time to visit",
+        "value": "Mar–May · Sep–Nov"
+      },
+      {
+        "icon": "ticket",
+        "label": "Access",
+        "value": "Public Beach · Resort Day Pass"
+      },
+      {
+        "icon": "water",
+        "label": "Water",
+        "value": "Red Sea · Coral Reefs"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~330 km · ~4 hours"
+      }
+    ],
+    "packingTitle": "Pack for Your Seaside Escape",
+    "packing": [
+      [
+        "towel",
+        "Swimwear & beach towel",
+        "Bring swimwear and a beach towel."
+      ],
+      [
+        "sunscreen",
+        "Sun protection",
+        "Pack sunscreen and sunglasses."
+      ],
+      [
+        "clothes",
+        "Hat & lightweight clothing",
+        "Bring a hat and lightweight clothing."
+      ],
+      [
+        "shoe",
+        "Sandals or water shoes",
+        "Pack sandals or water shoes."
+      ],
+      [
+        "bottle",
+        "Reusable water bottle",
+        "Bring a reusable water bottle."
+      ],
+      [
+        "phonePouch",
+        "Waterproof phone pouch",
+        "Protect your phone around water."
+      ],
+      [
+        "clothes",
+        "Change of clothes",
+        "Bring a change of clothes."
+      ],
+      [
+        "snorkel",
+        "Snorkeling gear",
+        "Bring snorkeling gear, if you have your own."
+      ]
+    ],
+    "visitTip": "Check beach access and day-pass requirements before visiting private beach clubs."
   },
   "wadiMujib": {
     "name": "Wadi Mujib",
@@ -495,6 +642,7 @@ window.JOUK_PLACES = {
       "Explore mountain views"
     ],
     "photos": [
+      "/images/main-hero-v4.webp",
       "/images/main5.jpeg",
       "/images/main6.jpeg",
       "/images/main7.jpeg"
@@ -514,7 +662,7 @@ window.JOUK_PLACES = {
         "title": "Mountain Views"
       }
     ],
-    "heroImage": "/images/main-hero-v3.jpg",
+    "heroImage": "/images/main-hero-v4.webp",
     "facts": [
       {
         "icon": "sun",
@@ -887,12 +1035,12 @@ window.JOUK_PLACES = {
   "afra": {
     "name": "Afra Hot Springs",
     "location": "📍 Afra, Tafila, Jordan",
-    "image": "/images/afra1.png",
+    "image": "/images/afra-card-v2.jpg",
     "rating": "⭐ 4.6 (600)",
     "aboutTitle": "About Afra Hot Springs",
-    "about": "Afra Hot Springs is a natural relaxation destination famous for its warm mineral waters, peaceful atmosphere and beautiful mountain surroundings.",
+    "about": "Afra Hot Springs is a natural thermal destination located approximately 26 km north of Tafila city in Jordan. The area features more than 15 hot-water springs, with mineral-rich waters flowing through a rocky valley to form streams and small waterfalls. Surrounded by rugged landscapes, Afra offers visitors an opportunity to relax in warm pools, enjoy nature, and experience one of southern Jordan’s distinctive natural attractions.",
     "info": {
-      "bestTime": "Spring - Autumn",
+      "bestTime": "October – April",
       "visitTime": "3-5 hours",
       "bestFor": "Relaxation & Wellness",
       "nearby": "Tafila - Dana"
@@ -900,34 +1048,100 @@ window.JOUK_PLACES = {
     "quickInfo": {
       "elevation": "Around 500m",
       "bestFor": "Relaxation",
-      "access": "Easy",
-      "distance": "2.5 hours from Amman"
+      "access": "Paid Entry · Confirm Availability",
+      "distance": "Approx. 160 km · Around 2.5–3 hours"
     },
     "thingsToDo": [
-      "Relax in natural hot water pools",
-      "Enjoy mineral water springs",
-      "Explore the surrounding mountain views",
-      "Photography and nature exploration"
+      "Relax at Afra Hot Springs",
+      "Dana Luxury Huts – Eco Lodge",
+      "Explore Dana Nature Reserve",
+      "Explore Tafila's Heritage"
     ],
     "photos": [
-      "/images/afra5.jpeg",
-      "/images/afra6.jpeg",
-      "/images/afra7.jpeg"
+      "/images/afra-relax-activity.jpg",
+      "/images/afra-dana-huts-v2.jpg",
+      "/images/afra-dana-reserve.jpg",
+      "/images/afra-tafila-heritage.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/afra2.jpeg",
-        "title": "Natural Hot Springs"
+        "description": "Unwind in naturally heated mineral waters surrounded by rocky landscapes and flowing streams.",
+        "title": "Relax at Afra Hot Springs",
+        "image": "/images/afra-relax-activity.jpg"
       },
       {
-        "image": "/images/afra3.jpeg",
-        "title": "Warm Water Pools"
+        "description": "Escape to cozy eco-friendly huts surrounded by Dana’s breathtaking mountains. Enjoy peaceful views, fresh air, and a relaxing stay immersed in nature.",
+        "title": "Dana Luxury Huts – Eco Lodge",
+        "image": "/images/afra-dana-huts-v2.jpg"
       },
       {
-        "image": "/images/afra4.jpeg",
-        "title": "Mountain Views"
+        "description": "Discover scenic hiking trails, dramatic mountain landscapes, and the rich biodiversity of Jordan's largest nature reserve.",
+        "title": "Explore Dana Nature Reserve",
+        "image": "/images/afra-dana-reserve.jpg"
+      },
+      {
+        "description": "Discover the history and cultural heritage of Tafila through its archaeological treasures and local traditions.",
+        "title": "Explore Tafila's Heritage",
+        "image": "/images/afra-tafila-heritage.jpg"
       }
-    ]
+    ],
+    "heroImage": "/images/afra-hero-v2.jpg",
+    "facts": [
+      {
+        "label": "Best Time to Visit",
+        "value": "October – April",
+        "icon": "sun"
+      },
+      {
+        "label": "Access",
+        "value": "Paid Entry · Confirm Availability",
+        "icon": "ticket"
+      },
+      {
+        "label": "Water",
+        "value": "Natural Mineral Hot Springs · 45–48°C",
+        "icon": "water"
+      },
+      {
+        "label": "From Amman",
+        "value": "Approx. 160 km · Around 2.5–3 hours",
+        "icon": "car"
+      }
+    ],
+    "packing": [
+      [
+        "towel",
+        "Swimwear and a towel",
+        "Bring swimwear and a towel."
+      ],
+      [
+        "shoe",
+        "Water shoes",
+        "Bring water shoes for slippery surfaces."
+      ],
+      [
+        "bottle",
+        "Drinking water",
+        "Bring drinking water."
+      ],
+      [
+        "clothes",
+        "A change of clothes",
+        "Pack a change of clothes."
+      ],
+      [
+        "sunscreen",
+        "Sun protection",
+        "Bring sunscreen and a hat."
+      ],
+      [
+        "bag",
+        "Waterproof bag",
+        "Bring a waterproof bag for personal belongings."
+      ]
+    ],
+    "safetyTip": "Spring water can be extremely hot near its source, and rocks may be slippery. Use designated bathing areas only.",
+    "tagline": "Natural Warmth · Mineral Waters · Pure Relaxation"
   },
   "mukawir": {
     "name": "Mukawir Castle",
@@ -1028,7 +1242,7 @@ window.JOUK_PLACES = {
   "wadiZarqaMain": {
     "name": "Wadi Zarqa Ma'in",
     "location": "Ma’in area, Madaba, Jordan",
-    "image": "/images/wadi-zarqa-main.jpg",
+    "image": "/images/wadi-zarqa-main-card-v2.jpg",
     "tagline": "Wild Nature · Waterfalls · Adventure",
     "about": "Wadi Zarqa Ma'in is a striking natural valley near the Dead Sea, known for its rugged cliffs, flowing stream, and dramatic desert landscapes. It offers an adventurous escape for travelers who want to explore Jordan beyond its famous tourist destinations.\n\nWith scenic hiking routes and untouched natural surroundings, the wadi is ideal for discovering a wilder side of Jordan.",
     "info": {
@@ -1230,6 +1444,24 @@ window.JOUK_PLACES = {
       "/images/madaba-churches.jpg",
       "/images/madaba-mosaic-art.jpg"
     ]
+  },
+  "aqabaFort": {
+    "name": "Aqaba Fort",
+    "location": "Aqaba, Jordan",
+    "image": "/images/aqaba-fort-card.jpg",
+    "heroImage": "/images/aqaba-fort-hero.webp",
+    "about": "Details coming soon.",
+    "info": {
+      "nearby": "Aqaba"
+    },
+    "quickInfo": {},
+    "facts": [],
+    "thingsToDo": [],
+    "highlights": [],
+    "photos": [
+      "/images/aqaba-fort-hero.webp"
+    ],
+    "packing": [],
+    "detailsPending": true
   }
 };
-

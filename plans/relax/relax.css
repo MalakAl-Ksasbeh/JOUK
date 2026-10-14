@@ -454,3 +454,36 @@ nav {
         height: 25px;
     }
 }
+.relax-page .card-image-link {
+    position: relative;
+    isolation: isolate;
+    background: #e6e1d7;
+}
+.relax-page .card-image-link img {
+    filter: saturate(.82) contrast(.96) brightness(1.04) sepia(.06);
+}
+.relax-page .card-image-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: #eadfc9;
+    mix-blend-mode: soft-light;
+    opacity: .13;
+}
+.relax-page .card-image-link[href$="place=deadsea"] img {
+    filter: saturate(.78) contrast(.94) brightness(1.09) sepia(.07);
+}
+.relax-page .card-image-link[href$="place=main"] img {
+    filter: saturate(.78) contrast(.97) brightness(1.01) sepia(.05);
+}
+.relax-page .card-image-link[href$="place=aqaba"] img {
+    filter: saturate(.83) contrast(.93) brightness(1.12) sepia(.06);
+}
+.relax-page .card-image-link[href$="place=afra"] img {
+    filter: saturate(.79) contrast(1.05) brightness(.98) sepia(.03);
+}
+.relax-page .card-image-link[href$="place=ajlounRelax"] img {
+    filter: saturate(.66) contrast(.93) brightness(1.05) sepia(.04);
+}

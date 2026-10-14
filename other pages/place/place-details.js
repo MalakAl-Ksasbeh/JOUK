@@ -140,7 +140,7 @@ openTab(requestedTab);
     // Keep destination browsing available on every place, including the ends of the list.
     const destinationCategories = [
         ["deadsea", "main", "aqaba", "afra", "ajlounRelax"],
-        ["madabaPark", "mukawir", "karakCastle", "petra", "jerash", "romanTheater", "ajlounCastle", "ummQais"],
+        ["aqabaFort", "madabaPark", "mukawir", "karakCastle", "petra", "jerash", "romanTheater", "ajlounCastle", "ummQais"],
         ["bartaWaterfalls", "wadiZarqaMain", "danaReserve", "wadiMujib", "wadiRum", "aqabaAdventures", "shobak", "dibeenForest"]
     ];
     const destinationIDs = (destinationCategories.find(function (ids) { return ids.includes(placeID); }) || [placeID]).filter(function (id) { return data[id]; });
@@ -438,7 +438,14 @@ openTab(requestedTab);
 
             img.loading = "lazy";
 
-            photosContainer.appendChild(img);
+            const photoButton = document.createElement("button");
+            photoButton.type = "button";
+            photoButton.className = "ds-gallery-zoom";
+            photoButton.dataset.zoomSrc = img.src;
+            photoButton.dataset.zoomCaption = img.alt;
+            photoButton.setAttribute("aria-label", "Enlarge " + img.alt);
+            photoButton.appendChild(img);
+            photosContainer.appendChild(photoButton);
 
         });
 

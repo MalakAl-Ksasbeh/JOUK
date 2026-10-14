@@ -12,6 +12,7 @@
     const asset = function (path) { return window.JOUK.asset(path); };
     const page = function (path) { return window.JOUK.url(path); };
     const drawings = {
+        snorkel: '<path d="M3 9h16v5a4 4 0 0 1-4 4h-2l-2-3-2 3H7a4 4 0 0 1-4-4V9Zm8 0v6M19 12h2V3h2M3 11H1"/>',
         firstAid: '<rect x="3" y="6" width="18" height="15" rx="2"/><path d="M8 6V3h8v3M12 10v7m-3.5-3.5h7"/>',
         powerBank: '<rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 4V2h6v2M13 8l-4 6h4l-2 5 5-7h-4l1-4Z"/>',
         shoe: '<path d="M3 8h5l2 5 6 2 4 1a2 2 0 0 1 1 2v2H3V8Zm0 9h18M11 12l-2 2m5-1-2 2"/>',
@@ -166,7 +167,7 @@
         deadsea: ["main", "wadiMujib", "mukawir"], petra: ["shobak", "wadiRum"],
         wadiRum: ["aqabaAdventures", "petra"], ajlounCastle: ["ajlounRelax", "jerash"],
         ajlounRelax: ["ajlounCastle", "dibeenForest"], aqabaAdventures: ["aqaba", "wadiRum"],
-        aqaba: ["aqabaAdventures", "wadiRum"], wadiMujib: ["deadsea", "main"],
+        aqaba: ["aqabaFort", "aqabaAdventures", "wadiRum"], aqabaFort: ["aqaba"], wadiMujib: ["deadsea", "main"],
         main: ["deadsea", "wadiZarqaMain", "mukawir"], madabaPark: ["main"], mukawir: ["main", "deadsea"], wadiZarqaMain: ["main", "mukawir"], jerash: ["ajlounCastle", "dibeenForest"],
         ummQais: ["ajlounCastle", "jerash"], danaReserve: ["afra", "shobak"],
         karakCastle: ["deadsea", "danaReserve"], dibeenForest: ["jerash", "ajlounRelax"],
@@ -212,7 +213,7 @@
         }).join("");
         const sources = (place.highlights || []).slice();
         const photos = [place.image].concat(place.photos || []).filter(Boolean);
-        while (sources.length < 3) {
+        while (!place.detailsPending && sources.length < 3) {
             const index = sources.length;
             sources.push({ title: place.thingsToDo?.[index] || "Explore " + place.name, image: photos[index % photos.length] });
         }
@@ -226,13 +227,15 @@
             featured[2] = { key: "2", number: "03", title: "Discover the<br>Colored Pools", plain: "Discover the Colored Pools", image: "/images/deadsea-highlight-03-pools.jpg" };
         }
         document.querySelector(".ds-highlight-grid").innerHTML = featured.map(highlight).join("");
+        document.querySelector(".ds-highlights").hidden = !!place.detailsPending;
+        document.querySelector(".ds-about-toggle").hidden = !!place.detailsPending;
         const activityNames = id === "deadsea" ? ["Floating experience", "Try natural mud", "Discover the colored pools"] : (place.thingsToDo || sources.map(function (item) { return item.title; }));
         document.querySelector(".ds-things-grid").innerHTML = activityNames.map(function (title, index) {
             const item = featured[index % featured.length];
             return '<article id="ds-activity-' + index + '"><img src="' + escapeText(asset(item.image)) + '" alt="' + escapeText(title) + '" loading="lazy"><div><span class="ds-number">' + String(index + 1).padStart(2, "0") + '</span><h3>' + escapeText(title) + '</h3><p>' + escapeText(sources[index]?.description || (place.name + ' · ' + (info.bestFor || quick.bestFor))) + '</p></div></article>';
         }).join("");
         things.querySelector(".ds-panel-intro").textContent = "Make time for these experiences in " + place.name + ".";
-        document.getElementById("deadsea-about-more").textContent = "Allow " + (info.visitTime || "time") + " for your visit.";
+        document.getElementById("deadsea-about-more").textContent = [place.visitNote, "Allow " + (info.visitTime || "time") + " for your visit."].filter(Boolean).join(" ");
         const isWater = ["deadsea", "aqaba", "aqabaAdventures", "wadiMujib", "main", "afra"].includes(id);
         const packing = [
             ...(id === "deadsea" ? [
@@ -254,6 +257,11 @@
         const oldTip = document.querySelector(".ds-safety-tip");
         if (oldTip) oldTip.remove();
         if (place.safetyTip) document.querySelector(".ds-bring-grid").insertAdjacentHTML("afterend", '<p class="ds-safety-tip"><strong>Safety Tip:</strong> ' + escapeText(place.safetyTip) + '</p>');
+        else if (place.visitTip) document.querySelector(".ds-bring-grid").insertAdjacentHTML("afterend", '<p class="ds-safety-tip"><strong>Tip:</strong> ' + escapeText(place.visitTip) + '</p>');
+        if (place.detailsPending) {
+            things.querySelector(".ds-panel-intro").textContent = "Activities will be added soon.";
+            document.querySelector("#bring .ds-panel-intro").textContent = "Visit essentials will be added soon.";
+        }
         document.querySelector("#nearby-places .ds-panel-intro").textContent = "Explore around " + place.name + ". Distances are approximate and depend on your starting point and route.";
         const distances = {"deadsea:main":"About 28 km from the Dead Sea hotel area", "deadsea:mukawir":"About 60 km from the Dead Sea hotel area", "main:deadsea":"About 28 km", "main:mukawir":"About 33 km", "mukawir:main":"About 33 km", "mukawir:deadsea":"About 60 km to the Dead Sea hotel area", "madabaPark:main":"About 30 km"};
         function distanceMarkup(name, key, known) {
