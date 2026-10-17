@@ -1,7 +1,13 @@
 // ========================================
 // JOUK - OTHER USER PROFILE
 // ========================================
+import { auth } from "../../shared/firebase.js";
 
+import {
+    getFirestore,
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 document.addEventListener("DOMContentLoaded", function () {
 
 
@@ -20,6 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
         avatar: "images/wadi rum.jpg"
 
     };
+    const profileUid = new URLSearchParams(
+    window.location.search
+).get("uid");
+
+if (profileUid) {
+    currentProfileUser.id = profileUid;
+}
 
 
     // ========================================

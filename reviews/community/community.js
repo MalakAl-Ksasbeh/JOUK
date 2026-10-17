@@ -1,9 +1,25 @@
-// ========================================
-// JOUK - COMMUNITY PAGE
-// ========================================
+import { auth, db } from "../../shared/firebase.js";
+import {
+    collection,
+    getDocs,
+    getDoc,
+    query,
+    orderBy,
+    doc,
+    deleteDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+await auth.authStateReady();
 
+const profileLink = document.querySelector("a.profile-icon");
+
+if (profileLink && auth.currentUser) {
+    profileLink.href =
+        window.JOUK.url("other pages/profile/index.html");
+
+    profileLink.setAttribute("aria-label", "My profile");
+}
     // ========================================
     // MAIN ELEMENTS
     // ========================================
@@ -19,43 +35,38 @@ document.addEventListener("DOMContentLoaded", function () {
     // LOAD SHARED EXPERIENCES
     // ========================================
 
-    function loadSharedExperiences() {
+  async function loadSharedExperiences() {
 
-        const savedExperiences =
-            localStorage.getItem("joukExperiences");
+    try {
 
+        const experiencesQuery = query(
+            collection(db, "experiences"),
+            orderBy("createdAt", "desc")
+        );
 
-        if (!savedExperiences) {
-            return;
-        }
+        const querySnapshot = await getDocs(experiencesQuery);
 
+        querySnapshot.forEach(function (experienceDoc) {
 
-        let experiences = [];
-
-
-        try {
-
-            experiences =
-                JSON.parse(savedExperiences);
-
-        } catch (error) {
-
-            console.error(
-                "Could not load experiences:",
-                error
-            );
-
-            return;
-        }
-
-
-        experiences.forEach(function (experience) {
+            const experience = {
+                ...experienceDoc.data(),
+                id: experienceDoc.id
+            };
 
             createExperienceCard(experience);
 
         });
 
+    } catch (error) {
+
+        console.error(
+            "Could not load experiences from Firebase:",
+            error
+        );
+
     }
+
+}
 
 
     // ========================================
@@ -104,9 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         userInfo.classList.add("user-info");
 
-        userInfo.href =
-            window.JOUK.url("other pages/profile/index.html");
-
+        if (experience.userId) {
+    userInfo.href =
+        window.JOUK.url("other pages/other-profile/index.html") +
+        "?uid=" + encodeURIComponent(experience.userId);
+}
 
         // Avatar
         const avatar =
@@ -143,7 +156,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
         userLocation.textContent =
             experience.userLocation || "Amman, Jordan";
+// Load the experience owner's profile from Firebase
+if (experience.userId) {
+    getDoc(doc(db, "users", experience.userId))
+        .then(function (profileSnap) {
+            if (!profileSnap.exists()) return;
 
+            const profile = profileSnap.data();
+
+            // Owner's profile photo
+            if (
+                typeof profile.avatar === "string" &&
+                profile.avatar.startsWith("data:image/")
+            ) {
+                avatar.src = profile.avatar;
+            }
+
+            // Owner's location
+            if (typeof profile.location === "string") {
+                userLocation.textContent = profile.location;
+            }
+
+            // Owner's name, if saved in Firestore
+            if (typeof profile.name === "string" && profile.name.trim()) {
+                userName.textContent = profile.name;
+                avatar.alt = profile.name;
+            }
+        })
+        .catch(function (error) {
+            console.error("Could not load user profile:", error);
+        });
+}
 
         userText.appendChild(userName);
 
@@ -171,7 +214,62 @@ document.addEventListener("DOMContentLoaded", function () {
         userSection.appendChild(userInfo);
 
         userSection.appendChild(moreButton);
+// Show Delete button only to the experience owner
+auth.authStateReady().then(() => {
 
+    if (auth.currentUser?.uid !== experience.userId) {
+        return;
+    }
+
+    // Replace the More button with Delete
+    moreButton.remove();
+
+    const deleteButton = document.createElement("button");
+
+    deleteButton.type = "button";
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-experience-btn");
+
+    deleteButton.style.cssText =
+        "background:#dc3545;color:white;border:none;" +
+        "border-radius:8px;padding:8px 14px;cursor:pointer;";
+
+    deleteButton.addEventListener("click", async function () {
+
+        const confirmed = confirm(
+            "Are you sure you want to delete this experience?"
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
+        deleteButton.disabled = true;
+
+        try {
+
+            await deleteDoc(
+                doc(db, "experiences", experience.id)
+            );
+
+            card.remove();
+
+            alert("Experience deleted successfully!");
+
+        } catch (error) {
+
+            console.error("Delete failed:", error);
+
+            alert("Could not delete the experience.");
+
+            deleteButton.disabled = false;
+        }
+
+    });
+
+    userSection.appendChild(deleteButton);
+
+});
 
         card.appendChild(userSection);
 
@@ -836,7 +934,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // START COMMUNITY PAGE
     // ========================================
 
-    loadSharedExperiences();
+    await loadSharedExperiences();
 
     setupFilters();
 

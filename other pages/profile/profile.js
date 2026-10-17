@@ -1,13 +1,14 @@
-// ======================================================
-// JOUK - PROFILE
-// PART 1
-// ======================================================
-
-
-// ======================================================
-// START PAGE
-// ======================================================
-
+import { auth, db } from "../../shared/firebase.js";import { signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {
+    doc,
+    setDoc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { updateProfile } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+// The user whose profile is being viewed
+const viewedProfileUid = new URLSearchParams(
+    window.location.search
+).get("uid");
 document.addEventListener("DOMContentLoaded", function () {
 
     initializeIcons();
@@ -55,7 +56,7 @@ function initializeIcons() {
 
 const DEFAULT_PROFILE = {
 
-    name: "Sarah Ahmed",
+    name: "JOUK Traveler",
 
     bio: "Exploring Jordan 🦋",
 
@@ -68,56 +69,63 @@ const DEFAULT_PROFILE = {
 // LOAD PROFILE INFORMATION
 // ======================================================
 
-function loadProfileInformation() {
+async function loadProfileInformation() {
+    const profileName = document.getElementById("profileName");
+    const profileBio = document.getElementById("profileBio");
+    const profileLocationText = document.getElementById("profileLocationText");
 
-    const profileData =
-        getProfileData();
+    if (profileName) profileName.textContent = "Loading...";
+    if (profileBio) profileBio.textContent = "Loading...";
+    if (profileLocationText) profileLocationText.textContent = "Loading...";
 
+    await auth.authStateReady();
 
-    const profileName =
-        document.getElementById(
-            "profileName"
+    const user = auth.currentUser;
+
+    if (!user) {
+        window.location.replace(
+            window.JOUK.url("sign up-log in/index.html")
         );
-
-
-    const profileBio =
-        document.getElementById(
-            "profileBio"
-        );
-
-
-    const profileLocationText =
-        document.getElementById(
-            "profileLocationText"
-        );
-
+        return;
+    }
 
     if (profileName) {
-
         profileName.textContent =
-            profileData.name;
-
+            user.displayName ||
+            user.email?.split("@")[0] ||
+            "JOUK Traveler";
     }
 
+    try {
+const profileRef = doc(
+    db,
+    "users",
+    viewedProfileUid || user.uid
+);
+        const profileSnap = await getDoc(profileRef);
 
-    if (profileBio) {
+        const profileData = profileSnap.exists()
+            ? profileSnap.data()
+            : {};
 
-        profileBio.textContent =
-            profileData.bio;
+        if (profileBio) {
+            profileBio.textContent =
+                profileData.bio ?? DEFAULT_PROFILE.bio;
+        }
 
+        if (profileLocationText) {
+            profileLocationText.textContent =
+                profileData.location ?? DEFAULT_PROFILE.location;
+        }
+
+    } catch (error) {
+        console.error("Could not load profile:", error);
+
+        if (profileBio) profileBio.textContent = "Could not load bio";
+        if (profileLocationText) profileLocationText.textContent = "Could not load location";
     }
-
-
-    if (profileLocationText) {
-
-        profileLocationText.textContent =
-            profileData.location;
-
-    }
-
 
     loadProfileAvatar();
-
 }
 
 
@@ -382,25 +390,29 @@ function setupProfileEditing() {
     // ==================================================
 
     editButton.addEventListener(
-        "click",
-        function () {
+    "click",
+    async function () {
+        await auth.authStateReady();
 
             const profileData =
                 getProfileData();
 
 
-            if (editName) {
+          if (editName) {
+    const user = auth.currentUser;
 
-                editName.value =
-                    profileData.name;
-
-            }
+    editName.value = user
+        ? (user.displayName ||
+           user.email?.split("@")[0] ||
+           "")
+        : "";
+}
 
 
             if (editBio) {
 
-                editBio.value =
-                    profileData.bio;
+               editBio.value =
+               document.getElementById("profileBio")?.textContent || "";
 
             }
 
@@ -408,7 +420,7 @@ function setupProfileEditing() {
             if (editLocation) {
 
                 editLocation.value =
-                    profileData.location;
+                    document.getElementById("profileLocationText")?.textContent || "";
 
             }
 
@@ -458,7 +470,7 @@ function setupProfileEditing() {
 
     saveButton.addEventListener(
         "click",
-        function () {
+        async function () {
 
             const name =
                 editName
@@ -477,7 +489,37 @@ function setupProfileEditing() {
                     ? editLocation.value
                     : "";
 
+if (!auth.currentUser) {
+    alert("Please log in first.");
+    return;
+}
 
+if (!name.trim()) {
+    alert("Please enter your name.");
+    return;
+}
+
+try {
+    // Save name in Firebase Authentication
+    await updateProfile(auth.currentUser, {
+        displayName: name.trim()
+    });
+
+    // Save bio and location in Firestore
+    await setDoc(
+        doc(db, "users", auth.currentUser.uid),
+        {
+            bio: bio.trim(),
+            location: location.trim()
+        },
+        { merge: true }
+    );
+
+} catch (error) {
+    console.error("Could not save profile:", error);
+    alert("Could not save profile. Please try again.");
+    return;
+}
             const savedProfile =
                 saveProfileData(
                     name,
@@ -628,37 +670,40 @@ function closeProfileEditMode() {
 // PROFILE AVATAR
 // ======================================================
 
-function loadProfileAvatar() {
+async function loadProfileAvatar() {
+    const avatar = document.getElementById("profileAvatar");
 
-    const avatar =
-        document.getElementById(
-            "profileAvatar"
-        );
+    if (!avatar) return;
 
+    // Default photo
+    avatar.src = "images/deadsea.jpeg";
 
-    if (!avatar) {
+    await auth.authStateReady();
 
-        return;
+    const user = auth.currentUser;
+    if (!user) return;
 
+    try {
+const profileRef = doc(
+    db,
+    "users",
+    viewedProfileUid || user.uid
+);        const profileSnap = await getDoc(profileRef);
+
+        if (profileSnap.exists()) {
+            const savedPhoto = profileSnap.data().avatar;
+
+            if (
+                typeof savedPhoto === "string" &&
+                savedPhoto.startsWith("data:image/")
+            ) {
+                avatar.src = savedPhoto;
+            }
+        }
+
+    } catch (error) {
+        console.error("Could not load profile photo:", error);
     }
-
-
-    const savedAvatar =
-        localStorage.getItem(
-            "joukProfileAvatar"
-        ) ||
-        localStorage.getItem(
-            "profileAvatar"
-        );
-
-
-    if (savedAvatar) {
-
-        avatar.src =
-            savedAvatar;
-
-    }
-
 }
 
 
@@ -756,40 +801,84 @@ function setupProfilePhotoChange() {
                         new FileReader();
 
 
-                    reader.onload =
-                        function (event) {
+                  reader.onload = function (event) {
+    const image = new Image();
 
-                            const imageData =
-                                event.target.result;
+    image.onload = async function () {
+        try {
+            await auth.authStateReady();
 
+            const user = auth.currentUser;
 
-                            avatar.src =
-                                imageData;
+            if (!user) {
+                alert("Please log in first.");
+                return;
+            }
 
+            // Resize the selected image
+            const canvas = document.createElement("canvas");
+            const maxSize = 320;
 
-                            try {
+            const scale = Math.min(
+                1,
+                maxSize / Math.max(image.width, image.height)
+            );
 
-                                localStorage.setItem(
-                                    "joukProfileAvatar",
-                                    imageData
-                                );
+            canvas.width = Math.max(
+                1,
+                Math.round(image.width * scale)
+            );
 
+            canvas.height = Math.max(
+                1,
+                Math.round(image.height * scale)
+            );
 
-                                localStorage.setItem(
-                                    "profileAvatar",
-                                    imageData
-                                );
+            const ctx = canvas.getContext("2d");
 
-                            } catch (error) {
+            if (!ctx) {
+                throw new Error("Could not process image");
+            }
 
-                                console.log(
-                                    "Profile image is too large to save:",
-                                    error
-                                );
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-                            }
+            const photoData = canvas.toDataURL("image/jpeg", 0.65);
 
-                        };
+            if (photoData.length > 150000) {
+                alert("Image is too large. Please choose another photo.");
+                return;
+            }
+
+            // Save photo in Firebase
+            await setDoc(
+                doc(db, "users", user.uid),
+                {
+                    avatar: photoData
+                },
+                {
+                    merge: true
+                }
+            );
+
+            // Show photo only after successful save
+            avatar.src = photoData;
+
+            alert("Profile photo saved successfully!");
+
+        } catch (error) {
+            console.error("Photo save failed:", error);
+            alert("Could not save photo. Please try again.");
+        }
+    };
+
+    image.onerror = function () {
+        alert("Could not open this image.");
+    };
+
+    image.src = event.target.result;
+};
 
 
                     reader.readAsDataURL(
@@ -2698,3 +2787,18 @@ function normalizePlaceValue(
         .trim();
 
 }
+document.getElementById("logoutBtn")
+    ?.addEventListener("click", async function () {
+
+        try {
+            await signOut(auth);
+
+            window.location.href =
+                window.JOUK.url("sign up-log in/index.html");
+
+        } catch (error) {
+            console.error("Logout failed:", error);
+            alert("Could not log out. Please try again.");
+        }
+
+    });

@@ -41,3 +41,99 @@
 
 
 
+
+// ==========================================
+// UNIFIED PROFILE NAVIGATION
+// ==========================================
+
+(function () {
+
+    const profileURL = window.JOUK.url(
+        "other pages/profile/index.html"
+    );
+
+    const loginURL = window.JOUK.url(
+        "sign up-log in/index.html"
+    );
+
+    const loginWithReturn =
+        loginURL + "?returnTo=" +
+        encodeURIComponent(profileURL);
+
+    const authPromise = import(
+        window.JOUK.url("shared/firebase.js")
+    ).then(async ({ auth }) => {
+        await auth.authStateReady();
+        return auth;
+    });
+
+    // Handle profile icon clicks on every page
+    document.addEventListener("click", async function (event) {
+
+        const profileIcon = event.target.closest(
+            "a.site-account"
+        );
+
+        if (!profileIcon) return;
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        try {
+            const auth = await authPromise;
+
+            window.location.href = auth.currentUser
+                ? profileURL
+                : loginWithReturn;
+
+        } catch (error) {
+            console.error("Authentication error:", error);
+            window.location.href = loginWithReturn;
+        }
+
+    }, true);
+
+    // Update profile links and protect Profile page
+    authPromise.then((auth) => {
+
+        const isLoggedIn = !!auth.currentUser;
+
+        document.querySelectorAll("a.site-account")
+            .forEach((link) => {
+
+                link.href = isLoggedIn
+                    ? profileURL
+                    : loginWithReturn;
+
+                link.setAttribute(
+                    "aria-label",
+                    isLoggedIn
+                        ? "My Profile"
+                        : "Log in or sign up"
+                );
+
+            });
+
+        const isProfilePage =
+            window.location.pathname ===
+            new URL(profileURL).pathname;
+
+        if (isProfilePage && !isLoggedIn) {
+            window.location.replace(loginWithReturn);
+        }
+
+    }).catch((error) => {
+
+        console.error("Could not check login status:", error);
+
+        if (
+            window.location.pathname ===
+            new URL(profileURL).pathname
+        ) {
+            window.location.replace(loginWithReturn);
+        }
+
+    });
+
+})();
+
