@@ -22,6 +22,13 @@
         asset: toAssetUrl
     });
     const savedStyle = document.createElement("link");
+    const headerStyle = document.createElement("link");
+    headerStyle.rel = "stylesheet";
+    headerStyle.href = toProjectUrl("shared/header-navigation.css?v=2");
+    document.head.appendChild(headerStyle);
+    const headerScript = document.createElement("script");
+    headerScript.src = toProjectUrl("shared/header-navigation.js?v=2");
+    document.head.appendChild(headerScript);
     savedStyle.rel = "stylesheet";
     savedStyle.href = toProjectUrl("shared/saved-places.css?v=1");
     document.head.appendChild(savedStyle);
@@ -31,13 +38,14 @@
     document.head.appendChild(savedScript);
     const sidebarStyle = document.createElement("link");
     sidebarStyle.rel = "stylesheet";
-    sidebarStyle.href = toProjectUrl("shared/sidebar-navigation.css?v=6");
+    sidebarStyle.href = toProjectUrl("shared/sidebar-navigation.css?v=7");
     document.head.appendChild(sidebarStyle);
     const sidebarScript = document.createElement("script");
     sidebarScript.src = toProjectUrl("shared/sidebar-navigation.js?v=6");
     sidebarScript.async = true;
     document.head.appendChild(sidebarScript);
 })();
+
 
 
 

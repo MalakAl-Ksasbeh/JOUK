@@ -455,3 +455,15 @@ nav {
     }
 }
 
+/* Keep location metadata compact and the image close to its caption. */
+.relax-page .card-info .relax-location { display: flex; align-items: center; gap: 4px; margin: 0 0 4px; font-size: 10px; line-height: 1.4; color: #6f786f; }
+.relax-page .relax-location svg { display: block; flex: 0 0 12px; width: 12px; height: 12px; }
+.relax-page .cards .card { display: flex; flex-direction: column; justify-content: flex-start; gap: 0; }
+.relax-page .cards .card-info { margin-top: 0; padding-top: 8px; }
+.relax-page .card-image-link { flex: none; transform-origin: center; transition: transform .35s ease; position: relative; isolation: isolate; }
+.relax-page .card-image-link img { filter: saturate(.86) contrast(.97) sepia(.055); }
+.relax-page .card-image-link:hover, .relax-page .card-image-link:focus-visible { transform: scale(1.035); }
+.relax-page .card-image-link:hover img { transform: none; }
+.relax-page .card > img { transition: transform .35s ease; filter: saturate(.86) contrast(.97) sepia(.055); }
+.relax-page .card > img:hover { filter: saturate(.86) contrast(.97) sepia(.055); transform: scale(1.035); }
+@media (prefers-reduced-motion: reduce) { .relax-page .card-image-link, .relax-page .card > img { transition: none; } }

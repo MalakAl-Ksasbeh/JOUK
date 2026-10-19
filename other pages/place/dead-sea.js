@@ -84,7 +84,7 @@
         { key: "sunset", number: "03", title: "Stay for<br>Sunset", plain: "Stay for sunset", image: "/images/relaxx.png", description: "Find a quiet spot by the water and watch the evening light settle over the mountains." }
     ];
     function highlight(item) {
-        return '<button type="button" class="ds-highlight" data-zoom-src="' + asset(item.image) + '" data-zoom-caption="' + item.plain + '" aria-label="Enlarge image: ' + item.plain + '"><img src="' + asset(item.image) + '" alt="' + item.plain + '" loading="lazy"><span class="ds-highlight-copy"><span class="ds-number">' + item.number + '</span><h3>' + item.title + '</h3><span class="ds-highlight-arrow">' + icon("arrow") + '</span></span></button>';
+        return '<button type="button" class="ds-highlight" data-zoom-src="' + asset(item.image) + '" data-zoom-caption="' + item.plain + '" aria-label="Enlarge image: ' + item.plain + '"><img src="' + asset(item.image) + '" alt="' + item.plain + '" loading="lazy"><span class="ds-highlight-copy">' + (item.badge ? '<span class="ds-gem-badge">' + escapeText(item.badge) + '</span>' : '') + '<span class="ds-number">' + item.number + '</span><h3>' + item.title + '</h3><span class="ds-highlight-arrow">' + icon("arrow") + '</span></span></button>';
     }
     const overview = document.getElementById("overview");
     document.getElementById("about-title").textContent = "About";
@@ -164,15 +164,15 @@
         afra: "Soak · Breathe · Unwind"
     };
     const neighbors = {
-        deadsea: ["main", "wadiMujib", "mukawir"], petra: ["shobak", "wadiRum"],
+        deadsea: ["main", "wadiMujib", "mukawir", "wadiBinHammad"], petra: ["shobak", "wadiRum"],
         wadiRum: ["aqabaAdventures", "petra"], ajlounCastle: ["ajlounRelax", "jerash"],
         ajlounRelax: ["ajlounCastle", "dibeenForest"], aqabaAdventures: ["aqaba", "wadiRum"],
         aqaba: ["aqabaFort", "aqabaAdventures", "wadiRum"], aqabaFort: ["aqaba"], wadiMujib: ["deadsea", "main"],
         main: ["deadsea", "wadiZarqaMain", "mukawir"], madabaPark: ["main"], mukawir: ["main", "deadsea"], wadiZarqaMain: ["main", "mukawir"], jerash: ["ajlounCastle", "dibeenForest"],
         ummQais: ["ajlounCastle", "jerash"], danaReserve: ["afra", "shobak"],
-        karakCastle: ["deadsea", "danaReserve"], dibeenForest: ["jerash", "ajlounRelax"],
-        romanTheater: ["jerash", "deadsea"], shobak: ["petra", "danaReserve"],
-        afra: ["danaReserve", "shobak"]
+        karakCastle: ["deadsea", "danaReserve", "wadiBinHammad"], dibeenForest: ["jerash", "ajlounCastle", "ajlounRelax"],
+        ammanCitadel: ["romanTheater"], romanTheater: ["ammanCitadel"], shobak: ["petra", "danaReserve"],
+        ummAlJimal: ["azraqWetland", "shaumariReserve"], azraqWetland: ["ummAlJimal", "shaumariReserve"], shaumariReserve: ["azraqWetland", "ummAlJimal"], wadiBinHammad: ["deadsea", "karakCastle"], afra: ["danaReserve", "shobak"]
     };
     function escapeText(value) {
         return String(value || "").replace(/[&<>"']/g, function (character) {
@@ -182,6 +182,12 @@
     window.JOUK.renderDestination = function (place, allPlaces, id) {
         id = id || selectedPlace;
         hero.dataset.place = id;
+        const category = place.category || "culture";
+        const categoryLabel = {relax: "Relax", culture: "Culture", adventures: "Adventure"}[category] || "Explore Jordan";
+        let back = hero.querySelector(".ds-back-category");
+        if (!back) { back = document.createElement("a"); back.className = "ds-back-category"; hero.querySelector(".ds-hero-copy").prepend(back); }
+        back.href = page("plans/" + category + "/index.html");
+        back.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg><span>Back to ' + categoryLabel + '</span>';
         const info = place.info || {};
         const quick = place.quickInfo || {};
         const safeName = escapeText(place.name);
@@ -213,13 +219,13 @@
         }).join("");
         const sources = (place.highlights || []).slice();
         const photos = [place.image].concat(place.photos || []).filter(Boolean);
-        while (!place.detailsPending && sources.length < 3) {
+        while (!place.detailsPending && sources.length < Math.min(3, (place.thingsToDo || []).length || 3)) {
             const index = sources.length;
             sources.push({ title: place.thingsToDo?.[index] || "Explore " + place.name, image: photos[index % photos.length] });
         }
         const featured = sources.map(function (item, index) {
             return { key: String(index), number: String(index + 1).padStart(2, "0"),
-                title: escapeText(item.title), plain: escapeText(item.title), image: item.image || photos[index % photos.length] };
+                badge: item.badge, title: escapeText(item.title), plain: escapeText(item.title), image: item.image || photos[index % photos.length] };
         });
         if (id === "deadsea") {
             featured[0] = { key: "0", number: "01", title: "Float in<br>the Dead Sea", plain: "Float in the Dead Sea", image: "/images/relaxx.png" };
@@ -232,7 +238,7 @@
         const activityNames = id === "deadsea" ? ["Floating experience", "Try natural mud", "Discover the colored pools"] : (place.thingsToDo || sources.map(function (item) { return item.title; }));
         document.querySelector(".ds-things-grid").innerHTML = activityNames.map(function (title, index) {
             const item = featured[index % featured.length];
-            return '<article id="ds-activity-' + index + '"><img src="' + escapeText(asset(item.image)) + '" alt="' + escapeText(title) + '" loading="lazy"><div><span class="ds-number">' + String(index + 1).padStart(2, "0") + '</span><h3>' + escapeText(title) + '</h3><p>' + escapeText(sources[index]?.description || (place.name + ' · ' + (info.bestFor || quick.bestFor))) + '</p></div></article>';
+            return '<article id="ds-activity-' + index + '"><img src="' + escapeText(asset(item.image)) + '" alt="' + escapeText(title) + '" loading="lazy"><div><span class="ds-number">' + String(index + 1).padStart(2, "0") + '</span>' + (sources[index]?.badge ? '<span class="ds-gem-badge">' + escapeText(sources[index].badge) + '</span>' : '') + '<h3>' + escapeText(title) + '</h3><p>' + escapeText(sources[index]?.description || (place.name + ' · ' + (info.bestFor || quick.bestFor))) + '</p></div></article>';
         }).join("");
         things.querySelector(".ds-panel-intro").textContent = "Make time for these experiences in " + place.name + ".";
         document.getElementById("deadsea-about-more").textContent = [place.visitNote, "Allow " + (info.visitTime || "time") + " for your visit."].filter(Boolean).join(" ");
@@ -263,7 +269,7 @@
             document.querySelector("#bring .ds-panel-intro").textContent = "Visit essentials will be added soon.";
         }
         document.querySelector("#nearby-places .ds-panel-intro").textContent = "Explore around " + place.name + ". Distances are approximate and depend on your starting point and route.";
-        const distances = {"deadsea:main":"About 28 km from the Dead Sea hotel area", "deadsea:mukawir":"About 60 km from the Dead Sea hotel area", "main:deadsea":"About 28 km", "main:mukawir":"About 33 km", "mukawir:main":"About 33 km", "mukawir:deadsea":"About 60 km to the Dead Sea hotel area", "madabaPark:main":"About 30 km"};
+        const distances = {"deadsea:main":"About 28 km from the Dead Sea hotel area", "deadsea:mukawir":"About 60 km from the Dead Sea hotel area", "main:deadsea":"About 28 km", "main:mukawir":"About 33 km", "mukawir:main":"About 33 km", "mukawir:deadsea":"About 60 km to the Dead Sea hotel area", "madabaPark:main":"About 30 km", "dibeenForest:jerash":"Approximately 15–25 km", "dibeenForest:ajlounCastle":"Approximately 25–35 km"};
         function distanceMarkup(name, key, known) {
             const route = "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(place.name + ", Jordan") + "&destination=" + encodeURIComponent(name + ", Jordan") + "&travelmode=driving";
             return '<p class="ds-nearby-distance">' + escapeText(known || distances[id + ":" + key] || "Distance varies by route") + '</p><a class="ds-route-link" href="' + escapeText(route) + '" target="_blank" rel="noopener">View route & driving distance ↗</a>';
@@ -275,6 +281,9 @@
         function staticNearby(name, image, description, distance) {
             return '<article class="ds-nearby-static"><button type="button" class="ds-nearby-zoom" data-zoom-src="' + escapeText(asset(image)) + '" data-zoom-caption="' + escapeText(name) + '" aria-label="Enlarge ' + escapeText(name) + ' photo"><img class="ds-nearby-image" src="' + escapeText(asset(image)) + '" alt="' + escapeText(name) + '" loading="lazy"></button><h3>' + escapeText(name) + '</h3><p>' + escapeText(description) + '</p>' + distanceMarkup(name, "", distance) + '</article>';
         }
+        (place.nearbyCards || []).forEach(function (item) {
+            document.querySelector(".ds-nearby-grid").insertAdjacentHTML("beforeend", staticNearby(item.name, item.image, item.description, item.distance));
+        });
         if (id === "deadsea") {
             document.querySelector(".ds-nearby-grid").insertAdjacentHTML("beforeend",
                 staticNearby("Prophet Lot’s Cave", "/images/lots-cave-nearby-v1.jpg", "Near Ghor Al Safi, southeast of the Dead Sea. A cave traditionally associated with Prophet Lot, beside the remains of a Byzantine church and monastery.") +

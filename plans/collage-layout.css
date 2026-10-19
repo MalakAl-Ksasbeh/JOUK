@@ -165,11 +165,11 @@
     transition: transform 450ms ease;
 }
 .plans-puzzle-page:not(.puzzle-mode) .relax .puzzle-surface {
-    background-image: url('images/relax-dead-sea.jpeg');
+    background-image: url('images/relax-dead-sea-clear-v2.png');
     background-position: center 53%;
 }
 .plans-puzzle-page:not(.puzzle-mode) .culture .puzzle-surface {
-    background-image: url('images/culture-jerash.jpg');
+    background-image: url('images/culture-jerash-clear.png');
     background-position: center;
 }
 .plans-puzzle-page:not(.puzzle-mode) .adventure .puzzle-surface {

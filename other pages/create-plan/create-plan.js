@@ -2,7 +2,20 @@
 // JOUK - CREATE / EDIT PLAN
 // ========================================
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+    const loaded = window.JOUK_PLACES || await fetch(window.JOUK.url("data/places.json")).then(function (response) { return response.json(); });
+    const catalog = loaded.places || loaded;
+    const aliases = {"dead-sea":"deadsea", "wadi-rum":"wadiRum", "ajloun-castle":"ajlounCastle", mujib:"wadiMujib", amman:"romanTheater"};
+    const escape = function (value) { return String(value || "").replace(/[&<>"']/g, function (c) { return {"&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"}[c]; }); };
+    const grid = document.getElementById("placesGrid");
+    grid.replaceChildren();
+    Object.entries(catalog).filter(function (entry) { return entry[1].category; }).forEach(function (entry) {
+        const id = entry[0], place = entry[1], card = document.createElement("article");
+        card.className = "place-card";
+        Object.assign(card.dataset, {id:id, name:place.name, location:place.location || "Jordan", category:place.category === "adventures" ? "adventure" : place.category, image:place.image, description:place.about || ""});
+        card.innerHTML = '<img class="place-image" src="' + escape(window.JOUK.asset(place.image)) + '" alt="' + escape(place.name) + '" loading="lazy"><div class="place-card-content"><div class="place-title-row"><div><h3>' + escape(place.name) + '</h3><p class="location">' + escape(place.location || "Jordan") + '</p></div><button class="add-place" type="button" aria-label="Add ' + escape(place.name) + '">+</button></div><p class="place-description">' + escape((place.about || "").split(/(?<=\.)\s/)[0]) + '</p></div>';
+        grid.appendChild(card);
+    });
 
     // ========================================
     // ELEMENTS
@@ -751,10 +764,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         return {
                             ...place,
+                            ...(function () { const id = aliases[place.id] || place.id; const current = catalog[id]; return current ? {id:id, name:current.name, location:current.location, image:current.image, description:current.about, category:current.category === "adventures" ? "adventure" : current.category} : {}; })(),
 
                             id:
                                 String(
-                                    place.id ?? ""
+                                    aliases[place.id] || place.id || ""
                                 ),
 
                             day:
@@ -997,8 +1011,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const pendingPlace = new URLSearchParams(window.location.search).get("addPlace");
     if (pendingPlace && editingPlanId === null) {
-        const aliases = { deadsea: "dead-sea", wadiRum: "wadi-rum", ajlounCastle: "ajloun-castle", wadiMujib: "mujib", romanTheater: "amman" };
-        const cardID = aliases[pendingPlace] || pendingPlace;
+        const cardID = pendingPlace;
         const pendingCard = Array.from(placeCards).find(function (card) { return card.dataset.id === cardID; });
         if (pendingCard) {
             selectedPlaces.push(getPlaceFromCard(pendingCard));
