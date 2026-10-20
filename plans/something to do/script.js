@@ -16,7 +16,8 @@ const eventPhoto = document.querySelector("#event-photo");
 const eventLink = document.querySelector("#event-link");
 const eventLabel = document.querySelector("#event-label");
 const eventSwitcher = document.querySelector("#event-switcher");
-let currentMonth = "OCT";
+const currentCalendarMonth = new Intl.DateTimeFormat("en-US", {month: "short", timeZone: "Asia/Amman"}).format(new Date()).toUpperCase();
+let currentMonth = currentCalendarMonth;
 let currentEventIndex = 0;
 let hasRenderedEvent = false;
 let eventTransitionTimer;
@@ -355,7 +356,7 @@ eventCard.addEventListener("keydown", (event) => {
 });
 placeCards.forEach((card) => {
   card.addEventListener("click", (event) => {
-    if (event.target.closest("a")) return;
+    if (event.target.closest("a, button")) return;
     expandCard(card);
   });
   card.addEventListener("keydown", (event) => {
@@ -408,4 +409,13 @@ document.addEventListener("keydown", (event) => {
   showEvent(monthButtons[nextIndex].dataset.month);
 });
 
-showEvent("OCT");
+showEvent(currentCalendarMonth);
+
+const cinemaDialog = document.createElement("dialog");
+cinemaDialog.className = "cinema-choices";
+cinemaDialog.setAttribute("aria-labelledby", "cinema-choice-title");
+cinemaDialog.innerHTML = '<button type="button" class="cinema-close" aria-label="Close">×</button><h2 id="cinema-choice-title">Choose your cinema</h2><a href="https://www.tajcinemas.com/" target="_blank" rel="noopener noreferrer">TAJ Cinemas ↗</a><a href="https://jor.grandcinemasme.com/" target="_blank" rel="noopener noreferrer">Grand Cinemas ↗</a><a href="https://www.prime.jo/Browsing/Cinemas" target="_blank" rel="noopener noreferrer">Prime Cinemas ↗</a>';
+document.body.appendChild(cinemaDialog);
+document.querySelector(".cinema-choice-trigger").addEventListener("click", function(event) { event.stopPropagation(); cinemaDialog.showModal(); });
+cinemaDialog.querySelector("button").addEventListener("click", function() { cinemaDialog.close(); });
+cinemaDialog.addEventListener("click", function(event) { if(event.target === cinemaDialog) cinemaDialog.close(); });

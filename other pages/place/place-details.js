@@ -139,9 +139,9 @@ openTab(requestedTab);
 
     // Keep destination browsing available on every place, including the ends of the list.
     const destinationCategories = [
-        ["deadsea", "main", "aqaba", "afra", "ajlounRelax"],
-        ["aqabaFort", "madabaPark", "mukawir", "karakCastle", "petra", "jerash", "romanTheater", "ajlounCastle", "ummQais"],
-        ["bartaWaterfalls", "wadiZarqaMain", "danaReserve", "wadiMujib", "wadiRum", "aqabaAdventures", "shobak", "dibeenForest"]
+        ["azraqWetland", "deadsea", "main", "aqaba", "afra", "ajlounRelax"],
+        ["ammanCitadel", "ummAlJimal", "aqabaFort", "madabaPark", "mukawir", "karakCastle", "petra", "jerash", "romanTheater", "ajlounCastle", "ummQais"],
+        ["wadiBinHammad", "shaumariReserve", "bartaWaterfalls", "wadiZarqaMain", "danaReserve", "wadiMujib", "wadiRum", "aqabaAdventures", "shobak", "dibeenForest"]
     ];
     const destinationIDs = (destinationCategories.find(function (ids) { return ids.includes(placeID); }) || [placeID]).filter(function (id) { return data[id]; });
     const destinationIndex = destinationIDs.indexOf(placeID);

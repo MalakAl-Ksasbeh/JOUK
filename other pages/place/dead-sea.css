@@ -84,10 +84,11 @@
     min-width: 0;
     padding: 13px 22px;
     color: #fffaf2;
-    background: linear-gradient(90deg, rgba(32,89,83,.63), rgba(132,115,101,.68));
+    background: linear-gradient(180deg, rgba(12,12,12,.14), rgba(12,12,12,.52));
     border: 1px solid rgba(255,250,242,.3);
     border-radius: 999px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 .destination-page .ds-fact { display: flex; align-items: center; gap: 13px; min-width: 0; padding: 0 20px; border-right: 1px solid rgba(255,250,242,.26); }
 .destination-page .ds-fact:first-child { padding-left: 0; }
@@ -269,3 +270,15 @@
 .destination-page .ds-gallery-zoom img { display: block; width: 100%; height: 210px; object-fit: cover; }
 .destination-page .ds-gallery-zoom:focus-visible { outline: 3px solid #386b63; outline-offset: 3px; }
 .destination-page .ds-highlights[hidden], .destination-page .ds-about-toggle[hidden] { display: none; }
+
+.ds-back-category{display:inline-flex;align-items:center;gap:8px;position:relative;top:0;margin-bottom:32px;color:inherit;text-decoration:none;font-size:13px;line-height:1.4;letter-spacing:.04em}
+.ds-back-category svg{display:block;width:20px;height:20px;flex:0 0 20px;transition:transform .2s ease}
+.ds-back-category:hover svg{transform:translateX(-3px)}
+.ds-back-category:focus-visible{outline:2px solid currentColor;outline-offset:6px;border-radius:2px}
+.ds-gem-badge{display:inline-block;width:fit-content;background:#e4ce9d;color:#332c20;border-radius:20px;padding:4px 9px;font-size:10px;line-height:1.3;letter-spacing:.04em;margin:0 0 7px}
+.ds-hero[data-place="karakCastle"]>img{filter:brightness(1.15) contrast(1.04)}
+.destination-page .ds-things-grid{gap:28px;margin-top:8px;align-items:start}
+.destination-page .ds-things-grid article{padding:10px;background:#fffdf8;border:1px solid #e4ddd1;border-radius:17px;box-shadow:0 5px 18px rgba(43,37,27,.045)}
+.destination-page .ds-things-grid article>img{border-radius:10px;height:190px}
+.destination-page .ds-things-grid article>div{padding:18px 10px 14px}
+@media(max-width:760px){.destination-page .ds-things-grid{gap:22px}.destination-page .ds-things-grid article{display:block}.destination-page .ds-things-grid article>img{height:210px;min-height:0}}

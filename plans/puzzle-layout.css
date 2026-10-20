@@ -168,13 +168,13 @@
 
 .relax .puzzle-surface {
     clip-path: url('#plans-clip-relax');
-    background-image: linear-gradient(180deg, rgba(20, 16, 12, 0.4), rgba(20, 16, 12, 0.03) 62%), url('images/relax-dead-sea.jpeg');
+    background-image: linear-gradient(180deg, rgba(20, 16, 12, 0.4), rgba(20, 16, 12, 0.03) 62%), url('images/relax-dead-sea-clear-v2.png');
     background-position: center 56%;
 }
 
 .culture .puzzle-surface {
     clip-path: url('#plans-clip-culture');
-    background-image: linear-gradient(180deg, rgba(20, 16, 12, 0.37), rgba(20, 16, 12, 0.03) 62%), url('images/culture-jerash.jpg');
+    background-image: linear-gradient(180deg, rgba(20, 16, 12, 0.37), rgba(20, 16, 12, 0.03) 62%), url('images/culture-jerash-clear.png');
 }
 
 .adventure .puzzle-surface {

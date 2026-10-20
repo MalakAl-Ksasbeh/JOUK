@@ -1,0 +1,6 @@
+:is(.nav-links,.site-nav) a{position:relative}
+:is(.nav-links,.site-nav) a.active{font-weight:700!important;color:#24211e!important}
+:is(.nav-links,.site-nav) a::after{content:""!important;position:absolute!important;left:0!important;right:0!important;bottom:-6px!important;top:auto!important;width:100%!important;height:1px!important;background:currentColor!important;transform:scaleX(0)!important;transform-origin:center!important;opacity:0!important;transition:transform .22s ease,opacity .22s ease!important}
+:is(.nav-links,.site-nav) a::after{display:none!important}
+.jouk-nav-indicator{position:fixed;left:0;top:0;height:1px;background:#24211e;pointer-events:none;z-index:1000;transition:transform .3s cubic-bezier(.22,.61,.36,1),width .3s ease,opacity .15s ease;will-change:transform,width}
+@media(prefers-reduced-motion:reduce){.jouk-nav-indicator{transition:none}}

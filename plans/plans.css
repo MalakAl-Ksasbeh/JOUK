@@ -283,7 +283,7 @@ nav a.active::after {
     width: 48%;
     height: 51%;
 
-    background-image: url("images/advanture.jpg");
+    background-image: url("images/adventure-cover-v2.png");
     background-position: center bottom;
 
     clip-path: polygon(

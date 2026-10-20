@@ -109,12 +109,13 @@
         "icon": "car",
         "label": "Distance from Amman"
       }
-    ]
+    ],
+    "category": "adventures"
   },
   "deadsea": {
     "name": "Dead Sea",
     "location": "📍 Dead Sea, Jordan",
-    "image": "/images/deadsea.jpeg",
+    "image": "/images/deadsea-card-v3.png",
     "rating": "⭐ 4.8 (1.2k)",
     "aboutTitle": "About Dead Sea",
     "about": "The Dead Sea is the lowest point on Earth. Known for its high salt content, therapeutic mud and stunning views, it’s a perfect place to relax, float and enjoy the natural beauty.",
@@ -153,15 +154,16 @@
         "image": "/images/deadsea4.jpeg",
         "title": "Beautiful Landscape"
       }
-    ]
+    ],
+    "category": "relax"
   },
   "petra": {
     "name": "Petra",
     "location": "📍 Petra, Jordan",
-    "image": "/images/petra.jpeg",
+    "image": "/images/petra-card-v2.jpg",
     "rating": "⭐ 4.9 (2k)",
     "aboutTitle": "About Petra",
-    "about": "Petra is an ancient city famous for its rock-cut architecture and its historical importance. It is one of Jordan's most famous destinations.",
+    "about": "Discover Petra, Jordan’s legendary Rose City, where ancient Nabataean architecture meets breathtaking natural landscapes. Walk through towering sandstone cliffs, uncover monuments carved directly into rock, and explore hidden trails that reveal the city’s remarkable history. From the iconic Treasury to peaceful canyon paths, Petra offers an unforgettable journey through time.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "5-6 hours",
@@ -175,34 +177,112 @@
       "distance": "3 hours from Amman"
     },
     "thingsToDo": [
-      "Visit The Treasury",
-      "Explore The Siq",
-      "Walk through ancient paths"
+      "The Treasury — Al-Khazneh",
+      "The Siq",
+      "The Monastery — Ad-Deir",
+      "The Royal Tombs",
+      "Street of Facades",
+      "Little Petra — Siq Al-Barid",
+      "High Place of Sacrifice",
+      "The Cave Experience",
+      "The Great Temple",
+      "Arabic Coffee & Bedouin Hospitality"
     ],
     "photos": [
-      "/images/petra5.jpeg",
-      "/images/petra6.jpeg",
-      "/images/petra7.jpeg"
+      "/images/petra-treasury.jpg",
+      "/images/petra-siq.jpg",
+      "/images/petra-monastery.jpg",
+      "/images/petra-royal-tombs.jpg",
+      "/images/petra-facades.jpg",
+      "/images/petra-little-petra.jpg",
+      "/images/petra-sacrifice.jpg",
+      "/images/petra-cave.jpg",
+      "/images/petra-great-temple.jpg",
+      "/images/petra-coffee.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/petra2.jpeg",
-        "title": "The Treasury"
+        "title": "The Treasury — Al-Khazneh",
+        "description": "Petra’s most famous ancient façade, carved into rose-coloured rock, is the city’s iconic landmark.",
+        "image": "/images/petra-treasury.jpg"
       },
       {
-        "image": "/images/petra3.jpeg",
-        "title": "The Siq"
+        "title": "The Siq",
+        "description": "A narrow natural rock passage stretching for more than a kilometre, with an unforgettable reveal of the Treasury at its end.",
+        "image": "/images/petra-siq.jpg"
       },
       {
-        "image": "/images/petra4.jpeg",
-        "title": "Ancient Architecture"
+        "title": "The Monastery — Ad-Deir",
+        "description": "A monumental ancient façade set among the mountains, reached by a long staircase—ideal for walking and adventure enthusiasts.",
+        "image": "/images/petra-monastery.jpg"
+      },
+      {
+        "title": "The Royal Tombs",
+        "description": "A group of royal tombs carved into the mountainside, distinguished by their colourful rock and unique façade details.",
+        "image": "/images/petra-royal-tombs.jpg"
+      },
+      {
+        "title": "Street of Facades",
+        "description": "A row of rock-carved façades and tombs along the route leading into the heart of the ancient city.",
+        "image": "/images/petra-facades.jpg"
+      },
+      {
+        "title": "Little Petra — Siq Al-Barid",
+        "description": "A smaller, quieter Nabataean site with narrow passages, rock façades, and chambers carved into the mountains.",
+        "image": "/images/petra-little-petra.jpg",
+        "badge": "Hidden Gem"
+      },
+      {
+        "title": "High Place of Sacrifice",
+        "description": "Climb to an ancient Nabataean ritual site with sweeping views across Petra’s mountains and valleys.",
+        "image": "/images/petra-sacrifice.jpg",
+        "badge": "Hidden Gem"
+      },
+      {
+        "title": "The Cave Experience",
+        "description": "Discover Bedouin life inside a cave and enjoy Arabic coffee, kohl and henna traditions, depending on the experience available.",
+        "image": "/images/petra-cave.jpg"
+      },
+      {
+        "title": "The Great Temple",
+        "description": "An extensive archaeological complex with columns, courtyards, and Nabataean structures that reveal aspects of civic life in the ancient city.",
+        "image": "/images/petra-great-temple.jpg"
+      },
+      {
+        "title": "Arabic Coffee & Bedouin Hospitality",
+        "description": "Experience Arabic coffee and discover the traditions of Bedouin hospitality.",
+        "image": "/images/petra-coffee.jpg"
       }
-    ]
+    ],
+    "heroImage": "/images/petra-hero-v2.png",
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Built By",
+        "value": "Nabataeans over 2,000 years ago"
+      },
+      {
+        "icon": "mountain",
+        "label": "Tour Guide",
+        "value": "Optional"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entrance Fee",
+        "value": "1 JOD Jordanians · 30 JOD Arabs · 50–90 JOD foreigners"
+      },
+      {
+        "icon": "car",
+        "label": "Distance from Amman",
+        "value": "230 km · ~3 hours by car"
+      }
+    ],
+    "category": "culture"
   },
   "wadiRum": {
     "name": "Wadi Rum",
     "location": "📍 Wadi Rum, Jordan",
-    "image": "/images/wadirum.jpeg",
+    "image": "/images/wadi-rum-card-v2.png",
     "rating": "⭐ 4.9 (1.5k)",
     "aboutTitle": "About Wadi Rum",
     "about": "Wadi Rum is a breathtaking desert landscape known for its red sand, dramatic mountains and unforgettable adventure experiences.",
@@ -219,37 +299,95 @@
       "distance": "4 hours from Amman"
     },
     "thingsToDo": [
+      "Hot Air Balloon",
       "Jeep desert tour",
       "Watch the sunset",
-      "Camp under the stars"
+      "Camp under the stars",
+      "Bedouin Dinner Experience",
+      "Khazali Canyon",
+      "Burdah Rock Bridge",
+      "Sandboarding"
     ],
     "photos": [
-      "/images/wadirum5.jpeg",
-      "/images/wadirum6.jpeg",
-      "/images/wadirum7.jpeg"
+      "/images/wadi-rum-balloon.jpg",
+      "/images/wadirum2.jpeg",
+      "/images/wadirum3.jpeg",
+      "/images/wadirum4.jpeg",
+      "/images/wadi-rum-dinner.jpg",
+      "/images/wadi-rum-khazali.jpg",
+      "/images/wadi-rum-burdah.jpg",
+      "/images/wadi-rum-sandboarding.jpg"
     ],
     "highlights": [
       {
+        "title": "Hot Air Balloon",
+        "description": "Soar above Wadi Rum at sunrise and admire its vast red-sand valleys, towering sandstone mountains, and breathtaking desert scenery from the sky.",
+        "image": "/images/wadi-rum-balloon.jpg"
+      },
+      {
         "image": "/images/wadirum2.jpeg",
-        "title": "Red Desert Mountains"
+        "title": "Jeep desert tour"
       },
       {
         "image": "/images/wadirum3.jpeg",
-        "title": "Desert Adventure"
+        "title": "Watch the sunset"
       },
       {
         "image": "/images/wadirum4.jpeg",
-        "title": "Night Camping"
+        "title": "Camp under the stars"
+      },
+      {
+        "title": "Bedouin Dinner Experience",
+        "description": "Taste traditional Bedouin food, including zarb cooked underground, and discover local hospitality and customs.",
+        "image": "/images/wadi-rum-dinner.jpg"
+      },
+      {
+        "title": "Khazali Canyon",
+        "description": "Walk through a narrow sandstone canyon and discover ancient inscriptions and rock carvings.",
+        "image": "/images/wadi-rum-khazali.jpg"
+      },
+      {
+        "title": "Burdah Rock Bridge",
+        "description": "Admire one of Wadi Rum’s most impressive natural arches. Reaching the top involves a challenging scramble and should be done with an experienced local guide.",
+        "image": "/images/wadi-rum-burdah.jpg"
+      },
+      {
+        "title": "Sandboarding",
+        "description": "Slide down the soft red sand dunes for a fun desert adventure.",
+        "image": "/images/wadi-rum-sandboarding.jpg"
       }
-    ]
+    ],
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best Time to Visit",
+        "value": "Spring & Autumn"
+      },
+      {
+        "icon": "mountain",
+        "label": "Main Experience",
+        "value": "Jeep Tours · Desert Camping · Stargazing"
+      },
+      {
+        "icon": "car",
+        "label": "Guided Tours",
+        "value": "Local 4×4 Driver for Exploring the Protected Area"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~315 km · Around 3.5–4 Hours"
+      }
+    ],
+    "category": "adventures"
   },
   "ajlounCastle": {
     "name": "Ajloun Castle",
     "location": "📍 Ajloun Castle, Jordan",
-    "image": "/images/ajloun-culture.jpeg",
+    "image": "/images/ajloun-castle-card-v2.png",
     "rating": "⭐ 4.8 (900)",
     "aboutTitle": "About Ajloun Castle",
-    "about": "Ajloun Castle is a historic Islamic castle built on a mountain overlooking the region. It is famous for its architecture, history and amazing views.",
+    "about": "Ajloun Castle, also known as Qal’at ar-Rabad, is a medieval Islamic fortress overlooking the green hills of northern Jordan. Built in 1184 by Izz al-Din Usama, one of Saladin’s commanders, it served as a strategic stronghold against Crusader expansion and helped protect important trade routes. With its stone towers, vaulted halls, and panoramic views, the castle offers a fascinating glimpse into Jordan’s medieval history.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "2-3 hours",
@@ -265,27 +403,58 @@
     "thingsToDo": [
       "Explore the castle rooms",
       "Learn about Islamic history",
-      "Enjoy panoramic mountain views"
+      "Enjoy panoramic mountain views",
+      "Hidden Stone Corridors"
     ],
     "photos": [
-      "/images/ajloun-culture5.jpeg",
-      "/images/ajloun-culture6.jpeg",
-      "/images/ajloun-culture7.jpeg"
+      "/images/ajloun-culture2.jpeg",
+      "/images/ajloun-culture3.jpeg",
+      "/images/ajloun-culture4.jpeg",
+      "/images/ajloun-castle-corridors.jpg"
     ],
     "highlights": [
       {
         "image": "/images/ajloun-culture2.jpeg",
-        "title": "Historic Castle"
+        "title": "Explore the castle rooms"
       },
       {
         "image": "/images/ajloun-culture3.jpeg",
-        "title": "Ancient Architecture"
+        "title": "Learn about Islamic history"
       },
       {
         "image": "/images/ajloun-culture4.jpeg",
-        "title": "Mountain Views"
+        "title": "Enjoy panoramic mountain views"
+      },
+      {
+        "title": "Hidden Stone Corridors",
+        "description": "Look for the vaulted passages, narrow openings, and defensive features that reveal how the fortress was designed for protection.",
+        "image": "/images/ajloun-castle-corridors.jpg",
+        "badge": "Hidden Gem"
       }
-    ]
+    ],
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Built By & Age",
+        "value": "Izz al-Din Usama · Built in 1184 AD · Over 840 Years Old"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "0.25 JOD for Jordanians · 3 JOD for Foreigners"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tour",
+        "value": "Optional · Explore at Your Own Pace"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~70 km · Around 1–1.5 Hours"
+      }
+    ],
+    "category": "culture"
   },
   "ajlounRelax": {
     "name": "Ajloun Forest Reserve",
@@ -403,12 +572,13 @@
         "Trail snacks",
         "Pack snacks for the trail."
       ]
-    ]
+    ],
+    "category": "relax"
   },
   "aqabaAdventures": {
     "name": "Aqaba Adventures",
     "location": "📍 Aqaba, Jordan",
-    "image": "/images/aqaba-adventure.jpeg",
+    "image": "/plans/adventures/images/aqaba diving.png",
     "rating": "⭐ 4.9 (1k)",
     "aboutTitle": "Aqaba Adventure Experiences",
     "about": "Aqaba offers exciting adventures in the Red Sea, from diving and snorkeling to boat trips and water activities.",
@@ -450,7 +620,9 @@
         "image": "/images/aqaba-adventure4.jpeg",
         "title": "Boat Adventure"
       }
-    ]
+    ],
+    "category": "adventures",
+    "heroImage": "/images/aqaba-adventure.jpeg"
   },
   "aqaba": {
     "name": "Aqaba Relaxation",
@@ -571,7 +743,8 @@
         "Bring snorkeling gear, if you have your own."
       ]
     ],
-    "visitTip": "Check beach access and day-pass requirements before visiting private beach clubs."
+    "visitTip": "Check beach access and day-pass requirements before visiting private beach clubs.",
+    "category": "relax"
   },
   "wadiMujib": {
     "name": "Wadi Mujib",
@@ -595,27 +768,57 @@
     "thingsToDo": [
       "Canyoning adventure",
       "Explore water trails",
-      "Enjoy mountain views"
+      "Enjoy mountain views",
+      "Ibex Trail"
     ],
     "photos": [
-      "/images/wadimujib5.jpeg",
-      "/images/wadimujib6.jpeg",
-      "/images/wadimujib7.jpeg"
+      "/images/wadimujib2.jpeg",
+      "/images/wadimujib3.jpeg",
+      "/images/wadimujib4.jpeg",
+      "/images/mujib-ibex.jpg"
     ],
     "highlights": [
       {
         "image": "/images/wadimujib2.jpeg",
-        "title": "Canyon Adventure"
+        "title": "Canyoning adventure"
       },
       {
         "image": "/images/wadimujib3.jpeg",
-        "title": "Water Trails"
+        "title": "Explore water trails"
       },
       {
         "image": "/images/wadimujib4.jpeg",
-        "title": "Mountain Landscape"
+        "title": "Enjoy mountain views"
+      },
+      {
+        "title": "Ibex Trail",
+        "description": "Follow a mountain trail overlooking the Dead Sea, with opportunities to spot Nubian ibex and enjoy panoramic views.",
+        "image": "/images/mujib-ibex.jpg"
       }
-    ]
+    ],
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best Time to Visit",
+        "value": "Spring – Summer · Check Seasonal Opening"
+      },
+      {
+        "icon": "water",
+        "label": "Main Experience",
+        "value": "Water Hiking · Canyons · Waterfalls"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tours",
+        "value": "Required for Selected Routes"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~90 km · Around 1.5 Hours"
+      }
+    ],
+    "category": "adventures"
   },
   "main": {
     "name": "Ma'in Hot Springs",
@@ -716,15 +919,16 @@
         "Swimwear & towel",
         "Bring swimwear and a towel for your visit."
       ]
-    ]
+    ],
+    "category": "relax"
   },
   "jerash": {
     "name": "Jerash",
     "location": "📍 Jerash, Jordan",
-    "image": "/images/jerash.jpeg",
+    "image": "/images/jerash-card-v2.jpg",
     "rating": "⭐ 4.8 (1.1k)",
     "aboutTitle": "About Jerash",
-    "about": "Jerash is one of the best-preserved Roman cities in the world, famous for its ancient streets, theaters, temples and impressive archaeological sites.",
+    "about": "Jerash is one of Jordan’s most remarkable historical destinations, known for its exceptionally well-preserved Roman ruins. Once known as Gerasa, the ancient city flourished under Roman rule and became an important regional centre. Today, visitors can explore its colonnaded streets, monumental temples, ancient theatres, and public squares while experiencing the rich history and culture of northern Jordan.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "3-4 hours",
@@ -738,29 +942,70 @@
       "distance": "45 min from Amman"
     },
     "thingsToDo": [
-      "Explore the Roman ruins",
-      "Visit the Oval Plaza",
-      "Enjoy Jerash Festival events"
+      "Explore the Roman City",
+      "Visit the Ancient Theatres",
+      "The Nymphaeum",
+      "Cardo Maximus",
+      "Jerash Archaeological Museum"
     ],
     "photos": [
-      "/images/jerash5.jpeg",
-      "/images/jerash6.jpeg",
-      "/images/jerash7.jpeg"
+      "/images/jerash-roman-city.jpg",
+      "/images/jerash-theatres.jpg",
+      "/images/jerash-nymphaeum.jpg",
+      "/images/jerash-cardo.jpg",
+      "/images/jerash-museum.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/jerash2.jpeg",
-        "title": "Roman Ruins"
+        "title": "Explore the Roman City",
+        "description": "Walk through ancient streets, grand plazas, temples, and impressive Roman architecture that reveal the city’s fascinating past.",
+        "image": "/images/jerash-roman-city.jpg"
       },
       {
-        "image": "/images/jerash3.jpeg",
-        "title": "Oval Plaza"
+        "title": "Visit the Ancient Theatres",
+        "description": "Discover the South and North Theatres and imagine the performances and gatherings that once filled these historic spaces.",
+        "image": "/images/jerash-theatres.jpg"
       },
       {
-        "image": "/images/jerash4.jpeg",
-        "title": "Ancient Theater"
+        "title": "The Nymphaeum",
+        "description": "Discover an impressive Roman public fountain built in 191 AD, once decorated with marble and water features.",
+        "image": "/images/jerash-nymphaeum.jpg"
+      },
+      {
+        "title": "Cardo Maximus",
+        "description": "Follow the ancient paved main street, where original stones and column-lined walkways preserve traces of Roman city life.",
+        "image": "/images/jerash-cardo.jpg"
+      },
+      {
+        "title": "Jerash Archaeological Museum",
+        "description": "Explore artifacts and archaeological discoveries that reveal the civilizations that shaped the region.",
+        "image": "/images/jerash-museum.jpg"
       }
-    ]
+    ],
+    "heroImage": "/images/jerash-hero-v2.png",
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Built By",
+        "value": "Ancient Greeks · Flourished Under Roman Rule"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "0.50 JOD for Jordanians · 10 JOD for Foreigners"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tour",
+        "value": "Optional · Local Guides Available"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~45 km · Around 40–60 Minutes"
+      }
+    ],
+    "category": "culture"
   },
   "ummQais": {
     "name": "Umm Qais",
@@ -768,7 +1013,7 @@
     "image": "/images/ummqais.jpeg",
     "rating": "⭐ 4.8 (1k)",
     "aboutTitle": "About Umm Qais",
-    "about": "Umm Qais is an ancient city famous for its Roman ruins, stunning views of the Sea of Galilee and the surrounding landscapes. It is a perfect destination for history and culture lovers.",
+    "about": "Umm Qais, once known as Gadara, is a remarkable archaeological destination in northern Jordan. As one of the cities of the ancient Decapolis, it flourished under Roman rule and became known for its cultural and intellectual life. Today, visitors can explore black basalt ruins, ancient theatres, colonnaded streets, and an Ottoman-era village while enjoying breathtaking views of the Jordan Valley and the Sea of Galilee.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "3-4 hours",
@@ -782,38 +1027,89 @@
       "distance": "2 hours from Amman"
     },
     "thingsToDo": [
-      "Explore the Roman ruins",
+      "Visit Umm Qais Museum",
       "Visit the ancient theater",
       "Enjoy panoramic views",
-      "Discover Ottoman village houses"
+      "Discover Ottoman village houses",
+      "Beekeeping Experience",
+      "The Octagonal Church",
+      "The Nymphaeum"
     ],
     "photos": [
-      "/images/ummqais5.jpeg",
-      "/images/ummqais6.jpeg",
-      "/images/ummqais7.jpeg"
+      "/images/umm-qais-museum.jpg",
+      "/images/ummqais3.jpeg",
+      "/images/ummqais4.jpeg",
+      "/images/ummqais2.jpeg",
+      "/images/umm-qais-beekeeping.jpg",
+      "/images/umm-qais-church.jpg",
+      "/images/umm-qais-nymphaeum.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/ummqais2.jpeg",
-        "title": "Roman Ruins"
+        "title": "Visit Umm Qais Museum",
+        "description": "Discover ancient pottery, statues, mosaics, and other archaeological finds displayed in a restored Ottoman-era house.",
+        "image": "/images/umm-qais-museum.jpg"
       },
       {
         "image": "/images/ummqais3.jpeg",
-        "title": "Ancient Theater"
+        "title": "Visit the ancient theater"
       },
       {
         "image": "/images/ummqais4.jpeg",
-        "title": "Panoramic Views"
+        "title": "Enjoy panoramic views"
+      },
+      {
+        "image": "/images/ummqais2.jpeg",
+        "title": "Discover Ottoman village houses"
+      },
+      {
+        "title": "Beekeeping Experience",
+        "description": "Learn how local beekeepers care for their hives and produce honey, with opportunities to discover the process up close.",
+        "image": "/images/umm-qais-beekeeping.jpg"
+      },
+      {
+        "title": "The Octagonal Church",
+        "description": "Explore the remains of a Byzantine-era church and discover another layer of the site’s religious history.",
+        "image": "/images/umm-qais-church.jpg",
+        "badge": "Hidden Gem"
+      },
+      {
+        "title": "The Nymphaeum",
+        "description": "Look for the remains of an ancient public fountain among the archaeological structures of Gadara.",
+        "image": "/images/umm-qais-nymphaeum.jpg"
       }
-    ]
+    ],
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Built By & Age",
+        "value": "Hellenistic Origins · Flourished Under Roman Rule"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "0.25 JOD for Jordanians · 5 JOD for Foreigners"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tour",
+        "value": "Optional · Explore at Your Own Pace"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~115 km · Around 2–2.5 Hours"
+      }
+    ],
+    "category": "culture"
   },
   "danaReserve": {
     "name": "Dana Biosphere Reserve",
     "location": "📍 Dana, Jordan",
-    "image": "/images/dana.jpeg",
+    "image": "/images/dana-card-v2.jpg",
     "rating": "⭐ 4.8 (1k)",
     "aboutTitle": "About Dana Biosphere Reserve",
-    "about": "Dana Biosphere Reserve is Jordan's largest nature reserve, famous for its breathtaking landscapes, diverse wildlife and amazing hiking trails.",
+    "about": "Dana Biosphere Reserve is Jordan’s largest biosphere reserve, covering approximately 292 km² of diverse landscapes, from mountain peaks and terraced gardens to deep canyons and desert valleys. Established in 1989, it is home to a remarkable variety of plants and wildlife. Visitors can explore scenic hiking trails, discover traditional village life, and experience the natural beauty and biodiversity of Jordan.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "Full Day",
@@ -827,38 +1123,70 @@
       "distance": "3 hours from Amman"
     },
     "thingsToDo": [
-      "Hiking through nature trails",
-      "Explore mountain landscapes",
-      "Enjoy wildlife watching",
-      "Experience local village culture"
+      "Wildlife Watching",
+      "Wadi Dana Hike",
+      "Rummana Mountain Trail",
+      "The Caves Trail"
     ],
     "photos": [
-      "/images/dana5.jpeg",
-      "/images/dana6.jpeg",
-      "/images/dana7.jpeg"
+      "/images/dana-wildlife.png",
+      "/images/dana-hike.jpg",
+      "/images/dana-rummana.jpg",
+      "/images/dana-caves.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/dana2.jpeg",
-        "title": "Amazing Landscapes"
+        "title": "Wildlife Watching",
+        "description": "Discover Dana’s remarkable wildlife, from the Nubian ibex and mountain gazelles to foxes and diverse bird species. Keep your eyes open as you explore the reserve’s rugged mountains and natural habitats.",
+        "image": "/images/dana-wildlife.png"
       },
       {
-        "image": "/images/dana3.jpeg",
-        "title": "Hiking Trails"
+        "title": "Wadi Dana Hike",
+        "description": "Explore deep sandstone canyons and diverse natural landscapes on a long scenic hike toward Feynan.",
+        "image": "/images/dana-hike.jpg"
       },
       {
-        "image": "/images/dana4.jpeg",
-        "title": "Nature & Wildlife"
+        "title": "Rummana Mountain Trail",
+        "description": "Enjoy a scenic walk with mountain views, striking rock formations, and opportunities for birdwatching.",
+        "image": "/images/dana-rummana.jpg"
+      },
+      {
+        "title": "The Caves Trail",
+        "description": "Explore unusual sandstone formations and small caves hidden among the rocky landscape.",
+        "image": "/images/dana-caves.jpg"
       }
-    ]
+    ],
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best Time to Visit",
+        "value": "March – May · September – November"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tours",
+        "value": "Required for Selected Hiking Trails"
+      },
+      {
+        "icon": "mountain",
+        "label": "Main Experience",
+        "value": "Hiking · Wildlife · Scenic Valleys"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~200 km · Around 2.5–3 Hours"
+      }
+    ],
+    "category": "adventures"
   },
   "karakCastle": {
     "name": "Karak Castle",
     "location": "📍 Al Karak, Jordan",
-    "image": "/images/karak.jpeg",
+    "image": "/images/karak-card-v3.png",
     "rating": "⭐ 4.8 (1k)",
     "aboutTitle": "About Karak Castle",
-    "about": "Karak Castle is one of Jordan's most famous historical landmarks. The castle is known for its impressive architecture, ancient walls and rich history.",
+    "about": "Perched on a hilltop overlooking the city of Al Karak, Karak Castle is one of Jordan’s most impressive medieval fortresses. Built in the 12th century during the Crusader period, the castle later became an important stronghold under Muslim rule. Its massive stone walls, underground passages, vaulted halls, and strategic location reveal centuries of military history. Today, visitors can explore its remarkable architecture and enjoy sweeping views of the surrounding landscape.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "2-3 hours",
@@ -872,38 +1200,122 @@
       "distance": "2 hours from Amman"
     },
     "thingsToDo": [
+      "Panorama Al-Karak Restaurant & Café",
       "Explore the castle halls",
       "Discover historical architecture",
       "Enjoy views of Karak city",
-      "Visit nearby historical sites"
+      "Visit nearby historical sites",
+      "Discover Underground Passages",
+      "Visit the Castle Museum",
+      "Make Mansaf & Jameed"
     ],
     "photos": [
-      "/images/karak5.jpeg",
-      "/images/karak6.jpeg",
-      "/images/karak7.jpeg"
+      "/images/karak-panorama.jpg",
+      "/images/karak2.jpeg",
+      "/images/karak3.jpeg",
+      "/images/karak4.jpeg",
+      "/images/karak2.jpeg",
+      "/images/karak-underground.jpg",
+      "/images/karak-museum.jpg",
+      "/images/karak-mansaf-jameed.jpg"
     ],
     "highlights": [
       {
+        "title": "Panorama Al-Karak Restaurant & Café",
+        "description": "Enjoy a breathtaking view of Karak Castle while experiencing local flavors and authentic Jordanian hospitality.",
+        "image": "/images/karak-panorama.jpg"
+      },
+      {
         "image": "/images/karak2.jpeg",
-        "title": "Historic Castle"
+        "title": "Explore the castle halls"
       },
       {
         "image": "/images/karak3.jpeg",
-        "title": "Ancient Architecture"
+        "title": "Discover historical architecture"
       },
       {
         "image": "/images/karak4.jpeg",
-        "title": "City Views"
+        "title": "Enjoy views of Karak city"
+      },
+      {
+        "image": "/images/karak2.jpeg",
+        "title": "Visit nearby historical sites"
+      },
+      {
+        "title": "Discover Underground Passages",
+        "description": "Explore the castle’s historic lower levels and learn how its architecture supported medieval defense.",
+        "image": "/images/karak-underground.jpg"
+      },
+      {
+        "title": "Visit the Castle Museum",
+        "description": "Discover archaeological finds and exhibits that tell the story of the castle and the region.",
+        "image": "/images/karak-museum.jpg"
+      },
+      {
+        "title": "Make Mansaf & Jameed",
+        "description": "Discover Karak’s culinary heritage by learning how traditional jameed is made and taking part in preparing Jordan’s famous mansaf. Experience authentic local flavors and the traditions behind one of Jordan’s most iconic dishes.",
+        "image": "/images/karak-mansaf-jameed.jpg"
       }
-    ]
+    ],
+    "heroImage": "/images/karak-hero-v2.jpg",
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Historical Significance",
+        "value": "12th-Century Crusader Fortress"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "Check Current Ticket Prices"
+      },
+      {
+        "icon": "shoe",
+        "label": "Accessibility",
+        "value": "Uneven Stone Paths · Walking Required"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~130 km · Around 2 Hours"
+      }
+    ],
+    "packing": [
+      [
+        "shoe",
+        "Comfortable Walking Shoes",
+        "Wear comfortable walking shoes."
+      ],
+      [
+        "bottle",
+        "Water Bottle",
+        "Bring a water bottle."
+      ],
+      [
+        "camera",
+        "Camera",
+        "Bring a camera."
+      ],
+      [
+        "sunscreen",
+        "Hat & Sunscreen",
+        "Bring a hat and sunscreen."
+      ],
+      [
+        "clothes",
+        "Light Jacket",
+        "Pack a light jacket for cooler months."
+      ]
+    ],
+    "category": "culture"
   },
   "dibeenForest": {
     "name": "Dibeen Forest",
     "location": "📍 Dibeen Forest, Jordan",
-    "image": "/images/dibeen.jpeg",
+    "image": "/plans/adventures/images/DIBBEEN.png",
     "rating": "⭐ 4.7 (850)",
     "aboutTitle": "About Dibeen Forest",
-    "about": "Dibeen Forest is one of Jordan's most beautiful natural destinations, known for its pine trees, outdoor adventures and peaceful natural atmosphere.",
+    "about": "Dibeen Forest Reserve is a beautiful natural escape in northern Jordan, near Jerash. Established in 2004, the reserve protects a unique Mediterranean forest dominated by Aleppo pine and evergreen oak trees. Its rolling hills, rich plant diversity, and peaceful woodland atmosphere make it an ideal destination for nature lovers, families, and visitors seeking a relaxing outdoor experience.",
     "info": {
       "bestTime": "Spring - Summer",
       "visitTime": "3-5 hours",
@@ -917,38 +1329,64 @@
       "distance": "1 hour from Amman"
     },
     "thingsToDo": [
-      "Walk through forest trails",
-      "Enjoy outdoor adventures",
-      "Explore nature paths",
-      "Have a picnic in the forest"
+      "Forest Walks",
+      "Wildlife & Birdwatching",
+      "Beeswax Candle-Making"
     ],
     "photos": [
-      "/images/dibeen5.jpeg",
-      "/images/dibeen6.jpeg",
-      "/images/dibeen7.jpeg"
+      "/images/dibeen-walks.jpg",
+      "/images/dibeen-wildlife.jpg",
+      "/images/dibeen-candles.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/dibeen2.jpeg",
-        "title": "Forest Trails"
+        "title": "Forest Walks",
+        "description": "Wander among tall pine and oak trees, breathe in the fresh air, and enjoy the peaceful atmosphere of the forest.",
+        "image": "/images/dibeen-walks.jpg"
       },
       {
-        "image": "/images/dibeen3.jpeg",
-        "title": "Outdoor Adventure"
+        "title": "Wildlife & Birdwatching",
+        "description": "Look and listen for woodland birds and local wildlife, including the Persian squirrel, which is one of the reserve’s notable species.",
+        "image": "/images/dibeen-wildlife.jpg"
       },
       {
-        "image": "/images/dibeen4.jpeg",
-        "title": "Nature Escape"
+        "title": "Beeswax Candle-Making",
+        "description": "Explore a creative workshop that transforms beeswax into handmade candles, supporting local crafts and community initiatives. Confirm booking and session times.",
+        "image": "/images/dibeen-candles.jpg"
       }
-    ]
+    ],
+    "facts": [
+      {
+        "icon": "mountain",
+        "label": "Main Experience",
+        "value": "Forest Walks · Picnics · Nature & Wildlife"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tour",
+        "value": "Not Required for General Visits · Check Trail Requirements"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "Check Current Rates Before Visiting"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~50–60 km · Around 1 Hour"
+      }
+    ],
+    "category": "adventures",
+    "heroImage": "/images/dibeen.jpeg"
   },
   "romanTheater": {
     "name": "Roman Theater",
     "location": "📍 Amman, Jordan",
-    "image": "/images/roman-theater.jpeg",
+    "image": "/images/roman-theater-card-v2.png",
     "rating": "⭐ 4.7 (900)",
     "aboutTitle": "About Roman Theater",
-    "about": "The Roman Theater in Amman is one of Jordan's most famous historical landmarks. Built during the Roman period, it represents the rich cultural heritage and ancient architecture of the city.",
+    "about": "The Roman Theatre is one of Amman’s most iconic historical landmarks, dating back to the 2nd century AD when the city was known as Philadelphia. Built into a hillside, this impressive stone theatre could host around 6,000 spectators. Its steep seating tiers were designed to provide excellent views and acoustics. Today, it remains a symbol of Jordan’s Roman heritage and continues to host cultural performances and events.",
     "info": {
       "bestTime": "Spring - Autumn",
       "visitTime": "1-2 hours",
@@ -962,35 +1400,73 @@
       "distance": "15 min from Amman"
     },
     "thingsToDo": [
-      "Explore the ancient theater",
-      "Discover Roman architecture",
-      "Visit nearby historical sites",
-      "Enjoy city views"
+      "Explore the Theatre",
+      "Visit the Museums",
+      "Cultural Events"
     ],
     "photos": [
-      "/images/roman-theater5.jpeg",
-      "/images/roman-theater6.jpeg",
-      "/images/roman-theater7.jpeg"
+      "/images/roman-theatre-explore.jpg",
+      "/images/roman-theatre-museums.jpg",
+      "/images/roman-theatre-events.jpg"
     ],
     "highlights": [
       {
-        "image": "/images/roman-theater2.jpeg",
-        "title": "Ancient Roman Architecture"
+        "title": "Explore the Theatre",
+        "description": "Climb the ancient seating tiers and admire the impressive architecture and panoramic views of Downtown Amman.",
+        "image": "/images/roman-theatre-explore.jpg"
       },
       {
-        "image": "/images/roman-theater3.jpeg",
-        "title": "Historic Stage"
+        "title": "Visit the Museums",
+        "description": "Discover Jordanian traditional clothing, jewellery, and cultural heritage at the museums housed within the theatre complex.",
+        "image": "/images/roman-theatre-museums.jpg"
       },
       {
-        "image": "/images/roman-theater4.jpeg",
-        "title": "Amman City View"
+        "title": "Cultural Events",
+        "description": "Experience concerts and cultural performances when events are scheduled at this historic venue.",
+        "image": "/images/roman-theatre-events.jpg"
       }
-    ]
+    ],
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Built By & Age",
+        "value": "Romans · 2nd Century AD · Around 1,800 Years Old"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "0.25 JOD for Jordanians · 2 JOD for Foreigners"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tour",
+        "value": "Optional · Explore at Your Own Pace"
+      },
+      {
+        "icon": "pin",
+        "label": "From Amman City Centre",
+        "value": "Located in Downtown Amman"
+      }
+    ],
+    "nearbyCards": [
+      {
+        "name": "Rainbow Street",
+        "image": "/images/rainbow-street-nearby.jpg",
+        "description": "Explore cafés, restaurants, small shops, and the lively atmosphere of Jabal Amman."
+      },
+      {
+        "name": "Downtown Amman",
+        "image": "/images/downtown-amman-nearby.jpg",
+        "description": "Wander through traditional markets and try local favourites such as falafel, hummus, and kunafa."
+      }
+    ],
+    "category": "culture",
+    "heroImage": "/images/Roman Theatre.png"
   },
   "shobak": {
     "name": "Shobak",
     "location": "📍 Shobak, Jordan",
-    "image": "/images/shobak.png",
+    "image": "/plans/adventures/images/shobak.jpg",
     "rating": "⭐ 4.7 (800)",
     "aboutTitle": "About Shobak",
     "about": "Shobak is a beautiful mountain destination known for its historic landscapes, hiking trails and breathtaking views. It offers an amazing experience for adventure and nature lovers.",
@@ -1030,7 +1506,9 @@
         "image": "/images/shobak4.jpeg",
         "title": "Amazing Views"
       }
-    ]
+    ],
+    "category": "adventures",
+    "heroImage": "/images/shobak.png"
   },
   "afra": {
     "name": "Afra Hot Springs",
@@ -1141,7 +1619,8 @@
       ]
     ],
     "safetyTip": "Spring water can be extremely hot near its source, and rocks may be slippery. Use designated bathing areas only.",
-    "tagline": "Natural Warmth · Mineral Waters · Pure Relaxation"
+    "tagline": "Natural Warmth · Mineral Waters · Pure Relaxation",
+    "category": "relax"
   },
   "mukawir": {
     "name": "Mukawir Castle",
@@ -1237,7 +1716,8 @@
       "/images/mukawir-views.jpg",
       "/images/mukawir-history.jpg",
       "/images/mukawir-hero.jpg"
-    ]
+    ],
+    "category": "culture"
   },
   "wadiZarqaMain": {
     "name": "Wadi Zarqa Ma'in",
@@ -1349,7 +1829,8 @@
     "heroImage": "/images/wadi-zarqa-main-hero.jpg",
     "cardDescription": "Discover a hidden world of dramatic cliffs, flowing water, and wild beauty in the heart of Jordan.",
     "packingTitle": "Be Ready for the Adventure",
-    "safetyTip": "Hire a licensed local guide, check weather conditions before your trip, and avoid the wadi during rain or flash-flood warnings."
+    "safetyTip": "Hire a licensed local guide, check weather conditions before your trip, and avoid the wadi during rain or flash-flood warnings.",
+    "category": "adventures"
   },
   "madabaPark": {
     "name": "Madaba Archaeological Park",
@@ -1443,25 +1924,525 @@
       "/images/madaba-roman-history.jpg",
       "/images/madaba-churches.jpg",
       "/images/madaba-mosaic-art.jpg"
-    ]
+    ],
+    "category": "culture"
   },
   "aqabaFort": {
     "name": "Aqaba Fort",
     "location": "Aqaba, Jordan",
-    "image": "/images/aqaba-fort-card.jpg",
+    "image": "/images/aqaba-fort-card-v2.png",
     "heroImage": "/images/aqaba-fort-hero.webp",
-    "about": "Details coming soon.",
+    "about": "Aqaba Fort, also known as Aqaba Castle, is a historic fortress near the shores of the Red Sea. Its origins are linked to the Mamluk period, and it was later renovated and used during Ottoman rule as a military stronghold and caravanserai. The fort played an important role in regional trade and became associated with the Arab Revolt in 1917. Today, visitors can explore its historic stone architecture and discover an important chapter of Jordan’s history.",
     "info": {
       "nearby": "Aqaba"
     },
     "quickInfo": {},
-    "facts": [],
-    "thingsToDo": [],
-    "highlights": [],
-    "photos": [
-      "/images/aqaba-fort-hero.webp"
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Built By & Age",
+        "value": "Mamluk Origins · Current Form Mainly Dates to the 16th Century"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "0.25 JOD for Jordanians · 3 JOD for Foreigners"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tour",
+        "value": "Optional · Explore at Your Own Pace"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~330 km · Around 4 Hours"
+      }
     ],
-    "packing": [],
-    "detailsPending": true
+    "thingsToDo": [
+      "Explore the Fortress",
+      "Historic Waterfront Walk"
+    ],
+    "highlights": [
+      {
+        "title": "Explore the Fortress",
+        "description": "Walk through the historic stone courtyard, arches, and fortified walls while discovering the castle’s military past.",
+        "image": "/images/aqaba-fort-explore.jpg"
+      },
+      {
+        "title": "Historic Waterfront Walk",
+        "description": "Combine your visit with a relaxing walk along the nearby waterfront and enjoy views of the Red Sea.",
+        "image": "/images/aqaba-fort-waterfront.jpg"
+      }
+    ],
+    "photos": [
+      "/images/aqaba-fort-explore.jpg",
+      "/images/aqaba-fort-waterfront.jpg"
+    ],
+    "detailsPending": false,
+    "nearbyCards": [
+      {
+        "name": "Sharif Hussein bin Ali House",
+        "image": "/images/sharif-hussein-house.jpg",
+        "description": "Visit a heritage house connected to Sharif Hussein bin Ali and the history of the Arab Revolt."
+      },
+      {
+        "name": "Great Arab Revolt Plaza",
+        "image": "/images/arab-revolt-square.png",
+        "description": "Visit the nearby waterfront square commemorating the Great Arab Revolt."
+      }
+    ],
+    "category": "culture"
+  },
+  "ummAlJimal": {
+    "name": "Umm Al-Jimal",
+    "location": "Al Mafraq, Jordan",
+    "image": "/images/umm-al-jimal-card.jpg",
+    "heroImage": "/images/umm-al-jimal-hero.png",
+    "tagline": "Also known as the Black Oasis",
+    "aboutTitle": "About Umm Al-Jimal",
+    "about": "Umm Al-Jimal is an extraordinary archaeological site in northern Jordan, famous for its distinctive black basalt buildings and remarkably preserved ruins. Once an important settlement during the Nabataean, Roman, Byzantine, and early Islamic periods, it offers a glimpse into ancient life through its stone houses, churches, courtyards, and historic structures. Its unique architecture and peaceful desert surroundings make it a fascinating destination for history and culture lovers.",
+    "info": {
+      "bestFor": "History & culture",
+      "nearby": "Azraq Wetland Reserve · Shaumari Wildlife Reserve"
+    },
+    "quickInfo": {
+      "distance": "≈ 70 km · Around 1–1.5 Hours",
+      "access": "Check Current Ticket Prices Before Visiting"
+    },
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Historical Significance",
+        "value": "Ancient Nabataean, Roman & Byzantine Heritage"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "Check Current Ticket Prices Before Visiting"
+      },
+      {
+        "icon": "pin",
+        "label": "Location",
+        "value": "Al Mafraq, Jordan"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "≈ 70 km · Around 1–1.5 Hours"
+      }
+    ],
+    "packing": [
+      [
+        "bottle",
+        "Water Bottle",
+        "Bring a water bottle."
+      ],
+      [
+        "sunscreen",
+        "Hat & Sunscreen",
+        "Bring a hat and sunscreen."
+      ],
+      [
+        "shoe",
+        "Comfortable Walking Shoes",
+        "Wear comfortable walking shoes."
+      ]
+    ],
+    "highlights": [
+      {
+        "title": "Travel Through History",
+        "description": "Learn about the Nabataean, Roman, Byzantine, and early Islamic periods that shaped Umm Al-Jimal.",
+        "image": "/images/umm-al-jimal-card.jpg"
+      },
+      {
+        "title": "Basalt Stone Carving",
+        "description": "Try carving basalt stone with the help of a local instructor and create a small artwork as a souvenir of your journey.",
+        "image": "/images/umm-al-jimal-carving.webp"
+      },
+      {
+        "title": "Bedouin Cultural Experience",
+        "description": "Experience Bedouin hospitality, taste Arabic coffee, and listen to folk stories and local traditions. The experience may include the rababa.",
+        "image": "/images/umm-al-jimal-bedouin.jpg"
+      },
+      {
+        "title": "Umm Al-Jimal Museum",
+        "description": "Explore archaeological finds and discover the history and cultural heritage of Umm Al-Jimal through its historic artifacts and local stories.",
+        "image": "/images/umm-al-jimal-museum.jpg"
+      }
+    ],
+    "thingsToDo": [
+      "Travel Through History",
+      "Basalt Stone Carving",
+      "Bedouin Cultural Experience",
+      "Umm Al-Jimal Museum"
+    ],
+    "photos": [
+      "/images/umm-al-jimal-card.jpg",
+      "/images/umm-al-jimal-carving.webp",
+      "/images/umm-al-jimal-bedouin.jpg",
+      "/images/umm-al-jimal-museum.jpg"
+    ],
+    "category": "culture"
+  },
+  "azraqWetland": {
+    "name": "Azraq Wetland Reserve",
+    "location": "Azraq, Zarqa, Jordan",
+    "image": "/images/azraq-card.jpg",
+    "aboutTitle": "About Azraq Wetland Reserve",
+    "about": "Located in Jordan’s eastern desert, Azraq Wetland Reserve is a unique natural oasis famous for its freshwater pools, marshlands, and rich biodiversity. Established in 1977, the reserve is an important stop for migratory birds traveling between Europe, Asia, and Africa. Visitors can explore peaceful wooden walkways, observe wildlife, and discover the conservation efforts protecting one of Jordan’s most valuable wetland ecosystems.",
+    "info": {
+      "bestTime": "Autumn – Spring",
+      "bestFor": "Birdwatching & Nature Trails",
+      "nearby": "Umm Al-Jimal · Shaumari Wildlife Reserve"
+    },
+    "quickInfo": {
+      "distance": "~100 km · 1.5–2 Hours",
+      "access": "Check Current Rates"
+    },
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best Time to Visit",
+        "value": "Autumn – Spring"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "Check Current Rates"
+      },
+      {
+        "icon": "mountain",
+        "label": "Main Experience",
+        "value": "Birdwatching & Nature Trails"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~100 km · 1.5–2 Hours"
+      }
+    ],
+    "packing": [
+      [
+        "bottle",
+        "Water Bottle",
+        "Bring a water bottle."
+      ],
+      [
+        "shoe",
+        "Comfortable Walking Shoes",
+        "Wear comfortable walking shoes."
+      ],
+      [
+        "binoculars",
+        "Binoculars for Birdwatching",
+        "Bring binoculars for birdwatching."
+      ],
+      [
+        "camera",
+        "Camera",
+        "Bring a camera."
+      ],
+      [
+        "sunscreen",
+        "Hat & Sunscreen",
+        "Bring a hat and sunscreen."
+      ]
+    ],
+    "highlights": [
+      {
+        "title": "Walk the Marsh Trail",
+        "description": "Explore the wetland landscape along wooden walkways and peaceful nature trails.",
+        "image": "/images/azraq-marsh-trail.jpg"
+      },
+      {
+        "title": "Birdwatching",
+        "description": "Observe migratory and resident birds in one of Jordan’s most important wetland habitats.",
+        "image": "/images/azraq-birdwatching.jpg"
+      },
+      {
+        "title": "Water Buffalo Trail",
+        "description": "Walk a trail through wetlands and wildlife observation areas, with a chance to see water buffalo if they are present during your visit.",
+        "image": "/images/azraq-water-buffalo.jpg"
+      }
+    ],
+    "thingsToDo": [
+      "Walk the Marsh Trail",
+      "Birdwatching",
+      "Water Buffalo Trail"
+    ],
+    "photos": [
+      "/images/azraq-marsh-trail.jpg",
+      "/images/azraq-birdwatching.jpg",
+      "/images/azraq-water-buffalo.jpg"
+    ],
+    "heroImage": "/images/azraq-marsh-trail.jpg",
+    "category": "relax"
+  },
+  "shaumariReserve": {
+    "name": "Shaumari Wildlife Reserve",
+    "location": "Near Azraq, Zarqa, Jordan",
+    "image": "/images/shaumari-card.jpg",
+    "heroImage": "/images/shaumari-hero.jpg",
+    "aboutTitle": "About Shaumari Wildlife Reserve",
+    "about": "Located near Azraq in Jordan’s eastern desert, Shaumari Wildlife Reserve was established in 1975 as Jordan’s first wildlife reserve. Covering approximately 22 square kilometers, it plays an important role in protecting endangered species and restoring native wildlife. The reserve is especially known for the Arabian oryx, alongside gazelles and other desert animals. It offers visitors a unique opportunity to discover Jordan’s wildlife and conservation efforts in a natural desert setting.",
+    "info": {
+      "bestTime": "Early Morning · Cooler Months",
+      "bestFor": "Oryx Safari & Wildlife Observation",
+      "nearby": "Azraq Wetland Reserve · Umm Al-Jimal"
+    },
+    "quickInfo": {
+      "distance": "Approx. 100–120 km · Around 1.5–2 Hours",
+      "access": "Varies by Visitor Category & Activity"
+    },
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best Time to Visit",
+        "value": "Early Morning · Cooler Months"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "Varies by Visitor Category & Activity"
+      },
+      {
+        "icon": "mountain",
+        "label": "Main Experience",
+        "value": "Oryx Safari & Wildlife Observation"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "Approx. 100–120 km · Around 1.5–2 Hours"
+      }
+    ],
+    "packing": [
+      [
+        "bottle",
+        "Water Bottle",
+        "Bring a water bottle."
+      ],
+      [
+        "sunscreen",
+        "Hat & Sunscreen",
+        "Bring a hat and sunscreen."
+      ],
+      [
+        "shoe",
+        "Comfortable Walking Shoes",
+        "Wear comfortable walking shoes."
+      ],
+      [
+        "binoculars",
+        "Camera or Binoculars",
+        "Bring a camera or binoculars."
+      ],
+      [
+        "clothes",
+        "Light, Breathable Clothing",
+        "Wear light, breathable clothing."
+      ]
+    ],
+    "highlights": [
+      {
+        "title": "Oryx Safari",
+        "description": "Explore the reserve on a guided safari and look for the iconic Arabian oryx and other wildlife.",
+        "image": "/images/shaumari-oryx-safari.jpg"
+      },
+      {
+        "title": "Wildlife Discovery Centre",
+        "description": "Explore educational exhibits about endangered animals, Arabian oryx conservation programmes, and wildlife reintroduction.",
+        "image": "/images/shaumari-discovery-centre.jpg"
+      },
+      {
+        "title": "Wildlife Watching",
+        "description": "Observe Arabian oryx, gazelles, and other animals in their protected environment.",
+        "image": "/images/shaumari-wildlife-watching.jpg"
+      }
+    ],
+    "thingsToDo": [
+      "Oryx Safari",
+      "Wildlife Discovery Centre",
+      "Wildlife Watching"
+    ],
+    "photos": [
+      "/images/shaumari-oryx-safari.jpg",
+      "/images/shaumari-discovery-centre.jpg",
+      "/images/shaumari-wildlife-watching.jpg"
+    ],
+    "category": "adventures"
+  },
+  "wadiBinHammad": {
+    "name": "Wadi Bin Hammad",
+    "location": "Al Karak, Jordan",
+    "image": "/images/wadi-bin-hammad-card.jpg",
+    "aboutTitle": "About Wadi Bin Hammad",
+    "about": "Located near Al-Karak in Jordan, Wadi Bin Hammad is a beautiful canyon known for its flowing streams, natural hot springs, waterfalls, and lush vegetation. The trail winds through narrow rocky passages surrounded by palm trees and hanging greenery, creating a refreshing contrast to the surrounding dry landscape. It is an ideal destination for nature lovers and adventure seekers looking to experience water hiking and explore one of Jordan’s hidden natural gems.",
+    "info": {
+      "bestTime": "Spring – Early Autumn",
+      "bestFor": "Water Hiking & Canyon Exploration",
+      "nearby": "Dead Sea · Karak Castle"
+    },
+    "quickInfo": {
+      "distance": "~130 km · Around 2 Hours",
+      "access": "Check Current Rates"
+    },
+    "facts": [
+      {
+        "icon": "sun",
+        "label": "Best Time to Visit",
+        "value": "Spring – Early Autumn"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "Check Current Rates"
+      },
+      {
+        "icon": "mountain",
+        "label": "Main Experience",
+        "value": "Water Hiking & Canyon Exploration"
+      },
+      {
+        "icon": "car",
+        "label": "From Amman",
+        "value": "~130 km · Around 2 Hours"
+      }
+    ],
+    "packing": [
+      [
+        "shoe",
+        "Water Shoes with Good Grip",
+        "Wear water shoes with good grip."
+      ],
+      [
+        "bag",
+        "Waterproof Bag for Electronics",
+        "Protect electronics in a waterproof bag."
+      ],
+      [
+        "clothes",
+        "Quick-Dry Clothing",
+        "Wear quick-dry clothing."
+      ],
+      [
+        "bottle",
+        "Water Bottle",
+        "Bring a water bottle."
+      ],
+      [
+        "clothes",
+        "Change of Clothes",
+        "Bring a change of clothes."
+      ]
+    ],
+    "highlights": [
+      {
+        "title": "Water Hiking",
+        "description": "Follow the stream through the canyon, walking through shallow water and rocky passages.",
+        "image": "/images/wadi-bin-hammad-hiking.jpg"
+      },
+      {
+        "title": "Discover the Hot Springs",
+        "description": "See the mineral-rich springs flowing through the rocky landscape near the entrance.",
+        "image": "/images/wadi-bin-hammad-springs.jpg"
+      },
+      {
+        "title": "Canyon Photography",
+        "description": "Capture dramatic rock formations, flowing water, and greenery hidden between the cliffs.",
+        "image": "/images/wadi-bin-hammad-photography.jpg"
+      }
+    ],
+    "thingsToDo": [
+      "Water Hiking",
+      "Discover the Hot Springs",
+      "Canyon Photography"
+    ],
+    "photos": [
+      "/images/wadi-bin-hammad-hiking.jpg",
+      "/images/wadi-bin-hammad-springs.jpg",
+      "/images/wadi-bin-hammad-photography.jpg"
+    ],
+    "heroImage": "/images/wadi-bin-hammad-hero.png",
+    "category": "adventures"
+  },
+  "ammanCitadel": {
+    "name": "Amman Citadel",
+    "location": "Amman, Jordan",
+    "image": "/images/amman-citadel-card-v2.jpg",
+    "heroImage": "/images/amman-citadel-hero.jpg",
+    "about": "Perched on one of Amman’s highest hills, the Amman Citadel is an extraordinary archaeological site that reflects thousands of years of Jordanian history. Once the heart of ancient Rabbath-Ammon, it preserves traces of Ammonite, Roman, Byzantine, and Islamic civilizations. Visitors can explore monumental ruins, discover the famous Temple of Hercules, and enjoy panoramic views of Downtown Amman.",
+    "info": {},
+    "quickInfo": {},
+    "facts": [
+      {
+        "icon": "book",
+        "label": "Built By & Age",
+        "value": "Ammonites & Successive Civilizations · Over 3,000 Years of History"
+      },
+      {
+        "icon": "ticket",
+        "label": "Entry Fee",
+        "value": "0.25 JOD for Jordanians · 3 JOD for Foreigners"
+      },
+      {
+        "icon": "mountain",
+        "label": "Guided Tour",
+        "value": "Optional · Explore at Your Own Pace"
+      },
+      {
+        "icon": "car",
+        "label": "From Downtown Amman",
+        "value": "~2 km · Around 5–10 Minutes by Car"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Temple of Hercules",
+        "description": "Admire the monumental Roman columns and the remains of one of the Citadel’s most iconic landmarks.",
+        "image": "/images/citadel-hercules.jpg"
+      },
+      {
+        "title": "Umayyad Palace",
+        "description": "Explore the remains of an early Islamic palace complex known for its distinctive architecture and historic significance.",
+        "image": "/images/citadel-palace.jpg"
+      },
+      {
+        "title": "Byzantine Church",
+        "description": "Discover the remains of an ancient church and learn about the Byzantine period in Amman.",
+        "image": "/images/citadel-church.jpg"
+      },
+      {
+        "title": "Jordan Archaeological Museum",
+        "description": "Discover archaeological objects that reveal the story of Jordan’s ancient civilizations.",
+        "image": "/images/citadel-museum.jpg"
+      }
+    ],
+    "thingsToDo": [
+      "Temple of Hercules",
+      "Umayyad Palace",
+      "Byzantine Church",
+      "Jordan Archaeological Museum"
+    ],
+    "photos": [
+      "/images/citadel-hercules.jpg",
+      "/images/citadel-palace.jpg",
+      "/images/citadel-church.jpg",
+      "/images/citadel-museum.jpg"
+    ],
+    "nearbyCards": [
+      {
+        "name": "Rainbow Street",
+        "image": "/images/rainbow-street-nearby.jpg",
+        "description": "Explore cafés, restaurants, small shops, and the lively atmosphere of Jabal Amman."
+      },
+      {
+        "name": "Downtown Amman",
+        "image": "/images/downtown-amman-nearby.jpg",
+        "description": "Wander through traditional markets and try local favourites such as falafel, hummus, and kunafa."
+      }
+    ],
+    "category": "culture"
   }
 }

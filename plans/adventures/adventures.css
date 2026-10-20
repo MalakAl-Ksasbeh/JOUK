@@ -37,7 +37,7 @@ body {
     height: 38vh;  
  
     /* ADVENTURES BACKGROUND */ 
-    background-image: url("images/adventures.png");  
+    background-image: url("../../images/adventures-hero-v2.jpg");  
  
     background-size: cover;  
     background-position: center;  

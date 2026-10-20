@@ -31,3 +31,11 @@ dialog.jouk-sidebar { position: fixed; inset: 0 auto 0 0; margin: 0; width: min(
 @media (max-width: 700px) { .jouk-menu-toggle { top: 22px; left: 12px; } body:has(.jouk-menu-toggle) .site-header > .logo { margin-left: 36px; } }
 
 
+/* Reset inherited page navigation sizing inside the drawer. */
+dialog.jouk-sidebar { overflow-x: hidden; }
+.jouk-sidebar *, .jouk-sidebar *::before, .jouk-sidebar *::after { box-sizing: border-box; }
+.jouk-sidebar nav { inset: auto !important; transform: none !important; min-width: 0 !important; overflow: visible; }
+.jouk-sidebar nav::before, .jouk-sidebar nav::after { content: none !important; }
+.jouk-sidebar-heading, .jouk-sidebar-body, .jouk-sidebar-profile { width: 100%; min-width: 0; }
+.jouk-sidebar nav a, .jouk-sidebar-plans, .jouk-sidebar-plans summary { width: 100%; min-width: 0; white-space: normal; }
+.jouk-sidebar .jouk-sidebar-submenu nav { width: 100% !important; }
