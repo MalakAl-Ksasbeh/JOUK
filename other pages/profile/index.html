@@ -17,8 +17,7 @@
     >
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest" async onload="window.lucide &amp;&amp; window.lucide.createIcons()"></script>
-
+<script src="https://unpkg.com/lucide@latest" async onload="window.lucide && window.lucide.createIcons()"></script>
     <!-- Profile CSS -->
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="../../shared/brand.css">
@@ -69,15 +68,33 @@
 
         <!-- ================= COVER ================= -->
 
-        <section class="profile-cover">
+       <section class="profile-cover">
 
-            <img
-                src="images/PETRA.png"
-                alt="Petra Jordan"
-                class="cover-image"
-            >
+    <img
+        src="images/PETRA.png"
+        alt="Profile cover"
+        class="cover-image"
+        id="profileCover"
+    >
 
-        </section>
+    <button
+        type="button"
+        class="change-cover-btn"
+        id="changeCoverBtn"
+        aria-label="Change cover photo"
+    >
+        <i data-lucide="camera"></i>
+        <span>Change Cover</span>
+    </button>
+
+    <input
+        type="file"
+        id="coverFileInput"
+        accept="image/*"
+        hidden
+    >
+
+</section>
 
 
         <!-- ================= PROFILE INFO ================= -->
@@ -208,6 +225,8 @@
 
                 <div class="edit-profile-actions">
 
+                    
+
                     <button
                         type="button"
                         class="cancel-profile-btn"
@@ -290,12 +309,21 @@
             <!-- EDIT PROFILE BUTTON -->
 
             <button
-                class="edit-profile-btn"
-                id="editProfileBtn"
-                type="button"
-            >
-                Edit Profile
-            </button>
+    class="edit-profile-btn"
+    id="editProfileBtn"
+    type="button"
+>
+    Edit Profile
+</button>
+
+<button
+    class="edit-profile-btn"
+    id="logoutBtn"
+    type="button"
+    style="margin-left: 10px;"
+>
+    Log out
+</button>
 
         </section>
 
@@ -368,90 +396,8 @@
 
             </div>
 
-
-            <div class="places-grid">
-
-
-                <!-- DEAD SEA -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=deadsea">
-
-                        <img
-                            src="images/deadsea.jpeg"
-                            alt="Dead Sea"
-                        >
-
-                        <h3>
-                            Dead Sea
-                        </h3>
-
-                    </a>
-
-                </article>
-
-
-                <!-- PETRA -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=petra">
-
-                        <img
-                            src="images/PETRA.png"
-                            alt="Petra"
-                        >
-
-                        <h3>
-                            Petra
-                        </h3>
-
-                    </a>
-
-                </article>
-
-
-                <!-- WADI RUM -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=wadiRum">
-
-                        <img
-                            src="images/wadi rum.jpg"
-                            alt="Wadi Rum"
-                        >
-
-                        <h3>
-                            Wadi Rum
-                        </h3>
-
-                    </a>
-
-                </article>
-
-
-                <!-- AJLOUN -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=ajlounRelax">
-
-                        <img
-                            src="images/Dana Biosphere Reserve.jpg"
-                            alt="Ajloun Forest"
-                        >
-
-                        <h3>
-                            Ajloun Forest
-                        </h3>
-
-                    </a>
-
-                </article>
-
-            </div>
+<div class="places-grid" id="profilePlacesGrid"></div>
+           
 
         </section>
 
@@ -732,7 +678,7 @@
                          JAVASCRIPT
     =================================================== -->
 
-    <script src="profile.js"></script>
+    <script type="module" src="profile.js"></script>
 
 </body>
 

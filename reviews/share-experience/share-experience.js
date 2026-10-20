@@ -1,3 +1,10 @@
+import { auth, db } from "../../shared/firebase.js";
+
+import {
+  addDoc,
+  collection,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 // ========================================
 // JOUK - SHARE EXPERIENCE
 // PART 1
@@ -36,7 +43,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const placeImageElement =
         document.getElementById("placeImage");
+const placeImageInput = document.getElementById("placeImageInput");
 
+let selectedPlaceImageFile = null;
+let placeImagePreviewURL = null;
+
+placeImageInput?.addEventListener("change", function () {
+    const file = placeImageInput.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Please select an image.");
+        placeImageInput.value = "";
+        return;
+    }
+
+    selectedPlaceImageFile = file;
+
+    if (placeImagePreviewURL) {
+        URL.revokeObjectURL(placeImagePreviewURL);
+    }
+
+    placeImagePreviewURL = URL.createObjectURL(file);
+
+    placeImageElement.src = placeImagePreviewURL;
+    placeImageElement.style.display = "block";
+
+    const placeholder = document.getElementById("placeImagePlaceholder");
+
+    if (placeholder) {
+        placeholder.style.display = "none";
+    }
+});
 
     // ========================================
     // CURRENT PLACE
@@ -46,21 +85,22 @@ document.addEventListener("DOMContentLoaded", function () {
         new URLSearchParams(window.location.search);
 
     const placeID =
-        urlParams.get("place") || "deadsea";
+    urlParams.get("place") || "";
 
 
-    let currentPlace = {
+  let currentPlace = {
+    id: placeID,
 
-        id: placeID,
+    name: placeID
+        ? formatPlaceName(placeID)
+        : "",
 
-        name: formatPlaceName(placeID),
+    location: placeID
+        ? formatPlaceName(placeID) + ", Jordan"
+        : "",
 
-        location:
-            formatPlaceName(placeID) + ", Jordan",
-
-        image: ""
-
-    };
+    image: ""
+};
 
 
     // ========================================
@@ -319,31 +359,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (placeNameElement) {
 
-            placeNameElement.textContent =
-                currentPlace.name;
+           placeNameElement.value =
+            currentPlace.name;
 
         }
 
 
         if (placeLocationElement) {
 
-            placeLocationElement.textContent =
-                currentPlace.location;
+            placeLocationElement.value =
+             currentPlace.location;
 
         }
 
 
-        if (placeImageElement) {
+       if (placeImageElement) {
+    const placeholder = document.getElementById("placeImagePlaceholder");
 
-            placeImageElement.src =
-                currentPlace.image ||
-                getFallbackPlaceImage(placeID);
+    if (currentPlace.image) {
+        placeImageElement.src = currentPlace.image;
+        placeImageElement.style.display = "block";
 
-
-            placeImageElement.alt =
-                currentPlace.name;
-
+        if (placeholder) {
+            placeholder.style.display = "none";
         }
+    } else {
+        placeImageElement.removeAttribute("src");
+        placeImageElement.style.display = "none";
+
+        if (placeholder) {
+            placeholder.style.display = "block";
+        }
+    }
+
+    placeImageElement.alt = currentPlace.name || "Selected place";
+}
 
     }
 
@@ -505,7 +555,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         if (
                             selectedPhotos.length >=
-                            10
+                            1
                         ) {
 
                             return;
@@ -547,11 +597,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (
                     selectedPhotos.length >=
-                    10
+                    1
                 ) {
 
                     alert(
-                        "You can upload up to 10 photos."
+                        "You can upload only one photo."
                     );
 
                 }
@@ -959,7 +1009,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // ========================================
 
     function validateExperience() {
+const enteredPlaceName =
+    placeNameElement?.value.trim() || "";
 
+const enteredPlaceLocation =
+    placeLocationElement?.value.trim() || "";
+
+if (!enteredPlaceName || !enteredPlaceLocation) {
+    alert("Please enter the place name and location.");
+
+    if (!enteredPlaceName) {
+        placeNameElement?.focus();
+    } else {
+        placeLocationElement?.focus();
+    }
+
+    return false;
+}
+
+// Use the details entered by the traveler
+currentPlace.name = enteredPlaceName;
+currentPlace.location = enteredPlaceLocation;
         const text =
             experienceText
                 ? experienceText.value.trim()
@@ -1000,7 +1070,65 @@ document.addEventListener("DOMContentLoaded", function () {
         return true;
 
     }
+    
+async function compressImage(file) {
 
+    const bitmap = await createImageBitmap(file);
+
+    try {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        if (!ctx) {
+            throw new Error("Image compression is unavailable.");
+        }
+
+        let scale = Math.min(
+            1,
+            1000 / Math.max(bitmap.width, bitmap.height)
+        );
+
+        for (let attempt = 0; attempt < 7; attempt++) {
+
+            canvas.width = Math.max(
+                1,
+                Math.round(bitmap.width * scale)
+            );
+
+            canvas.height = Math.max(
+                1,
+                Math.round(bitmap.height * scale)
+            );
+
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.drawImage(
+                bitmap,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+            const compressed = canvas.toDataURL(
+                "image/jpeg",
+                0.7
+            );
+
+            if (compressed.length <= 150000) {
+                return compressed;
+            }
+
+            scale *= 0.7;
+        }
+
+        throw new Error("Image is too large.");
+
+    } finally {
+        bitmap.close();
+    }
+}
 
     // ========================================
     // PREPARE PHOTOS
@@ -1017,10 +1145,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
 
-                const dataURL =
-                    await convertImageToDataURL(
-                        file
-                    );
+               const dataURL =
+                     await compressImage(file);
 
 
                 photos.push(
@@ -1050,8 +1176,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function createExperience() {
 
-        const user =
-            getCurrentUser();
+       await auth.authStateReady();
+
+const firebaseUser = auth.currentUser;
+
+if (!firebaseUser) {
+    alert("Please log in to share your experience.");
+    throw new Error("User not logged in");
+}
+
+const user = {
+    id: firebaseUser.uid,
+    name: firebaseUser.displayName ||
+          firebaseUser.email?.split("@")[0] ||
+          "JOUK Traveler",
+    avatar: firebaseUser.photoURL || ""
+};
 
 
         const uploadedPhotos =
@@ -1170,168 +1310,88 @@ document.addEventListener("DOMContentLoaded", function () {
     // ========================================
     // SHARE EXPERIENCE
     // ========================================
+async function shareExperience() {
 
-    async function shareExperience() {
-
-        if (!validateExperience()) {
-
-            return;
-
-        }
-
-
-        // Prevent double-clicking while saving.
-
-        shareBtn.disabled = true;
-
-
-        const oldButtonContent =
-            shareBtn.innerHTML;
-
-
-        shareBtn.innerHTML =
-            "Sharing...";
-
-
-        try {
-
-            // ==================================
-            // CREATE EXPERIENCE
-            // ==================================
-
-            const newExperience =
-                await createExperience();
-
-
-            // ==================================
-            // GET OLD EXPERIENCES
-            // ==================================
-
-            const experiences =
-                getSavedExperiences();
-
-
-            // Put newest experience first.
-
-            experiences.unshift(
-                newExperience
-            );
-
-
-            // ==================================
-            // SAVE
-            // ==================================
-
-            try {
-
-                saveExperiences(
-                    experiences
-                );
-
-            } catch (storageError) {
-
-                /*
-                    Browser localStorage has a
-                    limited size. Large uploaded
-                    photos may exceed that limit.
-                */
-
-                console.error(
-                    "Could not save experience:",
-                    storageError
-                );
-
-
-                alert(
-                    "The photos are too large to save in the browser. Try using fewer or smaller photos."
-                );
-
-
-                shareBtn.disabled =
-                    false;
-
-
-                shareBtn.innerHTML =
-                    oldButtonContent;
-
-
-                return;
-
-            }
-
-
-            // ==================================
-            // SAVE LAST SHARED EXPERIENCE
-            // ==================================
-
-            localStorage.setItem(
-                "lastSharedExperience",
-                newExperience.id
-            );
-
-
-            // ==================================
-            // SUCCESS
-            // ==================================
-
-            alert(
-                "Your experience was shared successfully!"
-            );
-
-
-            /*
-                The experience is now stored in
-                joukExperiences.
-
-                Community already reads from
-                joukExperiences, so it can display
-                the same experience there.
-
-                Now return to the place the user
-                was viewing.
-            */
-
-
-            const placeURL =
-                window.JOUK.url("other pages/place/index.html") +
-                "?place=" +
-                encodeURIComponent(
-                    currentPlace.id
-                );
-
-
-            window.location.href =
-                placeURL;
-
-
-        } catch (error) {
-
-            console.error(
-                "Could not share experience:",
-                error
-            );
-
-
-            alert(
-                "Something went wrong while sharing your experience."
-            );
-
-
-            shareBtn.disabled =
-                false;
-
-
-            shareBtn.innerHTML =
-                oldButtonContent;
-
-        }
-
+    if (!validateExperience()) {
+        return;
     }
 
+   
 
-    // ========================================
-    // SHARE BUTTON
-    // ========================================
+    shareBtn.disabled = true;
+
+    const oldButtonContent = shareBtn.innerHTML;
+    shareBtn.innerHTML = "Sharing...";
+
+    try {
+
+        // Create experience with the logged-in Firebase user.
+        const newExperience = await createExperience();
+
+        // Use the place image until photo uploads are connected.
+        const placePhoto = selectedPlaceImageFile
+    ? await compressImage(selectedPlaceImageFile)
+    : "";
+
+const experienceData = { ...newExperience };
+delete experienceData.id;
+
+const experiencePhoto = selectedPhotos.length > 0
+    ? newExperience.photos[0]
+    : "";
+
+const coverPhoto = placePhoto || experiencePhoto;
+
+const photosToSave = [coverPhoto, experiencePhoto].filter(
+    (photo, index, photos) =>
+        photo && photos.indexOf(photo) === index
+);
+
+const experienceRef = await addDoc(
+    collection(db, "experiences"),
+    {
+        ...experienceData,
+        placeImage: coverPhoto,
+        photos: photosToSave,
+        image: coverPhoto,
+        createdAt: serverTimestamp()
+    }
+);
+
+        localStorage.setItem(
+            "lastSharedExperience",
+            experienceRef.id
+        );
+
+        alert("Your experience was shared successfully!");
+
+        const placeURL =
+            window.JOUK.url("other pages/place/index.html") +
+            "?place=" +
+            encodeURIComponent(currentPlace.id);
+
+        window.location.href = placeURL;
+
+    } catch (error) {
+
+        console.error("Could not share experience:", error);
+
+        if (error.message === "User not logged in") {
+            // The login message was already shown.
+        } else if (error.code === "permission-denied") {
+            alert("You do not have permission to share this experience.");
+        } else {
+            alert("Something went wrong while sharing your experience.");
+        }
+
+    } finally {
+
+        shareBtn.disabled = false;
+        shareBtn.innerHTML = oldButtonContent;
+
+    }
+}
+ 
 
     if (shareBtn) {
 

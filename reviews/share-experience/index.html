@@ -29,8 +29,15 @@
     <link rel="stylesheet" href="../../shared/brand.css">
 
     <script src="../../shared/site-path.js"></script>
-    <link rel="stylesheet" href="../../shared/page-loader.css?v=jordan-navigation-3">
-    <script src="../../shared/page-loader.js?v=jordan-navigation-3" defer></script>
+<link rel="stylesheet" href="../../shared/page-loader.css?v=jordan-navigation-3">
+<script src="../../shared/page-loader.js?v=jordan-navigation-3" defer></script>
+
+<style>
+    .add-photo,
+    .photo-list {
+        display: none !important;
+    }
+</style>
 </head>
 
 
@@ -104,23 +111,68 @@
 
             <section class="place-box">
 
-                <img
-                    id="placeImage"
-                    src="images/deadsea.jpeg"
-                    alt="Selected place"
-                    class="place-image"
-                >
+                <label
+    for="placeImageInput"
+    style="
+        width: 180px;
+        height: 130px;
+        border: 2px dashed #ccc;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        overflow: hidden;
+        flex-shrink: 0;
+    "
+>
+    <img
+        id="placeImage"
+        alt="Selected place"
+        class="place-image"
+        style="display: none; width: 100%; height: 100%; object-fit: cover;"
+    >
+
+    <span
+        id="placeImagePlaceholder"
+        style="text-align: center; padding: 10px;"
+    >
+        📷
+        Add Place Photo
+    </span>
+
+    <input
+        type="file"
+        id="placeImageInput"
+        accept="image/*"
+        hidden
+    >
+</label>
 
 
                 <div class="place-info">
 
-                    <h2 id="placeName">
-                        Dead Sea
-                    </h2>
+                 <h2>
+    <input
+        type="text"
+        id="placeName"
+        placeholder="Place name (e.g. Petra)"
+        maxlength="100"
+        aria-label="Place name"
+        style="width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:8px;font:inherit;box-sizing:border-box;"
+    >
+</h2>
 
-                    <p id="placeLocation">
-                        Dead Sea, Jordan
-                    </p>
+<p>
+    <input
+        type="text"
+        id="placeLocation"
+        placeholder="Location (e.g. Wadi Musa, Jordan)"
+        maxlength="150"
+        aria-label="Place location"
+        style="width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:8px;font:inherit;box-sizing:border-box;"
+    >
+</p>
 
                 </div>
 
@@ -315,7 +367,7 @@
 
     <!-- ================= JAVASCRIPT ================= -->
 
-    <script src="share-experience.js"></script>
+   <script type="module" src="share-experience.js"></script>
 
 
 </body>

@@ -1,12 +1,15 @@
-// ======================================================
-// JOUK - PROFILE
-// PART 1
-// ======================================================
-
-
-// ======================================================
-// START PAGE
-// ======================================================
+import { auth, db } from "../../shared/firebase.js";
+import {
+    doc,
+    setDoc,
+    getDoc,
+    collection,
+    query,
+    where,
+    getDocs,
+    deleteDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { updateProfile, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";// The user whose profile is being viewed
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -55,7 +58,7 @@ function initializeIcons() {
 
 const DEFAULT_PROFILE = {
 
-    name: "Sarah Ahmed",
+    name: "JOUK Traveler",
 
     bio: "Exploring Jordan 🦋",
 
@@ -68,56 +71,63 @@ const DEFAULT_PROFILE = {
 // LOAD PROFILE INFORMATION
 // ======================================================
 
-function loadProfileInformation() {
+async function loadProfileInformation() {
+    const profileName = document.getElementById("profileName");
+    const profileBio = document.getElementById("profileBio");
+    const profileLocationText = document.getElementById("profileLocationText");
 
-    const profileData =
-        getProfileData();
+    if (profileName) profileName.textContent = "Loading...";
+    if (profileBio) profileBio.textContent = "Loading...";
+    if (profileLocationText) profileLocationText.textContent = "Loading...";
 
+    await auth.authStateReady();
 
-    const profileName =
-        document.getElementById(
-            "profileName"
+    const user = auth.currentUser;
+
+    if (!user) {
+        window.location.replace(
+            window.JOUK.url("sign up-log in/index.html")
         );
-
-
-    const profileBio =
-        document.getElementById(
-            "profileBio"
-        );
-
-
-    const profileLocationText =
-        document.getElementById(
-            "profileLocationText"
-        );
-
+        return;
+    }
 
     if (profileName) {
-
         profileName.textContent =
-            profileData.name;
-
+            user.displayName ||
+            user.email?.split("@")[0] ||
+            "JOUK Traveler";
     }
 
+    try {
+const profileRef = doc(
+    db,
+    "users",
+    user.uid
+);
+        const profileSnap = await getDoc(profileRef);
 
-    if (profileBio) {
+        const profileData = profileSnap.exists()
+            ? profileSnap.data()
+            : {};
 
-        profileBio.textContent =
-            profileData.bio;
+        if (profileBio) {
+            profileBio.textContent =
+                profileData.bio ?? DEFAULT_PROFILE.bio;
+        }
 
+        if (profileLocationText) {
+            profileLocationText.textContent =
+                profileData.location ?? DEFAULT_PROFILE.location;
+        }
+
+    } catch (error) {
+        console.error("Could not load profile:", error);
+
+        if (profileBio) profileBio.textContent = "Could not load bio";
+        if (profileLocationText) profileLocationText.textContent = "Could not load location";
     }
-
-
-    if (profileLocationText) {
-
-        profileLocationText.textContent =
-            profileData.location;
-
-    }
-
 
     loadProfileAvatar();
-
 }
 
 
@@ -382,25 +392,29 @@ function setupProfileEditing() {
     // ==================================================
 
     editButton.addEventListener(
-        "click",
-        function () {
+    "click",
+    async function () {
+        await auth.authStateReady();
 
             const profileData =
                 getProfileData();
 
 
-            if (editName) {
+          if (editName) {
+    const user = auth.currentUser;
 
-                editName.value =
-                    profileData.name;
-
-            }
+    editName.value = user
+        ? (user.displayName ||
+           user.email?.split("@")[0] ||
+           "")
+        : "";
+}
 
 
             if (editBio) {
 
-                editBio.value =
-                    profileData.bio;
+               editBio.value =
+               document.getElementById("profileBio")?.textContent || "";
 
             }
 
@@ -408,7 +422,7 @@ function setupProfileEditing() {
             if (editLocation) {
 
                 editLocation.value =
-                    profileData.location;
+                    document.getElementById("profileLocationText")?.textContent || "";
 
             }
 
@@ -458,7 +472,7 @@ function setupProfileEditing() {
 
     saveButton.addEventListener(
         "click",
-        function () {
+        async function () {
 
             const name =
                 editName
@@ -477,7 +491,38 @@ function setupProfileEditing() {
                     ? editLocation.value
                     : "";
 
+if (!auth.currentUser) {
+    alert("Please log in first.");
+    return;
+}
 
+if (!name.trim()) {
+    alert("Please enter your name.");
+    return;
+}
+
+try {
+    // Save name in Firebase Authentication
+    await updateProfile(auth.currentUser, {
+        displayName: name.trim()
+    });
+
+    // Save bio and location in Firestore
+    await setDoc(
+        doc(db, "users", auth.currentUser.uid),
+        {
+             name: name.trim(),
+            bio: bio.trim(),
+            location: location.trim()
+        },
+        { merge: true }
+    );
+
+} catch (error) {
+    console.error("Could not save profile:", error);
+    alert("Could not save profile. Please try again.");
+    return;
+}
             const savedProfile =
                 saveProfileData(
                     name,
@@ -628,37 +673,40 @@ function closeProfileEditMode() {
 // PROFILE AVATAR
 // ======================================================
 
-function loadProfileAvatar() {
+async function loadProfileAvatar() {
+    const avatar = document.getElementById("profileAvatar");
 
-    const avatar =
-        document.getElementById(
-            "profileAvatar"
-        );
+    if (!avatar) return;
 
+    // Default photo
+    avatar.src = "images/deadsea.jpeg";
 
-    if (!avatar) {
+    await auth.authStateReady();
 
-        return;
+    const user = auth.currentUser;
+    if (!user) return;
 
+    try {
+const profileRef = doc(
+    db,
+    "users",
+    user.uid
+);        const profileSnap = await getDoc(profileRef);
+
+        if (profileSnap.exists()) {
+            const savedPhoto = profileSnap.data().avatar;
+
+            if (
+                typeof savedPhoto === "string" &&
+                savedPhoto.startsWith("data:image/")
+            ) {
+                avatar.src = savedPhoto;
+            }
+        }
+
+    } catch (error) {
+        console.error("Could not load profile photo:", error);
     }
-
-
-    const savedAvatar =
-        localStorage.getItem(
-            "joukProfileAvatar"
-        ) ||
-        localStorage.getItem(
-            "profileAvatar"
-        );
-
-
-    if (savedAvatar) {
-
-        avatar.src =
-            savedAvatar;
-
-    }
-
 }
 
 
@@ -756,40 +804,84 @@ function setupProfilePhotoChange() {
                         new FileReader();
 
 
-                    reader.onload =
-                        function (event) {
+                  reader.onload = function (event) {
+    const image = new Image();
 
-                            const imageData =
-                                event.target.result;
+    image.onload = async function () {
+        try {
+            await auth.authStateReady();
 
+            const user = auth.currentUser;
 
-                            avatar.src =
-                                imageData;
+            if (!user) {
+                alert("Please log in first.");
+                return;
+            }
 
+            // Resize the selected image
+            const canvas = document.createElement("canvas");
+            const maxSize = 320;
 
-                            try {
+            const scale = Math.min(
+                1,
+                maxSize / Math.max(image.width, image.height)
+            );
 
-                                localStorage.setItem(
-                                    "joukProfileAvatar",
-                                    imageData
-                                );
+            canvas.width = Math.max(
+                1,
+                Math.round(image.width * scale)
+            );
 
+            canvas.height = Math.max(
+                1,
+                Math.round(image.height * scale)
+            );
 
-                                localStorage.setItem(
-                                    "profileAvatar",
-                                    imageData
-                                );
+            const ctx = canvas.getContext("2d");
 
-                            } catch (error) {
+            if (!ctx) {
+                throw new Error("Could not process image");
+            }
 
-                                console.log(
-                                    "Profile image is too large to save:",
-                                    error
-                                );
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-                            }
+            const photoData = canvas.toDataURL("image/jpeg", 0.65);
 
-                        };
+            if (photoData.length > 150000) {
+                alert("Image is too large. Please choose another photo.");
+                return;
+            }
+
+            // Save photo in Firebase
+            await setDoc(
+                doc(db, "users", user.uid),
+                {
+                    avatar: photoData
+                },
+                {
+                    merge: true
+                }
+            );
+
+            // Show photo only after successful save
+            avatar.src = photoData;
+
+            alert("Profile photo saved successfully!");
+
+        } catch (error) {
+            console.error("Photo save failed:", error);
+            alert("Could not save photo. Please try again.");
+        }
+    };
+
+    image.onerror = function () {
+        alert("Could not open this image.");
+    };
+
+    image.src = event.target.result;
+};
 
 
                     reader.readAsDataURL(
@@ -1183,94 +1275,57 @@ function getExperienceSignature(
 // LOAD EXPERIENCES ON PROFILE
 // ======================================================
 
-function loadProfileExperiences() {
+async function loadProfileExperiences() {
+    const grid = document.querySelector(
+        "#experiences .experiences-grid"
+    );
 
-    const grid =
-        document.querySelector(
-            "#experiences .experiences-grid"
+    if (!grid) return;
+
+    grid.replaceChildren();
+
+    try {
+        await auth.authStateReady();
+
+        const user = auth.currentUser;
+        if (!user) return;
+
+        const experiencesQuery = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
         );
 
+        const snapshot = await getDocs(experiencesQuery);
 
-    if (!grid) {
+        const experiences = snapshot.docs.map(doc => doc.data());
 
-        return;
+        if (experiences.length === 0) {
+            const message = document.createElement("p");
+            message.textContent = "No experiences shared yet.";
+            grid.appendChild(message);
+            return;
+        }
 
-    }
+        experiences.sort((a, b) => {
+            const dateA = a.createdAt?.toMillis?.() || 0;
+            const dateB = b.createdAt?.toMillis?.() || 0;
+            return dateB - dateA;
+        });
 
-
-    const experiences =
-        getAllStoredExperiences();
-
-
-    /*
-        The two cards written directly in /other%20pages/profile/index.html
-        are only visual defaults.
-
-        As soon as the user has real shared experiences,
-        the profile shows the real saved data instead.
-    */
-
-    if (
-        experiences.length === 0
-    ) {
+        experiences.forEach(experience => {
+            const card = createProfileExperienceCard(experience);
+            grid.appendChild(card);
+        });
 
         initializeIcons();
 
-        return;
+    } catch (error) {
+        console.error("Could not load experiences:", error);
 
+        const message = document.createElement("p");
+        message.textContent = "Could not load experiences.";
+        grid.appendChild(message);
     }
-
-
-    grid.innerHTML = "";
-
-
-    const sortedExperiences =
-        [...experiences].sort(
-            function (a, b) {
-
-                const dateA =
-                    new Date(
-                        a.createdAt ||
-                        a.date ||
-                        0
-                    ).getTime();
-
-
-                const dateB =
-                    new Date(
-                        b.createdAt ||
-                        b.date ||
-                        0
-                    ).getTime();
-
-
-                return (
-                    dateB - dateA
-                );
-
-            }
-        );
-
-
-    sortedExperiences.forEach(
-        function (experience) {
-
-            const card =
-                createProfileExperienceCard(
-                    experience
-                );
-
-
-            grid.appendChild(
-                card
-            );
-
-        }
-    );
-
-
-    initializeIcons();
-
 }
 
 
@@ -1883,157 +1938,83 @@ function getAllExperiencePhotos(
 // PROFILE PHOTOS
 // ======================================================
 
-function loadProfilePhotos() {
+async function loadProfilePhotos() {
+    const grid = document.getElementById("profilePhotosGrid");
+    const emptyState = document.getElementById("photosEmptyState");
+    const photosCount = document.getElementById("photosCount");
 
-    const grid =
-        document.getElementById(
-            "profilePhotosGrid"
-        );
+    if (!grid) return;
 
-
-    const emptyState =
-        document.getElementById(
-            "photosEmptyState"
-        );
-
-
-    const photosCount =
-        document.getElementById(
-            "photosCount"
-        );
-
-
-    if (!grid) {
-
-        return;
-
-    }
-
-
-    grid.innerHTML = "";
-
-
-    const experiences =
-        getAllStoredExperiences();
-
-
-    const photos = [];
-
-
-    experiences.forEach(
-        function (experience) {
-
-            const experiencePhotos =
-                getAllExperiencePhotos(
-                    experience
-                );
-
-
-            experiencePhotos.forEach(
-                function (photo) {
-
-                    if (
-                        photo &&
-                        !photos.includes(
-                            photo
-                        )
-                    ) {
-
-                        photos.push(
-                            photo
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    if (photosCount) {
-
-        photosCount.textContent =
-            `${photos.length} ${
-                photos.length === 1
-                    ? "Photo"
-                    : "Photos"
-            }`;
-
-    }
-
-
-    if (
-        photos.length === 0
-    ) {
-
-        if (emptyState) {
-
-            emptyState.classList.remove(
-                "hidden"
-            );
-
-        }
-
-
-        return;
-
-    }
-
+    grid.replaceChildren();
 
     if (emptyState) {
-
-        emptyState.classList.add(
-            "hidden"
-        );
-
+        emptyState.classList.add("hidden");
     }
 
+    try {
+        await auth.authStateReady();
 
-    photos.forEach(
-        function (photo) {
+        const user = auth.currentUser;
+        if (!user) return;
 
-            const photoItem =
-                document.createElement(
-                    "div"
-                );
+        // Get only this user's experiences
+        const experiencesQuery = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
+        );
 
+        const snapshot = await getDocs(experiencesQuery);
+        const photos = new Set();
 
-            photoItem.className =
-                "profile-photo-item";
+        snapshot.forEach(experienceDoc => {
+            const experience = experienceDoc.data();
 
+            getAllExperiencePhotos(experience).forEach(photo => {
+                if (typeof photo === "string" && photo.trim()) {
+                    photos.add(photo);
+                }
+            });
+        });
 
-            const img =
-                document.createElement(
-                    "img"
-                );
-
-
-            img.src =
-                photo;
-
-
-            img.alt =
-                "Shared Jordan experience";
-
-
-            img.loading =
-                "lazy";
-
-
-            photoItem.appendChild(
-                img
-            );
-
-
-            grid.appendChild(
-                photoItem
-            );
-
+        // Update photos count
+        if (photosCount) {
+            photosCount.textContent =
+                `${photos.size} ${photos.size === 1 ? "Photo" : "Photos"}`;
         }
-    );
 
+        // Show empty message if there are no photos
+        if (photos.size === 0) {
+            if (emptyState) {
+                emptyState.classList.remove("hidden");
+            }
+            return;
+        }
+
+        // Display real photos
+        photos.forEach(photo => {
+            const photoItem = document.createElement("div");
+            photoItem.className = "profile-photo-item";
+
+            const img = document.createElement("img");
+            img.src = photo;
+            img.alt = "Shared Jordan experience";
+            img.loading = "lazy";
+
+            photoItem.appendChild(img);
+            grid.appendChild(photoItem);
+        });
+
+    } catch (error) {
+        console.error("Could not load profile photos:", error);
+
+        if (photosCount) {
+            photosCount.textContent = "— Photos";
+        }
+
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+    }
 }
 
 
@@ -2041,79 +2022,64 @@ function loadProfilePhotos() {
 // SAVED PLANS
 // ======================================================
 
-function loadSavedPlans() {
 
-    const grid =
-        document.getElementById(
-            "savedPlansGrid"
-        );
+async function loadSavedPlans() {
 
+    const grid = document.getElementById("savedPlansGrid");
+    const emptyState = document.getElementById("savedPlansEmpty");
 
-    const emptyState =
-        document.getElementById(
-            "savedPlansEmpty"
-        );
+    if (!grid) return;
 
-
-    if (!grid) {
-
-        return;
-
-    }
-
-
-    grid.innerHTML = "";
-
-
-    const savedPlans =
-        getAllSavedPlans();
-
-
-    if (
-        savedPlans.length === 0
-    ) {
-
-        if (emptyState) {
-
-            emptyState.classList.remove(
-                "hidden"
-            );
-
-        }
-
-
-        return;
-
-    }
-
+    grid.replaceChildren();
 
     if (emptyState) {
-
-        emptyState.classList.add(
-            "hidden"
-        );
-
+        emptyState.classList.add("hidden");
     }
 
+    try {
+        await auth.authStateReady();
 
-    savedPlans.forEach(
-        function (plan, index) {
+        const user = auth.currentUser;
 
-            const card =
-                createSavedPlanCard(
-                    plan,
-                    index
-                );
-
-
-            grid.appendChild(
-                card
-            );
-
+        if (!user) {
+            if (emptyState) emptyState.classList.remove("hidden");
+            return;
         }
-    );
 
+        const plansRef = collection(
+            db,
+            "users",
+            user.uid,
+            "savedPlans"
+        );
+
+        const snapshot = await getDocs(plansRef);
+
+        const savedPlans = snapshot.docs.map(doc => doc.data());
+
+        savedPlans.sort((a, b) =>
+            new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
+        );
+
+        if (savedPlans.length === 0) {
+            if (emptyState) emptyState.classList.remove("hidden");
+            return;
+        }
+
+        savedPlans.forEach(function (plan, index) {
+            const card = createSavedPlanCard(plan, index);
+            grid.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Could not load saved plans:", error);
+
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+    }
 }
+
 
 
 // ======================================================
@@ -2333,7 +2299,58 @@ function createSavedPlanCard(
         meta
     );
 
+const deleteButton = document.createElement("button");
 
+deleteButton.type = "button";
+deleteButton.className = "delete-plan-btn";
+deleteButton.textContent = "Delete Plan";
+
+deleteButton.addEventListener("click",async function (event) {
+    event.stopPropagation();
+
+    const confirmed = confirm(
+    "Are you sure you want to delete this trip?"
+);
+
+if (!confirmed) return;
+
+const user = auth.currentUser;
+const planID = plan.id ?? plan.tripId ?? plan.planId;
+
+if (!user || planID == null) {
+    alert("Could not identify this trip.");
+    return;
+}
+
+try {
+    await deleteDoc(
+        doc(db, "users", user.uid, "savedPlans", String(planID))
+    );
+
+    const savedPlans = JSON.parse(
+        localStorage.getItem("joukPlans") || "[]"
+    );
+
+    const updatedPlans = savedPlans.filter(
+        item => String(item.id) !== String(planID)
+    );
+
+    localStorage.setItem(
+        "joukPlans",
+        JSON.stringify(updatedPlans)
+    );
+
+    card.remove();
+
+    alert("Trip deleted successfully!");
+
+} catch (error) {
+    console.error("Error deleting trip:", error);
+    alert("Could not delete trip. Please try again.");
+}
+});
+
+content.appendChild(deleteButton);
     card.appendChild(
         content
     );
@@ -2570,112 +2587,57 @@ function getPlanPlacesCount(
 // PROFILE STATISTICS
 // ======================================================
 
-function updateProfileStatistics() {
+async function updateProfileStatistics() {
+    const placesElement = document.getElementById("placesVisitedCount");
+    const experiencesElement = document.getElementById("experiencesCount");
 
-    const placesElement =
-        document.getElementById(
-            "placesVisitedCount"
+    try {
+        await auth.authStateReady();
+
+        const user = auth.currentUser;
+
+        if (!user) return;
+
+        const q = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
         );
 
+        const snapshot = await getDocs(q);
 
-    const experiencesElement =
-        document.getElementById(
-            "experiencesCount"
-        );
+        const experiences = snapshot.docs.map(doc => doc.data());
 
+        // Actual number of experiences
+        if (experiencesElement) {
+            experiencesElement.textContent = experiences.length;
+        }
 
-    const experiences =
-        getAllStoredExperiences();
+        // Actual number of unique visited places
+        const uniquePlaces = new Set();
 
+        experiences.forEach(experience => {
+            const place = String(
+                experience.placeId ||
+                experience.placeName ||
+                experience.place ||
+                ""
+            ).trim().toLowerCase();
 
-    if (experiencesElement) {
-
-        experiencesElement.textContent =
-            experiences.length;
-
-    }
-
-
-    if (placesElement) {
-
-        const uniquePlaces =
-            new Set();
-
-
-        experiences.forEach(
-            function (experience) {
-
-                const place =
-                    getExperiencePlaceKey(
-                        experience
-                    );
-
-
-                if (place) {
-
-                    uniquePlaces.add(
-                        normalizePlaceValue(
-                            place
-                        )
-                    );
-
-                }
-
+            if (place) {
+                uniquePlaces.add(place);
             }
-        );
+        });
 
+        if (placesElement) {
+            placesElement.textContent = uniquePlaces.size;
+        }
 
-        /*
-            Keep the existing visual places from
-            the profile as visited places too.
-        */
+    } catch (error) {
+        console.error("Error loading profile statistics:", error);
 
-        document
-            .querySelectorAll(
-                "#places .place-card a"
-            )
-            .forEach(
-                function (link) {
-
-                    try {
-
-                        const url =
-                            new URL(
-                                link.href
-                            );
-
-
-                        const place =
-                            url.searchParams.get(
-                                "place"
-                            );
-
-
-                        if (place) {
-
-                            uniquePlaces.add(
-                                normalizePlaceValue(
-                                    place
-                                )
-                            );
-
-                        }
-
-                    } catch (error) {
-
-                        // Ignore invalid links.
-
-                    }
-
-                }
-            );
-
-
-        placesElement.textContent =
-            uniquePlaces.size;
-
+        if (placesElement) placesElement.textContent = "—";
+        if (experiencesElement) experiencesElement.textContent = "—";
     }
-
 }
 
 
@@ -2698,3 +2660,220 @@ function normalizePlaceValue(
         .trim();
 
 }
+document.getElementById("logoutBtn")
+    ?.addEventListener("click", async function () {
+
+        try {
+            await signOut(auth);
+
+            window.location.href =
+                window.JOUK.url("sign up-log in/index.html");
+
+        } catch (error) {
+            console.error("Logout failed:", error);
+            alert("Could not log out. Please try again.");
+        }
+
+    });
+    // ========================================
+// PROFILE COVER PHOTO
+// ========================================
+
+async function initializeProfileCover() {
+    await auth.authStateReady();
+
+    const user = auth.currentUser;
+    if (!user) return;
+
+    const cover = document.getElementById("profileCover");
+    const button = document.getElementById("changeCoverBtn");
+    const input = document.getElementById("coverFileInput");
+
+    if (!cover || !button || !input) return;
+
+    // Load saved cover
+    try {
+        const snapshot = await getDoc(doc(db, "users", user.uid));
+
+        if (snapshot.exists() && snapshot.data().coverPhoto) {
+            cover.src = snapshot.data().coverPhoto;
+        }
+    } catch (error) {
+        console.error("Could not load cover:", error);
+    }
+
+    button.addEventListener("click", () => {
+        input.click();
+    });
+
+    input.addEventListener("change", async () => {
+        const file = input.files?.[0];
+
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+            alert("Please select an image.");
+            return;
+        }
+
+        button.disabled = true;
+
+        try {
+            const image = new Image();
+
+            const imageURL = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+
+            await new Promise((resolve, reject) => {
+                image.onload = resolve;
+                image.onerror = reject;
+                image.src = imageURL;
+            });
+
+            const canvas = document.createElement("canvas");
+            const maxWidth = 1000;
+            const maxHeight = 400;
+
+            const scale = Math.min(
+                1,
+                maxWidth / image.width,
+                maxHeight / image.height
+            );
+
+            canvas.width = Math.round(image.width * scale);
+            canvas.height = Math.round(image.height * scale);
+
+            const context = canvas.getContext("2d");
+            context.drawImage(
+                image,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+            const coverData = canvas.toDataURL("image/jpeg", 0.55);
+
+            if (coverData.length > 700000) {
+                alert("Image is too large. Please choose another image.");
+                return;
+            }
+
+            await setDoc(
+                doc(db, "users", user.uid),
+                { coverPhoto: coverData },
+                { merge: true }
+            );
+
+            cover.src = coverData;
+
+            alert("Cover photo saved successfully!");
+
+        } catch (error) {
+            console.error("Cover upload failed:", error);
+            alert("Could not save cover photo.");
+        } finally {
+            button.disabled = false;
+            input.value = "";
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", initializeProfileCover);
+// ========================================
+// LOAD REAL VISITED PLACES FROM FIREBASE
+// ========================================
+
+async function loadRealProfilePlaces() {
+    const grid = document.getElementById("profilePlacesGrid");
+
+    if (!grid) return;
+
+    grid.replaceChildren();
+
+    try {
+        await auth.authStateReady();
+
+        const user = auth.currentUser;
+        if (!user) return;
+
+        const experiencesQuery = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
+        );
+
+        const snapshot = await getDocs(experiencesQuery);
+
+        const uniquePlaces = new Map();
+
+        snapshot.forEach(experienceDoc => {
+            const experience = experienceDoc.data();
+
+            const placeId = getExperiencePlaceKey(experience);
+            const placeName = getExperiencePlaceName(experience);
+
+            if (!placeId || uniquePlaces.has(placeId)) return;
+
+            const image =
+                experience.photos?.[0] ||
+                experience.placeImage ||
+                experience.image ||
+                "";
+
+            uniquePlaces.set(placeId, {
+                id: placeId,
+                name: placeName,
+                image: image
+            });
+        });
+
+        if (uniquePlaces.size === 0) {
+            const message = document.createElement("p");
+            message.textContent = "No places visited yet.";
+            grid.appendChild(message);
+            return;
+        }
+
+        uniquePlaces.forEach(place => {
+            const card = document.createElement("article");
+            card.className = "place-card";
+
+            const link = document.createElement("a");
+            link.href =
+                window.JOUK.url("other pages/place/index.html") +
+                "?place=" + encodeURIComponent(place.id);
+
+            if (place.image) {
+                const img = document.createElement("img");
+
+                img.src = place.image;
+                img.alt = place.name;
+
+                link.appendChild(img);
+            }
+
+            const title = document.createElement("h3");
+            title.textContent = place.name;
+
+            link.appendChild(title);
+            card.appendChild(link);
+            grid.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Could not load visited places:", error);
+
+        const message = document.createElement("p");
+        message.textContent = "Could not load visited places.";
+        grid.appendChild(message);
+    }
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadRealProfilePlaces
+);

@@ -1,21 +1,92 @@
 // ========================================
 // JOUK - CREATE / EDIT PLAN
 // ========================================
+import { auth, db } from "../../shared/firebase.js";
+
+import {
+    doc,
+    setDoc,
+    getDoc,
+    collection,
+    getDocs,
+    query,
+    where
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
-    const loaded = window.JOUK_PLACES || await fetch(window.JOUK.url("data/places.json")).then(function (response) { return response.json(); });
+
+    // Load places from the updated catalog
+    const loaded = window.JOUK_PLACES ||
+        await fetch(window.JOUK.url("data/places.json"))
+            .then(function (response) {
+                return response.json();
+            });
+
     const catalog = loaded.places || loaded;
-    const aliases = {"dead-sea":"deadsea", "wadi-rum":"wadiRum", "ajloun-castle":"ajlounCastle", mujib:"wadiMujib", amman:"romanTheater"};
-    const escape = function (value) { return String(value || "").replace(/[&<>"']/g, function (c) { return {"&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"}[c]; }); };
+
+    const aliases = {
+        "dead-sea": "deadsea",
+        "wadi-rum": "wadiRum",
+        "ajloun-castle": "ajlounCastle",
+        mujib: "wadiMujib",
+        amman: "romanTheater"
+    };
+
+    const escape = function (value) {
+        return String(value || "").replace(/[&<>"']/g, function (c) {
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            }[c];
+        });
+    };
+
     const grid = document.getElementById("placesGrid");
     grid.replaceChildren();
-    Object.entries(catalog).filter(function (entry) { return entry[1].category; }).forEach(function (entry) {
-        const id = entry[0], place = entry[1], card = document.createElement("article");
-        card.className = "place-card";
-        Object.assign(card.dataset, {id:id, name:place.name, location:place.location || "Jordan", category:place.category === "adventures" ? "adventure" : place.category, image:place.image, description:place.about || ""});
-        card.innerHTML = '<img class="place-image" src="' + escape(window.JOUK.asset(place.image)) + '" alt="' + escape(place.name) + '" loading="lazy"><div class="place-card-content"><div class="place-title-row"><div><h3>' + escape(place.name) + '</h3><p class="location">' + escape(place.location || "Jordan") + '</p></div><button class="add-place" type="button" aria-label="Add ' + escape(place.name) + '">+</button></div><p class="place-description">' + escape((place.about || "").split(/(?<=\.)\s/)[0]) + '</p></div>';
-        grid.appendChild(card);
-    });
+
+    Object.entries(catalog)
+        .filter(function (entry) {
+            return entry[1].category;
+        })
+        .forEach(function (entry) {
+            const id = entry[0];
+            const place = entry[1];
+            const card = document.createElement("article");
+
+            card.className = "place-card";
+
+            Object.assign(card.dataset, {
+                id: id,
+                name: place.name,
+                location: place.location || "Jordan",
+                category: place.category === "adventures"
+                    ? "adventure"
+                    : place.category,
+                image: place.image,
+                description: place.about || ""
+            });
+
+            card.innerHTML =
+                '<img class="place-image" src="' +
+                escape(window.JOUK.asset(place.image)) +
+                '" alt="' + escape(place.name) +
+                '" loading="lazy">' +
+                '<div class="place-card-content">' +
+                '<div class="place-title-row"><div><h3>' +
+                escape(place.name) +
+                '</h3><p class="location">' +
+                escape(place.location || "Jordan") +
+                '</p></div><button class="add-place" type="button" aria-label="Add ' +
+                escape(place.name) +
+                '">+</button></div><p class="place-description">' +
+                escape((place.about || "").split(/(?<=\.)\s/)[0]) +
+                '</p></div>';
+
+            grid.appendChild(card);
+        });
 
     // ========================================
     // ELEMENTS
@@ -627,7 +698,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     // LOAD PLAN FOR EDITING
     // ========================================
 
-    function loadPlanForEditing() {
+    async function loadPlanForEditing() {
 
         const params =
             new URLSearchParams(
@@ -676,31 +747,42 @@ document.addEventListener("DOMContentLoaded", async function () {
         // READ SAVED PLANS
         // ========================================
 
-        const oldPlans =
-            localStorage.getItem(
-                "joukPlans"
-            );
+       await auth.authStateReady();
 
-        if (!oldPlans) {
-            return;
-        }
+const currentUser = auth.currentUser;
 
-        let savedPlans = [];
+if (!currentUser) {
+    alert("Please log in to edit your trip.");
+    return;
+}
 
-        try {
+let savedPlans = [];
 
-            savedPlans =
-                JSON.parse(oldPlans);
+try {
+    const planRef = doc(
+        db,
+        "users",
+        currentUser.uid,
+        "savedPlans",
+        String(editId)
+    );
 
-        } catch (error) {
+    const planSnap = await getDoc(planRef);
 
-            console.error(
-                "Could not read saved plans:",
-                error
-            );
+    if (planSnap.exists()) {
+        savedPlans = [
+            {
+                ...planSnap.data(),
+                id: editId
+            }
+        ];
+    }
 
-            return;
-        }
+} catch (error) {
+    console.error("Could not load trip for editing:", error);
+    alert("Could not load your trip. Please try again.");
+    return;
+}
 
 
         // ========================================
@@ -726,7 +808,20 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             return;
         }
+const localPlans = JSON.parse(
+    localStorage.getItem("joukPlans") || "[]"
+);
 
+const otherPlans = localPlans.filter(
+    item => String(item.id) !== String(plan.id)
+);
+
+otherPlans.unshift(plan);
+
+localStorage.setItem(
+    "joukPlans",
+    JSON.stringify(otherPlans)
+);
 
         // ========================================
         // EDIT MODE
@@ -811,8 +906,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     savePlanBtn.addEventListener(
         "click",
-        function () {
+        async function () {
+await auth.authStateReady();
 
+const currentUser = auth.currentUser;
+
+if (!currentUser) {
+    alert("Please log in to save your trip.");
+    return;
+}
             const tripName =
                 tripNameInput.value.trim();
 
@@ -922,6 +1024,23 @@ document.addEventListener("DOMContentLoaded", async function () {
                     };
 
 
+try {
+    await setDoc(
+        doc(
+            db,
+            "users",
+            currentUser.uid,
+            "savedPlans",
+            String(editingPlanId)
+        ),
+        savedPlans[planIndex]
+    );
+} catch (error) {
+    console.error("Error updating plan in Firebase:", error);
+    alert("Could not update your trip. Please try again.");
+    return;
+}
+
                     localStorage.setItem(
                         "joukPlans",
                         JSON.stringify(
@@ -945,7 +1064,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
                     window.location.href =
-                        window.JOUK.url("other pages/view-plan/index.html");
+    `${window.JOUK.url("other pages/view-plan/index.html")}?id=${encodeURIComponent(editingPlanId)}`;
 
 
                     return;
@@ -977,7 +1096,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
             savedPlans.unshift(plan);
-
+try {
+    await setDoc(
+        doc(db, "users", currentUser.uid, "savedPlans", String(plan.id)),
+        plan
+    );
+} catch (error) {
+    console.error("Error saving plan to Firebase:", error);
+    alert("Could not save your trip. Please try again.");
+    return;
+}
 
             localStorage.setItem(
                 "joukPlans",
