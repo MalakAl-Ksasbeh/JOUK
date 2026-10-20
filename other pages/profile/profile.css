@@ -1866,3 +1866,37 @@ img {
     }
 
 }
+/* Change cover photo button */
+
+.profile-cover {
+    position: relative;
+}
+
+.change-cover-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: #183153;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+.change-cover-btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+}

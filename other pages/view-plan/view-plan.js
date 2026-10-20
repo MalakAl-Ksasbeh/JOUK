@@ -1,3 +1,9 @@
+import { auth, db } from "../../shared/firebase.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 // ==========================================
 // JOUK - VIEW SAVED PLAN
 // ==========================================
@@ -803,10 +809,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // RENDER PLAN
     // ==========================================
 
-    function renderPlan() {
+   async function renderPlan() {
 
-        const plan =
-            getSelectedPlan();
+    await auth.authStateReady();
+
+    const user = auth.currentUser;
+    const planId = getPlanIdFromURL();
+
+    let plan = null;
+
+    if (user && planId) {
+        try {
+            const planSnap = await getDoc(
+                doc(db, "users", user.uid, "savedPlans", planId)
+            );
+
+            if (planSnap.exists()) {
+                plan = planSnap.data();
+
+                localStorage.setItem(
+                    "selectedJoukPlan",
+                    String(planId)
+                );
+            }
+        } catch (error) {
+            console.error("Could not load trip from Firebase:", error);
+        }
+    }
 
 
         if (!plan) {
@@ -942,8 +971,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
 
 
-                const plan =
-                    getSelectedPlan();
+                const planId = getPlanIdFromURL();
+
+const plan = planId
+    ? { id: planId }
+    : null;
 
 
                 if (!plan) {
@@ -959,11 +991,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     plans.indexOf(plan);
 
 
-                const planId =
-                    getPlanId(
-                        plan,
-                        index
-                    );
+                
 
 
                 window.location.href =

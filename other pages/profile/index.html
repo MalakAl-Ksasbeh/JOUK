@@ -69,15 +69,33 @@
 
         <!-- ================= COVER ================= -->
 
-        <section class="profile-cover">
+       <section class="profile-cover">
 
-            <img
-                src="images/PETRA.png"
-                alt="Petra Jordan"
-                class="cover-image"
-            >
+    <img
+        src="images/PETRA.png"
+        alt="Profile cover"
+        class="cover-image"
+        id="profileCover"
+    >
 
-        </section>
+    <button
+        type="button"
+        class="change-cover-btn"
+        id="changeCoverBtn"
+        aria-label="Change cover photo"
+    >
+        <i data-lucide="camera"></i>
+        <span>Change Cover</span>
+    </button>
+
+    <input
+        type="file"
+        id="coverFileInput"
+        accept="image/*"
+        hidden
+    >
+
+</section>
 
 
         <!-- ================= PROFILE INFO ================= -->
@@ -379,90 +397,8 @@
 
             </div>
 
-
-            <div class="places-grid">
-
-
-                <!-- DEAD SEA -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=deadsea">
-
-                        <img
-                            src="images/deadsea.jpeg"
-                            alt="Dead Sea"
-                        >
-
-                        <h3>
-                            Dead Sea
-                        </h3>
-
-                    </a>
-
-                </article>
-
-
-                <!-- PETRA -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=petra">
-
-                        <img
-                            src="images/PETRA.png"
-                            alt="Petra"
-                        >
-
-                        <h3>
-                            Petra
-                        </h3>
-
-                    </a>
-
-                </article>
-
-
-                <!-- WADI RUM -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=wadiRum">
-
-                        <img
-                            src="images/wadi rum.jpg"
-                            alt="Wadi Rum"
-                        >
-
-                        <h3>
-                            Wadi Rum
-                        </h3>
-
-                    </a>
-
-                </article>
-
-
-                <!-- AJLOUN -->
-
-                <article class="place-card">
-
-                    <a href="../place/index.html?place=ajlounRelax">
-
-                        <img
-                            src="images/Dana Biosphere Reserve.jpg"
-                            alt="Ajloun Forest"
-                        >
-
-                        <h3>
-                            Ajloun Forest
-                        </h3>
-
-                    </a>
-
-                </article>
-
-            </div>
+<div class="places-grid" id="profilePlacesGrid"></div>
+           
 
         </section>
 

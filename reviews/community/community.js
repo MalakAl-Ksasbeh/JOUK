@@ -115,10 +115,22 @@ if (profileLink && auth.currentUser) {
 
         userInfo.classList.add("user-info");
 
-        if (experience.userId) {
+       const ownerUid = experience.userId;
+const currentUid = auth.currentUser?.uid;
+
+if (ownerUid && ownerUid === currentUid) {
+    // My own experience -> My Profile
+    userInfo.href = window.JOUK.url(
+        "other pages/profile/index.html"
+    );
+} else if (ownerUid) {
+    // Another user's experience -> Other Profile
     userInfo.href =
         window.JOUK.url("other pages/other-profile/index.html") +
-        "?uid=" + encodeURIComponent(experience.userId);
+        "?uid=" + encodeURIComponent(ownerUid);
+} else {
+    // No valid user ID
+    userInfo.removeAttribute("href");
 }
 
         // Avatar

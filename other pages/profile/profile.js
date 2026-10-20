@@ -1,14 +1,16 @@
-import { auth, db } from "../../shared/firebase.js";import { signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { auth, db } from "../../shared/firebase.js";
 import {
     doc,
     setDoc,
-    getDoc
+    getDoc,
+    collection,
+    query,
+    where,
+    getDocs,
+    deleteDoc
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-import { updateProfile } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-// The user whose profile is being viewed
-const viewedProfileUid = new URLSearchParams(
-    window.location.search
-).get("uid");
+import { updateProfile, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";// The user whose profile is being viewed
+
 document.addEventListener("DOMContentLoaded", function () {
 
     initializeIcons();
@@ -100,7 +102,7 @@ async function loadProfileInformation() {
 const profileRef = doc(
     db,
     "users",
-    viewedProfileUid || user.uid
+    user.uid
 );
         const profileSnap = await getDoc(profileRef);
 
@@ -509,6 +511,7 @@ try {
     await setDoc(
         doc(db, "users", auth.currentUser.uid),
         {
+             name: name.trim(),
             bio: bio.trim(),
             location: location.trim()
         },
@@ -687,7 +690,7 @@ async function loadProfileAvatar() {
 const profileRef = doc(
     db,
     "users",
-    viewedProfileUid || user.uid
+    user.uid
 );        const profileSnap = await getDoc(profileRef);
 
         if (profileSnap.exists()) {
@@ -1272,94 +1275,57 @@ function getExperienceSignature(
 // LOAD EXPERIENCES ON PROFILE
 // ======================================================
 
-function loadProfileExperiences() {
+async function loadProfileExperiences() {
+    const grid = document.querySelector(
+        "#experiences .experiences-grid"
+    );
 
-    const grid =
-        document.querySelector(
-            "#experiences .experiences-grid"
+    if (!grid) return;
+
+    grid.replaceChildren();
+
+    try {
+        await auth.authStateReady();
+
+        const user = auth.currentUser;
+        if (!user) return;
+
+        const experiencesQuery = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
         );
 
+        const snapshot = await getDocs(experiencesQuery);
 
-    if (!grid) {
+        const experiences = snapshot.docs.map(doc => doc.data());
 
-        return;
+        if (experiences.length === 0) {
+            const message = document.createElement("p");
+            message.textContent = "No experiences shared yet.";
+            grid.appendChild(message);
+            return;
+        }
 
-    }
+        experiences.sort((a, b) => {
+            const dateA = a.createdAt?.toMillis?.() || 0;
+            const dateB = b.createdAt?.toMillis?.() || 0;
+            return dateB - dateA;
+        });
 
-
-    const experiences =
-        getAllStoredExperiences();
-
-
-    /*
-        The two cards written directly in /other%20pages/profile/index.html
-        are only visual defaults.
-
-        As soon as the user has real shared experiences,
-        the profile shows the real saved data instead.
-    */
-
-    if (
-        experiences.length === 0
-    ) {
+        experiences.forEach(experience => {
+            const card = createProfileExperienceCard(experience);
+            grid.appendChild(card);
+        });
 
         initializeIcons();
 
-        return;
+    } catch (error) {
+        console.error("Could not load experiences:", error);
 
+        const message = document.createElement("p");
+        message.textContent = "Could not load experiences.";
+        grid.appendChild(message);
     }
-
-
-    grid.innerHTML = "";
-
-
-    const sortedExperiences =
-        [...experiences].sort(
-            function (a, b) {
-
-                const dateA =
-                    new Date(
-                        a.createdAt ||
-                        a.date ||
-                        0
-                    ).getTime();
-
-
-                const dateB =
-                    new Date(
-                        b.createdAt ||
-                        b.date ||
-                        0
-                    ).getTime();
-
-
-                return (
-                    dateB - dateA
-                );
-
-            }
-        );
-
-
-    sortedExperiences.forEach(
-        function (experience) {
-
-            const card =
-                createProfileExperienceCard(
-                    experience
-                );
-
-
-            grid.appendChild(
-                card
-            );
-
-        }
-    );
-
-
-    initializeIcons();
-
 }
 
 
@@ -1972,157 +1938,83 @@ function getAllExperiencePhotos(
 // PROFILE PHOTOS
 // ======================================================
 
-function loadProfilePhotos() {
+async function loadProfilePhotos() {
+    const grid = document.getElementById("profilePhotosGrid");
+    const emptyState = document.getElementById("photosEmptyState");
+    const photosCount = document.getElementById("photosCount");
 
-    const grid =
-        document.getElementById(
-            "profilePhotosGrid"
-        );
+    if (!grid) return;
 
-
-    const emptyState =
-        document.getElementById(
-            "photosEmptyState"
-        );
-
-
-    const photosCount =
-        document.getElementById(
-            "photosCount"
-        );
-
-
-    if (!grid) {
-
-        return;
-
-    }
-
-
-    grid.innerHTML = "";
-
-
-    const experiences =
-        getAllStoredExperiences();
-
-
-    const photos = [];
-
-
-    experiences.forEach(
-        function (experience) {
-
-            const experiencePhotos =
-                getAllExperiencePhotos(
-                    experience
-                );
-
-
-            experiencePhotos.forEach(
-                function (photo) {
-
-                    if (
-                        photo &&
-                        !photos.includes(
-                            photo
-                        )
-                    ) {
-
-                        photos.push(
-                            photo
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    if (photosCount) {
-
-        photosCount.textContent =
-            `${photos.length} ${
-                photos.length === 1
-                    ? "Photo"
-                    : "Photos"
-            }`;
-
-    }
-
-
-    if (
-        photos.length === 0
-    ) {
-
-        if (emptyState) {
-
-            emptyState.classList.remove(
-                "hidden"
-            );
-
-        }
-
-
-        return;
-
-    }
-
+    grid.replaceChildren();
 
     if (emptyState) {
-
-        emptyState.classList.add(
-            "hidden"
-        );
-
+        emptyState.classList.add("hidden");
     }
 
+    try {
+        await auth.authStateReady();
 
-    photos.forEach(
-        function (photo) {
+        const user = auth.currentUser;
+        if (!user) return;
 
-            const photoItem =
-                document.createElement(
-                    "div"
-                );
+        // Get only this user's experiences
+        const experiencesQuery = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
+        );
 
+        const snapshot = await getDocs(experiencesQuery);
+        const photos = new Set();
 
-            photoItem.className =
-                "profile-photo-item";
+        snapshot.forEach(experienceDoc => {
+            const experience = experienceDoc.data();
 
+            getAllExperiencePhotos(experience).forEach(photo => {
+                if (typeof photo === "string" && photo.trim()) {
+                    photos.add(photo);
+                }
+            });
+        });
 
-            const img =
-                document.createElement(
-                    "img"
-                );
-
-
-            img.src =
-                photo;
-
-
-            img.alt =
-                "Shared Jordan experience";
-
-
-            img.loading =
-                "lazy";
-
-
-            photoItem.appendChild(
-                img
-            );
-
-
-            grid.appendChild(
-                photoItem
-            );
-
+        // Update photos count
+        if (photosCount) {
+            photosCount.textContent =
+                `${photos.size} ${photos.size === 1 ? "Photo" : "Photos"}`;
         }
-    );
 
+        // Show empty message if there are no photos
+        if (photos.size === 0) {
+            if (emptyState) {
+                emptyState.classList.remove("hidden");
+            }
+            return;
+        }
+
+        // Display real photos
+        photos.forEach(photo => {
+            const photoItem = document.createElement("div");
+            photoItem.className = "profile-photo-item";
+
+            const img = document.createElement("img");
+            img.src = photo;
+            img.alt = "Shared Jordan experience";
+            img.loading = "lazy";
+
+            photoItem.appendChild(img);
+            grid.appendChild(photoItem);
+        });
+
+    } catch (error) {
+        console.error("Could not load profile photos:", error);
+
+        if (photosCount) {
+            photosCount.textContent = "— Photos";
+        }
+
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+    }
 }
 
 
@@ -2130,79 +2022,64 @@ function loadProfilePhotos() {
 // SAVED PLANS
 // ======================================================
 
-function loadSavedPlans() {
 
-    const grid =
-        document.getElementById(
-            "savedPlansGrid"
-        );
+async function loadSavedPlans() {
 
+    const grid = document.getElementById("savedPlansGrid");
+    const emptyState = document.getElementById("savedPlansEmpty");
 
-    const emptyState =
-        document.getElementById(
-            "savedPlansEmpty"
-        );
+    if (!grid) return;
 
-
-    if (!grid) {
-
-        return;
-
-    }
-
-
-    grid.innerHTML = "";
-
-
-    const savedPlans =
-        getAllSavedPlans();
-
-
-    if (
-        savedPlans.length === 0
-    ) {
-
-        if (emptyState) {
-
-            emptyState.classList.remove(
-                "hidden"
-            );
-
-        }
-
-
-        return;
-
-    }
-
+    grid.replaceChildren();
 
     if (emptyState) {
-
-        emptyState.classList.add(
-            "hidden"
-        );
-
+        emptyState.classList.add("hidden");
     }
 
+    try {
+        await auth.authStateReady();
 
-    savedPlans.forEach(
-        function (plan, index) {
+        const user = auth.currentUser;
 
-            const card =
-                createSavedPlanCard(
-                    plan,
-                    index
-                );
-
-
-            grid.appendChild(
-                card
-            );
-
+        if (!user) {
+            if (emptyState) emptyState.classList.remove("hidden");
+            return;
         }
-    );
 
+        const plansRef = collection(
+            db,
+            "users",
+            user.uid,
+            "savedPlans"
+        );
+
+        const snapshot = await getDocs(plansRef);
+
+        const savedPlans = snapshot.docs.map(doc => doc.data());
+
+        savedPlans.sort((a, b) =>
+            new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
+        );
+
+        if (savedPlans.length === 0) {
+            if (emptyState) emptyState.classList.remove("hidden");
+            return;
+        }
+
+        savedPlans.forEach(function (plan, index) {
+            const card = createSavedPlanCard(plan, index);
+            grid.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Could not load saved plans:", error);
+
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+    }
 }
+
 
 
 // ======================================================
@@ -2422,7 +2299,58 @@ function createSavedPlanCard(
         meta
     );
 
+const deleteButton = document.createElement("button");
 
+deleteButton.type = "button";
+deleteButton.className = "delete-plan-btn";
+deleteButton.textContent = "Delete Plan";
+
+deleteButton.addEventListener("click",async function (event) {
+    event.stopPropagation();
+
+    const confirmed = confirm(
+    "Are you sure you want to delete this trip?"
+);
+
+if (!confirmed) return;
+
+const user = auth.currentUser;
+const planID = plan.id ?? plan.tripId ?? plan.planId;
+
+if (!user || planID == null) {
+    alert("Could not identify this trip.");
+    return;
+}
+
+try {
+    await deleteDoc(
+        doc(db, "users", user.uid, "savedPlans", String(planID))
+    );
+
+    const savedPlans = JSON.parse(
+        localStorage.getItem("joukPlans") || "[]"
+    );
+
+    const updatedPlans = savedPlans.filter(
+        item => String(item.id) !== String(planID)
+    );
+
+    localStorage.setItem(
+        "joukPlans",
+        JSON.stringify(updatedPlans)
+    );
+
+    card.remove();
+
+    alert("Trip deleted successfully!");
+
+} catch (error) {
+    console.error("Error deleting trip:", error);
+    alert("Could not delete trip. Please try again.");
+}
+});
+
+content.appendChild(deleteButton);
     card.appendChild(
         content
     );
@@ -2659,112 +2587,57 @@ function getPlanPlacesCount(
 // PROFILE STATISTICS
 // ======================================================
 
-function updateProfileStatistics() {
+async function updateProfileStatistics() {
+    const placesElement = document.getElementById("placesVisitedCount");
+    const experiencesElement = document.getElementById("experiencesCount");
 
-    const placesElement =
-        document.getElementById(
-            "placesVisitedCount"
+    try {
+        await auth.authStateReady();
+
+        const user = auth.currentUser;
+
+        if (!user) return;
+
+        const q = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
         );
 
+        const snapshot = await getDocs(q);
 
-    const experiencesElement =
-        document.getElementById(
-            "experiencesCount"
-        );
+        const experiences = snapshot.docs.map(doc => doc.data());
 
+        // Actual number of experiences
+        if (experiencesElement) {
+            experiencesElement.textContent = experiences.length;
+        }
 
-    const experiences =
-        getAllStoredExperiences();
+        // Actual number of unique visited places
+        const uniquePlaces = new Set();
 
+        experiences.forEach(experience => {
+            const place = String(
+                experience.placeId ||
+                experience.placeName ||
+                experience.place ||
+                ""
+            ).trim().toLowerCase();
 
-    if (experiencesElement) {
-
-        experiencesElement.textContent =
-            experiences.length;
-
-    }
-
-
-    if (placesElement) {
-
-        const uniquePlaces =
-            new Set();
-
-
-        experiences.forEach(
-            function (experience) {
-
-                const place =
-                    getExperiencePlaceKey(
-                        experience
-                    );
-
-
-                if (place) {
-
-                    uniquePlaces.add(
-                        normalizePlaceValue(
-                            place
-                        )
-                    );
-
-                }
-
+            if (place) {
+                uniquePlaces.add(place);
             }
-        );
+        });
 
+        if (placesElement) {
+            placesElement.textContent = uniquePlaces.size;
+        }
 
-        /*
-            Keep the existing visual places from
-            the profile as visited places too.
-        */
+    } catch (error) {
+        console.error("Error loading profile statistics:", error);
 
-        document
-            .querySelectorAll(
-                "#places .place-card a"
-            )
-            .forEach(
-                function (link) {
-
-                    try {
-
-                        const url =
-                            new URL(
-                                link.href
-                            );
-
-
-                        const place =
-                            url.searchParams.get(
-                                "place"
-                            );
-
-
-                        if (place) {
-
-                            uniquePlaces.add(
-                                normalizePlaceValue(
-                                    place
-                                )
-                            );
-
-                        }
-
-                    } catch (error) {
-
-                        // Ignore invalid links.
-
-                    }
-
-                }
-            );
-
-
-        placesElement.textContent =
-            uniquePlaces.size;
-
+        if (placesElement) placesElement.textContent = "—";
+        if (experiencesElement) experiencesElement.textContent = "—";
     }
-
 }
 
 
@@ -2802,3 +2675,205 @@ document.getElementById("logoutBtn")
         }
 
     });
+    // ========================================
+// PROFILE COVER PHOTO
+// ========================================
+
+async function initializeProfileCover() {
+    await auth.authStateReady();
+
+    const user = auth.currentUser;
+    if (!user) return;
+
+    const cover = document.getElementById("profileCover");
+    const button = document.getElementById("changeCoverBtn");
+    const input = document.getElementById("coverFileInput");
+
+    if (!cover || !button || !input) return;
+
+    // Load saved cover
+    try {
+        const snapshot = await getDoc(doc(db, "users", user.uid));
+
+        if (snapshot.exists() && snapshot.data().coverPhoto) {
+            cover.src = snapshot.data().coverPhoto;
+        }
+    } catch (error) {
+        console.error("Could not load cover:", error);
+    }
+
+    button.addEventListener("click", () => {
+        input.click();
+    });
+
+    input.addEventListener("change", async () => {
+        const file = input.files?.[0];
+
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+            alert("Please select an image.");
+            return;
+        }
+
+        button.disabled = true;
+
+        try {
+            const image = new Image();
+
+            const imageURL = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+
+            await new Promise((resolve, reject) => {
+                image.onload = resolve;
+                image.onerror = reject;
+                image.src = imageURL;
+            });
+
+            const canvas = document.createElement("canvas");
+            const maxWidth = 1000;
+            const maxHeight = 400;
+
+            const scale = Math.min(
+                1,
+                maxWidth / image.width,
+                maxHeight / image.height
+            );
+
+            canvas.width = Math.round(image.width * scale);
+            canvas.height = Math.round(image.height * scale);
+
+            const context = canvas.getContext("2d");
+            context.drawImage(
+                image,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+            const coverData = canvas.toDataURL("image/jpeg", 0.55);
+
+            if (coverData.length > 700000) {
+                alert("Image is too large. Please choose another image.");
+                return;
+            }
+
+            await setDoc(
+                doc(db, "users", user.uid),
+                { coverPhoto: coverData },
+                { merge: true }
+            );
+
+            cover.src = coverData;
+
+            alert("Cover photo saved successfully!");
+
+        } catch (error) {
+            console.error("Cover upload failed:", error);
+            alert("Could not save cover photo.");
+        } finally {
+            button.disabled = false;
+            input.value = "";
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", initializeProfileCover);
+// ========================================
+// LOAD REAL VISITED PLACES FROM FIREBASE
+// ========================================
+
+async function loadRealProfilePlaces() {
+    const grid = document.getElementById("profilePlacesGrid");
+
+    if (!grid) return;
+
+    grid.replaceChildren();
+
+    try {
+        await auth.authStateReady();
+
+        const user = auth.currentUser;
+        if (!user) return;
+
+        const experiencesQuery = query(
+            collection(db, "experiences"),
+            where("userId", "==", user.uid)
+        );
+
+        const snapshot = await getDocs(experiencesQuery);
+
+        const uniquePlaces = new Map();
+
+        snapshot.forEach(experienceDoc => {
+            const experience = experienceDoc.data();
+
+            const placeId = getExperiencePlaceKey(experience);
+            const placeName = getExperiencePlaceName(experience);
+
+            if (!placeId || uniquePlaces.has(placeId)) return;
+
+            const image =
+                experience.photos?.[0] ||
+                experience.placeImage ||
+                experience.image ||
+                "";
+
+            uniquePlaces.set(placeId, {
+                id: placeId,
+                name: placeName,
+                image: image
+            });
+        });
+
+        if (uniquePlaces.size === 0) {
+            const message = document.createElement("p");
+            message.textContent = "No places visited yet.";
+            grid.appendChild(message);
+            return;
+        }
+
+        uniquePlaces.forEach(place => {
+            const card = document.createElement("article");
+            card.className = "place-card";
+
+            const link = document.createElement("a");
+            link.href =
+                window.JOUK.url("other pages/place/index.html") +
+                "?place=" + encodeURIComponent(place.id);
+
+            if (place.image) {
+                const img = document.createElement("img");
+
+                img.src = place.image;
+                img.alt = place.name;
+
+                link.appendChild(img);
+            }
+
+            const title = document.createElement("h3");
+            title.textContent = place.name;
+
+            link.appendChild(title);
+            card.appendChild(link);
+            grid.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Could not load visited places:", error);
+
+        const message = document.createElement("p");
+        message.textContent = "Could not load visited places.";
+        grid.appendChild(message);
+    }
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadRealProfilePlaces
+);

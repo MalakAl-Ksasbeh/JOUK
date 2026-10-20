@@ -1,7 +1,17 @@
 // ========================================
 // JOUK - CREATE / EDIT PLAN
 // ========================================
+import { auth, db } from "../../shared/firebase.js";
 
+import {
+    doc,
+    setDoc,
+    getDoc,
+    collection,
+    getDocs,
+    query,
+    where
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 document.addEventListener("DOMContentLoaded", function () {
 
     // ========================================
@@ -614,7 +624,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // LOAD PLAN FOR EDITING
     // ========================================
 
-    function loadPlanForEditing() {
+    async function loadPlanForEditing() {
 
         const params =
             new URLSearchParams(
@@ -663,31 +673,42 @@ document.addEventListener("DOMContentLoaded", function () {
         // READ SAVED PLANS
         // ========================================
 
-        const oldPlans =
-            localStorage.getItem(
-                "joukPlans"
-            );
+       await auth.authStateReady();
 
-        if (!oldPlans) {
-            return;
-        }
+const currentUser = auth.currentUser;
 
-        let savedPlans = [];
+if (!currentUser) {
+    alert("Please log in to edit your trip.");
+    return;
+}
 
-        try {
+let savedPlans = [];
 
-            savedPlans =
-                JSON.parse(oldPlans);
+try {
+    const planRef = doc(
+        db,
+        "users",
+        currentUser.uid,
+        "savedPlans",
+        String(editId)
+    );
 
-        } catch (error) {
+    const planSnap = await getDoc(planRef);
 
-            console.error(
-                "Could not read saved plans:",
-                error
-            );
+    if (planSnap.exists()) {
+        savedPlans = [
+            {
+                ...planSnap.data(),
+                id: editId
+            }
+        ];
+    }
 
-            return;
-        }
+} catch (error) {
+    console.error("Could not load trip for editing:", error);
+    alert("Could not load your trip. Please try again.");
+    return;
+}
 
 
         // ========================================
@@ -713,7 +734,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             return;
         }
+const localPlans = JSON.parse(
+    localStorage.getItem("joukPlans") || "[]"
+);
 
+const otherPlans = localPlans.filter(
+    item => String(item.id) !== String(plan.id)
+);
+
+otherPlans.unshift(plan);
+
+localStorage.setItem(
+    "joukPlans",
+    JSON.stringify(otherPlans)
+);
 
         // ========================================
         // EDIT MODE
@@ -797,8 +831,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     savePlanBtn.addEventListener(
         "click",
-        function () {
+        async function () {
+await auth.authStateReady();
 
+const currentUser = auth.currentUser;
+
+if (!currentUser) {
+    alert("Please log in to save your trip.");
+    return;
+}
             const tripName =
                 tripNameInput.value.trim();
 
@@ -908,6 +949,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     };
 
 
+try {
+    await setDoc(
+        doc(
+            db,
+            "users",
+            currentUser.uid,
+            "savedPlans",
+            String(editingPlanId)
+        ),
+        savedPlans[planIndex]
+    );
+} catch (error) {
+    console.error("Error updating plan in Firebase:", error);
+    alert("Could not update your trip. Please try again.");
+    return;
+}
+
                     localStorage.setItem(
                         "joukPlans",
                         JSON.stringify(
@@ -931,7 +989,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                     window.location.href =
-                        window.JOUK.url("other pages/view-plan/index.html");
+    `${window.JOUK.url("other pages/view-plan/index.html")}?id=${encodeURIComponent(editingPlanId)}`;
 
 
                     return;
@@ -963,7 +1021,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             savedPlans.unshift(plan);
-
+try {
+    await setDoc(
+        doc(db, "users", currentUser.uid, "savedPlans", String(plan.id)),
+        plan
+    );
+} catch (error) {
+    console.error("Error saving plan to Firebase:", error);
+    alert("Could not save your trip. Please try again.");
+    return;
+}
 
             localStorage.setItem(
                 "joukPlans",
