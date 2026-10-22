@@ -17,43 +17,43 @@ Explore destinations through four categories:
 - **Adventure:** Outdoor activities and adventure destinations.
 - **Something to Do:** Local activities, modern attractions, and seasonal events.
 
-![JOUK Plans](README photos/photos/plans.png)
+![JOUK Plans](READMEphotos/photos/plans.png)
 
 ### Build Your Own Mix
 
 Select or drag puzzle pieces to combine different categories and discover destinations that match your interests.
 
-![Build Your Own Mix](README photos/photos/build-your-own-mix.png)
+![Build Your Own Mix](READMEphotos/photos/build-your-own-mix.png)
 
 ### Destination Details
 
 Each destination has an overview, quick information, highlights, things to do, suggestions on what to bring, and nearby places. Some nearby recommendations link to Google Maps. Visitors can also save destinations for later.
 
-![Petra Destination Details](README photos/photos/petra.png)
+![Petra Destination Details](READMEphotos/photos/petra.png)
 
 ### My Path
 
 Create a personalized Jordan trip by naming it, choosing the number of days, and selecting destinations from different categories. The selected places are displayed in an itinerary on an illustrated map of Jordan, with an option to open the route in Google Maps. Saved plans can be viewed, edited, or deleted from the user profile.
 
-![My Path Map](README photos/photos/my-path.png)
+![My Path Map](READMEphotos/photos/my-path.png)
 
 ### Community
 
 Share experiences, upload photos, rate places, and browse stories from other travelers. Posts can be explored by category, and travelers can view other users' profiles.
 
-![JOUK Community](README photos/photos/community.png)
+![JOUK Community](READMEphotos/photos/community.png)
 
 ### User Accounts
 
 Registered users can manage saved plans and visited places, as well as update their profile name, bio, and location.
 
-![User Profile](README photos/photos/profile.png)
+![User Profile](READMEphotos/photos/profile.png)
 
 ### Authentication
 
 JOUK provides sign-up and login pages, along with an option to continue as a guest.
 
-![JOUK Login](README photos/photos/login.png)
+![JOUK Login](READMEphotos/photos/login.png)
 
 ## Tech Stack
 
