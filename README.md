@@ -66,17 +66,50 @@ JOUK provides sign-up and login pages, along with an option to continue as a gue
 
 ```text
 Team-Outlier-JOUK/
-├── README.md
-├── README/
-│   └── photos/
-│       ├── home.png
-│       ├── plans.png
-│       ├── login.png
-│       └── ...
-├── home page/
-├── plans/
-├── paths/
-└── ...
+├───about
+│   └───images
+├───data
+├───home page
+│   └───images
+├───images
+├───other pages
+│   ├───chat
+│   │   └───images
+│   ├───create-plan
+│   │   └───images
+│   ├───messages
+│   │   └───images
+│   ├───other-profile
+│   │   └───images
+│   ├───place
+│   ├───profile
+│   │   └───images
+│   ├───saved-places
+│   └───view-plan
+│       └───images
+├───paths
+│   └───images
+├───plans
+│   ├───adventures
+│   │   └───images
+│   ├───culture
+│   │   └───images
+│   ├───images
+│   ├───relax
+│   │   └───images
+│   └───something to do
+│       └───images
+├───README photos
+│   └───photos
+├───reviews
+│   ├───community
+│   │   └───images
+│   └───share-experience
+│       └───images
+├───shared
+│   └───fonts
+└───sign up-log in
+    └───images
 ```
 
 ## Current Limitations
