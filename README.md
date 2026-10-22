@@ -4,7 +4,7 @@ JOUK is a web platform developed by **Team Outlier** to help people discover Jor
 
 The website brings together historical landmarks, natural attractions, hidden gems, modern places, local activities, and events. Users can explore destinations based on their interests, plan personalized trips, save places, and share experiences with other travelers.
 
-![JOUK Home Page](README photos/photos/home.png)
+![JOUK Home Page](READMEphotos/photos/home.png)
 
 ## Features
 
