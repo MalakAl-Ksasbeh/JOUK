@@ -4,7 +4,7 @@ JOUK is a web platform developed by **Team Outlier** to help people discover Jor
 
 The website brings together historical landmarks, natural attractions, hidden gems, modern places, local activities, and events. Users can explore destinations based on their interests, plan personalized trips, save places, and share experiences with other travelers.
 
-![JOUK Home Page](screenshots/home.png)
+![JOUK Home Page](README photos/photos/home.png)
 
 ## Features
 
@@ -17,43 +17,43 @@ Explore destinations through four categories:
 - **Adventure:** Outdoor activities and adventure destinations.
 - **Something to Do:** Local activities, modern attractions, and seasonal events.
 
-![JOUK Plans](screenshots/plans.png)
+![JOUK Plans](README photos/photos/plans.png)
 
 ### Build Your Own Mix
 
 Select or drag puzzle pieces to combine different categories and discover destinations that match your interests.
 
-![Build Your Own Mix](screenshots/build-your-own-mix.png)
+![Build Your Own Mix](README photos/photos/build-your-own-mix.png)
 
 ### Destination Details
 
 Each destination has an overview, quick information, highlights, things to do, suggestions on what to bring, and nearby places. Some nearby recommendations link to Google Maps. Visitors can also save destinations for later.
 
-![Petra Destination Details](screenshots/petra.png)
+![Petra Destination Details](README photos/photos/petra.png)
 
 ### My Path
 
 Create a personalized Jordan trip by naming it, choosing the number of days, and selecting destinations from different categories. The selected places are displayed in an itinerary on an illustrated map of Jordan, with an option to open the route in Google Maps. Saved plans can be viewed, edited, or deleted from the user profile.
 
-![My Path Map](screenshots/my-path.png)
+![My Path Map](README photos/photos/my-path.png)
 
 ### Community
 
 Share experiences, upload photos, rate places, and browse stories from other travelers. Posts can be explored by category, and travelers can view other users' profiles.
 
-![JOUK Community](screenshots/community.png)
+![JOUK Community](README photos/photos/community.png)
 
 ### User Accounts
 
 Registered users can manage saved plans and visited places, as well as update their profile name, bio, and location.
 
-![User Profile](screenshots/profile.png)
+![User Profile](README photos/photos/profile.png)
 
 ### Authentication
 
 JOUK provides sign-up and login pages, along with an option to continue as a guest.
 
-![JOUK Login](screenshots/login.png)
+![JOUK Login](README photos/photos/login.png)
 
 ## Tech Stack
 
